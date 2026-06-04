@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Chance Liga 2025/26</title>
+<title>Chance Liga 2026/27</title>
 <style>
   :root {
     --bg: #ffffff; --bg2: #f5f5f4; --bg3: #eeede9;
@@ -297,7 +297,7 @@
   <div class="tbl-wrap">
     <div class="tbl-header">
       <svg width="22" height="22" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="white"/><text x="20" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#E8302A" font-family="Arial">C</text></svg>
-      <span class="tbl-header-title">Chance Liga 2025/26</span>
+      <span class="tbl-header-title">Chance Liga 2026/27</span>
       <span class="chance-badge">Fortuna</span>
     </div>
     <div class="lt-head lt-grid">
@@ -313,7 +313,7 @@
     <div class="leg-item"><div class="leg-dot" style="background:#A32D2D"></div>Relegation group (11–16)</div>
   </div>
   <div id="postponed-notice" style="margin-top:8px;font-size:11px;color:#BA7517;display:none">
-    &#9888; Postponed rounds in 2025/26: <span id="postponed-list"></span>
+    &#9888; Postponed rounds in 2026/27: <span id="postponed-list"></span>
   </div>
 </div>
 
@@ -325,6 +325,7 @@
       <select class="si" id="rs" onchange="filterRes()"><option value="">All teams</option></select>
       <select class="si" id="rss" onchange="filterRes()">
         <option value="">All seasons</option>
+        <option value="2026/27">2026/27</option>
         <option value="2025/26">2025/26</option>
         <option value="2024/25">2024/25</option>
         <option value="2023/24">2023/24</option>
@@ -343,7 +344,7 @@
   </div>
   <div class="add-form" id="res-form">
     <div class="fg">
-      <div class="field"><label>Season</label><select id="rf-season"><option>2025/26</option><option>2024/25</option><option>2023/24</option><option>2022/23</option><option>2021/22</option></select></div>
+      <div class="field"><label>Season</label><select id="rf-season"><option>2026/27</option><option>2025/26</option><option>2024/25</option><option>2023/24</option><option>2022/23</option><option>2021/22</option></select></div>
       <div class="field"><label>Round</label><input id="rf-round" type="number" min="1" placeholder="e.g. 29"/></div>
       <div class="field"><label>Home team</label><select id="rf-home" onchange="refreshPerfDropdowns()" ><option value="">Select...</option></select></div>
       <div class="field"><label>Away team</label><select id="rf-away" onchange="refreshPerfDropdowns()"><option value="">Select...</option></select></div>
@@ -404,7 +405,7 @@
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
       <select class="si" id="pf-season" onchange="renderPred()" style="font-size:11px">
         <option value="">All seasons</option>
-        <option value="2025/26" selected>2025/26</option>
+        <option value="2026/27" selected>2026/27</option>
       </select>
       <select class="si" id="pf-round" onchange="renderPred()" style="font-size:11px">
         <option value="">All rounds</option>
@@ -415,7 +416,7 @@
     <div class="fg">
       <div class="field"><label>Home team</label><select id="pm-home"><option value="">Select...</option></select></div>
       <div class="field"><label>Away team</label><select id="pm-away"><option value="">Select...</option></select></div>
-      <div class="field"><label>Season</label><select id="pm-season"><option value="2025/26">2025/26</option></select></div>
+      <div class="field"><label>Season</label><select id="pm-season"><option value="2026/27">2026/27</option></select></div>
       <div class="field"><label>Round</label><input id="pm-round" type="number" placeholder="e.g. 29"/></div>
       <div class="field"><label>Home xG <span style="font-size:9px;color:var(--text3)">(optional)</span></label><input id="pm-xgh" type="number" step="0.01" min="0" placeholder="auto"/></div>
       <div class="field"><label>Away xG <span style="font-size:9px;color:var(--text3)">(optional)</span></label><input id="pm-xga" type="number" step="0.01" min="0" placeholder="auto"/></div>
@@ -478,6 +479,7 @@
   <div class="toolbar">
     <select class="si" id="prev-season" onchange="renderPrevYears()">
       <option value="">Select season...</option>
+      <option value="2025/26">2025/26</option>
       <option value="2024/25">2024/25</option>
       <option value="2023/24">2023/24</option>
       <option value="2022/23">2022/23</option>
@@ -540,7 +542,7 @@
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
       <select class="si" id="af-season" onchange="renderAccuracy()" style="font-size:11px">
         <option value="">All seasons</option>
-        <option value="2025/26" selected>2025/26</option>
+        <option value="2026/27" selected>2026/27</option>
       </select>
       <select class="si" id="af-round" onchange="renderAccuracy()" style="font-size:11px">
         <option value="">All rounds</option>
@@ -564,7 +566,9 @@
 // ─── TEAM/NAME NORMALIZATION ──────────────────────────────────────────────────
 const NM={"SK Slavia Praha":"Slavia Prague","AC Sparta Praha":"Sparta Prague","FK Jablonec":"Jablonec","FC Viktoria Plzeň":"Viktoria Plzeň","FC Slovan Liberec":"Slovan Liberec","FC Hradec Králové":"Hradec Králové","SK Sigma Olomouc":"Sigma Olomouc","MFK Karviná":"Karviná","FC Zlín":"Zlín","FC TRINITY Zlín":"Zlín","FC Fastav Zlín":"Zlín","FK Teplice":"Teplice","Bohemians Praha 1905":"Bohemians 1905","FK Pardubice":"Pardubice","FK Mladá Boleslav":"Mladá Boleslav","1.FC Slovácko":"Slovácko","FC Baník Ostrava":"Baník Ostrava","FK Dukla Praha":"Dukla Prague","FC Zbrojovka Brno":"Zbrojovka Brno","SK Dynamo České Budějovice":"Dynamo Č. Budějovice"};
 function nm(n){return NM[n]||n}
-const TEAMS=["Slavia Prague","Sparta Prague","Jablonec","Viktoria Plzeň","Slovan Liberec","Hradec Králové","Sigma Olomouc","Karviná","Zlín","Teplice","Bohemians 1905","Pardubice","Mladá Boleslav","Slovácko","Baník Ostrava","Dukla Prague"];
+const CURRENT_SEASON="2026/27";
+const PREVIOUS_SEASON="2025/26";
+const TEAMS=["Slavia Prague","Sparta Prague","Jablonec","Viktoria Plzeň","Slovan Liberec","Hradec Králové","Sigma Olomouc","Karviná","Zlín","Teplice","Bohemians 1905","Pardubice","Mladá Boleslav","Slovácko","Baník Ostrava","Zbrojovka Brno"];
 
 // ─── MATCH RESULTS ────────────────────────────────────────────────────────────
 let results=[];
@@ -747,6 +751,13 @@ addP("Viktoria Plzeň","A","Vydra Matěj",[{vs:"Teplice",mins:0,form:null,goals:
 let histResults=[];
 function arH(s,a){a.forEach(m=>histResults.push({season:s,r:m.r,h:m.h,a:m.a,score:m.score}))}
 
+// Move completed 2025/26 regular season from current results[] to Prev. years.
+arH(PREVIOUS_SEASON, results
+  .filter(m=>m.season===PREVIOUS_SEASON && typeof m.r==='number')
+  .map(m=>({r:m.r,h:m.h,a:m.a,score:m.score}))
+);
+results = results.filter(m=>m.season!==PREVIOUS_SEASON);
+
 // 2025/26 nadstavba: skupina o titul (CGR), play-off (POGR), skupina o záchranu (RGR)
 arH("2025/26",[{r:"CGR1",h:"Slovan Liberec",a:"Slavia Prague",score:"1:2"},{r:"CGR1",h:"Viktoria Plzeň",a:"Hradec Králové",score:"3:1"},{r:"CGR1",h:"Sparta Prague",a:"Jablonec",score:"2:0"},{r:"CGR2",h:"Viktoria Plzeň",a:"Slovan Liberec",score:"2:0"},{r:"CGR2",h:"Slavia Prague",a:"Sparta Prague",score:"0:3"},{r:"CGR2",h:"Jablonec",a:"Hradec Králové",score:"1:1"},{r:"CGR3",h:"Sparta Prague",a:"Viktoria Plzeň",score:"0:0"},{r:"CGR3",h:"Hradec Králové",a:"Slovan Liberec",score:"1:0"},{r:"CGR3",h:"Slavia Prague",a:"Jablonec",score:"5:1"},{r:"CGR4",h:"Hradec Králové",a:"Slavia Prague",score:"3:1"},{r:"CGR4",h:"Slovan Liberec",a:"Sparta Prague",score:"0:2"},{r:"CGR4",h:"Viktoria Plzeň",a:"Jablonec",score:"5:0"},{r:"CGR5",h:"Slavia Prague",a:"Viktoria Plzeň",score:"3:0"},{r:"CGR5",h:"Sparta Prague",a:"Hradec Králové",score:"2:1"},{r:"CGR5",h:"Jablonec",a:"Slovan Liberec",score:"2:1"},{r:"POGR1",h:"Karviná",a:"Pardubice",score:"1:2"},{r:"POGR1",h:"Bohemians 1905",a:"Sigma Olomouc",score:"1:3"},{r:"POGR2",h:"Pardubice",a:"Karviná",score:"1:3"},{r:"POGR2",h:"Sigma Olomouc",a:"Bohemians 1905",score:"1:2"},{r:"POGR3",h:"Karviná",a:"Sigma Olomouc",score:"1:3"},{r:"POGR4",h:"Sigma Olomouc",a:"Karviná",score:"4:0"},{r:"RGR1",h:"Baník Ostrava",a:"Mladá Boleslav",score:"0:0"},{r:"RGR1",h:"Zlín",a:"Dukla Prague",score:"2:1"},{r:"RGR1",h:"Teplice",a:"Slovácko",score:"1:1"},{r:"RGR2",h:"Mladá Boleslav",a:"Zlín",score:"1:1"},{r:"RGR2",h:"Teplice",a:"Baník Ostrava",score:"2:1"},{r:"RGR2",h:"Dukla Prague",a:"Slovácko",score:"0:1"},{r:"RGR3",h:"Mladá Boleslav",a:"Dukla Prague",score:"1:2"},{r:"RGR3",h:"Zlín",a:"Teplice",score:"2:4"},{r:"RGR3",h:"Slovácko",a:"Baník Ostrava",score:"2:1"},{r:"RGR4",h:"Slovácko",a:"Mladá Boleslav",score:"0:3"},{r:"RGR4",h:"Baník Ostrava",a:"Zlín",score:"2:0"},{r:"RGR4",h:"Teplice",a:"Dukla Prague",score:"2:0"},{r:"RGR5",h:"Mladá Boleslav",a:"Teplice",score:"0:2"},{r:"RGR5",h:"Zlín",a:"Slovácko",score:"1:0"},{r:"RGR5",h:"Dukla Prague",a:"Baník Ostrava",score:"0:3"}]);
 
@@ -766,7 +777,7 @@ arH("2024/25",[{r:"CGR1",h:"Sigma Olomouc",a:"Slavia Prague",score:"0:5"},{r:"CG
 function computeStats(){
   const s={};
   TEAMS.forEach(t=>s[t]={w:0,d:0,l:0,gf:0,ga:0,h2hPts:{},h2hGD:{},homeW:0,homeD:0,homeL:0,awayW:0,awayD:0,awayL:0});
-  results.filter(m=>m.season==="2025/26").forEach(m=>{
+  results.filter(m=>m.season===CURRENT_SEASON).forEach(m=>{
     const[hg,ag]=m.score.split(':').map(Number);
     [m.h,m.a].forEach(t=>{if(!s[t])s[t]={w:0,d:0,l:0,gf:0,ga:0,h2hPts:{},h2hGD:{},homeW:0,homeD:0,homeL:0,awayW:0,awayD:0,awayL:0}});
     s[m.h].gf+=hg;s[m.h].ga+=ag;s[m.a].gf+=ag;s[m.a].ga+=hg;
@@ -847,7 +858,7 @@ function calcFormScore(matches){
 }
 
 function getForm(team){
-  const ms=results.filter(m=>m.season==="2025/26"&&(m.h===team||m.a===team)).sort((a,b)=>b.r-a.r).slice(0,5);
+  const ms=results.filter(m=>m.season===CURRENT_SEASON&&(m.h===team||m.a===team)).sort((a,b)=>b.r-a.r).slice(0,5);
   const matchData=[];
   const dots=[];
   ms.forEach(m=>{
@@ -870,7 +881,7 @@ function getForm(team){
 
 // Venue form: home team's last 5 HOME games, away team's last 5 AWAY games
 function getVenueForm(team, isHome){
-  const ms=results.filter(m=>m.season==="2025/26"&&(isHome?m.h===team:m.a===team)).sort((a,b)=>b.r-a.r).slice(0,5);
+  const ms=results.filter(m=>m.season===CURRENT_SEASON&&(isHome?m.h===team:m.a===team)).sort((a,b)=>b.r-a.r).slice(0,5);
   const matchData=ms.map(m=>{
     const[hg,ag]=m.score.split(':').map(Number);
     return isHome?{gf:hg,ga:ag}:{gf:ag,ga:hg};
@@ -917,7 +928,7 @@ function rebuildRoundSel(){
 
 // Track postponed rounds for display - called from anywhere
 function getPostponedRounds(){
-  const played=[...new Set(results.filter(m=>m.season==="2025/26").map(m=>m.r))].sort((a,b)=>a-b);
+  const played=[...new Set(results.filter(m=>m.season===CURRENT_SEASON).map(m=>m.r))].sort((a,b)=>a-b);
   if(!played.length)return[];
   const maxR=played[played.length-1];
   const playedSet=new Set(played);
@@ -1172,7 +1183,7 @@ function fillSel(id){
 // ─── H2H & VENUE ─────────────────────────────────────────────────────────────
 function getH2H(home,away){
   const allHist=[...results,...histResults];
-  const ms=allHist.filter(m=>m.season!=="2025/26"&&((m.h===home&&m.a===away)||(m.h===away&&m.a===home)));
+  const ms=allHist.filter(m=>m.season!==CURRENT_SEASON&&((m.h===home&&m.a===away)||(m.h===away&&m.a===home)));
   let hW=0,aW=0,dr=0,recent=[];
   ms.forEach(m=>{
     const[hg,ag]=m.score.split(':').map(Number);
@@ -1214,7 +1225,7 @@ function getXIFormScore(team, xiNames){
 
   // ── FORM component (40%) ────────────────────────────────────────────────
   // Average player rating across last 5 team matches (0–10)
-  const teamMatches=results.filter(m=>m.season==="2025/26"&&(m.h===team||m.a===team))
+  const teamMatches=results.filter(m=>m.season===CURRENT_SEASON&&(m.h===team||m.a===team))
     .sort((a,b)=>b.r-a.r).slice(0,5);
   const oppositions=teamMatches.map(m=>m.h===team?m.a:m.h);
 
@@ -1276,7 +1287,7 @@ function predictScores(home,away,hD,aD,hManualXG,aManualXG){
   } else {
     // Estimate from season averages + form + home advantage
     // Get season goals scored/conceded per game
-    const cur2526=results.filter(m=>m.season==="2025/26");
+    const cur2526=results.filter(m=>m.season===CURRENT_SEASON);
     function teamGoalStats(team){
       const hm=cur2526.filter(m=>m.h===team);
       const am=cur2526.filter(m=>m.a===team);
@@ -2155,7 +2166,7 @@ function sw(tab){
 
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
-const STORAGE_KEY = 'chanceliga_v1';
+const STORAGE_KEY = 'chanceliga_v2_2026_27';
 
 function getStorableData(){
   // Only store user-added/modified data — not the hardcoded historical seasons
@@ -2165,11 +2176,11 @@ function getStorableData(){
   return {
     version: 1,
     savedAt: new Date().toISOString(),
-    // results_2526: only 2025/26 matches (the ones users add; history is hardcoded)
+    // results_current: only current-season matches (the ones users add; history is hardcoded)
     results_2526: results.filter(m => m.season === '2025/26'),
     // Additional user-added results from other seasons (not in hardcoded data)
     results_extra: results.filter(m => {
-      if(m.season === '2025/26') return false;
+      if(m.season === CURRENT_SEASON) return false;
       // Keep if it has xG data (user-added) or is a newer round beyond what's hardcoded
       return m.xgh != null || m.xga != null;
     }),
@@ -2183,13 +2194,13 @@ function applyStoredData(data){
   if(!data || data.version !== 1) return false;
   try{
     // Restore 2025/26 results (replace the hardcoded block)
-    if(data.results_2526 && data.results_2526.length){
+    if((data.results_current && data.results_current.length) || (data.results_2526 && data.results_2526.length)){
       // Remove existing 2025/26 from results[]
       for(let i=results.length-1;i>=0;i--){
-        if(results[i].season==='2025/26') results.splice(i,1);
+        if(results[i].season===CURRENT_SEASON) results.splice(i,1);
       }
       // Add stored 2025/26
-      data.results_2526.forEach(m => results.push(m));
+      (data.results_current || data.results_2526 || []).forEach(m => { if(!m.season) m.season=CURRENT_SEASON; results.push(m); });
     }
     // Restore extra results (user-added with xG etc.)
     if(data.results_extra && data.results_extra.length){
@@ -2229,7 +2240,7 @@ function applyStoredData(data){
     if(data.predMatches){
       predMatches.length = 0;
       data.predMatches.forEach(m => {
-        if(!m.season) m.season = '2025/26'; // backfill missing season
+        if(!m.season) m.season = CURRENT_SEASON; // backfill missing season
         predMatches.push(m);
       });
     }
@@ -2367,7 +2378,7 @@ function findResultForPred(m){
   return results.find(r=>{
     if(parseInt(r.r)!==rnd) return false;
     // Only 2025/26 season; some entries lack season field — treat those as current
-    if(r.season && r.season!=='2025/26') return false;
+    if(r.season && r.season!==CURRENT_SEASON) return false;
     const rh=nm(r.h)||r.h, ra=nm(r.a)||r.a;
     return rh===h && ra===a;
   })||null;
