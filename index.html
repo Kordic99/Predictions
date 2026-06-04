@@ -644,7 +644,7 @@ ar("2021/22",[{r:1,h:"Jablonec",a:"Baník Ostrava",score:"1:0"},{r:1,h:"Pardubic
 //            or {vs,mins,form,goals,assists} for field}
 let players = [];
 
-function addP(team, pos, name, matches, opts) {
+function addP(team, pos, name,[], opts) {
   players.push({ name, team, pos, matches, mv:(opts&&opts.mv)||null, career:(opts&&opts.career)||[] });
 }
 
@@ -2279,7 +2279,7 @@ function sw(tab){
 
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
-const STORAGE_KEY = 'chanceliga_v2_2026_27';
+const STORAGE_KEY = 'chanceliga_v3_2026_27_player_matches_reset';
 
 function getStorableData(){
   // Only store user-added/modified data — not the hardcoded historical seasons
@@ -2287,7 +2287,8 @@ function getStorableData(){
   // For players: store all player data (matches get added over time)
   // For predMatches: store active predictions
   return {
-    version: 1,
+    version: 2,
+    playerMatchesSeason: CURRENT_SEASON,
     savedAt: new Date().toISOString(),
     // results_current: only current-season matches (the ones users add; history is hardcoded)
     results_2526: results.filter(m => m.season === '2025/26'),
@@ -2304,7 +2305,7 @@ function getStorableData(){
 }
 
 function applyStoredData(data){
-  if(!data || data.version !== 1) return false;
+  if(!data || ![1,2].includes(data.version)) return false;
   try{
     // Restore 2025/26 results (replace the hardcoded block)
     if((data.results_current && data.results_current.length) || (data.results_2526 && data.results_2526.length)){
@@ -2337,13 +2338,15 @@ function applyStoredData(data){
               if(!dup)existing.career.push(c);
             });
           }
-          // Also restore match data if saved player has MORE matches (user added new ones)
-          if(saved.matches&&saved.matches.length>existing.matches.length){
+          // Restore current-season match details only from the new 2026/27 save format.
+          // Old saved browser data from 2025/26 is intentionally ignored so the Players tab starts clean.
+          if(data.version>=2 && data.playerMatchesSeason===CURRENT_SEASON && saved.matches){
             existing.matches=saved.matches;
           }
         }else{
-          // Truly new player added by user (not hardcoded) — restore if they have match data
-          if(saved.matches&&saved.matches.length>0){
+          // Truly new player added by user. Keep future 2026/27 player additions,
+          // but do not resurrect old 2025/26 players from previous browser saves.
+          if(data.version>=2 && data.playerMatchesSeason===CURRENT_SEASON){
             players.push(saved);
           }
         }
