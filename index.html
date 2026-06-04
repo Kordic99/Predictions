@@ -972,22 +972,65 @@ function renderTable(){
 }
 
 // ─── RESULTS ─────────────────────────────────────────────────────────────────
-function populateTeamFilter(){
-  const sel=document.getElementById('rs');
-  // Rebuild from scratch using only the 16 current TEAMS (same as Main Table)
-  sel.innerHTML='<option value="">All teams</option>';
-  TEAMS.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);});
-}
-
-function filterRes(){
-  const teamFilter=document.getElementById('rs').value;
-  const season=document.getElementById('rss').value;
-  const round=document.getElementById('rsr').value;
-  // Combine results and histResults for display, tagging source
-  const combined=[
+function getCombinedResults(){
+  return [
     ...results.map((m,i)=>({...m,_i:i,_src:'results'})),
     ...histResults.map((m,i)=>({...m,_i:i,_src:'hist'}))
   ];
+}
+
+function getTeamsForResultsSeason(season){
+  const combined=getCombinedResults();
+  const teamSet=new Set();
+
+  combined.forEach(m=>{
+    if(season && m.season!==season) return;
+    teamSet.add(m.h);
+    teamSet.add(m.a);
+  });
+
+  // New/current season can have no results yet — in that case use current league teams.
+  if(season===CURRENT_SEASON && teamSet.size===0){
+    TEAMS.forEach(t=>teamSet.add(t));
+  }
+
+  // If no season is selected, include current teams too, so promoted teams are available.
+  if(!season){
+    TEAMS.forEach(t=>teamSet.add(t));
+  }
+
+  return [...teamSet].sort((a,b)=>a.localeCompare(b,'cs'));
+}
+
+function populateTeamFilter(){
+  const sel=document.getElementById('rs');
+  const season=document.getElementById('rss')?.value || '';
+  const prev=sel.value;
+  const teams=getTeamsForResultsSeason(season);
+
+  sel.innerHTML='<option value="">All teams</option>';
+  teams.forEach(t=>{
+    const o=document.createElement('option');
+    o.value=t;
+    o.textContent=t;
+    sel.appendChild(o);
+  });
+
+  if(prev && teams.includes(prev)){
+    sel.value=prev;
+    return prev;
+  }
+
+  sel.value='';
+  return '';
+}
+
+function filterRes(){
+  const teamFilter=populateTeamFilter();
+  const season=document.getElementById('rss').value;
+  const round=document.getElementById('rsr').value;
+  // Combine results and histResults for display, tagging source
+  const combined=getCombinedResults();
   const f=combined.filter(m=>{
     if(season&&m.season!==season)return false;
     if(round&&String(m.r)!==String(round))return false;
@@ -1009,7 +1052,7 @@ function filterRes(){
     const delBtn=m._src==='results'?`<button class="del-btn">&#x2715;</button>`:'<span style="font-size:10px;color:var(--text3)">hist</span>';
     return`<tr data-idx="${m._i}" data-src="${m._src}"><td><span class="sbadge">${m.season}</span></td><td><span class="rbadge">${rLabel}</span></td><td style="text-align:right;font-weight:600">${m.h}</td><td style="text-align:center"><span class="sc ${cls}">${m.score}</span></td><td style="font-weight:600">${m.a}</td><td>${delBtn}</td></tr>`;
   }).join('');
-  document.getElementById('res-cnt').textContent=f.length+' of '+results.length;
+  document.getElementById('res-cnt').textContent=f.length+' of '+combined.length;
 }
 
 document.getElementById('res-body').addEventListener('click',e=>{
