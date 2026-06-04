@@ -644,8 +644,10 @@ ar("2021/22",[{r:1,h:"Jablonec",a:"Baník Ostrava",score:"1:0"},{r:1,h:"Pardubic
 //            or {vs,mins,form,goals,assists} for field}
 let players = [];
 
-function addP(team, pos, name,[], opts) {
-  players.push({ name, team, pos, matches, mv:(opts&&opts.mv)||null, career:(opts&&opts.career)||[] });
+function addP(team, pos, name, matches, opts) {
+  // Start the new 2026/27 season with empty per-match player details.
+  // Historical season aggregates stay in career[].
+  players.push({ name, team, pos, matches: [], mv:(opts&&opts.mv)||null, career:(opts&&opts.career)||[] });
 }
 
 // GKs
@@ -2279,7 +2281,7 @@ function sw(tab){
 
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
-const STORAGE_KEY = 'chanceliga_v3_2026_27_player_matches_reset';
+const STORAGE_KEY = 'chanceliga_v4_2026_27_clean_players';
 
 function getStorableData(){
   // Only store user-added/modified data — not the hardcoded historical seasons
@@ -2291,7 +2293,7 @@ function getStorableData(){
     playerMatchesSeason: CURRENT_SEASON,
     savedAt: new Date().toISOString(),
     // results_current: only current-season matches (the ones users add; history is hardcoded)
-    results_2526: results.filter(m => m.season === '2025/26'),
+    results_current: results.filter(m => m.season === CURRENT_SEASON),
     // Additional user-added results from other seasons (not in hardcoded data)
     results_extra: results.filter(m => {
       if(m.season === CURRENT_SEASON) return false;
@@ -2308,13 +2310,13 @@ function applyStoredData(data){
   if(!data || ![1,2].includes(data.version)) return false;
   try{
     // Restore 2025/26 results (replace the hardcoded block)
-    if((data.results_current && data.results_current.length) || (data.results_2526 && data.results_2526.length)){
+    if(data.results_current && data.results_current.length){
       // Remove existing 2025/26 from results[]
       for(let i=results.length-1;i>=0;i--){
         if(results[i].season===CURRENT_SEASON) results.splice(i,1);
       }
-      // Add stored 2025/26
-      (data.results_current || data.results_2526 || []).forEach(m => { if(!m.season) m.season=CURRENT_SEASON; results.push(m); });
+      // Add stored current-season results
+      data.results_current.forEach(m => { if(!m.season) m.season=CURRENT_SEASON; results.push(m); });
     }
     // Restore extra results (user-added with xG etc.)
     if(data.results_extra && data.results_extra.length){
