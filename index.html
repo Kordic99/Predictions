@@ -219,6 +219,35 @@
   .players-head .ph { padding: 5px 8px; text-align: center; border-right: 1px solid #333; }
   .players-head .ph:last-child { border-right: none; }
   .players-head .ph.left { text-align: left; }
+  .players-compact-shell { overflow:auto; border:1px solid var(--border); border-radius:10px; background:var(--bg); }
+  .players-compact-table { width:max-content; min-width:100%; border-collapse:separate; border-spacing:0; font-size:10px; }
+  .players-compact-table th { position:sticky; top:0; z-index:4; padding:0; background:#1a1a1a; color:#ffffffa8; border-bottom:1px solid #333; white-space:nowrap; }
+  .players-compact-table th.group-start,
+  .players-compact-table td.group-start { border-left:2px solid var(--border); }
+  .players-compact-table .player-sort-head { width:100%; border:0; background:none; color:inherit; font:inherit; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; padding:6px 7px; cursor:pointer; white-space:nowrap; }
+  .players-compact-table .player-sort-head:hover,
+  .players-compact-table .player-sort-head.active { color:#fff; background:#ffffff12; }
+  .players-compact-table td { padding:5px 7px; border-bottom:1px solid var(--border); color:var(--text2); text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .players-compact-table tbody tr.player-summary-row:hover td { background:var(--bg2); }
+  .players-compact-table .player-rank { position:sticky; left:0; z-index:2; width:30px; min-width:30px; text-align:center; background:var(--bg); color:var(--text3); }
+  .players-compact-table th.player-rank { z-index:7; background:#1a1a1a; }
+  .players-compact-table .player-name-cell { position:sticky; left:30px; z-index:2; min-width:168px; max-width:220px; text-align:left; background:var(--bg); color:var(--text); font-weight:500; }
+  .players-compact-table th.player-name-cell { z-index:7; background:#1a1a1a; }
+  .players-compact-table tbody tr.player-summary-row:hover .player-rank,
+  .players-compact-table tbody tr.player-summary-row:hover .player-name-cell { background:var(--bg2); }
+  .players-compact-table .player-team-cell { min-width:112px; text-align:left; }
+  .players-compact-table .player-pos-cell { text-align:center; font-weight:600; }
+  .players-compact-table .player-rating-cell { text-align:center; }
+  .players-compact-table .player-actions-cell { text-align:left; }
+  .players-compact-table .stat-na { color:var(--text3); }
+  .players-compact-table .yellow-card-stat { display:inline-block; min-width:18px; padding:1px 4px; border-radius:3px; background:#f6c945; color:#312500; text-align:center; }
+  .players-compact-table .red-card-stat { display:inline-block; min-width:18px; padding:1px 4px; border-radius:3px; background:#dc3948; color:#fff; text-align:center; }
+  .players-compact-table .player-detail-row { display:none; }
+  .players-compact-table .player-detail-row.open { display:table-row; }
+  .players-compact-table .player-detail-row > td { padding:0; text-align:left; background:var(--bg2); white-space:normal; }
+  .players-compact-table .player-detail-wrap { overflow-x:auto; padding:6px 8px 10px; }
+  .players-compact-meta { margin:6px 0 10px; color:var(--text3); font-size:10px; line-height:1.5; }
+  .players-empty { text-align:center; padding:32px; color:var(--text3); font-size:13px; }
   .rating { display: inline-block; padding: 1px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; }
   .r-hi { background: #d4edda; color: #155724; }
   .r-mid { background: #fff3cd; color: #856404; }
@@ -306,7 +335,7 @@
 <body>
 <div class="app">
 <div class="export-reminder">
-  &#9888;&#65039; <span><strong>Before asking ChatGPT to update this file</strong> — always click <strong>&#8595; Export JSON</strong> first and attach the file to your message. Browser edits autosave locally, but ChatGPT needs the exported JSON.</span>
+  &#128190; <span><strong>Data-safe updates:</strong> browser edits remain stored after an HTML update on the same GitHub Pages address. Export creates <strong>chanceliga-data.json</strong>; keep that file beside the HTML on GitHub so a fresh browser or a future version can restore the latest published data automatically.</span>
 </div>
 <div class="storage-bar">
   <button class="storage-btn export" onclick="exportJSON()">&#8595; Export JSON</button>
@@ -505,6 +534,16 @@
         <option value="M">Midfielders</option>
         <option value="A">Attackers</option>
       </select>
+      <select class="si" id="player-columns" onchange="renderPlayers()" aria-label="Visible player statistics">
+        <option value="overview">Overview</option>
+        <option value="attack">Attack</option>
+        <option value="passing">Passing</option>
+        <option value="defence">Defence</option>
+        <option value="goalkeeping">Goalkeeping</option>
+        <option value="all">All data</option>
+      </select>
+      <select class="si" id="player-sort" onchange="setPlayerSort(this.value)" aria-label="Sort players"></select>
+      <button class="btn" id="player-sort-dir" type="button" onclick="togglePlayerSortDirection()" aria-label="Change sort direction">↓ Desc</button>
       <button class="btn red" onclick="toggleLSFetch()">&#8635; Update careers</button>
     </div>
     <span class="cnt" id="player-cnt"></span>
@@ -3120,11 +3159,278 @@ function totalAssists(p){return p.matches.reduce((a,m)=>a+(m.assists||0),0);}
 function totalSaves(p){return p.matches.reduce((a,m)=>a+(m.saves||0),0);}
 function totalShots(p){return p.matches.reduce((a,m)=>a+(m.shotsOn||0),0);}
 
+const PLAYER_OPEN_DETAILS=new Set();
+const PLAYER_SORT_STATE={key:'goals',dir:'desc'};
+
+const PLAYER_STAT_COLUMNS=[
+  {key:'shirtNumber',label:'No.',title:'Shirt number',group:'Identity',format:'int'},
+  {key:'role',label:'Role',title:'Livesport position',group:'Identity',format:'text',align:'left'},
+  {key:'apps',label:'Apps',title:'Appearances',group:'Usage',format:'int'},
+  {key:'starts',label:'Starts',title:'Starts',group:'Usage',format:'int'},
+  {key:'minutes',label:'Min',title:'Minutes played',group:'Usage',format:'int'},
+  {key:'rating',label:'Rating',title:'Average player rating',group:'Usage',format:'rating'},
+  {key:'goals',label:'G',title:'Goals',group:'Output',format:'int'},
+  {key:'assists',label:'A',title:'Assists',group:'Output',format:'int'},
+  {key:'goalContributions',label:'G+A',title:'Goals and assists',group:'Output',format:'int'},
+  {key:'ownGoals',label:'OG',title:'Own goals',group:'Output',format:'int'},
+  {key:'yellowCards',label:'YC',title:'Yellow cards',group:'Discipline',format:'yellow'},
+  {key:'redCards',label:'RC',title:'Red cards',group:'Discipline',format:'red'},
+  {key:'shotsTotal',label:'Shots',title:'Total shots',group:'Attack',format:'int'},
+  {key:'shotsOnTarget',label:'On tgt',title:'Shots on target',group:'Attack',format:'int'},
+  {key:'xG',label:'xG',title:'Expected goals',group:'Attack',format:'decimal2'},
+  {key:'xGOT',label:'xGOT',title:'Expected goals on target',group:'Attack',format:'decimal2'},
+  {key:'touches',label:'Touches',title:'Touches',group:'Attack',format:'int'},
+  {key:'touchesInBox',label:'Box tch',title:'Touches in opposition box',group:'Attack',format:'int'},
+  {key:'dribblesWon',label:'Drib+',title:'Successful dribbles',group:'Attack',format:'int'},
+  {key:'dribblesAttempted',label:'Drib att',title:'Attempted dribbles',group:'Attack',format:'int'},
+  {key:'dribblePct',label:'Drib %',title:'Successful dribble percentage',group:'Attack',format:'percent'},
+  {key:'bigChancesMissed',label:'Big miss',title:'Big chances missed',group:'Attack',format:'int'},
+  {key:'foulsWon',label:'Fouls won',title:'Fouls won',group:'Attack',format:'int'},
+  {key:'offsides',label:'Offside',title:'Offsides',group:'Attack',format:'int'},
+  {key:'passesMade',label:'Pass+',title:'Accurate passes',group:'Passing',format:'int'},
+  {key:'passesAttempted',label:'Pass att',title:'Attempted passes',group:'Passing',format:'int'},
+  {key:'passPct',label:'Pass %',title:'Accurate pass percentage',group:'Passing',format:'percent'},
+  {key:'bigChancesCreated',label:'Big cr.',title:'Big chances created',group:'Passing',format:'int'},
+  {key:'keyPasses',label:'Key pass',title:'Key passes',group:'Passing',format:'int'},
+  {key:'xA',label:'xA',title:'Expected assists',group:'Passing',format:'decimal2'},
+  {key:'duelsWon',label:'Duels+',title:'Duels won',group:'Duels',format:'int'},
+  {key:'duelsAttempted',label:'Duels att',title:'Duels contested',group:'Duels',format:'int'},
+  {key:'duelPct',label:'Duels %',title:'Duels won percentage',group:'Duels',format:'percent'},
+  {key:'aerialWon',label:'Aerial+',title:'Aerial duels won',group:'Duels',format:'int'},
+  {key:'aerialAttempted',label:'Aerial att',title:'Aerial duels contested',group:'Duels',format:'int'},
+  {key:'aerialPct',label:'Aerial %',title:'Aerial duels won percentage',group:'Duels',format:'percent'},
+  {key:'groundWon',label:'Ground+',title:'Ground duels won',group:'Duels',format:'int'},
+  {key:'groundAttempted',label:'Ground att',title:'Ground duels contested',group:'Duels',format:'int'},
+  {key:'groundPct',label:'Ground %',title:'Ground duels won percentage',group:'Duels',format:'percent'},
+  {key:'defensiveActionsWon',label:'Def+',title:'Successful defensive actions',group:'Defence',format:'int'},
+  {key:'defensiveActionsAttempted',label:'Def att',title:'Attempted defensive actions',group:'Defence',format:'int'},
+  {key:'defensiveActionPct',label:'Def %',title:'Successful defensive action percentage',group:'Defence',format:'percent'},
+  {key:'foulsCommitted',label:'Fouls',title:'Fouls committed',group:'Defence',format:'int'},
+  {key:'interceptions',label:'Int',title:'Interceptions',group:'Defence',format:'int'},
+  {key:'clearances',label:'Clear',title:'Clearances',group:'Defence',format:'int'},
+  {key:'errorsToGoal',label:'Err→G',title:'Errors leading to a goal',group:'Defence',format:'int'},
+  {key:'errorsToShot',label:'Err→S',title:'Errors leading to a shot',group:'Defence',format:'int'},
+  {key:'saves',label:'Saves',title:'Goalkeeper saves',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'shotsFaced',label:'Faced',title:'Shots on target faced',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'savePct',label:'Save %',title:'Save percentage',group:'Goalkeeping',format:'percent',gkOnly:true},
+  {key:'goalsConceded',label:'GA',title:'Goals conceded',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'cleanSheets',label:'CS',title:'Clean sheets',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'goalsPrevented',label:'G prev.',title:'Goals prevented',group:'Goalkeeping',format:'decimal2',gkOnly:true},
+  {key:'xGOTAgainst',label:'xGOT A',title:'Expected goals on target against',group:'Goalkeeping',format:'decimal2',gkOnly:true},
+  {key:'punches',label:'Punch',title:'Punches',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'throws',label:'Throws',title:'Goalkeeper throws',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'sweeperActions',label:'Sweep',title:'Sweeper actions',group:'Goalkeeping',format:'int',gkOnly:true},
+  {key:'marketValueEur',label:'Value',title:'Transfermarkt market value',group:'Market',format:'money'}
+];
+
+const PLAYER_COLUMN_PRESETS={
+  overview:['apps','starts','minutes','rating','goals','assists','goalContributions','yellowCards','redCards','saves','savePct','marketValueEur'],
+  attack:['apps','minutes','rating','goals','assists','goalContributions','ownGoals','shotsTotal','shotsOnTarget','xG','xGOT','touches','touchesInBox','dribblesWon','dribblesAttempted','dribblePct','bigChancesMissed','foulsWon','offsides'],
+  passing:['apps','minutes','rating','passesMade','passesAttempted','passPct','bigChancesCreated','keyPasses','xA','assists'],
+  defence:['apps','minutes','rating','duelsWon','duelsAttempted','duelPct','aerialWon','aerialAttempted','aerialPct','groundWon','groundAttempted','groundPct','defensiveActionsWon','defensiveActionsAttempted','defensiveActionPct','foulsCommitted','interceptions','clearances','errorsToGoal','errorsToShot','yellowCards','redCards'],
+  goalkeeping:['apps','starts','minutes','rating','saves','shotsFaced','savePct','goalsConceded','cleanSheets','goalsPrevented','xGOTAgainst','punches','throws','sweeperActions','yellowCards','redCards','marketValueEur'],
+  all:PLAYER_STAT_COLUMNS.map(column=>column.key)
+};
+
+function parsePlayerRatio(value){
+  if(typeof value==='string'){
+    const match=value.match(/(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)/);
+    if(match)return{made:Number(match[1])||0,attempted:Number(match[2])||0};
+  }
+  if(Number.isFinite(Number(value)))return{made:Number(value)||0,attempted:0};
+  return{made:0,attempted:0};
+}
+
+function aggregatePlayerRatio(matches,key){
+  return matches.reduce((total,match)=>{
+    const ratio=parsePlayerRatio(match.stats?.[key]);
+    total.made+=ratio.made;
+    total.attempted+=ratio.attempted;
+    return total;
+  },{made:0,attempted:0});
+}
+
+function parseMarketValueEur(player){
+  const stored=Number(player.marketValueEur);
+  if(Number.isFinite(stored)&&stored>=0)return stored;
+  const match=String(player.mv||'').replace(',','.').match(/€\s*([\d.]+)\s*([mk])?/i);
+  if(!match)return null;
+  const multiplier=String(match[2]||'').toLowerCase()==='m'
+    ?1000000:String(match[2]||'').toLowerCase()==='k'?1000:1;
+  return Number(match[1])*multiplier;
+}
+
+function playerGoalsConceded(match){
+  const direct=match.stats?.goalkeeper?.goalsConceded;
+  if(Number.isFinite(Number(direct)))return Number(direct);
+  const score=String(match.score||'').match(/(\d+)\s*:\s*(\d+)/);
+  if(!score)return null;
+  return match.homeAway==='H'?Number(score[2]):match.homeAway==='A'?Number(score[1]):null;
+}
+
+function buildPlayerSummary(player){
+  const matches=(player.matches||[]).filter(match=>
+    (match.season||CURRENT_SEASON)===CURRENT_SEASON &&
+    (match.mins==null||Number(match.mins)>0)
+  );
+  const ratings=matches
+    .map(match=>Number(match.form))
+    .filter(value=>Number.isFinite(value)&&value>0);
+  const sum=(getter)=>matches.reduce((total,match)=>total+(Number(getter(match))||0),0);
+  const statsSum=(key)=>sum(match=>match.stats?.[key]);
+  const dribbles=aggregatePlayerRatio(matches,'successfulDribbles');
+  const passes=aggregatePlayerRatio(matches,'accuratePasses');
+  const duels=aggregatePlayerRatio(matches,'duelsWon');
+  const aerial=aggregatePlayerRatio(matches,'aerialDuelsWon');
+  const ground=aggregatePlayerRatio(matches,'groundDuelsWon');
+  const defensive=aggregatePlayerRatio(matches,'defensiveActions');
+  const concessions=player.pos==='GK'
+    ?matches.map(playerGoalsConceded).filter(value=>value!=null):[];
+  const goals=sum(match=>match.goals);
+  const assists=sum(match=>match.assists);
+  const saves=player.pos==='GK'
+    ?sum(match=>match.saves??match.stats?.goalkeeper?.saves):null;
+  const shotsFaced=player.pos==='GK'?sum(match=>match.shotsOn):null;
+  const latest=[...matches].sort((a,b)=>String(a.date||'').localeCompare(String(b.date||''))).at(-1);
+  return{
+    player,
+    name:player.name,
+    team:player.team,
+    pos:player.pos,
+    shirtNumber:latest?.shirtNumber??null,
+    role:latest?.livesportPosition||null,
+    apps:matches.length,
+    starts:matches.filter(match=>match.starter!==false).length,
+    minutes:sum(match=>match.mins),
+    rating:ratings.length?ratings.reduce((a,b)=>a+b,0)/ratings.length:null,
+    goals,
+    assists,
+    goalContributions:goals+assists,
+    ownGoals:sum(match=>match.ownGoals),
+    yellowCards:sum(match=>match.yellowCards),
+    redCards:sum(match=>match.redCards),
+    shotsTotal:statsSum('shotsTotal'),
+    shotsOnTarget:statsSum('shotsOnTarget'),
+    xG:statsSum('xG'),
+    xGOT:statsSum('xGOT'),
+    touches:statsSum('touches'),
+    touchesInBox:statsSum('touchesInBox'),
+    dribblesWon:dribbles.made,
+    dribblesAttempted:dribbles.attempted,
+    dribblePct:dribbles.attempted?dribbles.made/dribbles.attempted*100:null,
+    bigChancesMissed:statsSum('bigChancesMissed'),
+    foulsWon:statsSum('foulsWon'),
+    offsides:statsSum('offsides'),
+    passesMade:passes.made,
+    passesAttempted:passes.attempted,
+    passPct:passes.attempted?passes.made/passes.attempted*100:null,
+    bigChancesCreated:statsSum('bigChancesCreated'),
+    keyPasses:statsSum('keyPasses'),
+    xA:statsSum('xA'),
+    duelsWon:duels.made,
+    duelsAttempted:duels.attempted,
+    duelPct:duels.attempted?duels.made/duels.attempted*100:null,
+    aerialWon:aerial.made,
+    aerialAttempted:aerial.attempted,
+    aerialPct:aerial.attempted?aerial.made/aerial.attempted*100:null,
+    groundWon:ground.made,
+    groundAttempted:ground.attempted,
+    groundPct:ground.attempted?ground.made/ground.attempted*100:null,
+    defensiveActionsWon:defensive.made,
+    defensiveActionsAttempted:defensive.attempted,
+    defensiveActionPct:defensive.attempted?defensive.made/defensive.attempted*100:null,
+    foulsCommitted:statsSum('foulsCommitted'),
+    interceptions:statsSum('interceptions'),
+    clearances:statsSum('clearances'),
+    errorsToGoal:statsSum('errorsToGoal'),
+    errorsToShot:statsSum('errorsToShot'),
+    saves,
+    shotsFaced,
+    savePct:player.pos==='GK'&&shotsFaced?saves/shotsFaced*100:null,
+    goalsConceded:player.pos==='GK'?concessions.reduce((a,b)=>a+b,0):null,
+    cleanSheets:player.pos==='GK'?concessions.filter(value=>value===0).length:null,
+    goalsPrevented:player.pos==='GK'?sum(match=>match.stats?.goalkeeper?.goalsPrevented):null,
+    xGOTAgainst:player.pos==='GK'?sum(match=>match.stats?.goalkeeper?.xGOTAgainst):null,
+    punches:player.pos==='GK'?sum(match=>match.stats?.goalkeeper?.punches):null,
+    throws:player.pos==='GK'?sum(match=>match.stats?.goalkeeper?.throws):null,
+    sweeperActions:player.pos==='GK'?sum(match=>match.stats?.goalkeeper?.sweeperActions):null,
+    marketValueEur:parseMarketValueEur(player),
+    marketValueLabel:player.mv||null
+  };
+}
+
+function ensurePlayerSortOptions(){
+  const select=document.getElementById('player-sort');
+  if(!select||select.options.length)return;
+  const identity=[
+    {key:'name',label:'Player name'},
+    {key:'team',label:'Team'},
+    {key:'pos',label:'Position'}
+  ];
+  const groups=new Map([['Identity',identity]]);
+  PLAYER_STAT_COLUMNS.forEach(column=>{
+    if(!groups.has(column.group))groups.set(column.group,[]);
+    groups.get(column.group).push({key:column.key,label:column.title});
+  });
+  groups.forEach((items,label)=>{
+    const group=document.createElement('optgroup');
+    group.label=label;
+    items.forEach(item=>{
+      const option=document.createElement('option');
+      option.value=item.key;
+      option.textContent=item.label;
+      group.appendChild(option);
+    });
+    select.appendChild(group);
+  });
+  select.value=PLAYER_SORT_STATE.key;
+}
+
+function setPlayerSort(key){
+  if(!key)return;
+  PLAYER_SORT_STATE.key=key;
+  PLAYER_SORT_STATE.dir=['name','team','pos','role'].includes(key)?'asc':'desc';
+  renderPlayers();
+}
+
+function sortPlayersBy(key){
+  if(PLAYER_SORT_STATE.key===key){
+    PLAYER_SORT_STATE.dir=PLAYER_SORT_STATE.dir==='desc'?'asc':'desc';
+  }else{
+    PLAYER_SORT_STATE.key=key;
+    PLAYER_SORT_STATE.dir=['name','team','pos','role'].includes(key)?'asc':'desc';
+  }
+  renderPlayers();
+}
+
+function togglePlayerSortDirection(){
+  PLAYER_SORT_STATE.dir=PLAYER_SORT_STATE.dir==='desc'?'asc':'desc';
+  renderPlayers();
+}
+
+function updatePlayerSortControls(){
+  const select=document.getElementById('player-sort');
+  if(select)select.value=PLAYER_SORT_STATE.key;
+  const button=document.getElementById('player-sort-dir');
+  if(button){
+    const desc=PLAYER_SORT_STATE.dir==='desc';
+    button.textContent=desc?'↓ Desc':'↑ Asc';
+    button.setAttribute('aria-label',desc?'Sorted descending; change to ascending':'Sorted ascending; change to descending');
+  }
+}
+
 function togglePlayerDetail(id){
   const det=document.getElementById('pd-'+id);
   const btn=document.getElementById('pdb-'+id);
   if(!det)return;
   const open=det.classList.toggle('open');
+  if(open&&det.dataset.loaded!=='1'){
+    const host=det.querySelector('.player-detail-wrap');
+    const player=players[Number(id)];
+    if(host&&player)host.innerHTML=buildPlayerDetailContent(player);
+    det.dataset.loaded='1';
+  }
+  if(open)PLAYER_OPEN_DETAILS.add(id);else PLAYER_OPEN_DETAILS.delete(id);
   if(btn){btn.classList.toggle('active',open);btn.textContent=open?'Hide':'Details';}
 }
 
@@ -3204,119 +3510,160 @@ function buildFieldMatchRows(p){
   return matchRows+buildCareerRows(p);
 }
 
+function playerColumnByKey(key){
+  return PLAYER_STAT_COLUMNS.find(column=>column.key===key);
+}
+
+function playerSortLabel(key){
+  if(key==='name')return'Player name';
+  if(key==='team')return'Team';
+  if(key==='pos')return'Position';
+  return playerColumnByKey(key)?.title||key;
+}
+
+function formatPlayerStat(summary,column){
+  if(column.gkOnly&&summary.pos!=='GK')return'<span class="stat-na">—</span>';
+  const value=summary[column.key];
+  if(value==null||value==='')return'<span class="stat-na">—</span>';
+  if(column.format==='text')return lsEsc(value);
+  if(column.format==='money')return summary.marketValueLabel?lsEsc(summary.marketValueLabel):'<span class="stat-na">—</span>';
+  if(column.format==='rating'){
+    const rounded=Number(value).toFixed(2);
+    return`<span class="rating ${ratingClass(Number(value))}">${rounded}</span>`;
+  }
+  if(column.format==='percent')return Math.round(Number(value))+'%';
+  if(column.format==='decimal2')return Number(value).toFixed(2);
+  if(column.format==='yellow')return`<span class="yellow-card-stat">${Math.round(Number(value))}</span>`;
+  if(column.format==='red')return`<span class="red-card-stat">${Math.round(Number(value))}</span>`;
+  return String(Math.round(Number(value)));
+}
+
+function comparePlayerSummaries(left,right){
+  const key=PLAYER_SORT_STATE.key;
+  const direction=PLAYER_SORT_STATE.dir==='desc'?-1:1;
+  const leftValue=left[key];
+  const rightValue=right[key];
+  const leftEmpty=leftValue==null||leftValue==='';
+  const rightEmpty=rightValue==null||rightValue==='';
+  if(leftEmpty!==rightEmpty)return leftEmpty?1:-1;
+  let comparison=0;
+  if(typeof leftValue==='string'||typeof rightValue==='string'){
+    comparison=String(leftValue||'').localeCompare(String(rightValue||''),'cs',{sensitivity:'base'});
+  }else{
+    comparison=(Number(leftValue)||0)-(Number(rightValue)||0);
+  }
+  if(comparison)return comparison*direction;
+  const ratingTie=(Number(right.rating)||0)-(Number(left.rating)||0);
+  if(ratingTie)return ratingTie;
+  const appsTie=(Number(right.apps)||0)-(Number(left.apps)||0);
+  if(appsTie)return appsTie;
+  return left.name.localeCompare(right.name,'cs',{sensitivity:'base'});
+}
+
+function playerHeaderButton(key,label,title,extraClass=''){
+  const active=PLAYER_SORT_STATE.key===key;
+  const arrow=active?(PLAYER_SORT_STATE.dir==='desc'?' ↓':' ↑'):'';
+  return`<th class="${extraClass}" title="${lsEsc(title)}"><button class="player-sort-head${active?' active':''}" type="button" onclick="sortPlayersBy('${key}')">${lsEsc(label)}${arrow}</button></th>`;
+}
+
+function buildPlayerDetailContent(player){
+  const sourceLinks=[
+    player.transfermarktUrl
+      ?`<a href="${lsEsc(player.transfermarktUrl)}" target="_blank" rel="noopener">Transfermarkt</a>`:'',
+    (player.livesportUrl||player.sourceUrl)
+      ?`<a href="${lsEsc(player.livesportUrl||player.sourceUrl)}" target="_blank" rel="noopener">Livesport</a>`:''
+  ].filter(Boolean).join(' · ');
+  const details=player.pos==='GK'
+    ?`<table class="player-match-table"><thead><tr><th>vs</th><th>Rating</th><th>Saves</th><th>Save %</th></tr></thead><tbody>${buildGKMatchRows(player)}</tbody></table>`
+    :`<table class="player-match-table"><thead><tr><th>vs</th><th>Mins</th><th>Rating</th><th>Goals</th><th>Assists</th></tr></thead><tbody>${buildFieldMatchRows(player)}</tbody></table>`;
+  return`<div class="players-compact-meta">${lsEsc(player.name)} · ${lsEsc(player.team)} · ${lsEsc(player.pos)}${sourceLinks?' · '+sourceLinks:''}</div>${details}`;
+}
+
 function renderPlayers(){
-  const q=(document.getElementById('player-search')?.value||'').toLowerCase();
+  ensurePlayerSortOptions();
+  updatePlayerSortControls();
+  const q=storageTextKey(document.getElementById('player-search')?.value||'');
   const teamF=document.getElementById('player-team')?.value||'';
   const posF=document.getElementById('player-pos')?.value||'';
+  const preset=document.getElementById('player-columns')?.value||'overview';
+  const visibleKeys=PLAYER_COLUMN_PRESETS[preset]||PLAYER_COLUMN_PRESETS.overview;
+  const visibleColumns=PLAYER_STAT_COLUMNS.filter(column=>visibleKeys.includes(column.key));
+  const summaries=players
+    .filter(player=>{
+      if(teamF&&player.team!==teamF)return false;
+      if(posF&&player.pos!==posF)return false;
+      if(q&&!storageTextKey(player.name).includes(q)&&!storageTextKey(player.team).includes(q))return false;
+      return true;
+    })
+    .map(buildPlayerSummary)
+    .sort(comparePlayerSummaries);
 
-  const filtered=players.filter(p=>{
-    if(teamF&&p.team!==teamF)return false;
-    if(posF&&p.pos!==posF)return false;
-    if(q&&!p.name.toLowerCase().includes(q)&&!p.team.toLowerCase().includes(q))return false;
-    return true;
-  });
+  const counter=document.getElementById('player-cnt');
+  if(counter)counter.textContent=summaries.length+' player'+(summaries.length!==1?'s':'');
+  const list=document.getElementById('players-list');
+  if(!list)return;
+  if(!summaries.length){
+    list.innerHTML='<div class="players-empty">No players found</div>';
+    return;
+  }
 
-  document.getElementById('player-cnt').textContent=filtered.length+' player'+(filtered.length!==1?'s':'');
+  let previousGroup='Identity';
+  const statHeaders=visibleColumns.map(column=>{
+    const groupStart=column.group!==previousGroup;
+    previousGroup=column.group;
+    return playerHeaderButton(
+      column.key,column.label,column.title,
+      groupStart?'group-start':''
+    );
+  }).join('');
+  const header=`<thead><tr>
+    <th class="player-rank"><span class="player-sort-head">#</span></th>
+    ${playerHeaderButton('name','Player','Player name','player-name-cell')}
+    ${playerHeaderButton('team','Team','Team','player-team-cell')}
+    ${playerHeaderButton('pos','Pos','Position','player-pos-cell')}
+    ${statHeaders}
+    <th><span class="player-sort-head">Actions</span></th>
+  </tr></thead>`;
 
-  const teamOrder=TEAMS.filter(t=>filtered.some(p=>p.team===t));
-  const posOrder=['GK','D','M','A'];
-  const posLabel={'GK':'Goalkeeper','D':'Defenders','M':'Midfielders','A':'Attackers'};
+  const columnCount=5+visibleColumns.length;
+  const body=summaries.map((summary,index)=>{
+    const player=summary.player;
+    const playerIndex=players.indexOf(player);
+    const uid=playerIndex;
+    const isOpen=PLAYER_OPEN_DETAILS.has(uid);
+    let lastGroup='Identity';
+    const statCells=visibleColumns.map(column=>{
+      const groupStart=column.group!==lastGroup;
+      lastGroup=column.group;
+      const alignClass=column.align==='left'?' player-team-cell':
+        column.format==='rating'?' player-rating-cell':'';
+      return`<td class="${groupStart?'group-start ':''}${alignClass.trim()}">${formatPlayerStat(summary,column)}</td>`;
+    }).join('');
+    const detailContent=isOpen?buildPlayerDetailContent(player):'';
+    return`<tr class="player-summary-row">
+      <td class="player-rank">${index+1}</td>
+      <td class="player-name-cell">${lsEsc(player.name)}</td>
+      <td class="player-team-cell">${lsEsc(player.team)}</td>
+      <td class="player-pos-cell">${lsEsc(player.pos)}</td>
+      ${statCells}
+      <td class="player-actions-cell"><div class="player-row-actions">
+        <button class="expand-btn${isOpen?' active':''}" id="pdb-${uid}" type="button" onclick="togglePlayerDetail(${uid})">${isOpen?'Hide':'Details'}</button>
+        <button class="action-btn" type="button" onclick="openEditPlayerModal(${playerIndex})">Edit</button>
+      </div></td>
+    </tr>
+    <tr class="player-detail-row${isOpen?' open':''}" id="pd-${uid}" data-loaded="${isOpen?'1':'0'}">
+      <td colspan="${columnCount}"><div class="player-detail-wrap">${detailContent}</div></td>
+    </tr>`;
+  }).join('');
 
-  let html='';
-  teamOrder.forEach(team=>{
-    const teamPlayers=filtered.filter(p=>p.team===team);
-    if(!teamPlayers.length)return;
-    html+=`<div class="team-section">
-      <div class="team-header" onclick="toggleTeam(this)">
-        <span class="team-header-name">${team}</span>
-        <span class="team-header-toggle">&#9660; ${teamPlayers.length} player${teamPlayers.length!==1?'s':''}</span>
-      </div>
-      <div class="team-players open">`;
-
-    posOrder.forEach(pos=>{
-      const posPlayers=teamPlayers.filter(p=>p.pos===pos);
-      if(!posPlayers.length)return;
-      html+=`<div class="pos-group"><div class="pos-label">${posLabel[pos]}</div>`;
-
-      if(pos==='GK'){
-        html+=`<div class="pos-players-wrap"><div class="players-head gk-head" style="grid-template-columns:160px 50px 55px 70px 55px 65px 80px;min-width:555px">
-          <div class="ph left">Name</div>
-          <div class="ph">Apps</div>
-          <div class="ph">Rating</div>
-          <div class="ph">Saves</div>
-          <div class="ph">Save %</div>
-          <div class="ph">Mkt Val</div>
-          <div class="ph"></div>
-        </div>`;
-        posPlayers.forEach(p=>{
-          const avg=avgForm(p);const rc=ratingClass(avg?parseFloat(avg):null);
-          const sv=totalSaves(p),sh=totalShots(p);
-          const svPct=sh>0?Math.round(sv/sh*100)+'%':'—';
-          const pidx=players.indexOf(p);
-          const uid=pidx;
-          html+=`<div class="player-row gk-row" style="grid-template-columns:160px 50px 55px 70px 55px 65px 80px;min-width:555px">
-            <span class="pc pname">${p.name}${livesportCardSummary(p)}</span>
-            <span class="pc dim">${p.matches.length}</span>
-            <span class="pc">${avg?`<span class="rating ${rc}">${avg}</span>`:'—'}</span>
-            <span class="pc dim">${sv}/${sh}</span>
-            <span class="pc dim">${svPct}</span>
-            <span class="pc dim" style="font-size:10px">${p.mv||'—'}</span>
-            <span class="pc"><div style="display:flex;gap:4px">
-              <button class="expand-btn" id="pdb-${uid}" onclick="togglePlayerDetail(${uid})">Details</button>
-              <button class="action-btn" onclick="openEditPlayerModal(${pidx})">Edit</button>
-            </div></span>
-          </div>
-          <div class="player-detail-row" id="pd-${uid}">
-            <table class="player-match-table">
-              <thead><tr><th>vs</th><th>Rating</th><th>Saves</th><th>Save %</th><th></th><th></th></tr></thead>
-              <tbody>${buildGKMatchRows(p)}</tbody>
-            </table>
-          </div>`;
-        });
-      }else{
-        html+=`<div class="pos-players-wrap"><div class="players-head" style="grid-template-columns:160px 50px 55px 50px 50px 42px 65px 80px;min-width:572px">
-          <div class="ph left">Name</div>
-          <div class="ph">Apps</div>
-          <div class="ph">Rating</div>
-          <div class="ph">Goals</div>
-          <div class="ph">Assists</div>
-          <div class="ph">G+A</div>
-          <div class="ph">Mkt Val</div>
-          <div class="ph"></div>
-        </div>`;
-        posPlayers.forEach(p=>{
-          const avg=avgForm(p);const rc=ratingClass(avg?parseFloat(avg):null);
-          const g=totalGoals(p),a=totalAssists(p);
-          const pidx=players.indexOf(p);
-          const uid=pidx;
-          html+=`<div class="player-row" style="grid-template-columns:160px 50px 55px 50px 50px 42px 65px 80px;min-width:572px">
-            <span class="pc pname">${p.name}${livesportCardSummary(p)}</span>
-            <span class="pc dim">${p.matches.length}</span>
-            <span class="pc">${avg?`<span class="rating ${rc}">${avg}</span>`:'—'}</span>
-            <span class="pc dim">${g>0?`<span style="color:var(--green);font-weight:600">${g}</span>`:g}</span>
-            <span class="pc dim">${a>0?`<span style="color:var(--amber);font-weight:600">${a}</span>`:a}</span>
-            <span class="pc dim" style="font-weight:${g+a>0?600:400}">${g+a}</span>
-            <span class="pc dim" style="font-size:10px">${p.mv||'—'}</span>
-            <span class="pc"><div style="display:flex;gap:4px">
-              <button class="expand-btn" id="pdb-${uid}" onclick="togglePlayerDetail(${uid})">Details</button>
-              <button class="action-btn" onclick="openEditPlayerModal(${pidx})">Edit</button>
-            </div></span>
-          </div>
-          <div class="player-detail-row" id="pd-${uid}">
-            <table class="player-match-table">
-              <thead><tr><th>vs</th><th>Mins</th><th>Rating</th><th>Goals</th><th>Assists</th><th></th></tr></thead>
-              <tbody>${buildFieldMatchRows(p)}</tbody>
-            </table>
-          </div>`;
-        });
-      }
-      html+=`</div></div>`;
-    });
-
-    html+=`</div></div>`;
-  });
-
-  document.getElementById('players-list').innerHTML=html||'<div style="text-align:center;padding:32px;color:#999;font-size:13px">No players found</div>';
+  list.innerHTML=`<div class="players-compact-meta">
+    Sorted by <strong>${lsEsc(playerSortLabel(PLAYER_SORT_STATE.key))}</strong>
+    ${PLAYER_SORT_STATE.dir==='desc'?'descending':'ascending'} ·
+    Current-season totals · Click any column header to sort
+  </div>
+  <div class="players-compact-shell">
+    <table class="players-compact-table">${header}<tbody>${body}</tbody></table>
+  </div>`;
 }
 
 function toggleTeam(header){
@@ -3486,7 +3833,16 @@ function applyTransfermarktMarketValues(){
 applyTransfermarktMarketValues();
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
+// Keep this key stable across every HTML release. GitHub Pages deployments
+// replace the application code, but browser storage on the same origin remains.
 const STORAGE_KEY = 'chanceliga_v4_2026_27_clean_players';
+const STORAGE_BACKUP_KEY = 'chanceliga_v4_2026_27_clean_players_backup';
+const STORAGE_SCHEMA_VERSION = 3;
+const PUBLISHED_DATA_FILE = 'chanceliga-data.json';
+let restoredStorageSavedAt = 0;
+let restoredFromBrowserStorage = false;
+let restoredStorageSnapshot = null;
+let storageBootstrapping = true;
 
 function getStorableData(){
   // Only store user-added/modified data — not the hardcoded historical seasons
@@ -3494,7 +3850,9 @@ function getStorableData(){
   // For players: store all player data (matches get added over time)
   // For predMatches: store active predictions
   return {
-    version: 2,
+    app: 'chance-liga-dashboard',
+    version: STORAGE_SCHEMA_VERSION,
+    schemaVersion: STORAGE_SCHEMA_VERSION,
     playerMatchesSeason: CURRENT_SEASON,
     savedAt: new Date().toISOString(),
     // results_current: only current-season matches (the ones users add; history is hardcoded)
@@ -3515,38 +3873,153 @@ function migrateCurrentClubName(team, season=CURRENT_SEASON){
   return season===CURRENT_SEASON && team==='Karviná' ? 'Artis Brno' : team;
 }
 
+function storageTextKey(value){
+  return String(value || '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[øØ]/g,'o').replace(/[łŁ]/g,'l').replace(/[đĐðÐ]/g,'d')
+    .replace(/[æÆ]/g,'ae').replace(/[œŒ]/g,'oe').replace(/ß/g,'ss')
+    .toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+}
+
+function storageResultKey(match){
+  return [
+    match.season || CURRENT_SEASON,
+    Number(match.r ?? match.round ?? 0),
+    storageTextKey(match.h ?? match.home),
+    storageTextKey(match.a ?? match.away)
+  ].join('|');
+}
+
+function storagePlayerMatchKey(match){
+  if(match?.livesportMatchId) return 'livesport|' + match.livesportMatchId;
+  return [
+    match?.season || CURRENT_SEASON,
+    Number(match?.round ?? match?.r ?? 0),
+    match?.date || '',
+    storageTextKey(match?.opponent || match?.vs),
+    match?.homeAway || ''
+  ].join('|');
+}
+
+function mergeStoredRows(baseRows, incomingRows, keyFn){
+  const merged = new Map();
+  (Array.isArray(baseRows) ? baseRows : []).forEach(row=>{
+    if(row) merged.set(keyFn(row), {...row});
+  });
+  (Array.isArray(incomingRows) ? incomingRows : []).forEach(row=>{
+    if(!row) return;
+    const key=keyFn(row);
+    merged.set(key, {...(merged.get(key)||{}), ...row});
+  });
+  return [...merged.values()];
+}
+
+function normalizeStoredData(raw){
+  if(Array.isArray(raw)){
+    const playerRows=raw.filter(item=>item && item.name).map(item=>({
+      ...item,
+      career:Array.isArray(item.career) ? item.career :
+        (Array.isArray(item.seasons) ? item.seasons : []),
+      matches:Array.isArray(item.matches) ? item.matches : []
+    }));
+    return playerRows.length ? {
+      app:'chance-liga-dashboard',
+      version:STORAGE_SCHEMA_VERSION,
+      schemaVersion:STORAGE_SCHEMA_VERSION,
+      playerMatchesSeason:CURRENT_SEASON,
+      savedAt:new Date().toISOString(),
+      players:playerRows
+    } : null;
+  }
+  if(!raw || typeof raw!=='object') return null;
+  const source=(raw.data && typeof raw.data==='object' && !Array.isArray(raw.data))
+    ? raw.data : raw;
+  const allResults=Array.isArray(source.results) ? source.results : [];
+  const currentResults=Array.isArray(source.results_current) ? source.results_current :
+    (Array.isArray(source.resultsCurrent) ? source.resultsCurrent :
+      allResults.filter(item=>(item.season||CURRENT_SEASON)===CURRENT_SEASON));
+  const extraResults=Array.isArray(source.results_extra) ? source.results_extra :
+    (Array.isArray(source.resultsExtra) ? source.resultsExtra :
+      allResults.filter(item=>(item.season||CURRENT_SEASON)!==CURRENT_SEASON));
+  const normalized={
+    ...source,
+    app:source.app || 'chance-liga-dashboard',
+    version:Number(source.version || source.schemaVersion || 1),
+    schemaVersion:Number(source.schemaVersion || source.version || 1),
+    playerMatchesSeason:source.playerMatchesSeason || source.season || CURRENT_SEASON,
+    savedAt:source.savedAt || source.updatedAt || source.exportedAt || null,
+    results_current:currentResults,
+    results_extra:extraResults,
+    players:Array.isArray(source.players) ? source.players :
+      (Array.isArray(source.playerData) ? source.playerData : []),
+    predMatches:Array.isArray(source.predMatches) ? source.predMatches :
+      (Array.isArray(source.predictions) ? source.predictions : []),
+    lockedPredictions:Array.isArray(source.lockedPredictions) ? source.lockedPredictions :
+      (Array.isArray(source.locked) ? source.locked : []),
+    _hasPredMatches:typeof source._hasPredMatches==='boolean'
+      ? source._hasPredMatches
+      : ['predMatches','predictions']
+        .some(key=>Object.prototype.hasOwnProperty.call(source,key)),
+    _hasLockedPredictions:typeof source._hasLockedPredictions==='boolean'
+      ? source._hasLockedPredictions
+      : ['lockedPredictions','locked']
+        .some(key=>Object.prototype.hasOwnProperty.call(source,key))
+  };
+  const recognizable=[
+    normalized.results_current, normalized.results_extra, normalized.players,
+    normalized.predMatches, normalized.lockedPredictions
+  ].some(value=>Array.isArray(value) && value.length) ||
+    ['results_current','resultsCurrent','results','players','playerData',
+     'predMatches','predictions','lockedPredictions','locked']
+      .some(key=>Object.prototype.hasOwnProperty.call(source,key));
+  return recognizable ? normalized : null;
+}
+
+function findStoredPlayer(saved){
+  if(saved.transfermarktPlayerId){
+    const byId=players.find(player=>
+      String(player.transfermarktPlayerId||'')===String(saved.transfermarktPlayerId)
+    );
+    if(byId) return byId;
+  }
+  const savedName=storageTextKey(saved.name);
+  const savedTeam=storageTextKey(migrateCurrentClubName(saved.team, CURRENT_SEASON));
+  const sameTeam=players.find(player=>
+    storageTextKey(player.name)===savedName && storageTextKey(player.team)===savedTeam
+  );
+  if(sameTeam) return sameTeam;
+  const sameName=players.filter(player=>storageTextKey(player.name)===savedName);
+  return sameName.length===1 ? sameName[0] : null;
+}
+
 function applyStoredData(data){
-  if(!data || ![1,2].includes(data.version)) return false;
+  data=normalizeStoredData(data);
+  if(!data) return false;
   try{
-    // Restore 2025/26 results (replace the hardcoded block)
-    if(data.results_current && data.results_current.length){
-      // Remove existing 2025/26 from results[]
-      for(let i=results.length-1;i>=0;i--){
-        if(results[i].season===CURRENT_SEASON) results.splice(i,1);
-      }
-      // Add stored current-season results
-      data.results_current.forEach(raw => {
-        const m={...raw};
-        if(!m.season) m.season=CURRENT_SEASON;
-        m.h=migrateCurrentClubName(m.h,m.season);
-        m.a=migrateCurrentClubName(m.a,m.season);
-        results.push(m);
-      });
-    }
-    // Restore extra results (user-added with xG etc.)
-    if(data.results_extra && data.results_extra.length){
-      data.results_extra.forEach(m => {
-        const exists = results.find(r => r.season===m.season && r.r===m.r && r.h===m.h && r.a===m.a);
-        if(!exists) results.push(m);
-      });
-    }
+    // Merge results by fixture identity. New embedded results and older user
+    // records are both retained; imported values win only for the same fixture.
+    const incomingResults=[
+      ...(Array.isArray(data.results_current) ? data.results_current : []),
+      ...(Array.isArray(data.results_extra) ? data.results_extra : [])
+    ].map(raw=>{
+      const match={...raw};
+      if(!match.season) match.season=CURRENT_SEASON;
+      match.r=Number(match.r ?? match.round);
+      match.h=migrateCurrentClubName(match.h ?? match.home,match.season);
+      match.a=migrateCurrentClubName(match.a ?? match.away,match.season);
+      return match;
+    });
+    const mergedResults=mergeStoredRows(results,incomingResults,storageResultKey);
+    results.length=0;
+    results.push(...mergedResults);
     // Restore players: merge saved career[] onto existing hardcoded players.
     // Never remove hardcoded players. Only add career data and new manually-added players.
     if(data.players && data.players.length){
       data.players.forEach(saved=>{
         if(saved.team==='Karviná') return; // obsolete 2026/27 roster after league replacement
-        // Find existing player in hardcoded set
-        const existing=players.find(p=>p.name===saved.name&&p.team===saved.team);
+        // Prefer stable Transfermarkt id, then normalized name + club. This
+        // keeps imports working after spelling, accents or roster corrections.
+        const existing=findStoredPlayer(saved);
         if(existing){
           // Restore imported market values and their Transfermarkt provenance.
           // The previous importer ignored mv for existing roster players.
@@ -3559,30 +4032,38 @@ function applyStoredData(data){
           ].forEach(key=>{
             if(Object.prototype.hasOwnProperty.call(saved,key)) existing[key]=saved[key];
           });
-          // Restore career data only
+          // Merge career rows; a newer imported row updates the same
+          // season/team/competition instead of creating a duplicate.
           if(saved.career&&saved.career.length){
-            if(!existing.career)existing.career=[];
-            saved.career.forEach(c=>{
-              const dup=existing.career.find(x=>x.season===c.season&&x.team===c.team);
-              if(!dup)existing.career.push(c);
-            });
+            existing.career=mergeStoredRows(
+              existing.career,
+              saved.career,
+              row=>[
+                row.season||'',
+                storageTextKey(row.team),
+                storageTextKey(row.competition)
+              ].join('|')
+            );
           }
-          // Restore current-season match details only from the new 2026/27 save format.
-          // Old saved browser data from 2025/26 is intentionally ignored so the Players tab starts clean.
-          if(data.version>=2 && data.playerMatchesSeason===CURRENT_SEASON && saved.matches){
-            existing.matches=saved.matches;
+          // Merge current-season match details by Livesport id / fixture key.
+          if(data.playerMatchesSeason===CURRENT_SEASON && Array.isArray(saved.matches)){
+            existing.matches=mergeStoredRows(
+              existing.matches,
+              saved.matches.filter(match=>(match.season||CURRENT_SEASON)===CURRENT_SEASON),
+              storagePlayerMatchKey
+            );
           }
         }else{
           // Truly new player added by user. Keep future 2026/27 player additions,
           // but do not resurrect old 2025/26 players from previous browser saves.
-          if(data.version>=2 && data.playerMatchesSeason===CURRENT_SEASON && TEAMS.includes(saved.team)){
+          if(data.playerMatchesSeason===CURRENT_SEASON && TEAMS.includes(saved.team)){
             players.push(saved);
           }
         }
       });
     }
     // Restore predictions
-    if(data.predMatches){
+    if(data._hasPredMatches){
       predMatches.length = 0;
       data.predMatches.forEach(raw => {
         const m={...raw};
@@ -3592,7 +4073,7 @@ function applyStoredData(data){
         predMatches.push(m);
       });
     }
-if(data.lockedPredictions){
+    if(data._hasLockedPredictions){
       lockedPredictions.length=0;
       data.lockedPredictions.forEach(raw=>{
         const l={...raw};
@@ -3618,10 +4099,46 @@ function setStatus(msg, type=''){
   if(type==='ok') setTimeout(()=>{el.textContent='';el.className='storage-status';}, 3000);
 }
 
+function persistSnapshot(data=getStorableData()){
+  const serialized=JSON.stringify(data);
+  const previous=localStorage.getItem(STORAGE_KEY);
+  if(!storageBootstrapping && previous && previous!==serialized){
+    localStorage.setItem(STORAGE_BACKUP_KEY,previous);
+  }
+  localStorage.setItem(STORAGE_KEY,serialized);
+  return data;
+}
+
+function readBestStorageSnapshot(){
+  const keys=[STORAGE_KEY,STORAGE_BACKUP_KEY];
+  try{
+    for(let index=0;index<localStorage.length;index++){
+      const key=localStorage.key(index);
+      if(key && /^chanceliga_/i.test(key) && !keys.includes(key)) keys.push(key);
+    }
+  }catch(_){}
+  const candidates=[];
+  keys.forEach((key,order)=>{
+    try{
+      const raw=localStorage.getItem(key);
+      if(!raw) return;
+      const data=normalizeStoredData(JSON.parse(raw));
+      if(!data) return;
+      candidates.push({
+        key,data,order,raw,
+        savedAt:Date.parse(data.savedAt||0)||0
+      });
+    }catch(_){}
+  });
+  candidates.sort((left,right)=>
+    right.savedAt-left.savedAt || left.order-right.order
+  );
+  return candidates[0]||null;
+}
+
 function saveToStorage(){
   try{
-    const data = getStorableData();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    persistSnapshot();
     setStatus('Saved ✓  ' + new Date().toLocaleTimeString(), 'ok');
   }catch(e){
     setStatus('Save failed: ' + e.message, 'warn');
@@ -3630,24 +4147,31 @@ function saveToStorage(){
 
 function loadFromStorage(){
   try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return false;
-    const data = JSON.parse(raw);
-    if(!data||!data.version){
-      // Corrupt/incompatible data - clear it silently
-      localStorage.removeItem(STORAGE_KEY);
-      return false;
-    }
-    const ok = applyStoredData(data);
+    const candidate=readBestStorageSnapshot();
+    if(!candidate) return false;
+    const data=candidate.data;
+    const ok=applyStoredData(data);
     if(ok){
-      const d = new Date(data.savedAt);
-      setStatus('Loaded: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString());
+      restoredFromBrowserStorage=true;
+      restoredStorageSavedAt=candidate.savedAt;
+      restoredStorageSnapshot=data;
+      // Freeze the pre-update snapshot before any release-time migrations run.
+      // If initialization fails halfway through, the prior data is still intact.
+      localStorage.setItem(STORAGE_BACKUP_KEY,candidate.raw);
+      // Migrate legacy keys/formats into the stable canonical key.
+      if(candidate.key!==STORAGE_KEY || data.version!==STORAGE_SCHEMA_VERSION){
+        persistSnapshot();
+      }
+      const d=data.savedAt ? new Date(data.savedAt) : null;
+      setStatus(d && !Number.isNaN(d.getTime())
+        ? 'Loaded: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString()
+        : 'Saved data loaded');
     }
     return ok;
   }catch(e){
-    // Bad data in localStorage - clear it and continue with defaults
-    try{localStorage.removeItem(STORAGE_KEY);}catch(_){}
-    setStatus('Saved data was incompatible, reset to defaults.', 'warn');
+    // Never delete a snapshot merely because a newer release cannot parse it.
+    // The untouched backup can still be exported or read by a later migration.
+    setStatus('Saved data could not be read; the backup was kept.', 'warn');
     return false;
   }
 }
@@ -3657,7 +4181,7 @@ function exportJSON(){
   const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'chanceliga_' + new Date().toISOString().slice(0,10) + '.json';
+  a.download = PUBLISHED_DATA_FILE;
   a.click();
   setStatus('Exported ✓', 'ok');
 }
@@ -3668,13 +4192,13 @@ function importJSON(input){
   const reader = new FileReader();
   reader.onload = e => {
     try{
-      const data = JSON.parse(e.target.result);
+      const data = normalizeStoredData(JSON.parse(e.target.result));
       const ok = applyStoredData(data);
       if(ok){
         // Re-apply the verified current rosters after importing an older backup.
         if(typeof applyAuthoritativeRosters202627==='function') applyAuthoritativeRosters202627(false);
         // Also save the canonicalized runtime state to localStorage.
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(getStorableData()));
+        persistSnapshot();
         // Re-render everything
         rebuildRoundSel();
         rebuildPredRoundSelects();
@@ -3700,6 +4224,7 @@ function importJSON(input){
 function clearStorage(){
   if(confirm('Clear all saved data from this browser? The hardcoded base data stays. Your added results, player updates and predictions will be lost unless you exported first.')){
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(STORAGE_BACKUP_KEY);
     setStatus('Cleared. Reload the page to start fresh.', 'warn');
   }
 }
@@ -3707,7 +4232,7 @@ function clearStorage(){
 // Auto-save whenever user adds data
 function autoSave(){
   try{
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(getStorableData()));
+    persistSnapshot();
   }catch(e){}
 }
 
@@ -4717,7 +5242,7 @@ function applyAuthoritativeRosters202627(shouldRender=true) {
 
   // Persist the migrated roster together with the user's existing results and
   // predictions, so stale browser data cannot restore departed players later.
-  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(getStorableData())); }catch(_){}
+  try{ persistSnapshot(); }catch(_){}
 
   if(shouldRender) {
     if(typeof populatePlayerTeamFilter==='function') populatePlayerTeamFilter();
@@ -4772,7 +5297,7 @@ function applyArtisBrnoLivesportCareers(shouldRender=true) {
     applied++;
   });
 
-  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(getStorableData())); }catch(_){}
+  try{ persistSnapshot(); }catch(_){}
   if(shouldRender && typeof renderPlayers==='function' && document.getElementById('sec-players')?.classList.contains('on')) renderPlayers();
   return {applied,missing};
 }
@@ -5310,11 +5835,8 @@ function lsRefreshAfterCheck() {
   if (document.getElementById('sec-players')?.classList.contains('on')) renderPlayers();
 }
 
-async function lsCheckOneFixture(fixture, previewWindow) {
+async function lsCheckOneFixture(fixture) {
   const baseUrl = lsMatchBaseUrl(fixture.home, fixture.away);
-  if (previewWindow && !previewWindow.closed) {
-    try { previewWindow.location.href = baseUrl; } catch (_) {}
-  }
   const response = await fetch(baseUrl, {
     cache: 'no-store',
     credentials: 'omit',
@@ -5371,24 +5893,6 @@ async function checkAwaitingResults() {
     return;
   }
 
-  const firstSupported = fixtures.find(fixture => {
-    try {
-      lsMatchBaseUrl(fixture.home, fixture.away);
-      return true;
-    } catch (_) {
-      return false;
-    }
-  });
-  let previewWindow = null;
-  if (firstSupported) {
-    try {
-      previewWindow = window.open(
-        lsMatchBaseUrl(firstSupported.home, firstSupported.away),
-        'chance-liga-livesport-check'
-      );
-    } catch (_) {}
-  }
-
   if (button) {
     button.disabled = true;
     button.dataset.originalText = button.textContent;
@@ -5406,7 +5910,7 @@ async function checkAwaitingResults() {
         'working'
       );
       try {
-        const outcome = await lsCheckOneFixture(fixture, previewWindow);
+        const outcome = await lsCheckOneFixture(fixture);
         outcomes.push(outcome);
         if (outcome.status === 'finished') {
           changed = true;
@@ -5484,7 +5988,7 @@ function applyLivesportRound1PlayerMatches(shouldRender=true){
     player.matches.sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
     applied++;
   });
-  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(getStorableData()));}catch(_){}
+  try{persistSnapshot();}catch(_){}
   if(shouldRender && typeof renderPlayers==='function' && document.getElementById('sec-players')?.classList.contains('on')) renderPlayers();
   return {applied,missing,version:LIVESPORT_ROUND1_IMPORT_VERSION};
 }
@@ -5600,6 +6104,61 @@ function applyVerifiedTransfermarktValues202627(shouldRender=true){
 
 applyLivesportRound1PlayerMatches(true);
 applyVerifiedTransfermarktValues202627(true);
+
+function renderAfterDataRestore(){
+  rebuildRoundSel();
+  rebuildPredRoundSelects();
+  populateTeamFilter();
+  populatePlayerTeamFilter();
+  renderTable();
+  filterRes();
+  renderPred();
+  renderPred2();
+  renderAccuracy();
+  if(document.getElementById('sec-players')?.classList.contains('on')) renderPlayers();
+}
+
+// Re-apply the user's snapshot after all release-time roster/stat migrations.
+// This makes the precedence explicit: new code/base data first, user data last.
+if(restoredStorageSnapshot){
+  applyStoredData(restoredStorageSnapshot);
+  applyVerifiedTransfermarktValues202627(false);
+  persistSnapshot();
+  renderAfterDataRestore();
+}
+storageBootstrapping=false;
+
+async function loadPublishedDataSnapshot(){
+  // A sibling JSON file is the durable, deployment-independent data layer for
+  // GitHub Pages. Local file previews keep using browser storage/import.
+  if(!/^https?:$/.test(location.protocol)) return false;
+  try{
+    const url=new URL(PUBLISHED_DATA_FILE,location.href);
+    url.searchParams.set('refresh',Date.now());
+    const response=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'}});
+    if(!response.ok) return false;
+    const published=normalizeStoredData(await response.json());
+    if(!published) return false;
+    const publishedSavedAt=Date.parse(published.savedAt||0)||0;
+    if(
+      restoredFromBrowserStorage &&
+      (!publishedSavedAt || publishedSavedAt<=restoredStorageSavedAt)
+    ) return false;
+    if(!applyStoredData(published)) return false;
+    // Embedded verified values may be newer than the published snapshot.
+    applyVerifiedTransfermarktValues202627(false);
+    persistSnapshot();
+    renderAfterDataRestore();
+    setStatus('Published data loaded ✓','ok');
+    return true;
+  }catch(_){
+    // The companion file is optional; browser storage and manual JSON import
+    // remain available when it is absent.
+    return false;
+  }
+}
+
+void loadPublishedDataSnapshot();
 
 </script>
 </body>
