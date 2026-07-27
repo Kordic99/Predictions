@@ -435,7 +435,6 @@
     <button class="btn red" onclick="togglePredForm()">+ Add match</button>
     <span class="cnt" id="pred-cnt"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
-      <button class="btn red" id="check-results-btn" type="button" onclick="checkAwaitingResults()">Check results</button>
       <select class="si" id="pf-season" onchange="renderPred()" style="font-size:11px">
         <option value="">All seasons</option>
         <option value="2026/27" selected>2026/27</option>
@@ -600,6 +599,7 @@
     <span style="font-size:13px;font-weight:600;color:var(--text)">Prediction Accuracy</span>
     <span id="acc-summary" style="font-size:11px;color:var(--text3)"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
+      <button class="btn red" id="check-results-btn" type="button" onclick="checkAwaitingResults()">Check results</button>
       <select class="si" id="af-season" onchange="renderAccuracy()" style="font-size:11px">
         <option value="">All seasons</option>
         <option value="2026/27" selected>2026/27</option>
