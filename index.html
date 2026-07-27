@@ -219,7 +219,9 @@
   .players-head .ph { padding: 5px 8px; text-align: center; border-right: 1px solid #333; }
   .players-head .ph:last-child { border-right: none; }
   .players-head .ph.left { text-align: left; }
-  .players-compact-shell { overflow:auto; border:1px solid var(--border); border-radius:10px; background:var(--bg); }
+  .players-scroll-top { position:sticky; top:0; z-index:12; width:100%; height:16px; overflow-x:auto; overflow-y:hidden; margin-bottom:4px; border:1px solid var(--border); border-radius:6px; background:var(--bg2); scrollbar-color:var(--text3) var(--bg3); }
+  .players-scroll-top-inner { height:1px; }
+  .players-compact-shell { overflow:auto; border:1px solid var(--border); border-radius:10px; background:var(--bg); scrollbar-color:var(--text3) var(--bg3); }
   .players-compact-table { width:max-content; min-width:100%; border-collapse:separate; border-spacing:0; font-size:10px; }
   .players-compact-table th { position:sticky; top:0; z-index:4; padding:0; background:#1a1a1a; color:#ffffffa8; border-bottom:1px solid #333; white-space:nowrap; }
   .players-compact-table th.group-start,
@@ -3579,6 +3581,34 @@ function buildPlayerDetailContent(player){
   return`<div class="players-compact-meta">${lsEsc(player.name)} · ${lsEsc(player.team)} · ${lsEsc(player.pos)}${sourceLinks?' · '+sourceLinks:''}</div>${details}`;
 }
 
+function syncPlayerTableScrollbars(initialScroll=0){
+  const top=document.getElementById('players-scroll-top');
+  const spacer=document.getElementById('players-scroll-top-inner');
+  const shell=document.getElementById('players-scroll-main');
+  const table=shell?.querySelector('.players-compact-table');
+  if(!top||!spacer||!shell||!table)return;
+  const schedule=typeof requestAnimationFrame==='function'?requestAnimationFrame:(callback=>callback());
+  schedule(()=>{
+    spacer.style.width=Math.max(table.scrollWidth,shell.clientWidth)+'px';
+    const start=Math.min(initialScroll,Math.max(0,table.scrollWidth-shell.clientWidth));
+    top.scrollLeft=start;
+    shell.scrollLeft=start;
+  });
+  let syncing=false;
+  top.onscroll=()=>{
+    if(syncing)return;
+    syncing=true;
+    shell.scrollLeft=top.scrollLeft;
+    syncing=false;
+  };
+  shell.onscroll=()=>{
+    if(syncing)return;
+    syncing=true;
+    top.scrollLeft=shell.scrollLeft;
+    syncing=false;
+  };
+}
+
 function renderPlayers(){
   ensurePlayerSortOptions();
   updatePlayerSortControls();
@@ -3600,6 +3630,7 @@ function renderPlayers(){
 
   const counter=document.getElementById('player-cnt');
   if(counter)counter.textContent=summaries.length+' player'+(summaries.length!==1?'s':'');
+  const previousScroll=document.getElementById('players-scroll-main')?.scrollLeft||0;
   const list=document.getElementById('players-list');
   if(!list)return;
   if(!summaries.length){
@@ -3661,9 +3692,13 @@ function renderPlayers(){
     ${PLAYER_SORT_STATE.dir==='desc'?'descending':'ascending'} ·
     Current-season totals · Click any column header to sort
   </div>
-  <div class="players-compact-shell">
+  <div class="players-scroll-top" id="players-scroll-top" tabindex="0" aria-label="Horizontal player table scroll" aria-controls="players-scroll-main">
+    <div class="players-scroll-top-inner" id="players-scroll-top-inner"></div>
+  </div>
+  <div class="players-compact-shell" id="players-scroll-main">
     <table class="players-compact-table">${header}<tbody>${body}</tbody></table>
   </div>`;
+  syncPlayerTableScrollbars(previousScroll);
 }
 
 function toggleTeam(header){
