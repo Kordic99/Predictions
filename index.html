@@ -144,6 +144,38 @@
   .pred-toggle:hover { color: var(--text2); }
   .pred-toggle-arrow { font-size: 10px; transition: transform .2s; }
   .pred-toggle-arrow.open { transform: rotate(180deg); }
+
+  /* SCHEDULE */
+  .schedule-info { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px; padding:11px 13px; border:1px solid #185FA544; border-left:3px solid var(--blue); border-radius:8px; background:#185FA50b; }
+  .schedule-info-main { font-size:11px; line-height:1.55; color:var(--text2); }
+  .schedule-info-main strong { color:var(--text); }
+  .schedule-source { font-size:10px; color:var(--blue); text-decoration:none; white-space:nowrap; }
+  .schedule-source:hover { text-decoration:underline; }
+  .schedule-list { display:flex; flex-direction:column; gap:9px; }
+  .schedule-round { border:1px solid var(--border); border-radius:9px; overflow:hidden; background:var(--bg); }
+  .schedule-round-head { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:7px 10px; background:var(--bg2); border-bottom:1px solid var(--border); }
+  .schedule-round-title { font-size:12px; font-weight:700; color:var(--text); }
+  .schedule-round-meta { font-size:10px; font-weight:400; color:var(--text3); margin-left:7px; }
+  .schedule-grid { display:grid; grid-template-columns:105px minmax(150px,1fr) 52px minmax(150px,1fr) 44px; align-items:center; }
+  .schedule-grid + .schedule-grid { border-top:1px solid var(--border); }
+  .schedule-match:hover { background:var(--bg2); }
+  .schedule-cell { padding:7px 9px; font-size:11px; color:var(--text2); min-width:0; }
+  .schedule-date { font-size:10px; color:var(--text3); font-variant-numeric:tabular-nums; }
+  .schedule-team-home { text-align:right; color:var(--text); font-weight:500; }
+  .schedule-team-away { color:var(--text); font-weight:500; }
+  .schedule-score { text-align:center; font-weight:700; color:var(--text); font-variant-numeric:tabular-nums; }
+  .schedule-score.upcoming { color:var(--text3); font-weight:500; }
+  .schedule-link { text-align:center; }
+  .schedule-link a { color:var(--blue); text-decoration:none; font-size:10px; }
+  .schedule-link a:hover { text-decoration:underline; }
+  .schedule-import { display:flex; gap:5px; align-items:center; flex-wrap:wrap; }
+  @media (max-width:700px) {
+    .schedule-info { flex-direction:column; }
+    .schedule-grid { grid-template-columns:82px minmax(105px,1fr) 42px minmax(105px,1fr) 34px; min-width:470px; }
+    .schedule-round-body { overflow-x:auto; }
+    .schedule-cell { padding:6px; font-size:10px; }
+  }
+
   /* LIVESPORT FETCH */
   .ls-fetch-wrap { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:12px; }
   .ls-fetch-row { display:flex; gap:8px; align-items:center; margin-bottom:8px; flex-wrap:wrap; }
@@ -347,13 +379,14 @@
   <span class="storage-status" id="storage-status"></span>
 </div>
 <div class="tabs">
-  <button class="tab active" onclick="sw('main')">Main Table</button>
-  <button class="tab" onclick="sw('results')">Results</button>
-  <button class="tab" onclick="sw('pred')">Prediction</button>
-  <button class="tab" onclick="sw('pred2');renderPred2()">Prediction 2</button>
-  <button class="tab" onclick="sw('players');renderPlayers()">Players</button>
-  <button class="tab" onclick="sw('prev');renderPrevYears()">Prev. years</button>
-  <button class="tab" onclick="sw('accuracy');renderAccuracy()">Accuracy</button>
+  <button class="tab active" data-tab="main" onclick="sw('main')">Main Table</button>
+  <button class="tab" data-tab="results" onclick="sw('results')">Results</button>
+  <button class="tab" data-tab="schedule" onclick="sw('schedule');renderSchedule()">Schedule</button>
+  <button class="tab" data-tab="pred" onclick="sw('pred')">Prediction</button>
+  <button class="tab" data-tab="pred2" onclick="sw('pred2');renderPred2()">Prediction 2</button>
+  <button class="tab" data-tab="players" onclick="sw('players');renderPlayers()">Players</button>
+  <button class="tab" data-tab="prev" onclick="sw('prev');renderPrevYears()">Prev. years</button>
+  <button class="tab" data-tab="accuracy" onclick="sw('accuracy');renderAccuracy()">Accuracy</button>
 </div>
 
 <!-- MAIN TABLE -->
@@ -461,10 +494,39 @@
   </div>
 </div>
 
+<!-- SCHEDULE -->
+<div class="sec" id="sec-schedule">
+  <div class="schedule-info">
+    <div class="schedule-info-main">
+      <strong>Chance Liga 2026/27 · complete regular-season schedule</strong><br/>
+      30 rounds · 240 matches · 8 matches per round. Exact kick-off times are shown where the league has confirmed them; later times may still be updated.
+    </div>
+    <a class="schedule-source" href="https://www.chanceliga.cz/rozpis-zapasu" target="_blank" rel="noopener">Official schedule ↗</a>
+  </div>
+  <div class="toolbar">
+    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+      <select class="si" id="schedule-round" onchange="renderSchedule()"><option value="">All rounds</option></select>
+      <select class="si" id="schedule-team" onchange="renderSchedule()"><option value="">All teams</option></select>
+      <select class="si" id="schedule-status" onchange="renderSchedule()">
+        <option value="">All matches</option>
+        <option value="upcoming">Upcoming</option>
+        <option value="played">Played</option>
+      </select>
+      <button class="btn red" type="button" onclick="importVisibleScheduleRound()">Import selected round to Predictions</button>
+    </div>
+    <span class="cnt" id="schedule-cnt"></span>
+  </div>
+  <div class="schedule-list" id="schedule-list"></div>
+</div>
+
 <!-- PREDICTION -->
 <div class="sec" id="sec-pred">
   <div class="toolbar">
-    <button class="btn red" onclick="togglePredForm()">+ Add match</button>
+    <div class="schedule-import">
+      <button class="btn red" onclick="togglePredForm()">+ Add match</button>
+      <select class="si" id="pred-import-round" aria-label="Round to import"></select>
+      <button class="btn" type="button" onclick="importScheduleRoundToPredictions(document.getElementById('pred-import-round').value,'P1')">Import round</button>
+    </div>
     <span class="cnt" id="pred-cnt"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
       <select class="si" id="pf-season" onchange="renderPred()" style="font-size:11px">
@@ -494,7 +556,11 @@
 <!-- PREDICTION 2 -->
 <div class="sec" id="sec-pred2">
   <div class="toolbar">
-    <button class="btn red" onclick="togglePred2Form()">+ Add match</button>
+    <div class="schedule-import">
+      <button class="btn red" onclick="togglePred2Form()">+ Add match</button>
+      <select class="si" id="pred2-import-round" aria-label="Round to import"></select>
+      <button class="btn" type="button" onclick="importScheduleRoundToPredictions(document.getElementById('pred2-import-round').value,'P2')">Import round</button>
+    </div>
     <span class="cnt" id="pred2-cnt"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
       <select class="si" id="p2f-season" onchange="renderPred2()" style="font-size:11px">
@@ -672,6 +738,8 @@ function nm(n){return NM[n]||n}
 const CURRENT_SEASON="2026/27";
 const PREVIOUS_SEASON="2025/26";
 const TEAMS=["Slavia Prague","Sparta Prague","Jablonec","Viktoria Plzeň","Slovan Liberec","Hradec Králové","Sigma Olomouc","Artis Brno","Zlín","Teplice","Bohemians 1905","Pardubice","Mladá Boleslav","Slovácko","Baník Ostrava","Zbrojovka Brno"];
+const OFFICIAL_SCHEDULE_META={season:CURRENT_SEASON,checkedAt:"2026-07-28",sourceUrl:"https://www.chanceliga.cz/rozpis-zapasu"};
+const OFFICIAL_SCHEDULE_2026_27=[{"round":1,"date":"2026-07-25","time":"17:00","home":"Viktoria Plzeň","away":"Slovan Liberec","score":"1:3","officialMatchId":"8327","officialUrl":"https://www.chanceliga.cz/zapas/8327-plz-lib"},{"round":1,"date":"2026-07-25","time":"17:00","home":"Zlín","away":"Baník Ostrava","score":"0:1","officialMatchId":"8332","officialUrl":"https://www.chanceliga.cz/zapas/8332-fcz-fcb"},{"round":1,"date":"2026-07-25","time":"17:00","home":"Teplice","away":"Bohemians 1905","score":"3:1","officialMatchId":"8333","officialUrl":"https://www.chanceliga.cz/zapas/8333-tep-boh"},{"round":1,"date":"2026-07-25","time":"20:00","home":"Zbrojovka Brno","away":"Sparta Prague","score":"3:1","officialMatchId":"8334","officialUrl":"https://www.chanceliga.cz/zapas/8334-zbr-acs"},{"round":1,"date":"2026-07-26","time":"15:00","home":"Slavia Prague","away":"Slovácko","score":"5:1","officialMatchId":"8330","officialUrl":"https://www.chanceliga.cz/zapas/8330-sks-fcs"},{"round":1,"date":"2026-07-26","time":"17:30","home":"Jablonec","away":"Sigma Olomouc","score":"2:1","officialMatchId":"8329","officialUrl":"https://www.chanceliga.cz/zapas/8329-fkj-sig"},{"round":1,"date":"2026-07-26","time":"20:00","home":"Hradec Králové","away":"Pardubice","score":"2:1","officialMatchId":"8331","officialUrl":"https://www.chanceliga.cz/zapas/8331-hkr-fkp"},{"round":1,"date":"2026-07-27","time":"18:00","home":"Artis Brno","away":"Mladá Boleslav","score":"2:4","officialMatchId":"8328","officialUrl":"https://www.chanceliga.cz/zapas/8328-art-mbl"},{"round":2,"date":"2026-07-31","time":"19:00","home":"Sparta Prague","away":"Zlín","score":null,"officialMatchId":"8337","officialUrl":"https://www.chanceliga.cz/zapas/8337-acs-fcz"},{"round":2,"date":"2026-08-01","time":"17:00","home":"Slovan Liberec","away":"Teplice","score":null,"officialMatchId":"8336","officialUrl":"https://www.chanceliga.cz/zapas/8336-lib-tep"},{"round":2,"date":"2026-08-01","time":"17:00","home":"Baník Ostrava","away":"Slavia Prague","score":null,"officialMatchId":"8339","officialUrl":"https://www.chanceliga.cz/zapas/8339-fcb-sks"},{"round":2,"date":"2026-08-01","time":"17:00","home":"Slovácko","away":"Artis Brno","score":null,"officialMatchId":"8341","officialUrl":"https://www.chanceliga.cz/zapas/8341-fcs-art"},{"round":2,"date":"2026-08-01","time":"20:00","home":"Viktoria Plzeň","away":"Zbrojovka Brno","score":null,"officialMatchId":"8335","officialUrl":"https://www.chanceliga.cz/zapas/8335-plz-zbr"},{"round":2,"date":"2026-08-02","time":"15:00","home":"Sigma Olomouc","away":"Mladá Boleslav","score":null,"officialMatchId":"8342","officialUrl":"https://www.chanceliga.cz/zapas/8342-sig-mbl"},{"round":2,"date":"2026-08-02","time":"17:30","home":"Bohemians 1905","away":"Hradec Králové","score":null,"officialMatchId":"8338","officialUrl":"https://www.chanceliga.cz/zapas/8338-boh-hkr"},{"round":2,"date":"2026-08-02","time":"20:00","home":"Pardubice","away":"Jablonec","score":null,"officialMatchId":"8340","officialUrl":"https://www.chanceliga.cz/zapas/8340-fkp-fkj"},{"round":3,"date":"2026-08-07","time":"19:00","home":"Zbrojovka Brno","away":"Slovan Liberec","score":null,"officialMatchId":"8350","officialUrl":"https://www.chanceliga.cz/zapas/8350-zbr-lib"},{"round":3,"date":"2026-08-08","time":"17:00","home":"Zlín","away":"Bohemians 1905","score":null,"officialMatchId":"8348","officialUrl":"https://www.chanceliga.cz/zapas/8348-fcz-boh"},{"round":3,"date":"2026-08-08","time":"17:00","home":"Teplice","away":"Viktoria Plzeň","score":null,"officialMatchId":"8349","officialUrl":"https://www.chanceliga.cz/zapas/8349-tep-plz"},{"round":3,"date":"2026-08-08","time":"20:00","home":"Mladá Boleslav","away":"Sparta Prague","score":null,"officialMatchId":"8343","officialUrl":"https://www.chanceliga.cz/zapas/8343-mbl-acs"},{"round":3,"date":"2026-08-09","time":"15:00","home":"Slavia Prague","away":"Pardubice","score":null,"officialMatchId":"8346","officialUrl":"https://www.chanceliga.cz/zapas/8346-sks-fkp"},{"round":3,"date":"2026-08-09","time":"17:00","home":"Jablonec","away":"Slovácko","score":null,"officialMatchId":"8345","officialUrl":"https://www.chanceliga.cz/zapas/8345-fkj-fcs"},{"round":3,"date":"2026-08-09","time":"17:00","home":"Hradec Králové","away":"Baník Ostrava","score":null,"officialMatchId":"8347","officialUrl":"https://www.chanceliga.cz/zapas/8347-hkr-fcb"},{"round":3,"date":"2026-08-09","time":"20:00","home":"Artis Brno","away":"Sigma Olomouc","score":null,"officialMatchId":"8344","officialUrl":"https://www.chanceliga.cz/zapas/8344-art-sig"},{"round":4,"date":"2026-08-15","time":"17:00","home":"Sparta Prague","away":"Teplice","score":null,"officialMatchId":"8353","officialUrl":"https://www.chanceliga.cz/zapas/8353-acs-tep"},{"round":4,"date":"2026-08-15","time":"17:00","home":"Pardubice","away":"Mladá Boleslav","score":null,"officialMatchId":"8356","officialUrl":"https://www.chanceliga.cz/zapas/8356-fkp-mbl"},{"round":4,"date":"2026-08-15","time":"17:00","home":"Slovácko","away":"Sigma Olomouc","score":null,"officialMatchId":"8357","officialUrl":"https://www.chanceliga.cz/zapas/8357-fcs-sig"},{"round":4,"date":"2026-08-15","time":"20:00","home":"Viktoria Plzeň","away":"Zlín","score":null,"officialMatchId":"8351","officialUrl":"https://www.chanceliga.cz/zapas/8351-plz-fcz"},{"round":4,"date":"2026-08-16","time":"15:00","home":"Baník Ostrava","away":"Artis Brno","score":null,"officialMatchId":"8355","officialUrl":"https://www.chanceliga.cz/zapas/8355-fcb-art"},{"round":4,"date":"2026-08-16","time":"17:00","home":"Bohemians 1905","away":"Jablonec","score":null,"officialMatchId":"8354","officialUrl":"https://www.chanceliga.cz/zapas/8354-boh-fkj"},{"round":4,"date":"2026-08-16","time":"17:00","home":"Zbrojovka Brno","away":"Hradec Králové","score":null,"officialMatchId":"8358","officialUrl":"https://www.chanceliga.cz/zapas/8358-zbr-hkr"},{"round":4,"date":"2026-08-16","time":"20:00","home":"Slovan Liberec","away":"Slavia Prague","score":null,"officialMatchId":"8352","officialUrl":"https://www.chanceliga.cz/zapas/8352-lib-sks"},{"round":5,"date":"2026-08-22","time":"17:00","home":"Mladá Boleslav","away":"Slovácko","score":null,"officialMatchId":"8360","officialUrl":"https://www.chanceliga.cz/zapas/8360-mbl-fcs"},{"round":5,"date":"2026-08-22","time":"17:00","home":"Artis Brno","away":"Sparta Prague","score":null,"officialMatchId":"8361","officialUrl":"https://www.chanceliga.cz/zapas/8361-art-acs"},{"round":5,"date":"2026-08-22","time":"17:00","home":"Zlín","away":"Slovan Liberec","score":null,"officialMatchId":"8365","officialUrl":"https://www.chanceliga.cz/zapas/8365-fcz-lib"},{"round":5,"date":"2026-08-22","time":"20:00","home":"Slavia Prague","away":"Bohemians 1905","score":null,"officialMatchId":"8363","officialUrl":"https://www.chanceliga.cz/zapas/8363-sks-boh"},{"round":5,"date":"2026-08-23","time":"15:00","home":"Jablonec","away":"Baník Ostrava","score":null,"officialMatchId":"8362","officialUrl":"https://www.chanceliga.cz/zapas/8362-fkj-fcb"},{"round":5,"date":"2026-08-23","time":"17:00","home":"Hradec Králové","away":"Viktoria Plzeň","score":null,"officialMatchId":"8364","officialUrl":"https://www.chanceliga.cz/zapas/8364-hkr-plz"},{"round":5,"date":"2026-08-23","time":"17:00","home":"Teplice","away":"Zbrojovka Brno","score":null,"officialMatchId":"8366","officialUrl":"https://www.chanceliga.cz/zapas/8366-tep-zbr"},{"round":5,"date":"2026-08-23","time":"20:00","home":"Sigma Olomouc","away":"Pardubice","score":null,"officialMatchId":"8359","officialUrl":"https://www.chanceliga.cz/zapas/8359-sig-fkp"},{"round":6,"date":"2026-08-29","time":null,"home":"Viktoria Plzeň","away":"Slovácko","score":null,"officialMatchId":"8367","officialUrl":"https://www.chanceliga.cz/zapas/8367-plz-fcs"},{"round":6,"date":"2026-08-29","time":null,"home":"Bohemians 1905","away":"Mladá Boleslav","score":null,"officialMatchId":"8368","officialUrl":"https://www.chanceliga.cz/zapas/8368-boh-mbl"},{"round":6,"date":"2026-08-29","time":null,"home":"Baník Ostrava","away":"Sigma Olomouc","score":null,"officialMatchId":"8369","officialUrl":"https://www.chanceliga.cz/zapas/8369-fcb-sig"},{"round":6,"date":"2026-08-29","time":null,"home":"Pardubice","away":"Artis Brno","score":null,"officialMatchId":"8370","officialUrl":"https://www.chanceliga.cz/zapas/8370-fkp-art"},{"round":6,"date":"2026-08-29","time":null,"home":"Slovan Liberec","away":"Hradec Králové","score":null,"officialMatchId":"8371","officialUrl":"https://www.chanceliga.cz/zapas/8371-lib-hkr"},{"round":6,"date":"2026-08-29","time":null,"home":"Zbrojovka Brno","away":"Zlín","score":null,"officialMatchId":"8372","officialUrl":"https://www.chanceliga.cz/zapas/8372-zbr-fcz"},{"round":6,"date":"2026-08-29","time":null,"home":"Sparta Prague","away":"Slavia Prague","score":null,"officialMatchId":"8373","officialUrl":"https://www.chanceliga.cz/zapas/8373-acs-sks"},{"round":6,"date":"2026-08-29","time":null,"home":"Teplice","away":"Jablonec","score":null,"officialMatchId":"8374","officialUrl":"https://www.chanceliga.cz/zapas/8374-tep-fkj"},{"round":7,"date":"2026-09-05","time":null,"home":"Slovácko","away":"Pardubice","score":null,"officialMatchId":"8375","officialUrl":"https://www.chanceliga.cz/zapas/8375-fcs-fkp"},{"round":7,"date":"2026-09-05","time":null,"home":"Sigma Olomouc","away":"Bohemians 1905","score":null,"officialMatchId":"8376","officialUrl":"https://www.chanceliga.cz/zapas/8376-sig-boh"},{"round":7,"date":"2026-09-05","time":null,"home":"Mladá Boleslav","away":"Baník Ostrava","score":null,"officialMatchId":"8377","officialUrl":"https://www.chanceliga.cz/zapas/8377-mbl-fcb"},{"round":7,"date":"2026-09-05","time":null,"home":"Artis Brno","away":"Viktoria Plzeň","score":null,"officialMatchId":"8378","officialUrl":"https://www.chanceliga.cz/zapas/8378-art-plz"},{"round":7,"date":"2026-09-05","time":null,"home":"Jablonec","away":"Slovan Liberec","score":null,"officialMatchId":"8379","officialUrl":"https://www.chanceliga.cz/zapas/8379-fkj-lib"},{"round":7,"date":"2026-09-05","time":null,"home":"Hradec Králové","away":"Sparta Prague","score":null,"officialMatchId":"8380","officialUrl":"https://www.chanceliga.cz/zapas/8380-hkr-acs"},{"round":7,"date":"2026-09-05","time":null,"home":"Zlín","away":"Teplice","score":null,"officialMatchId":"8381","officialUrl":"https://www.chanceliga.cz/zapas/8381-fcz-tep"},{"round":7,"date":"2026-09-05","time":null,"home":"Slavia Prague","away":"Zbrojovka Brno","score":null,"officialMatchId":"8382","officialUrl":"https://www.chanceliga.cz/zapas/8382-sks-zbr"},{"round":8,"date":"2026-09-12","time":null,"home":"Viktoria Plzeň","away":"Sigma Olomouc","score":null,"officialMatchId":"8383","officialUrl":"https://www.chanceliga.cz/zapas/8383-plz-sig"},{"round":8,"date":"2026-09-12","time":null,"home":"Slovan Liberec","away":"Mladá Boleslav","score":null,"officialMatchId":"8384","officialUrl":"https://www.chanceliga.cz/zapas/8384-lib-mbl"},{"round":8,"date":"2026-09-12","time":null,"home":"Bohemians 1905","away":"Slovácko","score":null,"officialMatchId":"8385","officialUrl":"https://www.chanceliga.cz/zapas/8385-boh-fcs"},{"round":8,"date":"2026-09-12","time":null,"home":"Baník Ostrava","away":"Pardubice","score":null,"officialMatchId":"8386","officialUrl":"https://www.chanceliga.cz/zapas/8386-fcb-fkp"},{"round":8,"date":"2026-09-12","time":null,"home":"Zlín","away":"Hradec Králové","score":null,"officialMatchId":"8387","officialUrl":"https://www.chanceliga.cz/zapas/8387-fcz-hkr"},{"round":8,"date":"2026-09-12","time":null,"home":"Zbrojovka Brno","away":"Artis Brno","score":null,"officialMatchId":"8388","officialUrl":"https://www.chanceliga.cz/zapas/8388-zbr-art"},{"round":8,"date":"2026-09-12","time":null,"home":"Sparta Prague","away":"Jablonec","score":null,"officialMatchId":"8389","officialUrl":"https://www.chanceliga.cz/zapas/8389-acs-fkj"},{"round":8,"date":"2026-09-12","time":null,"home":"Teplice","away":"Slavia Prague","score":null,"officialMatchId":"8390","officialUrl":"https://www.chanceliga.cz/zapas/8390-tep-sks"},{"round":9,"date":"2026-09-19","time":null,"home":"Pardubice","away":"Bohemians 1905","score":null,"officialMatchId":"8391","officialUrl":"https://www.chanceliga.cz/zapas/8391-fkp-boh"},{"round":9,"date":"2026-09-19","time":null,"home":"Slovácko","away":"Baník Ostrava","score":null,"officialMatchId":"8392","officialUrl":"https://www.chanceliga.cz/zapas/8392-fcs-fcb"},{"round":9,"date":"2026-09-19","time":null,"home":"Sigma Olomouc","away":"Sparta Prague","score":null,"officialMatchId":"8393","officialUrl":"https://www.chanceliga.cz/zapas/8393-sig-acs"},{"round":9,"date":"2026-09-19","time":null,"home":"Mladá Boleslav","away":"Zbrojovka Brno","score":null,"officialMatchId":"8394","officialUrl":"https://www.chanceliga.cz/zapas/8394-mbl-zbr"},{"round":9,"date":"2026-09-19","time":null,"home":"Artis Brno","away":"Slovan Liberec","score":null,"officialMatchId":"8395","officialUrl":"https://www.chanceliga.cz/zapas/8395-art-lib"},{"round":9,"date":"2026-09-19","time":null,"home":"Hradec Králové","away":"Teplice","score":null,"officialMatchId":"8396","officialUrl":"https://www.chanceliga.cz/zapas/8396-hkr-tep"},{"round":9,"date":"2026-09-19","time":null,"home":"Jablonec","away":"Zlín","score":null,"officialMatchId":"8397","officialUrl":"https://www.chanceliga.cz/zapas/8397-fkj-fcz"},{"round":9,"date":"2026-09-19","time":null,"home":"Slavia Prague","away":"Viktoria Plzeň","score":null,"officialMatchId":"8398","officialUrl":"https://www.chanceliga.cz/zapas/8398-sks-plz"},{"round":10,"date":"2026-10-10","time":null,"home":"Viktoria Plzeň","away":"Mladá Boleslav","score":null,"officialMatchId":"8399","officialUrl":"https://www.chanceliga.cz/zapas/8399-plz-mbl"},{"round":10,"date":"2026-10-10","time":null,"home":"Teplice","away":"Sigma Olomouc","score":null,"officialMatchId":"8400","officialUrl":"https://www.chanceliga.cz/zapas/8400-tep-sig"},{"round":10,"date":"2026-10-10","time":null,"home":"Zbrojovka Brno","away":"Jablonec","score":null,"officialMatchId":"8401","officialUrl":"https://www.chanceliga.cz/zapas/8401-zbr-fkj"},{"round":10,"date":"2026-10-10","time":null,"home":"Slovan Liberec","away":"Slovácko","score":null,"officialMatchId":"8402","officialUrl":"https://www.chanceliga.cz/zapas/8402-lib-fcs"},{"round":10,"date":"2026-10-10","time":null,"home":"Bohemians 1905","away":"Baník Ostrava","score":null,"officialMatchId":"8403","officialUrl":"https://www.chanceliga.cz/zapas/8403-boh-fcb"},{"round":10,"date":"2026-10-10","time":null,"home":"Sparta Prague","away":"Pardubice","score":null,"officialMatchId":"8404","officialUrl":"https://www.chanceliga.cz/zapas/8404-acs-fkp"},{"round":10,"date":"2026-10-10","time":null,"home":"Hradec Králové","away":"Artis Brno","score":null,"officialMatchId":"8405","officialUrl":"https://www.chanceliga.cz/zapas/8405-hkr-art"},{"round":10,"date":"2026-10-10","time":null,"home":"Zlín","away":"Slavia Prague","score":null,"officialMatchId":"8406","officialUrl":"https://www.chanceliga.cz/zapas/8406-fcz-sks"},{"round":11,"date":"2026-10-17","time":null,"home":"Slovácko","away":"Zbrojovka Brno","score":null,"officialMatchId":"8407","officialUrl":"https://www.chanceliga.cz/zapas/8407-fcs-zbr"},{"round":11,"date":"2026-10-17","time":null,"home":"Sigma Olomouc","away":"Slovan Liberec","score":null,"officialMatchId":"8408","officialUrl":"https://www.chanceliga.cz/zapas/8408-sig-lib"},{"round":11,"date":"2026-10-17","time":null,"home":"Mladá Boleslav","away":"Teplice","score":null,"officialMatchId":"8409","officialUrl":"https://www.chanceliga.cz/zapas/8409-mbl-tep"},{"round":11,"date":"2026-10-17","time":null,"home":"Jablonec","away":"Viktoria Plzeň","score":null,"officialMatchId":"8410","officialUrl":"https://www.chanceliga.cz/zapas/8410-fkj-plz"},{"round":11,"date":"2026-10-17","time":null,"home":"Artis Brno","away":"Bohemians 1905","score":null,"officialMatchId":"8411","officialUrl":"https://www.chanceliga.cz/zapas/8411-art-boh"},{"round":11,"date":"2026-10-17","time":null,"home":"Slavia Prague","away":"Hradec Králové","score":null,"officialMatchId":"8412","officialUrl":"https://www.chanceliga.cz/zapas/8412-sks-hkr"},{"round":11,"date":"2026-10-17","time":null,"home":"Pardubice","away":"Zlín","score":null,"officialMatchId":"8413","officialUrl":"https://www.chanceliga.cz/zapas/8413-fkp-fcz"},{"round":11,"date":"2026-10-17","time":null,"home":"Baník Ostrava","away":"Sparta Prague","score":null,"officialMatchId":"8414","officialUrl":"https://www.chanceliga.cz/zapas/8414-fcb-acs"},{"round":12,"date":"2026-10-24","time":null,"home":"Viktoria Plzeň","away":"Pardubice","score":null,"officialMatchId":"8415","officialUrl":"https://www.chanceliga.cz/zapas/8415-plz-fkp"},{"round":12,"date":"2026-10-24","time":null,"home":"Slavia Prague","away":"Mladá Boleslav","score":null,"officialMatchId":"8416","officialUrl":"https://www.chanceliga.cz/zapas/8416-sks-mbl"},{"round":12,"date":"2026-10-24","time":null,"home":"Hradec Králové","away":"Jablonec","score":null,"officialMatchId":"8417","officialUrl":"https://www.chanceliga.cz/zapas/8417-hkr-fkj"},{"round":12,"date":"2026-10-24","time":null,"home":"Zlín","away":"Sigma Olomouc","score":null,"officialMatchId":"8418","officialUrl":"https://www.chanceliga.cz/zapas/8418-fcz-sig"},{"round":12,"date":"2026-10-24","time":null,"home":"Teplice","away":"Artis Brno","score":null,"officialMatchId":"8419","officialUrl":"https://www.chanceliga.cz/zapas/8419-tep-art"},{"round":12,"date":"2026-10-24","time":null,"home":"Zbrojovka Brno","away":"Bohemians 1905","score":null,"officialMatchId":"8420","officialUrl":"https://www.chanceliga.cz/zapas/8420-zbr-boh"},{"round":12,"date":"2026-10-24","time":null,"home":"Slovan Liberec","away":"Baník Ostrava","score":null,"officialMatchId":"8421","officialUrl":"https://www.chanceliga.cz/zapas/8421-lib-fcb"},{"round":12,"date":"2026-10-24","time":null,"home":"Sparta Prague","away":"Slovácko","score":null,"officialMatchId":"8422","officialUrl":"https://www.chanceliga.cz/zapas/8422-acs-fcs"},{"round":13,"date":"2026-10-31","time":null,"home":"Bohemians 1905","away":"Sparta Prague","score":null,"officialMatchId":"8423","officialUrl":"https://www.chanceliga.cz/zapas/8423-boh-acs"},{"round":13,"date":"2026-10-31","time":null,"home":"Baník Ostrava","away":"Viktoria Plzeň","score":null,"officialMatchId":"8424","officialUrl":"https://www.chanceliga.cz/zapas/8424-fcb-plz"},{"round":13,"date":"2026-10-31","time":null,"home":"Pardubice","away":"Slovan Liberec","score":null,"officialMatchId":"8425","officialUrl":"https://www.chanceliga.cz/zapas/8425-fkp-lib"},{"round":13,"date":"2026-10-31","time":null,"home":"Slovácko","away":"Teplice","score":null,"officialMatchId":"8426","officialUrl":"https://www.chanceliga.cz/zapas/8426-fcs-tep"},{"round":13,"date":"2026-10-31","time":null,"home":"Sigma Olomouc","away":"Zbrojovka Brno","score":null,"officialMatchId":"8427","officialUrl":"https://www.chanceliga.cz/zapas/8427-sig-zbr"},{"round":13,"date":"2026-10-31","time":null,"home":"Mladá Boleslav","away":"Hradec Králové","score":null,"officialMatchId":"8428","officialUrl":"https://www.chanceliga.cz/zapas/8428-mbl-hkr"},{"round":13,"date":"2026-10-31","time":null,"home":"Artis Brno","away":"Zlín","score":null,"officialMatchId":"8429","officialUrl":"https://www.chanceliga.cz/zapas/8429-art-fcz"},{"round":13,"date":"2026-10-31","time":null,"home":"Jablonec","away":"Slavia Prague","score":null,"officialMatchId":"8430","officialUrl":"https://www.chanceliga.cz/zapas/8430-fkj-sks"},{"round":14,"date":"2026-11-07","time":null,"home":"Viktoria Plzeň","away":"Sparta Prague","score":null,"officialMatchId":"8431","officialUrl":"https://www.chanceliga.cz/zapas/8431-plz-acs"},{"round":14,"date":"2026-11-07","time":null,"home":"Slovan Liberec","away":"Bohemians 1905","score":null,"officialMatchId":"8432","officialUrl":"https://www.chanceliga.cz/zapas/8432-lib-boh"},{"round":14,"date":"2026-11-07","time":null,"home":"Zbrojovka Brno","away":"Baník Ostrava","score":null,"officialMatchId":"8433","officialUrl":"https://www.chanceliga.cz/zapas/8433-zbr-fcb"},{"round":14,"date":"2026-11-07","time":null,"home":"Teplice","away":"Pardubice","score":null,"officialMatchId":"8434","officialUrl":"https://www.chanceliga.cz/zapas/8434-tep-fkp"},{"round":14,"date":"2026-11-07","time":null,"home":"Zlín","away":"Slovácko","score":null,"officialMatchId":"8435","officialUrl":"https://www.chanceliga.cz/zapas/8435-fcz-fcs"},{"round":14,"date":"2026-11-07","time":null,"home":"Hradec Králové","away":"Sigma Olomouc","score":null,"officialMatchId":"8436","officialUrl":"https://www.chanceliga.cz/zapas/8436-hkr-sig"},{"round":14,"date":"2026-11-07","time":null,"home":"Jablonec","away":"Mladá Boleslav","score":null,"officialMatchId":"8437","officialUrl":"https://www.chanceliga.cz/zapas/8437-fkj-mbl"},{"round":14,"date":"2026-11-07","time":null,"home":"Slavia Prague","away":"Artis Brno","score":null,"officialMatchId":"8438","officialUrl":"https://www.chanceliga.cz/zapas/8438-sks-art"},{"round":15,"date":"2026-11-21","time":null,"home":"Bohemians 1905","away":"Viktoria Plzeň","score":null,"officialMatchId":"8439","officialUrl":"https://www.chanceliga.cz/zapas/8439-boh-plz"},{"round":15,"date":"2026-11-21","time":null,"home":"Sparta Prague","away":"Slovan Liberec","score":null,"officialMatchId":"8440","officialUrl":"https://www.chanceliga.cz/zapas/8440-acs-lib"},{"round":15,"date":"2026-11-21","time":null,"home":"Artis Brno","away":"Jablonec","score":null,"officialMatchId":"8441","officialUrl":"https://www.chanceliga.cz/zapas/8441-art-fkj"},{"round":15,"date":"2026-11-21","time":null,"home":"Sigma Olomouc","away":"Slavia Prague","score":null,"officialMatchId":"8442","officialUrl":"https://www.chanceliga.cz/zapas/8442-sig-sks"},{"round":15,"date":"2026-11-21","time":null,"home":"Slovácko","away":"Hradec Králové","score":null,"officialMatchId":"8443","officialUrl":"https://www.chanceliga.cz/zapas/8443-fcs-hkr"},{"round":15,"date":"2026-11-21","time":null,"home":"Mladá Boleslav","away":"Zlín","score":null,"officialMatchId":"8444","officialUrl":"https://www.chanceliga.cz/zapas/8444-mbl-fcz"},{"round":15,"date":"2026-11-21","time":null,"home":"Baník Ostrava","away":"Teplice","score":null,"officialMatchId":"8445","officialUrl":"https://www.chanceliga.cz/zapas/8445-fcb-tep"},{"round":15,"date":"2026-11-21","time":null,"home":"Pardubice","away":"Zbrojovka Brno","score":null,"officialMatchId":"8446","officialUrl":"https://www.chanceliga.cz/zapas/8446-fkp-zbr"},{"round":16,"date":"2026-11-28","time":null,"home":"Teplice","away":"Slovan Liberec","score":null,"officialMatchId":"8448","officialUrl":"https://www.chanceliga.cz/zapas/8448-tep-lib"},{"round":16,"date":"2026-11-28","time":null,"home":"Zlín","away":"Sparta Prague","score":null,"officialMatchId":"8449","officialUrl":"https://www.chanceliga.cz/zapas/8449-fcz-acs"},{"round":16,"date":"2026-11-28","time":null,"home":"Hradec Králové","away":"Bohemians 1905","score":null,"officialMatchId":"8450","officialUrl":"https://www.chanceliga.cz/zapas/8450-hkr-boh"},{"round":16,"date":"2026-11-28","time":null,"home":"Slavia Prague","away":"Baník Ostrava","score":null,"officialMatchId":"8451","officialUrl":"https://www.chanceliga.cz/zapas/8451-sks-fcb"},{"round":16,"date":"2026-11-28","time":null,"home":"Jablonec","away":"Pardubice","score":null,"officialMatchId":"8452","officialUrl":"https://www.chanceliga.cz/zapas/8452-fkj-fkp"},{"round":16,"date":"2026-11-28","time":null,"home":"Artis Brno","away":"Slovácko","score":null,"officialMatchId":"8453","officialUrl":"https://www.chanceliga.cz/zapas/8453-art-fcs"},{"round":16,"date":"2026-11-28","time":null,"home":"Mladá Boleslav","away":"Sigma Olomouc","score":null,"officialMatchId":"8454","officialUrl":"https://www.chanceliga.cz/zapas/8454-mbl-sig"},{"round":16,"date":"2026-11-28","time":null,"home":"Zbrojovka Brno","away":"Viktoria Plzeň","score":null,"officialMatchId":"8447","officialUrl":"https://www.chanceliga.cz/zapas/8447-zbr-plz"},{"round":17,"date":"2026-12-05","time":null,"home":"Sparta Prague","away":"Mladá Boleslav","score":null,"officialMatchId":"8455","officialUrl":"https://www.chanceliga.cz/zapas/8455-acs-mbl"},{"round":17,"date":"2026-12-05","time":null,"home":"Sigma Olomouc","away":"Artis Brno","score":null,"officialMatchId":"8456","officialUrl":"https://www.chanceliga.cz/zapas/8456-sig-art"},{"round":17,"date":"2026-12-05","time":null,"home":"Slovácko","away":"Jablonec","score":null,"officialMatchId":"8457","officialUrl":"https://www.chanceliga.cz/zapas/8457-fcs-fkj"},{"round":17,"date":"2026-12-05","time":null,"home":"Pardubice","away":"Slavia Prague","score":null,"officialMatchId":"8458","officialUrl":"https://www.chanceliga.cz/zapas/8458-fkp-sks"},{"round":17,"date":"2026-12-05","time":null,"home":"Baník Ostrava","away":"Hradec Králové","score":null,"officialMatchId":"8459","officialUrl":"https://www.chanceliga.cz/zapas/8459-fcb-hkr"},{"round":17,"date":"2026-12-05","time":null,"home":"Bohemians 1905","away":"Zlín","score":null,"officialMatchId":"8460","officialUrl":"https://www.chanceliga.cz/zapas/8460-boh-fcz"},{"round":17,"date":"2026-12-05","time":null,"home":"Viktoria Plzeň","away":"Teplice","score":null,"officialMatchId":"8461","officialUrl":"https://www.chanceliga.cz/zapas/8461-plz-tep"},{"round":17,"date":"2026-12-05","time":null,"home":"Slovan Liberec","away":"Zbrojovka Brno","score":null,"officialMatchId":"8462","officialUrl":"https://www.chanceliga.cz/zapas/8462-lib-zbr"},{"round":18,"date":"2026-12-12","time":null,"home":"Zlín","away":"Viktoria Plzeň","score":null,"officialMatchId":"8463","officialUrl":"https://www.chanceliga.cz/zapas/8463-fcz-plz"},{"round":18,"date":"2026-12-12","time":null,"home":"Slavia Prague","away":"Slovan Liberec","score":null,"officialMatchId":"8464","officialUrl":"https://www.chanceliga.cz/zapas/8464-sks-lib"},{"round":18,"date":"2026-12-12","time":null,"home":"Teplice","away":"Sparta Prague","score":null,"officialMatchId":"8465","officialUrl":"https://www.chanceliga.cz/zapas/8465-tep-acs"},{"round":18,"date":"2026-12-12","time":null,"home":"Jablonec","away":"Bohemians 1905","score":null,"officialMatchId":"8466","officialUrl":"https://www.chanceliga.cz/zapas/8466-fkj-boh"},{"round":18,"date":"2026-12-12","time":null,"home":"Artis Brno","away":"Baník Ostrava","score":null,"officialMatchId":"8467","officialUrl":"https://www.chanceliga.cz/zapas/8467-art-fcb"},{"round":18,"date":"2026-12-12","time":null,"home":"Mladá Boleslav","away":"Pardubice","score":null,"officialMatchId":"8468","officialUrl":"https://www.chanceliga.cz/zapas/8468-mbl-fkp"},{"round":18,"date":"2026-12-12","time":null,"home":"Sigma Olomouc","away":"Slovácko","score":null,"officialMatchId":"8469","officialUrl":"https://www.chanceliga.cz/zapas/8469-sig-fcs"},{"round":18,"date":"2026-12-12","time":null,"home":"Hradec Králové","away":"Zbrojovka Brno","score":null,"officialMatchId":"8470","officialUrl":"https://www.chanceliga.cz/zapas/8470-hkr-zbr"},{"round":19,"date":"2027-01-30","time":null,"home":"Pardubice","away":"Sigma Olomouc","score":null,"officialMatchId":"8471","officialUrl":"https://www.chanceliga.cz/zapas/8471-fkp-sig"},{"round":19,"date":"2027-01-30","time":null,"home":"Slovácko","away":"Mladá Boleslav","score":null,"officialMatchId":"8472","officialUrl":"https://www.chanceliga.cz/zapas/8472-fcs-mbl"},{"round":19,"date":"2027-01-30","time":null,"home":"Sparta Prague","away":"Artis Brno","score":null,"officialMatchId":"8473","officialUrl":"https://www.chanceliga.cz/zapas/8473-acs-art"},{"round":19,"date":"2027-01-30","time":null,"home":"Baník Ostrava","away":"Jablonec","score":null,"officialMatchId":"8474","officialUrl":"https://www.chanceliga.cz/zapas/8474-fcb-fkj"},{"round":19,"date":"2027-01-30","time":null,"home":"Bohemians 1905","away":"Slavia Prague","score":null,"officialMatchId":"8475","officialUrl":"https://www.chanceliga.cz/zapas/8475-boh-sks"},{"round":19,"date":"2027-01-30","time":null,"home":"Viktoria Plzeň","away":"Hradec Králové","score":null,"officialMatchId":"8476","officialUrl":"https://www.chanceliga.cz/zapas/8476-plz-hkr"},{"round":19,"date":"2027-01-30","time":null,"home":"Slovan Liberec","away":"Zlín","score":null,"officialMatchId":"8477","officialUrl":"https://www.chanceliga.cz/zapas/8477-lib-fcz"},{"round":19,"date":"2027-01-30","time":null,"home":"Zbrojovka Brno","away":"Teplice","score":null,"officialMatchId":"8478","officialUrl":"https://www.chanceliga.cz/zapas/8478-zbr-tep"},{"round":20,"date":"2027-02-06","time":null,"home":"Slovácko","away":"Viktoria Plzeň","score":null,"officialMatchId":"8479","officialUrl":"https://www.chanceliga.cz/zapas/8479-fcs-plz"},{"round":20,"date":"2027-02-06","time":null,"home":"Mladá Boleslav","away":"Bohemians 1905","score":null,"officialMatchId":"8480","officialUrl":"https://www.chanceliga.cz/zapas/8480-mbl-boh"},{"round":20,"date":"2027-02-06","time":null,"home":"Sigma Olomouc","away":"Baník Ostrava","score":null,"officialMatchId":"8481","officialUrl":"https://www.chanceliga.cz/zapas/8481-sig-fcb"},{"round":20,"date":"2027-02-06","time":null,"home":"Artis Brno","away":"Pardubice","score":null,"officialMatchId":"8482","officialUrl":"https://www.chanceliga.cz/zapas/8482-art-fkp"},{"round":20,"date":"2027-02-06","time":null,"home":"Hradec Králové","away":"Slovan Liberec","score":null,"officialMatchId":"8483","officialUrl":"https://www.chanceliga.cz/zapas/8483-hkr-lib"},{"round":20,"date":"2027-02-06","time":null,"home":"Zlín","away":"Zbrojovka Brno","score":null,"officialMatchId":"8484","officialUrl":"https://www.chanceliga.cz/zapas/8484-fcz-zbr"},{"round":20,"date":"2027-02-06","time":null,"home":"Slavia Prague","away":"Sparta Prague","score":null,"officialMatchId":"8485","officialUrl":"https://www.chanceliga.cz/zapas/8485-sks-acs"},{"round":20,"date":"2027-02-06","time":null,"home":"Jablonec","away":"Teplice","score":null,"officialMatchId":"8486","officialUrl":"https://www.chanceliga.cz/zapas/8486-fkj-tep"},{"round":21,"date":"2027-02-13","time":null,"home":"Pardubice","away":"Slovácko","score":null,"officialMatchId":"8487","officialUrl":"https://www.chanceliga.cz/zapas/8487-fkp-fcs"},{"round":21,"date":"2027-02-13","time":null,"home":"Bohemians 1905","away":"Sigma Olomouc","score":null,"officialMatchId":"8488","officialUrl":"https://www.chanceliga.cz/zapas/8488-boh-sig"},{"round":21,"date":"2027-02-13","time":null,"home":"Baník Ostrava","away":"Mladá Boleslav","score":null,"officialMatchId":"8489","officialUrl":"https://www.chanceliga.cz/zapas/8489-fcb-mbl"},{"round":21,"date":"2027-02-13","time":null,"home":"Viktoria Plzeň","away":"Artis Brno","score":null,"officialMatchId":"8490","officialUrl":"https://www.chanceliga.cz/zapas/8490-plz-art"},{"round":21,"date":"2027-02-13","time":null,"home":"Slovan Liberec","away":"Jablonec","score":null,"officialMatchId":"8491","officialUrl":"https://www.chanceliga.cz/zapas/8491-lib-fkj"},{"round":21,"date":"2027-02-13","time":null,"home":"Sparta Prague","away":"Hradec Králové","score":null,"officialMatchId":"8492","officialUrl":"https://www.chanceliga.cz/zapas/8492-acs-hkr"},{"round":21,"date":"2027-02-13","time":null,"home":"Teplice","away":"Zlín","score":null,"officialMatchId":"8493","officialUrl":"https://www.chanceliga.cz/zapas/8493-tep-fcz"},{"round":21,"date":"2027-02-13","time":null,"home":"Zbrojovka Brno","away":"Slavia Prague","score":null,"officialMatchId":"8494","officialUrl":"https://www.chanceliga.cz/zapas/8494-zbr-sks"},{"round":22,"date":"2027-02-20","time":null,"home":"Sigma Olomouc","away":"Viktoria Plzeň","score":null,"officialMatchId":"8495","officialUrl":"https://www.chanceliga.cz/zapas/8495-sig-plz"},{"round":22,"date":"2027-02-20","time":null,"home":"Mladá Boleslav","away":"Slovan Liberec","score":null,"officialMatchId":"8496","officialUrl":"https://www.chanceliga.cz/zapas/8496-mbl-lib"},{"round":22,"date":"2027-02-20","time":null,"home":"Slovácko","away":"Bohemians 1905","score":null,"officialMatchId":"8497","officialUrl":"https://www.chanceliga.cz/zapas/8497-fcs-boh"},{"round":22,"date":"2027-02-20","time":null,"home":"Pardubice","away":"Baník Ostrava","score":null,"officialMatchId":"8498","officialUrl":"https://www.chanceliga.cz/zapas/8498-fkp-fcb"},{"round":22,"date":"2027-02-20","time":null,"home":"Hradec Králové","away":"Zlín","score":null,"officialMatchId":"8499","officialUrl":"https://www.chanceliga.cz/zapas/8499-hkr-fcz"},{"round":22,"date":"2027-02-20","time":null,"home":"Artis Brno","away":"Zbrojovka Brno","score":null,"officialMatchId":"8500","officialUrl":"https://www.chanceliga.cz/zapas/8500-art-zbr"},{"round":22,"date":"2027-02-20","time":null,"home":"Jablonec","away":"Sparta Prague","score":null,"officialMatchId":"8501","officialUrl":"https://www.chanceliga.cz/zapas/8501-fkj-acs"},{"round":22,"date":"2027-02-20","time":null,"home":"Slavia Prague","away":"Teplice","score":null,"officialMatchId":"8502","officialUrl":"https://www.chanceliga.cz/zapas/8502-sks-tep"},{"round":23,"date":"2027-02-27","time":null,"home":"Bohemians 1905","away":"Pardubice","score":null,"officialMatchId":"8503","officialUrl":"https://www.chanceliga.cz/zapas/8503-boh-fkp"},{"round":23,"date":"2027-02-27","time":null,"home":"Baník Ostrava","away":"Slovácko","score":null,"officialMatchId":"8504","officialUrl":"https://www.chanceliga.cz/zapas/8504-fcb-fcs"},{"round":23,"date":"2027-02-27","time":null,"home":"Sparta Prague","away":"Sigma Olomouc","score":null,"officialMatchId":"8505","officialUrl":"https://www.chanceliga.cz/zapas/8505-acs-sig"},{"round":23,"date":"2027-02-27","time":null,"home":"Zbrojovka Brno","away":"Mladá Boleslav","score":null,"officialMatchId":"8506","officialUrl":"https://www.chanceliga.cz/zapas/8506-zbr-mbl"},{"round":23,"date":"2027-02-27","time":null,"home":"Slovan Liberec","away":"Artis Brno","score":null,"officialMatchId":"8507","officialUrl":"https://www.chanceliga.cz/zapas/8507-lib-art"},{"round":23,"date":"2027-02-27","time":null,"home":"Teplice","away":"Hradec Králové","score":null,"officialMatchId":"8508","officialUrl":"https://www.chanceliga.cz/zapas/8508-tep-hkr"},{"round":23,"date":"2027-02-27","time":null,"home":"Zlín","away":"Jablonec","score":null,"officialMatchId":"8509","officialUrl":"https://www.chanceliga.cz/zapas/8509-fcz-fkj"},{"round":23,"date":"2027-02-27","time":null,"home":"Viktoria Plzeň","away":"Slavia Prague","score":null,"officialMatchId":"8510","officialUrl":"https://www.chanceliga.cz/zapas/8510-plz-sks"},{"round":24,"date":"2027-03-06","time":null,"home":"Mladá Boleslav","away":"Viktoria Plzeň","score":null,"officialMatchId":"8511","officialUrl":"https://www.chanceliga.cz/zapas/8511-mbl-plz"},{"round":24,"date":"2027-03-06","time":null,"home":"Sigma Olomouc","away":"Teplice","score":null,"officialMatchId":"8512","officialUrl":"https://www.chanceliga.cz/zapas/8512-sig-tep"},{"round":24,"date":"2027-03-06","time":null,"home":"Jablonec","away":"Zbrojovka Brno","score":null,"officialMatchId":"8513","officialUrl":"https://www.chanceliga.cz/zapas/8513-fkj-zbr"},{"round":24,"date":"2027-03-06","time":null,"home":"Slovácko","away":"Slovan Liberec","score":null,"officialMatchId":"8514","officialUrl":"https://www.chanceliga.cz/zapas/8514-fcs-lib"},{"round":24,"date":"2027-03-06","time":null,"home":"Baník Ostrava","away":"Bohemians 1905","score":null,"officialMatchId":"8515","officialUrl":"https://www.chanceliga.cz/zapas/8515-fcb-boh"},{"round":24,"date":"2027-03-06","time":null,"home":"Pardubice","away":"Sparta Prague","score":null,"officialMatchId":"8516","officialUrl":"https://www.chanceliga.cz/zapas/8516-fkp-acs"},{"round":24,"date":"2027-03-06","time":null,"home":"Artis Brno","away":"Hradec Králové","score":null,"officialMatchId":"8517","officialUrl":"https://www.chanceliga.cz/zapas/8517-art-hkr"},{"round":24,"date":"2027-03-06","time":null,"home":"Slavia Prague","away":"Zlín","score":null,"officialMatchId":"8518","officialUrl":"https://www.chanceliga.cz/zapas/8518-sks-fcz"},{"round":25,"date":"2027-03-13","time":null,"home":"Zbrojovka Brno","away":"Slovácko","score":null,"officialMatchId":"8519","officialUrl":"https://www.chanceliga.cz/zapas/8519-zbr-fcs"},{"round":25,"date":"2027-03-13","time":null,"home":"Slovan Liberec","away":"Sigma Olomouc","score":null,"officialMatchId":"8520","officialUrl":"https://www.chanceliga.cz/zapas/8520-lib-sig"},{"round":25,"date":"2027-03-13","time":null,"home":"Teplice","away":"Mladá Boleslav","score":null,"officialMatchId":"8521","officialUrl":"https://www.chanceliga.cz/zapas/8521-tep-mbl"},{"round":25,"date":"2027-03-13","time":null,"home":"Viktoria Plzeň","away":"Jablonec","score":null,"officialMatchId":"8522","officialUrl":"https://www.chanceliga.cz/zapas/8522-plz-fkj"},{"round":25,"date":"2027-03-13","time":null,"home":"Bohemians 1905","away":"Artis Brno","score":null,"officialMatchId":"8523","officialUrl":"https://www.chanceliga.cz/zapas/8523-boh-art"},{"round":25,"date":"2027-03-13","time":null,"home":"Hradec Králové","away":"Slavia Prague","score":null,"officialMatchId":"8524","officialUrl":"https://www.chanceliga.cz/zapas/8524-hkr-sks"},{"round":25,"date":"2027-03-13","time":null,"home":"Zlín","away":"Pardubice","score":null,"officialMatchId":"8525","officialUrl":"https://www.chanceliga.cz/zapas/8525-fcz-fkp"},{"round":25,"date":"2027-03-13","time":null,"home":"Sparta Prague","away":"Baník Ostrava","score":null,"officialMatchId":"8526","officialUrl":"https://www.chanceliga.cz/zapas/8526-acs-fcb"},{"round":26,"date":"2027-03-20","time":null,"home":"Pardubice","away":"Viktoria Plzeň","score":null,"officialMatchId":"8527","officialUrl":"https://www.chanceliga.cz/zapas/8527-fkp-plz"},{"round":26,"date":"2027-03-20","time":null,"home":"Mladá Boleslav","away":"Slavia Prague","score":null,"officialMatchId":"8528","officialUrl":"https://www.chanceliga.cz/zapas/8528-mbl-sks"},{"round":26,"date":"2027-03-20","time":null,"home":"Jablonec","away":"Hradec Králové","score":null,"officialMatchId":"8529","officialUrl":"https://www.chanceliga.cz/zapas/8529-fkj-hkr"},{"round":26,"date":"2027-03-20","time":null,"home":"Sigma Olomouc","away":"Zlín","score":null,"officialMatchId":"8530","officialUrl":"https://www.chanceliga.cz/zapas/8530-sig-fcz"},{"round":26,"date":"2027-03-20","time":null,"home":"Artis Brno","away":"Teplice","score":null,"officialMatchId":"8531","officialUrl":"https://www.chanceliga.cz/zapas/8531-art-tep"},{"round":26,"date":"2027-03-20","time":null,"home":"Bohemians 1905","away":"Zbrojovka Brno","score":null,"officialMatchId":"8532","officialUrl":"https://www.chanceliga.cz/zapas/8532-boh-zbr"},{"round":26,"date":"2027-03-20","time":null,"home":"Baník Ostrava","away":"Slovan Liberec","score":null,"officialMatchId":"8533","officialUrl":"https://www.chanceliga.cz/zapas/8533-fcb-lib"},{"round":26,"date":"2027-03-20","time":null,"home":"Slovácko","away":"Sparta Prague","score":null,"officialMatchId":"8534","officialUrl":"https://www.chanceliga.cz/zapas/8534-fcs-acs"},{"round":27,"date":"2027-04-03","time":null,"home":"Sparta Prague","away":"Bohemians 1905","score":null,"officialMatchId":"8535","officialUrl":"https://www.chanceliga.cz/zapas/8535-acs-boh"},{"round":27,"date":"2027-04-03","time":null,"home":"Viktoria Plzeň","away":"Baník Ostrava","score":null,"officialMatchId":"8536","officialUrl":"https://www.chanceliga.cz/zapas/8536-plz-fcb"},{"round":27,"date":"2027-04-03","time":null,"home":"Slovan Liberec","away":"Pardubice","score":null,"officialMatchId":"8537","officialUrl":"https://www.chanceliga.cz/zapas/8537-lib-fkp"},{"round":27,"date":"2027-04-03","time":null,"home":"Teplice","away":"Slovácko","score":null,"officialMatchId":"8538","officialUrl":"https://www.chanceliga.cz/zapas/8538-tep-fcs"},{"round":27,"date":"2027-04-03","time":null,"home":"Zbrojovka Brno","away":"Sigma Olomouc","score":null,"officialMatchId":"8539","officialUrl":"https://www.chanceliga.cz/zapas/8539-zbr-sig"},{"round":27,"date":"2027-04-03","time":null,"home":"Hradec Králové","away":"Mladá Boleslav","score":null,"officialMatchId":"8540","officialUrl":"https://www.chanceliga.cz/zapas/8540-hkr-mbl"},{"round":27,"date":"2027-04-03","time":null,"home":"Zlín","away":"Artis Brno","score":null,"officialMatchId":"8541","officialUrl":"https://www.chanceliga.cz/zapas/8541-fcz-art"},{"round":27,"date":"2027-04-03","time":null,"home":"Slavia Prague","away":"Jablonec","score":null,"officialMatchId":"8542","officialUrl":"https://www.chanceliga.cz/zapas/8542-sks-fkj"},{"round":28,"date":"2027-04-10","time":null,"home":"Sparta Prague","away":"Viktoria Plzeň","score":null,"officialMatchId":"8543","officialUrl":"https://www.chanceliga.cz/zapas/8543-acs-plz"},{"round":28,"date":"2027-04-10","time":null,"home":"Bohemians 1905","away":"Slovan Liberec","score":null,"officialMatchId":"8544","officialUrl":"https://www.chanceliga.cz/zapas/8544-boh-lib"},{"round":28,"date":"2027-04-10","time":null,"home":"Baník Ostrava","away":"Zbrojovka Brno","score":null,"officialMatchId":"8545","officialUrl":"https://www.chanceliga.cz/zapas/8545-fcb-zbr"},{"round":28,"date":"2027-04-10","time":null,"home":"Pardubice","away":"Teplice","score":null,"officialMatchId":"8546","officialUrl":"https://www.chanceliga.cz/zapas/8546-fkp-tep"},{"round":28,"date":"2027-04-10","time":null,"home":"Slovácko","away":"Zlín","score":null,"officialMatchId":"8547","officialUrl":"https://www.chanceliga.cz/zapas/8547-fcs-fcz"},{"round":28,"date":"2027-04-10","time":null,"home":"Sigma Olomouc","away":"Hradec Králové","score":null,"officialMatchId":"8548","officialUrl":"https://www.chanceliga.cz/zapas/8548-sig-hkr"},{"round":28,"date":"2027-04-10","time":null,"home":"Mladá Boleslav","away":"Jablonec","score":null,"officialMatchId":"8549","officialUrl":"https://www.chanceliga.cz/zapas/8549-mbl-fkj"},{"round":28,"date":"2027-04-10","time":null,"home":"Artis Brno","away":"Slavia Prague","score":null,"officialMatchId":"8550","officialUrl":"https://www.chanceliga.cz/zapas/8550-art-sks"},{"round":29,"date":"2027-04-17","time":null,"home":"Viktoria Plzeň","away":"Bohemians 1905","score":null,"officialMatchId":"8551","officialUrl":"https://www.chanceliga.cz/zapas/8551-plz-boh"},{"round":29,"date":"2027-04-17","time":null,"home":"Slovan Liberec","away":"Sparta Prague","score":null,"officialMatchId":"8552","officialUrl":"https://www.chanceliga.cz/zapas/8552-lib-acs"},{"round":29,"date":"2027-04-17","time":null,"home":"Jablonec","away":"Artis Brno","score":null,"officialMatchId":"8553","officialUrl":"https://www.chanceliga.cz/zapas/8553-fkj-art"},{"round":29,"date":"2027-04-17","time":null,"home":"Slavia Prague","away":"Sigma Olomouc","score":null,"officialMatchId":"8554","officialUrl":"https://www.chanceliga.cz/zapas/8554-sks-sig"},{"round":29,"date":"2027-04-17","time":null,"home":"Hradec Králové","away":"Slovácko","score":null,"officialMatchId":"8555","officialUrl":"https://www.chanceliga.cz/zapas/8555-hkr-fcs"},{"round":29,"date":"2027-04-17","time":null,"home":"Zlín","away":"Mladá Boleslav","score":null,"officialMatchId":"8556","officialUrl":"https://www.chanceliga.cz/zapas/8556-fcz-mbl"},{"round":29,"date":"2027-04-17","time":null,"home":"Teplice","away":"Baník Ostrava","score":null,"officialMatchId":"8557","officialUrl":"https://www.chanceliga.cz/zapas/8557-tep-fcb"},{"round":29,"date":"2027-04-17","time":null,"home":"Zbrojovka Brno","away":"Pardubice","score":null,"officialMatchId":"8558","officialUrl":"https://www.chanceliga.cz/zapas/8558-zbr-fkp"},{"round":30,"date":"2027-04-24","time":null,"home":"Slovan Liberec","away":"Viktoria Plzeň","score":null,"officialMatchId":"8559","officialUrl":"https://www.chanceliga.cz/zapas/8559-lib-plz"},{"round":30,"date":"2027-04-24","time":null,"home":"Mladá Boleslav","away":"Artis Brno","score":null,"officialMatchId":"8560","officialUrl":"https://www.chanceliga.cz/zapas/8560-mbl-art"},{"round":30,"date":"2027-04-24","time":null,"home":"Sigma Olomouc","away":"Jablonec","score":null,"officialMatchId":"8561","officialUrl":"https://www.chanceliga.cz/zapas/8561-sig-fkj"},{"round":30,"date":"2027-04-24","time":null,"home":"Slovácko","away":"Slavia Prague","score":null,"officialMatchId":"8562","officialUrl":"https://www.chanceliga.cz/zapas/8562-fcs-sks"},{"round":30,"date":"2027-04-24","time":null,"home":"Pardubice","away":"Hradec Králové","score":null,"officialMatchId":"8563","officialUrl":"https://www.chanceliga.cz/zapas/8563-fkp-hkr"},{"round":30,"date":"2027-04-24","time":null,"home":"Baník Ostrava","away":"Zlín","score":null,"officialMatchId":"8564","officialUrl":"https://www.chanceliga.cz/zapas/8564-fcb-fcz"},{"round":30,"date":"2027-04-24","time":null,"home":"Bohemians 1905","away":"Teplice","score":null,"officialMatchId":"8565","officialUrl":"https://www.chanceliga.cz/zapas/8565-boh-tep"},{"round":30,"date":"2027-04-24","time":null,"home":"Sparta Prague","away":"Zbrojovka Brno","score":null,"officialMatchId":"8566","officialUrl":"https://www.chanceliga.cz/zapas/8566-acs-zbr"}];
 
 // ─── CENTRAL DATA VALIDATION & DUPLICATE CONTROL ─────────────────────────────
 const DATA_LIMITS={
@@ -1228,6 +1296,7 @@ function checkDataHealth(interactive=false){
       if(typeof renderPlayers==='function')renderPlayers();
       if(typeof filterRes==='function')filterRes();
       if(typeof renderTable==='function')renderTable();
+      if(typeof renderSchedule==='function')renderSchedule();
       if(typeof renderPred==='function')renderPred();
       if(typeof renderPred2==='function')renderPred2();
       if(typeof renderAccuracy==='function')renderAccuracy();
@@ -1986,7 +2055,7 @@ document.getElementById('res-body').addEventListener('click',e=>{
       results.splice(index,1);
       removeResultAndLinkedPlayerMatches(result);
       clearPred3Cache();
-      rebuildRoundSel();filterRes();renderTable();renderPred();renderPred2();renderAccuracy();renderPlayers();autoSave();
+      rebuildRoundSel();filterRes();renderTable();renderSchedule();renderPred();renderPred2();renderAccuracy();renderPlayers();autoSave();
     }else if(tr?.dataset?.src==='hist'){
       alert('Historical results cannot be deleted.');
     }
@@ -2225,7 +2294,7 @@ function addResult(){
   document.getElementById('rf-xga').value='';
   clearPerfRows();
   document.getElementById('perf-body').classList.remove('open');
-  toggleResForm();rebuildRoundSel();rebuildPredRoundSelects();filterRes();renderTable();renderPred();renderPred2();renderAccuracy();autoSave();
+  toggleResForm();rebuildRoundSel();rebuildPredRoundSelects();filterRes();renderTable();renderSchedule();renderPred();renderPred2();renderAccuracy();autoSave();
 }
 
 function fillSel(id){
@@ -2320,6 +2389,176 @@ const SIGMA_COMPLETE_LEAGUE_DATA = [{"name":"Hruška Matúš","pos":"GK","career
 
 let predMatches=[];
 let lockedPredictions=[]; // hard-locked prediction snapshots sent to Accuracy tab
+
+function getScheduleMatches(round=null){
+  const numericRound=Number(round);
+  return OFFICIAL_SCHEDULE_2026_27.filter(match=>!round||match.round===numericRound);
+}
+
+function findLocalScheduleResult(match){
+  return results.find(result=>
+    (result.season||CURRENT_SEASON)===CURRENT_SEASON &&
+    Number(result.r??result.round)===Number(match.round) &&
+    healthTeamKey(result.h??result.home)===healthTeamKey(match.home) &&
+    healthTeamKey(result.a??result.away)===healthTeamKey(match.away)
+  )||null;
+}
+
+function getScheduleScore(match){
+  return findLocalScheduleResult(match)?.score||match.score||null;
+}
+
+function getNextScheduleRound(){
+  return [...new Set(OFFICIAL_SCHEDULE_2026_27.map(match=>match.round))]
+    .sort((a,b)=>a-b)
+    .find(round=>getScheduleMatches(round).some(match=>!getScheduleScore(match)))||30;
+}
+
+function formatScheduleDate(match){
+  if(!match.date)return 'Termín bude upřesněn';
+  const [year,month,day]=match.date.split('-').map(Number);
+  const label=new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'numeric',year:'numeric'}).format(new Date(year,month-1,day));
+  return match.time?`${label} · ${match.time}`:`${label} · čas TBA`;
+}
+
+function scheduleRoundDateLabel(round){
+  const dates=getScheduleMatches(round).map(match=>match.date).filter(Boolean).sort();
+  if(!dates.length)return '';
+  const short=value=>{
+    const [year,month,day]=value.split('-').map(Number);
+    return new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'numeric'}).format(new Date(year,month-1,day));
+  };
+  return dates[0]===dates[dates.length-1]?short(dates[0]):`${short(dates[0])}–${short(dates[dates.length-1])}`;
+}
+
+function rebuildScheduleControls(){
+  const rounds=[...new Set(OFFICIAL_SCHEDULE_2026_27.map(match=>match.round))].sort((a,b)=>a-b);
+  const nextRound=getNextScheduleRound();
+  const scheduleRound=document.getElementById('schedule-round');
+  if(scheduleRound){
+    const current=scheduleRound.value;
+    scheduleRound.innerHTML='<option value="">All rounds</option>'+rounds.map(round=>
+      `<option value="${round}">Round ${round} · ${scheduleRoundDateLabel(round)}</option>`
+    ).join('');
+    if(rounds.includes(Number(current)))scheduleRound.value=current;
+  }
+  const scheduleTeam=document.getElementById('schedule-team');
+  if(scheduleTeam){
+    const current=scheduleTeam.value;
+    scheduleTeam.innerHTML='<option value="">All teams</option>'+TEAMS.slice().sort((a,b)=>a.localeCompare(b,'cs')).map(team=>
+      `<option value="${lsEsc(team)}">${lsEsc(team)}</option>`
+    ).join('');
+    if(TEAMS.includes(current))scheduleTeam.value=current;
+  }
+  ['pred-import-round','pred2-import-round'].forEach(id=>{
+    const select=document.getElementById(id);
+    if(!select)return;
+    const current=Number(select.value)||nextRound;
+    select.innerHTML=rounds.map(round=>
+      `<option value="${round}">Round ${round} · ${scheduleRoundDateLabel(round)}</option>`
+    ).join('');
+    select.value=String(rounds.includes(current)?current:nextRound);
+  });
+}
+
+function renderSchedule(){
+  const container=document.getElementById('schedule-list');
+  if(!container)return;
+  const roundFilter=Number(document.getElementById('schedule-round')?.value)||null;
+  const teamFilter=document.getElementById('schedule-team')?.value||'';
+  const statusFilter=document.getElementById('schedule-status')?.value||'';
+  const visible=OFFICIAL_SCHEDULE_2026_27.filter(match=>{
+    const played=Boolean(getScheduleScore(match));
+    return (!roundFilter||match.round===roundFilter) &&
+      (!teamFilter||match.home===teamFilter||match.away===teamFilter) &&
+      (!statusFilter||(statusFilter==='played'?played:!played));
+  });
+  const count=document.getElementById('schedule-cnt');
+  if(count)count.textContent=`${visible.length} of ${OFFICIAL_SCHEDULE_2026_27.length} matches`;
+  if(!visible.length){
+    container.innerHTML='<div style="text-align:center;padding:32px;color:var(--text3);font-size:12px">No schedule matches for this filter.</div>';
+    return;
+  }
+  const groups=[...new Set(visible.map(match=>match.round))].sort((a,b)=>a-b);
+  container.innerHTML=groups.map(round=>{
+    const matches=visible.filter(match=>match.round===round);
+    const upcoming=getScheduleMatches(round).filter(match=>!getScheduleScore(match)).length;
+    const rows=matches.map(match=>{
+      const score=getScheduleScore(match);
+      const url=safeHttpsUrl(match.officialUrl);
+      return `<div class="schedule-grid schedule-match">
+        <div class="schedule-cell schedule-date">${lsEsc(formatScheduleDate(match))}</div>
+        <div class="schedule-cell schedule-team-home">${lsEsc(match.home)}</div>
+        <div class="schedule-cell schedule-score${score?'':' upcoming'}">${score?lsEsc(score):'vs'}</div>
+        <div class="schedule-cell schedule-team-away">${lsEsc(match.away)}</div>
+        <div class="schedule-cell schedule-link">${url?`<a href="${lsEsc(url)}" target="_blank" rel="noopener" title="Official match page">↗</a>`:''}</div>
+      </div>`;
+    }).join('');
+    return `<section class="schedule-round">
+      <div class="schedule-round-head">
+        <div><span class="schedule-round-title">Round ${round}</span><span class="schedule-round-meta">${lsEsc(scheduleRoundDateLabel(round))} · ${matches.length} shown</span></div>
+        <button class="btn${upcoming?' red':''}" type="button" onclick="importScheduleRoundToPredictions(${round},'schedule')" ${upcoming?'':'disabled'}>${upcoming?`Import ${upcoming} matches`:'Played'}</button>
+      </div>
+      <div class="schedule-round-body">${rows}</div>
+    </section>`;
+  }).join('');
+}
+
+function focusPredictionRound(round){
+  renderPred();
+  renderPred2();
+  ['pf-round','p2f-round'].forEach(id=>{
+    const select=document.getElementById(id);
+    if(select&&[...select.options].some(option=>option.value===String(round)))select.value=String(round);
+  });
+  renderPred();
+  renderPred2();
+}
+
+function importScheduleRoundToPredictions(rawRound,source='schedule'){
+  const round=Number(rawRound);
+  if(!Number.isInteger(round)||round<1||round>30){
+    alert('Select a valid schedule round first.');
+    return {imported:0,duplicates:0,played:0};
+  }
+  const matches=getScheduleMatches(round);
+  let imported=0,duplicates=0,played=0;
+  matches.forEach(match=>{
+    if(getScheduleScore(match)){played++;return;}
+    const candidate={home:match.home,away:match.away,season:CURRENT_SEASON,round};
+    if(predMatches.some(existing=>healthPredictionKey(existing,false)===healthPredictionKey(candidate,false))){
+      duplicates++;
+      return;
+    }
+    predMatches.push({
+      ...candidate,
+      date:match.date,
+      kickoff:match.time,
+      officialMatchId:match.officialMatchId,
+      scheduleUrl:match.officialUrl,
+      hDisadv:0,aDisadv:0,hXI:[],aXI:[]
+    });
+    imported++;
+  });
+  clearPred3Cache();
+  rebuildPredRoundSelects();
+  focusPredictionRound(round);
+  autoSave();
+  renderSchedule();
+  const summary=`Round ${round}: imported ${imported} match${imported===1?'':'es'}${duplicates?`, ${duplicates} already present`:''}${played?`, ${played} already played`:''}. Probabilities are calculated automatically in both Prediction tabs.`;
+  setStatus(summary,imported?'ok':'warn');
+  alert(summary);
+  return {imported,duplicates,played};
+}
+
+function importVisibleScheduleRound(){
+  const round=document.getElementById('schedule-round')?.value;
+  if(!round){
+    alert('Choose one round in the Schedule filter first.');
+    return;
+  }
+  importScheduleRoundToPredictions(round,'schedule');
+}
 
 
 // Compute average form for a starting XI (array of player names) for a given team
@@ -4506,11 +4745,11 @@ function renderPrevYears(){
 
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function sw(tab){
-  ['main','results','pred','pred2','players','prev','accuracy'].forEach((t,i)=>{
-    const tabBtn=document.querySelectorAll('.tab')[i];
-    if(tabBtn) tabBtn.classList.toggle('active',t===tab);
+  ['main','results','schedule','pred','pred2','players','prev','accuracy'].forEach(t=>{
+    const tabBtn=document.querySelector(`.tab[data-tab="${t}"]`);
+    if(tabBtn)tabBtn.classList.toggle('active',t===tab);
     const sec=document.getElementById('sec-'+t);
-    if(sec) sec.classList.toggle('on',t===tab);
+    if(sec)sec.classList.toggle('on',t===tab);
   });
 }
 
@@ -5002,9 +5241,11 @@ function importJSON(input){
         // Re-render everything
         rebuildRoundSel();
         rebuildPredRoundSelects();
+        rebuildScheduleControls();
         populateTeamFilter();
         renderTable();
         filterRes();
+        renderSchedule();
         renderPred();
         renderPred2();
         renderAccuracy();
@@ -5091,8 +5332,10 @@ if (_loaded) autoSave();
 
 rebuildRoundSel();
 rebuildPredRoundSelects();
+rebuildScheduleControls();
 renderTable();
 filterRes();
+renderSchedule();
 renderPred();
 renderPred2();
 renderAccuracy();
@@ -6661,6 +6904,7 @@ function lsRefreshAfterCheck() {
   rebuildPredRoundSelects();
   filterRes();
   renderTable();
+  renderSchedule();
   renderPred();
   renderPred2();
   renderAccuracy();
@@ -6942,10 +7186,12 @@ dedupeRuntimeData();
 function renderAfterDataRestore(){
   rebuildRoundSel();
   rebuildPredRoundSelects();
+  rebuildScheduleControls();
   populateTeamFilter();
   populatePlayerTeamFilter();
   renderTable();
   filterRes();
+  renderSchedule();
   renderPred();
   renderPred2();
   renderAccuracy();
