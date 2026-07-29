@@ -7279,7 +7279,6 @@ if(restoredStorageSnapshot){
   renderAfterDataRestore();
 }
 storageBootstrapping=false;
-runAutomaticDataHealthCheck();
 
 async function loadPublishedDataSnapshot(){
   // A sibling JSON file is the durable, deployment-independent data layer for
@@ -7313,7 +7312,12 @@ async function loadPublishedDataSnapshot(){
   }
 }
 
-void loadPublishedDataSnapshot();
+// Validate the final initialized state. Waiting for the optional published
+// snapshot prevents a transient warning from embedded/browser data that is
+// immediately superseded by a newer GitHub Pages JSON snapshot.
+void loadPublishedDataSnapshot().then(loaded=>{
+  if(!loaded)runAutomaticDataHealthCheck();
+});
 
 </script>
 </body>
