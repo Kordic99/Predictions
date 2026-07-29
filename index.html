@@ -360,7 +360,33 @@
   .check-results-status li.ok { color: var(--green); }
   .check-results-status li.pending { color: var(--amber); }
   .check-results-status li.error { color: var(--red); }
-  #check-results-btn:disabled { cursor: wait; opacity: .65; }
+  .auto-results-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 26px;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg2);
+    color: var(--text3);
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .auto-results-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text3);
+  }
+  .auto-results-badge.ok { color: var(--green); border-color: #1D9E7544; background: #1D9E750D; }
+  .auto-results-badge.ok::before { background: var(--green); }
+  .auto-results-badge.working { color: var(--blue); border-color: #378ADD55; background: #378ADD0D; }
+  .auto-results-badge.working::before { background: var(--blue); animation: check-results-pulse 1s ease-in-out infinite; }
+  .auto-results-badge.warn { color: var(--amber); border-color: #BA751755; background: #BA75170D; }
+  .auto-results-badge.warn::before { background: var(--amber); }
   .check-spinner {
     display: inline-block;
     width: 10px;
@@ -372,6 +398,7 @@
     animation: check-results-spin .8s linear infinite;
   }
   @keyframes check-results-spin { to { transform: rotate(360deg); } }
+  @keyframes check-results-pulse { 50% { opacity: .35; } }
 </style>
 </head>
 <body>
@@ -715,7 +742,8 @@
     <span style="font-size:13px;font-weight:600;color:var(--text)">Prediction Accuracy</span>
     <span id="acc-summary" style="font-size:11px;color:var(--text3)"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
-      <button class="btn red" id="check-results-btn" type="button" onclick="checkAwaitingResults()">Check results</button>
+      <span class="auto-results-badge" id="auto-results-badge" role="status" aria-live="polite"
+        title="Awaiting results are checked automatically every five minutes while this page is open.">Auto results · starting…</span>
       <select class="si" id="af-season" onchange="renderAccuracy()" style="font-size:11px">
         <option value="">All seasons</option>
         <option value="2026/27" selected>2026/27</option>
@@ -732,7 +760,7 @@
     </div>
   </div>
   <div style="font-size:11px;color:var(--text3);margin-bottom:14px;padding:8px 12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--amber)">
-    Predictions are matched automatically to results you enter in the Results tab — same teams &amp; round. Add a prediction in the Prediction tab, then enter the result when it's played.
+    Awaiting matches are checked automatically every five minutes while this page is open. Once Livesport marks a match as finished, its result and available player statistics are added automatically.
   </div>
   <div id="check-results-status" class="check-results-status" aria-live="polite"></div>
   <div class="pred-list-wrap"><div id="acc-list"></div></div>
@@ -6466,6 +6494,13 @@ const LIVESPORT_TEAM_SEGMENTS = {
 };
 const LIVESPORT_FINAL_STAGES = new Set([3, 9, 10, 11, 54]);
 const LIVESPORT_CHECK_IMPORT_VERSION = '2026-07-27-live-check-v1';
+const LIVESPORT_AUTO_CHECK_INTERVAL_MS = 5 * 60 * 1000;
+const LIVESPORT_AUTO_CHECK_INITIAL_DELAY_MS = 5000;
+let livesportAutoCheckTimer = null;
+let livesportAutoCountdownTimer = null;
+let livesportNextCheckAt = 0;
+let livesportCheckRunning = false;
+let livesportLastCheckAt = 0;
 
 function lsNormalize(value) {
   return String(value || '')
@@ -6566,6 +6601,130 @@ function lsSetCheckStatus(message, type = '') {
   if (!element) return;
   element.className = 'check-results-status' + (type ? ' ' + type : '');
   element.innerHTML = message;
+}
+
+function lsSetAutoResultsBadge(state, label, title = '') {
+  const badge = document.getElementById('auto-results-badge');
+  if (!badge) return;
+  badge.className = 'auto-results-badge' + (state ? ' ' + state : '');
+  badge.textContent = label;
+  if (title) badge.title = title;
+}
+
+function lsCollectAwaitingFixtures() {
+  const unique = new Map();
+  for (const prediction of lockedPredictions) {
+    if (lsFindResult(prediction)) continue;
+    const fixture = {
+      season: prediction.season || CURRENT_SEASON,
+      round: Number(prediction.round),
+      home: lsCanonicalTeamName(prediction.home),
+      away: lsCanonicalTeamName(prediction.away)
+    };
+    unique.set(lsFixtureKey(fixture), fixture);
+  }
+  return [...unique.values()];
+}
+
+function lsOfficialScheduleFixture(fixture) {
+  return OFFICIAL_SCHEDULE_2026_27.find(match =>
+    (fixture.season || CURRENT_SEASON) === CURRENT_SEASON &&
+    Number(match.round) === Number(fixture.round) &&
+    lsNormalize(match.home) === lsNormalize(fixture.home) &&
+    lsNormalize(match.away) === lsNormalize(fixture.away)
+  ) || null;
+}
+
+function lsPragueMinuteKey(timestamp = Date.now()) {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Prague',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date(timestamp));
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return values.year + '-' + values.month + '-' + values.day + 'T' + values.hour + ':' + values.minute;
+}
+
+function lsFixtureDueForCheck(fixture, timestamp = Date.now()) {
+  const scheduled = lsOfficialScheduleFixture(fixture);
+  if (!scheduled?.date) return true;
+  const kickoff = /^\d{2}:\d{2}$/.test(String(scheduled.time || ''))
+    ? scheduled.time
+    : '15:00';
+  return lsPragueMinuteKey(timestamp) >= scheduled.date + 'T' + kickoff;
+}
+
+function lsUpdateAutoResultsCountdown() {
+  if (livesportCheckRunning) return;
+  if (navigator.onLine === false) {
+    lsSetAutoResultsBadge('warn', 'Auto results · offline', 'Kontrola se obnoví po připojení k internetu.');
+    return;
+  }
+  const awaiting = lsCollectAwaitingFixtures();
+  if (!awaiting.length) {
+    lsSetAutoResultsBadge('ok', 'Auto results · no pending', 'Žádné predikce nečekají na výsledek.');
+    return;
+  }
+  const seconds = Math.max(0, Math.ceil((livesportNextCheckAt - Date.now()) / 1000));
+  const minutesPart = Math.floor(seconds / 60);
+  const secondsPart = String(seconds % 60).padStart(2, '0');
+  const countdown = minutesPart + ':' + secondsPart;
+  lsSetAutoResultsBadge(
+    'ok',
+    'Auto results · ' + countdown,
+    'Další automatická kontrola za ' + countdown + '. Čekající zápasy: ' + awaiting.length + '.'
+  );
+}
+
+function lsScheduleNextAutomaticCheck(delay = LIVESPORT_AUTO_CHECK_INTERVAL_MS) {
+  if (livesportAutoCheckTimer) clearTimeout(livesportAutoCheckTimer);
+  livesportNextCheckAt = Date.now() + delay;
+  livesportAutoCheckTimer = setTimeout(() => {
+    void runAutomaticResultsCheck();
+  }, delay);
+  lsUpdateAutoResultsCountdown();
+}
+
+async function runAutomaticResultsCheck() {
+  if (livesportCheckRunning) {
+    lsScheduleNextAutomaticCheck();
+    return;
+  }
+  if (navigator.onLine === false) {
+    lsSetCheckStatus('Automatická kontrola čeká na připojení k internetu.', 'warn');
+    lsScheduleNextAutomaticCheck();
+    return;
+  }
+  try {
+    await checkAwaitingResults({ automatic: true });
+  } catch (error) {
+    lsSetAutoResultsBadge('warn', 'Auto results · error');
+    lsSetCheckStatus(
+      '<strong>Automatická kontrola selhala.</strong> ' + lsEsc(error?.message || 'Neznámá chyba.'),
+      'warn'
+    );
+  } finally {
+    lsScheduleNextAutomaticCheck();
+  }
+}
+
+function startAutomaticResultsCheck() {
+  if (livesportAutoCountdownTimer) return;
+  livesportAutoCountdownTimer = setInterval(lsUpdateAutoResultsCountdown, 1000);
+  window.addEventListener('online', () => {
+    if (!livesportCheckRunning) lsScheduleNextAutomaticCheck(1000);
+  });
+  window.addEventListener('offline', lsUpdateAutoResultsCountdown);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && !livesportCheckRunning && Date.now() >= livesportNextCheckAt) {
+      lsScheduleNextAutomaticCheck(250);
+    }
+  });
+  lsScheduleNextAutomaticCheck(LIVESPORT_AUTO_CHECK_INITIAL_DELAY_MS);
 }
 
 function lsExtractEnvironment(html) {
@@ -7022,35 +7181,44 @@ async function lsCheckOneFixture(fixture) {
   };
 }
 
-async function checkAwaitingResults() {
-  const button = document.getElementById('check-results-btn');
-  if (button?.disabled) return;
+async function checkAwaitingResults({ automatic = true } = {}) {
+  if (livesportCheckRunning) {
+    return { status: 'busy', checked: 0, finished: 0, pending: 0, errors: 0 };
+  }
+  livesportCheckRunning = true;
+  lsSetAutoResultsBadge('working', 'Auto results · checking…');
 
-  const unique = new Map();
-  for (const prediction of lockedPredictions) {
-    if (lsFindResult(prediction)) continue;
-    const fixture = {
-      season: prediction.season || CURRENT_SEASON,
-      round: Number(prediction.round),
-      home: lsCanonicalTeamName(prediction.home),
-      away: lsCanonicalTeamName(prediction.away)
-    };
-    unique.set(lsFixtureKey(fixture), fixture);
-  }
-  const fixtures = [...unique.values()];
-  if (!fixtures.length) {
-    lsSetCheckStatus('Žádné zápasy ve stavu <strong>Awaiting result</strong>.', 'ok');
-    return;
-  }
-
-  if (button) {
-    button.disabled = true;
-    button.dataset.originalText = button.textContent;
-    button.textContent = 'Checking…';
-  }
-  const outcomes = [];
-  let changed = false;
   try {
+    const allFixtures = lsCollectAwaitingFixtures();
+    if (!allFixtures.length) {
+      lsSetCheckStatus('Žádné zápasy ve stavu <strong>Awaiting result</strong>.', 'ok');
+      lsSetAutoResultsBadge('ok', 'Auto results · no pending');
+      return { status: 'empty', checked: 0, finished: 0, pending: 0, errors: 0 };
+    }
+
+    const fixtures = automatic
+      ? allFixtures.filter(fixture => lsFixtureDueForCheck(fixture))
+      : allFixtures;
+    const scheduledLater = allFixtures.length - fixtures.length;
+    if (!fixtures.length) {
+      lsSetCheckStatus(
+        '<strong>Automatická kontrola je aktivní.</strong> ' +
+        scheduledLater + ' čekajících zápasů ještě podle rozpisu nezačalo.',
+        'ok'
+      );
+      lsSetAutoResultsBadge('ok', 'Auto results · waiting for kickoff');
+      return {
+        status: 'waiting',
+        checked: 0,
+        finished: 0,
+        pending: 0,
+        errors: 0,
+        scheduledLater
+      };
+    }
+
+    const outcomes = [];
+    let changed = false;
     for (let index = 0; index < fixtures.length; index++) {
       const fixture = fixtures[index];
       lsSetCheckStatus(
@@ -7062,52 +7230,68 @@ async function checkAwaitingResults() {
       try {
         const outcome = await lsCheckOneFixture(fixture);
         outcomes.push(outcome);
-        if (outcome.status === 'finished') {
-          changed = true;
-          lsRefreshAfterCheck();
-        }
+        if (outcome.status === 'finished') changed = true;
       } catch (error) {
         outcomes.push({ status: 'error', fixture, error });
       }
     }
-  } finally {
-    if (button) {
-      button.disabled = false;
-      button.textContent = button.dataset.originalText || 'Check results';
-    }
-  }
 
-  if (changed) lsRefreshAfterCheck();
-  const finished = outcomes.filter(item => item.status === 'finished');
-  const pending = outcomes.filter(item => item.status === 'pending');
-  const errors = outcomes.filter(item => item.status === 'error');
-  const playerRows = finished.reduce((sum, item) => sum + (item.playerRows || 0), 0);
-  const statsWarnings = finished.filter(item => item.playerError);
-  const details = outcomes.map(item => {
-    const fixture = item.fixture;
-    const label = lsEsc(fixture.home) + ' – ' + lsEsc(fixture.away);
-    if (item.status === 'finished') {
-      const statsText = item.playerError
-        ? ' · výsledek uložen, statistiky hráčů se nepodařilo načíst'
-        : ' · ' + item.playerRows + ' výkonů hráčů';
-      return '<li class="ok"><strong>' + label + '</strong>: ' +
-        item.matchInfo.homeGoals + ':' + item.matchInfo.awayGoals + statsText + '</li>';
-    }
-    if (item.status === 'pending') {
-      return '<li class="pending"><strong>' + label + '</strong>: zatím není ukončeno</li>';
-    }
-    return '<li class="error"><strong>' + label + '</strong>: ' +
-      lsEsc(item.error?.message || 'kontrola selhala') + '</li>';
-  }).join('');
-  const summary =
-    '<strong>Kontrola dokončena.</strong> ' +
-    'Nové výsledky: ' + finished.length +
-    ' · výkony hráčů: ' + playerRows +
-    ' · stále čeká: ' + pending.length +
-    ' · chyby: ' + errors.length +
-    (statsWarnings.length ? ' · bez hráčských statistik: ' + statsWarnings.length : '') +
-    '<ul>' + details + '</ul>';
-  lsSetCheckStatus(summary, errors.length || statsWarnings.length ? 'warn' : 'ok');
+    if (changed) lsRefreshAfterCheck();
+    const finished = outcomes.filter(item => item.status === 'finished');
+    const pending = outcomes.filter(item => item.status === 'pending');
+    const errors = outcomes.filter(item => item.status === 'error');
+    const playerRows = finished.reduce((sum, item) => sum + (item.playerRows || 0), 0);
+    const statsWarnings = finished.filter(item => item.playerError);
+    const details = outcomes.map(item => {
+      const fixture = item.fixture;
+      const label = lsEsc(fixture.home) + ' – ' + lsEsc(fixture.away);
+      if (item.status === 'finished') {
+        const statsText = item.playerError
+          ? ' · výsledek uložen, statistiky hráčů se nepodařilo načíst'
+          : ' · ' + item.playerRows + ' výkonů hráčů';
+        return '<li class="ok"><strong>' + label + '</strong>: ' +
+          item.matchInfo.homeGoals + ':' + item.matchInfo.awayGoals + statsText + '</li>';
+      }
+      if (item.status === 'pending') {
+        return '<li class="pending"><strong>' + label + '</strong>: zatím není ukončeno</li>';
+      }
+      return '<li class="error"><strong>' + label + '</strong>: ' +
+        lsEsc(item.error?.message || 'kontrola selhala') + '</li>';
+    }).join('');
+    const checkedAt = new Date().toLocaleTimeString('cs-CZ', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    const summary =
+      '<strong>Automatická kontrola ' + checkedAt + '.</strong> ' +
+      'Nové výsledky: ' + finished.length +
+      ' · výkony hráčů: ' + playerRows +
+      ' · stále čeká: ' + pending.length +
+      ' · pozdější zápasy: ' + scheduledLater +
+      ' · chyby: ' + errors.length +
+      (statsWarnings.length ? ' · bez hráčských statistik: ' + statsWarnings.length : '') +
+      '<ul>' + details + '</ul>';
+    const hasWarnings = Boolean(errors.length || statsWarnings.length);
+    lsSetCheckStatus(summary, hasWarnings ? 'warn' : 'ok');
+    lsSetAutoResultsBadge(
+      hasWarnings ? 'warn' : 'ok',
+      finished.length
+        ? 'Auto results · updated ' + finished.length
+        : 'Auto results · checked ' + fixtures.length
+    );
+    return {
+      status: hasWarnings ? 'warning' : 'ok',
+      checked: fixtures.length,
+      finished: finished.length,
+      pending: pending.length,
+      errors: errors.length,
+      playerRows,
+      scheduledLater
+    };
+  } finally {
+    livesportCheckRunning = false;
+    livesportLastCheckAt = Date.now();
+  }
 }
 
 
@@ -7320,6 +7504,7 @@ async function loadPublishedDataSnapshot(){
 // immediately superseded by a newer GitHub Pages JSON snapshot.
 void loadPublishedDataSnapshot().then(loaded=>{
   if(!loaded)runAutomaticDataHealthCheck();
+  startAutomaticResultsCheck();
 });
 
 </script>
