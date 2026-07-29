@@ -5399,7 +5399,10 @@ populateTeamFilter();
 // Load from localStorage (overwrites hardcoded 2025/26 & players with saved data)
 const _loaded = loadFromStorage();
 ensureResults2526FinalRounds();
-if (_loaded) autoSave();
+// During boot, later roster/stat migrations can still normalize restored data.
+// Persist the migrated snapshot now, but validate only after initialization is
+// complete so users never see a transient warning that the same boot fixes.
+if (_loaded) autoSave({skipHealthCheck:true});
 
 rebuildRoundSel();
 rebuildPredRoundSelects();
