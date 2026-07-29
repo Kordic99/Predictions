@@ -328,6 +328,14 @@
   .storage-status { font-size:10px; color:var(--text3); margin-left:4px; }
   .storage-status.ok { color:var(--green); }
   .storage-status.warn { color:var(--amber); }
+  .auto-check-badge { margin-left:auto; display:inline-flex; align-items:center; gap:5px; padding:3px 8px; border:1px solid var(--border); border-radius:999px; font-size:10px; font-weight:600; color:var(--text3); background:var(--bg2); }
+  .auto-check-badge::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--text3); }
+  .auto-check-badge.ok { color:var(--green); border-color:#1D9E7544; background:#1D9E750D; }
+  .auto-check-badge.ok::before { background:var(--green); }
+  .auto-check-badge.warn { color:var(--amber); border-color:#BA751755; background:#BA75170D; }
+  .auto-check-badge.warn::before { background:var(--amber); }
+  .auto-check-badge.error { color:var(--red); border-color:#E5393555; background:#E539350D; }
+  .auto-check-badge.error::before { background:var(--red); }
   #import-file { display:none; }
   .export-reminder { background:#BA751715; border:1px solid #BA751766; border-radius:8px; padding:9px 14px; font-size:11px; color:#9a6010; margin-bottom:10px; display:flex; align-items:center; gap:8px; line-height:1.5; }
   @media (prefers-color-scheme: dark) { .export-reminder { color:#ffd060; background:#BA751722; } }
@@ -374,9 +382,9 @@
 <div class="storage-bar">
   <button class="storage-btn export" onclick="exportJSON()">&#8595; Export JSON</button>
   <button class="storage-btn" onclick="document.getElementById('import-file').click()">&#8593; Import JSON</button>
-  <button class="storage-btn" onclick="checkDataHealth(true)">&#10003; Check data</button>
   <input type="file" id="import-file" accept=".json" onchange="importJSON(this)"/>
   <span class="storage-status" id="storage-status"></span>
+  <span class="auto-check-badge" id="auto-check-badge" title="Data are checked automatically after loading, importing and every saved change.">Automatic check</span>
 </div>
 <div class="tabs">
   <button class="tab active" data-tab="main" onclick="sw('main')">Main Table</button>
@@ -1271,7 +1279,25 @@ function dedupeRuntimeData(){
   return counts;
 }
 
-function checkDataHealth(interactive=false){
+let lastAutomaticDataHealthAlertFingerprint='';
+let automaticDataHealthRunning=false;
+
+function setAutoCheckState(state,label){
+  const badge=document.getElementById('auto-check-badge');
+  if(!badge)return;
+  badge.className=`auto-check-badge ${state||''}`.trim();
+  badge.textContent=label||'Automatic check';
+}
+
+function notifyAutomaticDataHealth(kind,items,message){
+  const fingerprint=`${kind}|${(items||[]).join('\u241F')}`;
+  if(fingerprint===lastAutomaticDataHealthAlertFingerprint)return false;
+  lastAutomaticDataHealthAlertFingerprint=fingerprint;
+  alert(message);
+  return true;
+}
+
+function checkDataHealth(interactive=false,automatic=false){
   const before=inspectDataSnapshot({
     results_current:results.filter(match=>(match.season||CURRENT_SEASON)===CURRENT_SEASON),
     results_extra:results.filter(match=>(match.season||CURRENT_SEASON)!==CURRENT_SEASON),
@@ -1280,7 +1306,10 @@ function checkDataHealth(interactive=false){
   if(before.errors.length){
     const preview=before.errors.slice(0,18).join('\n• ');
     const more=before.errors.length>18?`\n… a dalších ${before.errors.length-18}`:'';
-    if(interactive)alert(`Kontrola našla ${before.errors.length} nesmyslných nebo neplatných hodnot:\n\n• ${preview}${more}\n\nData nebyla automaticky změněna.`);
+    const message=`Automatická kontrola našla ${before.errors.length} nesmyslných nebo neplatných hodnot:\n\n• ${preview}${more}\n\nNeplatná změna nebyla uložena. Data nebyla automaticky změněna.`;
+    if(interactive)alert(message);
+    else if(automatic)notifyAutomaticDataHealth('errors',before.errors,message);
+    setAutoCheckState('error',`Data error · ${before.errors.length}`);
     setStatus(`Kontrola: ${before.errors.length} neplatných hodnot`, 'warn');
     return {ok:false,...before,repaired:null};
   }
@@ -1292,7 +1321,7 @@ function checkDataHealth(interactive=false){
     if(shouldRepair){
       repaired=dedupeRuntimeData();
       clearPred3Cache();
-      autoSave();
+      autoSave({skipHealthCheck:true});
       if(typeof renderPlayers==='function')renderPlayers();
       if(typeof filterRes==='function')filterRes();
       if(typeof renderTable==='function')renderTable();
@@ -1304,21 +1333,52 @@ function checkDataHealth(interactive=false){
       if(interactive)alert(`Hotovo. Sloučeno ${total} duplicitních záznamů. Opakovaná kontrola už žádné duplicity nenašla.`);
       if(before.warnings.length){
         if(interactive)alert(`Po opravě duplicit zbývá ${before.warnings.length} upozornění k ruční kontrole:\n\n• ${before.warnings.slice(0,16).join('\n• ')}${before.warnings.length>16?'\n…':''}`);
+        else if(automatic)notifyAutomaticDataHealth(
+          'duplicates-and-warnings',
+          [...before.duplicates,...before.warnings],
+          `Automatická kontrola sloučila ${total} duplicitních záznamů. Zbývá ${before.warnings.length} upozornění k ruční kontrole:\n\n• ${before.warnings.slice(0,16).join('\n• ')}${before.warnings.length>16?'\n…':''}`
+        );
+        setAutoCheckState('warn',`Check warning · ${before.warnings.length}`);
         setStatus(`Opraveno ${total} duplicit; ${before.warnings.length} upozornění`, 'warn');
       }else{
+        if(automatic)notifyAutomaticDataHealth(
+          'duplicates-repaired',
+          before.duplicates,
+          `Automatická kontrola našla a sloučila ${total} duplicitních záznamů.\n\n• ${before.duplicates.slice(0,12).join('\n• ')}${before.duplicates.length>12?'\n…':''}`
+        );
+        setAutoCheckState('ok','Duplicates repaired');
         setStatus(`Kontrola: opraveno ${total} duplicit`, 'ok');
       }
     }else{
+      setAutoCheckState('warn',`Duplicates · ${before.duplicates.length}`);
       setStatus(`Kontrola: ${before.duplicates.length} duplicit čeká na opravu`, 'warn');
     }
   }else if(before.warnings.length){
     if(interactive)alert(`Kontrola nenašla neplatné hodnoty, ale ${before.warnings.length} starších nebo neúplných záznamů vyžaduje ruční kontrolu:\n\n• ${before.warnings.slice(0,16).join('\n• ')}${before.warnings.length>16?'\n…':''}`);
+    else if(automatic)notifyAutomaticDataHealth(
+      'warnings',
+      before.warnings,
+      `Automatická kontrola nenašla neplatné hodnoty, ale ${before.warnings.length} starších nebo neúplných záznamů vyžaduje ruční kontrolu:\n\n• ${before.warnings.slice(0,16).join('\n• ')}${before.warnings.length>16?'\n…':''}`
+    );
+    setAutoCheckState('warn',`Check warning · ${before.warnings.length}`);
     setStatus(`Kontrola: ${before.warnings.length} upozornění`, 'warn');
   }else{
     if(interactive)alert('Kontrola dokončena: nebyly nalezeny duplicity ani nesmyslné statistiky.');
-    setStatus('Kontrola dat: vše v pořádku ✓', 'ok');
+    if(automatic)lastAutomaticDataHealthAlertFingerprint='';
+    setAutoCheckState('ok','Automatic check · OK');
+    if(interactive)setStatus('Kontrola dat: vše v pořádku ✓', 'ok');
   }
   return {ok:true,...before,repaired};
+}
+
+function runAutomaticDataHealthCheck(){
+  if(automaticDataHealthRunning)return {ok:true,errors:[],duplicates:[],warnings:[],repaired:null,skipped:true};
+  automaticDataHealthRunning=true;
+  try{
+    return checkDataHealth(false,true);
+  }finally{
+    automaticDataHealthRunning=false;
+  }
 }
 
 // ─── MATCH RESULTS ────────────────────────────────────────────────────────────
@@ -5284,8 +5344,12 @@ function clearStorage(){
 }
 
 // Auto-save whenever user adds data
-function autoSave(){
+function autoSave(options={}){
   try{
+    if(!options.skipHealthCheck){
+      const health=runAutomaticDataHealthCheck();
+      if(health&&!health.ok)return false;
+    }
     persistSnapshot();
     return true;
   }catch(e){
@@ -7208,6 +7272,7 @@ if(restoredStorageSnapshot){
   renderAfterDataRestore();
 }
 storageBootstrapping=false;
+runAutomaticDataHealthCheck();
 
 async function loadPublishedDataSnapshot(){
   // A sibling JSON file is the durable, deployment-independent data layer for
@@ -7228,6 +7293,8 @@ async function loadPublishedDataSnapshot(){
     if(!applyStoredData(published)) return false;
     // Embedded verified values may be newer than the published snapshot.
     applyVerifiedTransfermarktValues202627(false);
+    const health=runAutomaticDataHealthCheck();
+    if(!health.ok)return false;
     persistSnapshot();
     renderAfterDataRestore();
     setStatus('Published data loaded ✓','ok');
