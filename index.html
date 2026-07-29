@@ -467,7 +467,7 @@
       <select class="si" id="rs" onchange="filterRes()"><option value="">All teams</option></select>
       <select class="si" id="rss" onchange="filterRes()">
         <option value="">All seasons</option>
-        <option value="2026/27">2026/27</option>
+        <option value="2026/27" selected>2026/27</option>
         <option value="2025/26">2025/26</option>
         <option value="2024/25">2024/25</option>
         <option value="2023/24">2023/24</option>
@@ -548,7 +548,7 @@
     </div>
     <div class="schedule-info-actions">
       <span class="auto-results-badge ok" id="auto-schedule-badge" role="status" aria-live="polite"
-        title="The published Chance Liga schedule is checked automatically every five minutes.">Schedule · starting…</span>
+        title="The official Chance Liga schedule is refreshed by the server every hour at xx:00.">Schedule · starting…</span>
       <a class="schedule-source" href="https://www.chanceliga.cz/rozpis-zapasu" target="_blank" rel="noopener">Official schedule ↗</a>
     </div>
   </div>
@@ -757,7 +757,7 @@
     <span id="acc-summary" style="font-size:11px;color:var(--text3)"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
       <span class="auto-results-badge ok" id="auto-results-badge" role="status" aria-live="polite"
-        title="Awaiting results are checked automatically every five minutes while this page is open.">Auto results · starting…</span>
+        title="Official results are refreshed by the server every hour at xx:00. Livesport player data are enriched quietly in the background.">Auto results · starting…</span>
       <select class="si" id="af-season" onchange="renderAccuracy()" style="font-size:11px">
         <option value="">All seasons</option>
         <option value="2026/27" selected>2026/27</option>
@@ -774,7 +774,7 @@
     </div>
   </div>
   <div style="font-size:11px;color:var(--text3);margin-bottom:14px;padding:8px 12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--amber)">
-    Awaiting matches are checked automatically every five minutes while this page is open. Once Livesport marks a match as finished, its result and available player statistics are added automatically.
+    Official results are refreshed every hour at xx:00. The page quietly loads the published update in the background; when available, Livesport data enrich the result with line-ups and player statistics.
   </div>
   <div id="check-results-status" class="check-results-status" aria-live="polite"></div>
   <div class="pred-list-wrap"><div id="acc-list"></div></div>
@@ -2546,6 +2546,7 @@ function applyLiveScheduleData(payload,shouldRender=true){
   const seen=new Set();
   let updatedFixtures=0;
   let updatedPredictions=0;
+  let updatedResults=0;
   payload.matches.forEach(row=>{
     const id=String(row?.officialMatchId||'');
     const target=targets.get(id);
@@ -2556,6 +2557,9 @@ function applyLiveScheduleData(payload,shouldRender=true){
     }
     if(row.time!==null&&!/^\d{2}:\d{2}$/.test(String(row.time||''))){
       throw new Error(`Zápas ${id} nemá platný čas.`);
+    }
+    if(row.score!==null&&row.score!==undefined&&!/^\d+:\d+$/.test(String(row.score||''))){
+      throw new Error(`Zápas ${id} nemá platný výsledek.`);
     }
     const nextDate=String(row.date);
     const nextTime=row.time===null?null:String(row.time);
@@ -2571,19 +2575,64 @@ function applyLiveScheduleData(payload,shouldRender=true){
       prediction.kickoff=nextTime;
       updatedPredictions++;
     });
+    const nextScore=row.score===null||row.score===undefined?null:String(row.score);
+    if(nextScore){
+      target.score=nextScore;
+      let result=findLocalScheduleResult(target);
+      if(!result){
+        result={
+          season:CURRENT_SEASON,
+          r:Number(target.round),
+          h:target.home,
+          a:target.away,
+          score:nextScore,
+          date:nextDate,
+          source:'Chance Liga',
+          sourceUrl:target.officialUrl,
+          officialUrl:target.officialUrl,
+          officialMatchId:id
+        };
+        results.push(result);
+        syncPlayerMatchesWithResult(result);
+        updatedResults++;
+      }else{
+        const before=JSON.stringify([
+          result.score,result.date,result.officialUrl,result.officialMatchId
+        ]);
+        result.score=nextScore;
+        result.date=result.date||nextDate;
+        result.officialUrl=result.officialUrl||target.officialUrl;
+        result.officialMatchId=result.officialMatchId||id;
+        if(!result.source){
+          result.source='Chance Liga';
+          result.sourceUrl=target.officialUrl;
+        }
+        const after=JSON.stringify([
+          result.score,result.date,result.officialUrl,result.officialMatchId
+        ]);
+        if(after!==before){
+          syncPlayerMatchesWithResult(result);
+          updatedResults++;
+        }
+      }
+    }
   });
   if(seen.size!==targets.size)throw new Error('Automatický rozpis neobsahuje všechna očekávaná utkání.');
-  if(updatedPredictions){
+  if(updatedPredictions||updatedResults){
     clearPred3Cache();
     autoSave();
   }
-  if(shouldRender&&(updatedFixtures||updatedPredictions)){
+  if(shouldRender&&(updatedFixtures||updatedPredictions||updatedResults)){
     rebuildScheduleControls();
+    rebuildRoundSel();
+    renderTable();
+    filterRes();
     renderSchedule();
     renderPred();
     renderPred2();
+    renderAccuracy();
   }
-  return{updatedFixtures,updatedPredictions};
+  return{updatedFixtures,updatedPredictions,updatedResults};
 }
 
 function scheduleUpdateCountdown(){
@@ -2643,8 +2692,8 @@ async function checkLiveSchedule(){
     scheduleClearError();
     scheduleSetBadge(
       'ok',
-      outcome.updatedFixtures||outcome.updatedPredictions
-        ? `Schedule · updated ${outcome.updatedFixtures}`
+      outcome.updatedFixtures||outcome.updatedPredictions||outcome.updatedResults
+        ? `Schedule · updated ${outcome.updatedFixtures+outcome.updatedResults}`
         : 'Schedule · checked'
     );
   }catch(error){
@@ -6694,6 +6743,7 @@ const LIVESPORT_AUTO_CHECK_INITIAL_DELAY_MS = 5000;
 let livesportAutoCheckTimer = null;
 let livesportAutoCountdownTimer = null;
 let livesportNextCheckAt = 0;
+let livesportNextServerCheckAt = 0;
 let livesportCheckRunning = false;
 let livesportLastCheckAt = 0;
 let livesportAutoErrorMessage = '';
@@ -6893,19 +6943,33 @@ function lsUpdateAutoResultsCountdown() {
     );
     return;
   }
+  if (!/^https?:$/.test(location.protocol)) {
+    lsSetAutoResultsBadge(
+      'ok',
+      'Auto results · local data',
+      'Hodinová serverová aktualizace výsledků běží na publikované GitHub Pages stránce.'
+    );
+    return;
+  }
   const awaiting = lsCollectAwaitingFixtures();
   if (!awaiting.length) {
     lsSetAutoResultsBadge('ok', 'Auto results · no pending', 'Žádné predikce nečekají na výsledek.');
     return;
   }
-  const seconds = Math.max(0, Math.ceil((livesportNextCheckAt - Date.now()) / 1000));
+  if (!livesportNextServerCheckAt || Date.now() >= livesportNextServerCheckAt) {
+    const nextHour = new Date();
+    nextHour.setMinutes(0, 0, 0);
+    nextHour.setHours(nextHour.getHours() + 1);
+    livesportNextServerCheckAt = nextHour.getTime();
+  }
+  const seconds = Math.max(0, Math.ceil((livesportNextServerCheckAt - Date.now()) / 1000));
   const minutesPart = Math.floor(seconds / 60);
   const secondsPart = String(seconds % 60).padStart(2, '0');
   const countdown = minutesPart + ':' + secondsPart;
   lsSetAutoResultsBadge(
     'ok',
     'Auto results · ' + countdown,
-    'Další automatická kontrola za ' + countdown + '. Čekající zápasy: ' + awaiting.length + '.'
+    'Další serverová kontrola výsledků v celou za ' + countdown + '. Čekající zápasy: ' + awaiting.length + '. Livesport data se doplňují tiše na pozadí.'
   );
 }
 
@@ -6945,6 +7009,10 @@ async function runAutomaticResultsCheck() {
 
 function startAutomaticResultsCheck() {
   if (livesportAutoCountdownTimer) return;
+  const nextHour = new Date();
+  nextHour.setMinutes(0, 0, 0);
+  nextHour.setHours(nextHour.getHours() + 1);
+  livesportNextServerCheckAt = nextHour.getTime();
   livesportAutoCountdownTimer = setInterval(lsUpdateAutoResultsCountdown, 1000);
   window.addEventListener('online', () => {
     if (!livesportCheckRunning) lsScheduleNextAutomaticCheck(1000);
