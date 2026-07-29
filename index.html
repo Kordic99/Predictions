@@ -956,6 +956,7 @@ function inspectDataSnapshot(raw){
   const predRows=Array.isArray(data.predMatches)?data.predMatches:[];
   const lockRows=Array.isArray(data.lockedPredictions)?data.lockedPredictions:[];
   const errors=[],duplicates=[],warnings=[];
+  const resultSeasons=new Set(resultRows.map(result=>result?.season||CURRENT_SEASON));
 
   resultRows.forEach((match,index)=>{
     const label=`Výsledek ${index+1} (${match?.h||match?.home||'?'} – ${match?.a||match?.away||'?'})`;
@@ -1059,8 +1060,14 @@ function inspectDataSnapshot(raw){
           if(expectedTeam&&healthTeamKey(expectedTeam)!==healthTeamKey(player.team)){
             warnings.push(`${label}: tým hráče neodpovídá jeho Livesport zápasu; záznam je potřeba sloučit nebo opravit.`);
           }
-        }else warnings.push(`${label} / zápas ${index+1}: chybí odpovídající výsledek se stejným Livesport ID.`);
-      }else if(match?.manualMatchId&&!resultRows.some(result=>healthFixtureKey(result)===match.manualMatchId)){
+        }else if(resultSeasons.has(match?.season||CURRENT_SEASON)){
+          warnings.push(`${label} / zápas ${index+1}: chybí odpovídající výsledek se stejným Livesport ID.`);
+        }
+      }else if(
+        match?.manualMatchId &&
+        resultSeasons.has(match?.season||CURRENT_SEASON) &&
+        !resultRows.some(result=>healthFixtureKey(result)===match.manualMatchId)
+      ){
         warnings.push(`${label} / zápas ${index+1}: chybí odpovídající ručně zadaný výsledek.`);
       }
     });
