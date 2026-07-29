@@ -2,7 +2,8 @@ name: Update Chance Liga schedule
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
+      timezone: "Europe/Prague"
   workflow_dispatch:
 
 permissions:
