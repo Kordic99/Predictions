@@ -2504,6 +2504,7 @@ const SCHEDULE_AUTO_CHECK_INITIAL_DELAY_MS=3000;
 let scheduleAutoCheckTimer=null;
 let scheduleAutoCountdownTimer=null;
 let scheduleNextCheckAt=0;
+let scheduleNextServerCheckAt=0;
 let scheduleCheckRunning=false;
 let scheduleAutoErrorMessage='';
 let scheduleLastAlertSignature='';
@@ -2599,9 +2600,15 @@ function scheduleUpdateCountdown(){
     scheduleReportError('Automatická kontrola rozpisu je offline.','Kontrola se obnoví po připojení k internetu.');
     return;
   }
-  const seconds=Math.max(0,Math.ceil((scheduleNextCheckAt-Date.now())/1000));
+  if(!scheduleNextServerCheckAt||Date.now()>=scheduleNextServerCheckAt){
+    const nextHour=new Date();
+    nextHour.setMinutes(0,0,0);
+    nextHour.setHours(nextHour.getHours()+1);
+    scheduleNextServerCheckAt=nextHour.getTime();
+  }
+  const seconds=Math.max(0,Math.ceil((scheduleNextServerCheckAt-Date.now())/1000));
   const countdown=Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0');
-  scheduleSetBadge('ok','Schedule · '+countdown,'Další automatická kontrola rozpisu za '+countdown+'.');
+  scheduleSetBadge('ok','Schedule · '+countdown,'Další serverová kontrola rozpisu v celou za '+countdown+'. Publikovaná data se mezitím načítají na pozadí.');
 }
 
 function scheduleNextAutomaticCheck(delay=SCHEDULE_AUTO_CHECK_INTERVAL_MS){
@@ -2651,6 +2658,10 @@ async function checkLiveSchedule(){
 
 function startAutomaticScheduleCheck(){
   if(scheduleAutoCountdownTimer)return;
+  const nextHour=new Date();
+  nextHour.setMinutes(0,0,0);
+  nextHour.setHours(nextHour.getHours()+1);
+  scheduleNextServerCheckAt=nextHour.getTime();
   scheduleAutoCountdownTimer=setInterval(scheduleUpdateCountdown,1000);
   window.addEventListener('online',()=>{
     if(!scheduleCheckRunning)scheduleNextAutomaticCheck(1000);
