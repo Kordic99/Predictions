@@ -149,6 +149,7 @@
   .schedule-info { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px; padding:11px 13px; border:1px solid #185FA544; border-left:3px solid var(--blue); border-radius:8px; background:#185FA50b; }
   .schedule-info-main { font-size:11px; line-height:1.55; color:var(--text2); }
   .schedule-info-main strong { color:var(--text); }
+  .schedule-info-actions { display:flex; align-items:center; justify-content:flex-end; gap:7px; flex-wrap:wrap; }
   .schedule-source { font-size:10px; color:var(--blue); text-decoration:none; white-space:nowrap; }
   .schedule-source:hover { text-decoration:underline; }
   .schedule-list { display:flex; flex-direction:column; gap:9px; }
@@ -171,6 +172,7 @@
   .schedule-import { display:flex; gap:5px; align-items:center; flex-wrap:wrap; }
   @media (max-width:700px) {
     .schedule-info { flex-direction:column; }
+    .schedule-info-actions { justify-content:flex-start; }
     .schedule-grid { grid-template-columns:82px minmax(105px,1fr) 42px minmax(105px,1fr) 34px; min-width:470px; }
     .schedule-round-body { overflow-x:auto; }
     .schedule-cell { padding:6px; font-size:10px; }
@@ -544,7 +546,11 @@
       <strong>Chance Liga 2026/27 · complete regular-season schedule</strong><br/>
       30 rounds · 240 matches · 8 matches per round. Exact kick-off times are shown where the league has confirmed them; later times may still be updated.
     </div>
-    <a class="schedule-source" href="https://www.chanceliga.cz/rozpis-zapasu" target="_blank" rel="noopener">Official schedule ↗</a>
+    <div class="schedule-info-actions">
+      <span class="auto-results-badge ok" id="auto-schedule-badge" role="status" aria-live="polite"
+        title="The published Chance Liga schedule is checked automatically every five minutes.">Schedule · starting…</span>
+      <a class="schedule-source" href="https://www.chanceliga.cz/rozpis-zapasu" target="_blank" rel="noopener">Official schedule ↗</a>
+    </div>
   </div>
   <div class="toolbar">
     <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
@@ -689,7 +695,7 @@
   <div class="toolbar">
     <select class="si" id="prev-season" onchange="renderPrevYears()">
       <option value="">Select season...</option>
-      <option value="2025/26">2025/26</option>
+      <option value="2025/26" selected>2025/26</option>
       <option value="2024/25">2024/25</option>
       <option value="2023/24">2023/24</option>
       <option value="2022/23">2022/23</option>
@@ -2492,6 +2498,171 @@ const SIGMA_COMPLETE_LEAGUE_DATA = [{"name":"Hruška Matúš","pos":"GK","career
 
 let predMatches=[];
 let lockedPredictions=[]; // hard-locked prediction snapshots sent to Accuracy tab
+const SCHEDULE_LIVE_FILE='schedule-live.json';
+const SCHEDULE_AUTO_CHECK_INTERVAL_MS=5*60*1000;
+const SCHEDULE_AUTO_CHECK_INITIAL_DELAY_MS=3000;
+let scheduleAutoCheckTimer=null;
+let scheduleAutoCountdownTimer=null;
+let scheduleNextCheckAt=0;
+let scheduleCheckRunning=false;
+let scheduleAutoErrorMessage='';
+let scheduleLastAlertSignature='';
+let scheduleLastCheckAt=0;
+
+function scheduleSetBadge(state,label,title=''){
+  const badge=document.getElementById('auto-schedule-badge');
+  if(!badge)return;
+  badge.className='auto-results-badge'+(state?' '+state:'');
+  badge.textContent=label;
+  badge.title=title;
+}
+
+function scheduleClearError(){
+  scheduleAutoErrorMessage='';
+  scheduleLastAlertSignature='';
+}
+
+function scheduleReportError(message,details=''){
+  const summary=String(message||'Automatická kontrola rozpisu selhala.').trim();
+  const extra=String(details||'').trim();
+  const signature=summary+(extra?'\n'+extra:'');
+  scheduleAutoErrorMessage=signature;
+  scheduleSetBadge('error','Schedule · error',signature);
+  if(signature!==scheduleLastAlertSignature){
+    scheduleLastAlertSignature=signature;
+    setTimeout(()=>window.alert('Schedule update\n\n'+signature),0);
+  }
+}
+
+function applyLiveScheduleData(payload,shouldRender=true){
+  if(!payload||payload.season!==CURRENT_SEASON||!Array.isArray(payload.matches)){
+    throw new Error('Soubor automatického rozpisu nemá platnou strukturu.');
+  }
+  if(payload.matches.length!==OFFICIAL_SCHEDULE_2026_27.length){
+    throw new Error(`Automatický rozpis obsahuje ${payload.matches.length} místo ${OFFICIAL_SCHEDULE_2026_27.length} zápasů.`);
+  }
+  const targets=new Map(OFFICIAL_SCHEDULE_2026_27.map(match=>[String(match.officialMatchId),match]));
+  const seen=new Set();
+  let updatedFixtures=0;
+  let updatedPredictions=0;
+  payload.matches.forEach(row=>{
+    const id=String(row?.officialMatchId||'');
+    const target=targets.get(id);
+    if(!target||seen.has(id))throw new Error('Automatický rozpis obsahuje neznámé nebo duplicitní ID zápasu.');
+    seen.add(id);
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(String(row.date||''))){
+      throw new Error(`Zápas ${id} nemá platné datum.`);
+    }
+    if(row.time!==null&&!/^\d{2}:\d{2}$/.test(String(row.time||''))){
+      throw new Error(`Zápas ${id} nemá platný čas.`);
+    }
+    const nextDate=String(row.date);
+    const nextTime=row.time===null?null:String(row.time);
+    if(target.date!==nextDate||target.time!==nextTime){
+      target.date=nextDate;
+      target.time=nextTime;
+      updatedFixtures++;
+    }
+    predMatches.forEach(prediction=>{
+      if(String(prediction.officialMatchId||'')!==id)return;
+      if(prediction.date===nextDate&&(prediction.kickoff??null)===nextTime)return;
+      prediction.date=nextDate;
+      prediction.kickoff=nextTime;
+      updatedPredictions++;
+    });
+  });
+  if(seen.size!==targets.size)throw new Error('Automatický rozpis neobsahuje všechna očekávaná utkání.');
+  if(updatedPredictions){
+    clearPred3Cache();
+    autoSave();
+  }
+  if(shouldRender&&(updatedFixtures||updatedPredictions)){
+    rebuildScheduleControls();
+    renderSchedule();
+    renderPred();
+    renderPred2();
+  }
+  return{updatedFixtures,updatedPredictions};
+}
+
+function scheduleUpdateCountdown(){
+  if(scheduleCheckRunning)return;
+  if(scheduleAutoErrorMessage){
+    scheduleSetBadge('error','Schedule · error',scheduleAutoErrorMessage);
+    return;
+  }
+  if(!/^https?:$/.test(location.protocol)){
+    scheduleSetBadge('ok','Schedule · local data','Automatic schedule updates run on the published website.');
+    return;
+  }
+  if(navigator.onLine===false){
+    scheduleReportError('Automatická kontrola rozpisu je offline.','Kontrola se obnoví po připojení k internetu.');
+    return;
+  }
+  const seconds=Math.max(0,Math.ceil((scheduleNextCheckAt-Date.now())/1000));
+  const countdown=Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0');
+  scheduleSetBadge('ok','Schedule · '+countdown,'Další automatická kontrola rozpisu za '+countdown+'.');
+}
+
+function scheduleNextAutomaticCheck(delay=SCHEDULE_AUTO_CHECK_INTERVAL_MS){
+  if(scheduleAutoCheckTimer)clearTimeout(scheduleAutoCheckTimer);
+  scheduleNextCheckAt=Date.now()+delay;
+  scheduleAutoCheckTimer=setTimeout(()=>void checkLiveSchedule(),delay);
+  scheduleUpdateCountdown();
+}
+
+async function checkLiveSchedule(){
+  if(scheduleCheckRunning){
+    scheduleNextAutomaticCheck();
+    return;
+  }
+  if(!/^https?:$/.test(location.protocol)){
+    scheduleUpdateCountdown();
+    return;
+  }
+  if(navigator.onLine===false){
+    scheduleReportError('Automatická kontrola rozpisu je offline.','Kontrola se obnoví po připojení k internetu.');
+    scheduleNextAutomaticCheck();
+    return;
+  }
+  scheduleCheckRunning=true;
+  scheduleSetBadge('working','Schedule · checking…','Načítám poslední potvrzené termíny Chance Ligy.');
+  try{
+    const url=new URL(SCHEDULE_LIVE_FILE,location.href);
+    url.searchParams.set('refresh',Date.now());
+    const response=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error(`Zdroj rozpisu vrátil HTTP ${response.status}.`);
+    const outcome=applyLiveScheduleData(await response.json(),true);
+    scheduleClearError();
+    scheduleSetBadge(
+      'ok',
+      outcome.updatedFixtures||outcome.updatedPredictions
+        ? `Schedule · updated ${outcome.updatedFixtures}`
+        : 'Schedule · checked'
+    );
+  }catch(error){
+    scheduleReportError('Automatická kontrola rozpisu selhala.',error?.message||'Neznámá chyba.');
+  }finally{
+    scheduleCheckRunning=false;
+    scheduleLastCheckAt=Date.now();
+    scheduleNextAutomaticCheck();
+  }
+}
+
+function startAutomaticScheduleCheck(){
+  if(scheduleAutoCountdownTimer)return;
+  scheduleAutoCountdownTimer=setInterval(scheduleUpdateCountdown,1000);
+  window.addEventListener('online',()=>{
+    if(!scheduleCheckRunning)scheduleNextAutomaticCheck(1000);
+  });
+  window.addEventListener('offline',scheduleUpdateCountdown);
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden&&!scheduleCheckRunning&&Date.now()>=scheduleNextCheckAt){
+      scheduleNextAutomaticCheck(250);
+    }
+  });
+  scheduleNextAutomaticCheck(SCHEDULE_AUTO_CHECK_INITIAL_DELAY_MS);
+}
 
 function getScheduleMatches(round=null){
   const numericRound=Number(round);
@@ -4795,7 +4966,12 @@ function computePrevStandings(season){
 }
 
 function renderPrevYears(){
-  const season=document.getElementById('prev-season')?.value;
+  const select=document.getElementById('prev-season');
+  if(select&&!select.value){
+    const latest=[...select.options].map(option=>option.value).find(Boolean);
+    if(latest)select.value=latest;
+  }
+  const season=select?.value;
   const container=document.getElementById('prev-table');
   if(!season){
     container.innerHTML='<div style="text-align:center;padding:32px;color:var(--text3);font-size:13px">Select a season to view standings</div>';
@@ -7558,6 +7734,7 @@ async function loadPublishedDataSnapshot(){
 // immediately superseded by a newer GitHub Pages JSON snapshot.
 void loadPublishedDataSnapshot().then(loaded=>{
   if(!loaded)runAutomaticDataHealthCheck();
+  startAutomaticScheduleCheck();
   startAutomaticResultsCheck();
 });
 
