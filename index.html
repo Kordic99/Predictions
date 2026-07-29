@@ -356,6 +356,12 @@
   .check-results-status.working { border-left-color: var(--blue); }
   .check-results-status.ok { border-left-color: var(--green); }
   .check-results-status.warn { border-left-color: var(--amber); }
+  .check-results-status.error {
+    border-color: #D9302544;
+    border-left-color: var(--red);
+    background: #D930250D;
+    color: var(--red);
+  }
   .check-results-status ul { margin: 7px 0 0 18px; padding: 0; }
   .check-results-status li.ok { color: var(--green); }
   .check-results-status li.pending { color: var(--amber); }
@@ -387,6 +393,8 @@
   .auto-results-badge.working::before { background: var(--blue); animation: check-results-pulse 1s ease-in-out infinite; }
   .auto-results-badge.warn { color: var(--amber); border-color: #BA751755; background: #BA75170D; }
   .auto-results-badge.warn::before { background: var(--amber); }
+  .auto-results-badge.error { color: var(--red); border-color: #D9302555; background: #D930250D; }
+  .auto-results-badge.error::before { background: var(--red); }
   .check-spinner {
     display: inline-block;
     width: 10px;
@@ -742,7 +750,7 @@
     <span style="font-size:13px;font-weight:600;color:var(--text)">Prediction Accuracy</span>
     <span id="acc-summary" style="font-size:11px;color:var(--text3)"></span>
     <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
-      <span class="auto-results-badge" id="auto-results-badge" role="status" aria-live="polite"
+      <span class="auto-results-badge ok" id="auto-results-badge" role="status" aria-live="polite"
         title="Awaiting results are checked automatically every five minutes while this page is open.">Auto results · starting…</span>
       <select class="si" id="af-season" onchange="renderAccuracy()" style="font-size:11px">
         <option value="">All seasons</option>
@@ -6501,6 +6509,8 @@ let livesportAutoCountdownTimer = null;
 let livesportNextCheckAt = 0;
 let livesportCheckRunning = false;
 let livesportLastCheckAt = 0;
+let livesportAutoErrorMessage = '';
+let livesportLastAlertSignature = '';
 
 function lsNormalize(value) {
   return String(value || '')
@@ -6608,7 +6618,32 @@ function lsSetAutoResultsBadge(state, label, title = '') {
   if (!badge) return;
   badge.className = 'auto-results-badge' + (state ? ' ' + state : '');
   badge.textContent = label;
-  if (title) badge.title = title;
+  badge.title = title;
+}
+
+function lsClearAutoResultsError() {
+  livesportAutoErrorMessage = '';
+  livesportLastAlertSignature = '';
+  lsSetCheckStatus('');
+}
+
+function lsReportAutoResultsError(message, details = '') {
+  const summary = String(message || 'Automatická kontrola výsledků selhala.').trim();
+  const extra = String(details || '').trim();
+  const signature = summary + (extra ? '\n' + extra : '');
+  livesportAutoErrorMessage = signature;
+  lsSetAutoResultsBadge('error', 'Auto results · error', signature);
+  lsSetCheckStatus(
+    '<strong>' + lsEsc(summary) + '</strong>' +
+      (extra ? '<br>' + lsEsc(extra).replace(/\n/g, '<br>') : ''),
+    'error'
+  );
+  if (signature !== livesportLastAlertSignature) {
+    livesportLastAlertSignature = signature;
+    setTimeout(() => {
+      window.alert('Auto results\n\n' + signature);
+    }, 0);
+  }
 }
 
 function lsCollectAwaitingFixtures() {
@@ -6660,8 +6695,15 @@ function lsFixtureDueForCheck(fixture, timestamp = Date.now()) {
 
 function lsUpdateAutoResultsCountdown() {
   if (livesportCheckRunning) return;
+  if (livesportAutoErrorMessage) {
+    lsSetAutoResultsBadge('error', 'Auto results · error', livesportAutoErrorMessage);
+    return;
+  }
   if (navigator.onLine === false) {
-    lsSetAutoResultsBadge('warn', 'Auto results · offline', 'Kontrola se obnoví po připojení k internetu.');
+    lsReportAutoResultsError(
+      'Automatická kontrola výsledků je offline.',
+      'Kontrola se obnoví po připojení k internetu.'
+    );
     return;
   }
   const awaiting = lsCollectAwaitingFixtures();
@@ -6695,17 +6737,19 @@ async function runAutomaticResultsCheck() {
     return;
   }
   if (navigator.onLine === false) {
-    lsSetCheckStatus('Automatická kontrola čeká na připojení k internetu.', 'warn');
+    lsReportAutoResultsError(
+      'Automatická kontrola výsledků je offline.',
+      'Kontrola se obnoví po připojení k internetu.'
+    );
     lsScheduleNextAutomaticCheck();
     return;
   }
   try {
     await checkAwaitingResults({ automatic: true });
   } catch (error) {
-    lsSetAutoResultsBadge('warn', 'Auto results · error');
-    lsSetCheckStatus(
-      '<strong>Automatická kontrola selhala.</strong> ' + lsEsc(error?.message || 'Neznámá chyba.'),
-      'warn'
+    lsReportAutoResultsError(
+      'Automatická kontrola výsledků selhala.',
+      error?.message || 'Neznámá chyba.'
     );
   } finally {
     lsScheduleNextAutomaticCheck();
@@ -7191,7 +7235,7 @@ async function checkAwaitingResults({ automatic = true } = {}) {
   try {
     const allFixtures = lsCollectAwaitingFixtures();
     if (!allFixtures.length) {
-      lsSetCheckStatus('Žádné zápasy ve stavu <strong>Awaiting result</strong>.', 'ok');
+      lsClearAutoResultsError();
       lsSetAutoResultsBadge('ok', 'Auto results · no pending');
       return { status: 'empty', checked: 0, finished: 0, pending: 0, errors: 0 };
     }
@@ -7201,12 +7245,7 @@ async function checkAwaitingResults({ automatic = true } = {}) {
       : allFixtures;
     const scheduledLater = allFixtures.length - fixtures.length;
     if (!fixtures.length) {
-      lsSetCheckStatus(
-        '<strong>Automatická kontrola je aktivní.</strong> ' +
-        scheduledLater + ' čekajících zápasů ještě podle rozpisu nezačalo.',
-        'ok'
-      );
-      lsSetAutoResultsBadge('ok', 'Auto results · waiting for kickoff');
+      lsClearAutoResultsError();
       return {
         status: 'waiting',
         checked: 0,
@@ -7219,13 +7258,13 @@ async function checkAwaitingResults({ automatic = true } = {}) {
 
     const outcomes = [];
     let changed = false;
+    lsSetCheckStatus('');
     for (let index = 0; index < fixtures.length; index++) {
       const fixture = fixtures[index];
-      lsSetCheckStatus(
-        '<span class="check-spinner" aria-hidden="true"></span> Kontroluji ' +
-        (index + 1) + '/' + fixtures.length + ': <strong>' +
-        lsEsc(fixture.home) + ' – ' + lsEsc(fixture.away) + '</strong>…',
-        'working'
+      lsSetAutoResultsBadge(
+        'working',
+        'Auto results · checking ' + (index + 1) + '/' + fixtures.length,
+        'Kontroluji ' + fixture.home + ' – ' + fixture.away + '.'
       );
       try {
         const outcome = await lsCheckOneFixture(fixture);
@@ -7272,13 +7311,28 @@ async function checkAwaitingResults({ automatic = true } = {}) {
       (statsWarnings.length ? ' · bez hráčských statistik: ' + statsWarnings.length : '') +
       '<ul>' + details + '</ul>';
     const hasWarnings = Boolean(errors.length || statsWarnings.length);
-    lsSetCheckStatus(summary, hasWarnings ? 'warn' : 'ok');
-    lsSetAutoResultsBadge(
-      hasWarnings ? 'warn' : 'ok',
-      finished.length
-        ? 'Auto results · updated ' + finished.length
-        : 'Auto results · checked ' + fixtures.length
-    );
+    if (hasWarnings) {
+      const alertDetails = [
+        errors.length ? 'Chyby zápasů: ' + errors.length + '.' : '',
+        statsWarnings.length ? 'Chybějící hráčské statistiky: ' + statsWarnings.length + '.' : '',
+        ...errors.slice(0, 5).map(item =>
+          item.fixture.home + ' – ' + item.fixture.away + ': ' +
+          (item.error?.message || 'kontrola selhala')
+        ),
+        ...statsWarnings.slice(0, 5).map(item =>
+          item.fixture.home + ' – ' + item.fixture.away + ': ' + item.playerError
+        )
+      ].filter(Boolean).join('\n');
+      lsReportAutoResultsError('Automatická kontrola výsledků našla chybu.', alertDetails);
+    } else {
+      lsClearAutoResultsError();
+      lsSetAutoResultsBadge(
+        'ok',
+        finished.length
+          ? 'Auto results · updated ' + finished.length
+          : 'Auto results · checked ' + fixtures.length
+      );
+    }
     return {
       status: hasWarnings ? 'warning' : 'ok',
       checked: fixtures.length,
