@@ -991,9 +991,14 @@ function inspectPlayerMatch(match,label){
 function inspectDataSnapshot(raw){
   const data=raw||{};
   const hasSplitResults=Array.isArray(data.results_current)||Array.isArray(data.results_extra);
-  const resultRows=hasSplitResults
+  const storedResultRows=hasSplitResults
     ? [...(Array.isArray(data.results_current)?data.results_current:[]),...(Array.isArray(data.results_extra)?data.results_extra:[])]
     : (Array.isArray(data.results)?data.results:[]);
+  const historyResultRows=Array.isArray(data.history_results)?data.history_results:[];
+  const resultRows=[...storedResultRows,...historyResultRows];
+  const uniqueResultRows=[...new Map(
+    resultRows.map(match=>[healthFixtureKey(match),match])
+  ).values()];
   const playerRows=Array.isArray(data.players)?data.players:[];
   const predRows=Array.isArray(data.predMatches)?data.predMatches:[];
   const lockRows=Array.isArray(data.lockedPredictions)?data.lockedPredictions:[];
@@ -1027,10 +1032,15 @@ function inspectDataSnapshot(raw){
     });
     if((match?.xgh==null)!==(match?.xga==null)) errors.push(`${label}: musí být vyplněny obě hodnoty xG, nebo žádná.`);
   });
-  duplicates.push(...healthDuplicateLabels(resultRows,healthFixtureKey,m=>`Duplicitní výsledek: ${m.h||m.home} – ${m.a||m.away}, ${m.season||CURRENT_SEASON}, kolo ${m.r??m.round}.`));
+  const duplicateResultGroups=data.validateHistoricalArchive
+    ? [storedResultRows,historyResultRows]
+    : [resultRows];
+  duplicateResultGroups.forEach(rows=>{
+    duplicates.push(...healthDuplicateLabels(rows,healthFixtureKey,m=>`Duplicitní výsledek: ${m.h||m.home} – ${m.a||m.away}, ${m.season||CURRENT_SEASON}, kolo ${m.r??m.round}.`));
+  });
   if(data.validateHistoricalArchive&&typeof PREV_FINAL_TABLES==='object'){
     Object.entries(PREV_FINAL_TABLES).forEach(([season,meta])=>{
-      const actual=resultRows.filter(match=>(match?.season||CURRENT_SEASON)===season).length;
+      const actual=uniqueResultRows.filter(match=>(match?.season||CURRENT_SEASON)===season).length;
       const expected=Number(meta?.officialMatches||0);
       if(expected&&actual!==expected){
         errors.push(`Historický archiv ${season}: uloženo ${actual} z ${expected} oficiálních zápasů.`);
@@ -1361,10 +1371,8 @@ function notifyAutomaticDataHealth(kind,items,message){
 function checkDataHealth(interactive=false,automatic=false){
   const before=inspectDataSnapshot({
     results_current:results.filter(match=>(match.season||CURRENT_SEASON)===CURRENT_SEASON),
-    results_extra:[
-      ...results.filter(match=>(match.season||CURRENT_SEASON)!==CURRENT_SEASON),
-      ...(typeof histResults!=='undefined'?histResults:[])
-    ],
+    results_extra:results.filter(match=>(match.season||CURRENT_SEASON)!==CURRENT_SEASON),
+    history_results:typeof histResults!=='undefined'?histResults:[],
     validateHistoricalArchive:true,
     players,predMatches,lockedPredictions
   });
@@ -1943,7 +1951,7 @@ function rebuildRoundSel(){
   sel.innerHTML='<option value="">All rounds</option>';
   
   // All rounds from both arrays
-  const allCombined=[...results,...histResults];
+  const allCombined=getCombinedResults();
   const intRounds=[...new Set(allCombined.filter(m=>typeof m.r==='number').map(m=>m.r))].sort((a,b)=>a-b);
   const strRounds=[...new Set(allCombined.filter(m=>typeof m.r==='string').map(m=>m.r))].sort();
   
@@ -1969,7 +1977,7 @@ function rebuildRoundSel(){
 
 function rebuildPredRoundSelects(){
   const ids=['pm-round','p2m-round'];
-  const allCombined=[...results,...histResults,...predMatches];
+  const allCombined=[...getCombinedResults(),...predMatches];
   const specialRounds=[...new Set(allCombined.map(m=>m.r!=null?m.r:m.round).filter(r=>r!=null&&r!==''&&Number.isNaN(parseInt(r,10))).map(String))].sort();
 
   ids.forEach(id=>{
@@ -2055,10 +2063,28 @@ function renderTable(){
 
 // ─── RESULTS ─────────────────────────────────────────────────────────────────
 function getCombinedResults(){
-  return [
+  const combined=[
     ...results.map((m,i)=>({...m,_i:i,_src:'results'})),
     ...histResults.map((m,i)=>({...m,_i:i,_src:'hist'}))
   ];
+  const unique=new Map();
+  combined.forEach(match=>{
+    const key=healthFixtureKey(match);
+    if(!unique.has(key)){
+      unique.set(key,match);
+      return;
+    }
+    const prior=unique.get(key);
+    // A saved result may carry xG or source enrichment, while the embedded
+    // official archive remains authoritative for fixture identity and score.
+    unique.set(key,{
+      ...prior,
+      ...match,
+      _i:prior._src==='results'?prior._i:match._i,
+      _src:prior._src===match._src?match._src:'results+hist'
+    });
+  });
+  return [...unique.values()];
 }
 
 function getTeamsForResultsSeason(season){
@@ -2457,7 +2483,7 @@ function fillSel(id){
 
 // ─── H2H & VENUE ─────────────────────────────────────────────────────────────
 function getH2H(home,away){
-  const allHist=[...results,...histResults];
+  const allHist=getCombinedResults();
   const ms=allHist.filter(m=>m.season!==CURRENT_SEASON&&((m.h===home&&m.a===away)||(m.h===away&&m.a===home)));
   let hW=0,aW=0,dr=0,recent=[];
   ms.forEach(m=>{
@@ -3049,7 +3075,7 @@ function getStageWeights(round){
 }
 
 function getSeasonMatchesForModel(season){
-  return [...results,...histResults].filter(m=>m.season===season&&typeof m.r==='number'&&/^\d+:\d+$/.test(m.score));
+  return getCombinedResults().filter(m=>m.season===season&&typeof m.r==='number'&&/^\d+:\d+$/.test(m.score));
 }
 
 function parseScore(m){
@@ -3620,7 +3646,7 @@ function p3RoundVal(r){
 function p3ChronologicalMatches(targetSeason,targetRound){
   const ts=p3SeasonVal(targetSeason||CURRENT_SEASON);
   const tr=p3RoundVal(targetRound);
-  const all=[...histResults,...results]
+  const all=getCombinedResults()
     .map((m,i)=>({...m,_order:i}))
     .filter(m=>m&&m.score&&/^\d+:\d+$/.test(m.score));
   return all.filter(m=>{
@@ -5047,7 +5073,7 @@ function computePrevStandings(season){
   }
   const s={};
   // Fallback for a season not yet present in the immutable official archive.
-  const sourceMatches=[...results,...histResults]
+  const sourceMatches=getCombinedResults()
     .filter(m=>m.season===season&&/^\d+:\d+$/.test(String(m.score||'')));
   sourceMatches.forEach(m=>{
     [m.h,m.a].forEach(t=>{if(!s[t])s[t]={w:0,d:0,l:0,gf:0,ga:0,h2hPts:{},h2hGD:{}};});
@@ -5098,7 +5124,7 @@ function renderPrevYears(){
     container.innerHTML='<div style="text-align:center;padding:32px;color:var(--text3);font-size:13px">No data for this season</div>';
     return;
   }
-  const totalMatches=[...results,...histResults].filter(m=>m.season===season).length;
+  const totalMatches=getCombinedResults().filter(m=>m.season===season).length;
   const expectedMatches=meta?.officialMatches??totalMatches;
   const matchCountOk=totalMatches===expectedMatches;
   const hasBarrier=Number(meta?.matchesByStage?.['5']||0)>0;
