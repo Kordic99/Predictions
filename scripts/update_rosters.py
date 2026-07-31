@@ -34,7 +34,6 @@ SEASON_ID = 2026
 CHANCE_BASE = "https://www.chanceliga.cz"
 TM_BASE = "https://www.transfermarkt.com"
 TM_API = "https://tmapi.transfermarkt.technology"
-JINA_READER = "https://r.jina.ai/http://www.transfermarkt.com"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 Chrome/138 Safari/537.36"
@@ -385,23 +384,28 @@ def tm_api_player(team: str, squad_url: str, row: dict) -> dict:
     }
 
 
-def parse_transfermarkt_markdown(
-    team: str,
-    url: str,
-    payload: bytes,
-    club_id: int,
-) -> list[dict]:
-    text = payload.decode("utf-8", "replace")
-    ids = set(re.findall(r"/profil/spieler/(\d+)", text))
-    ids.update(re.findall(r"/marktwertverlauf/spieler/(\d+)", text))
+def parse_transfermarkt_api_squad(team: str, url: str, club_id: int) -> list[dict]:
+    response = fetch_json(f"{TM_API}/club/{club_id}/squad")
+    data = response.get("data") or {}
+    squad = data.get("squad")
+    if not response.get("success") or not isinstance(squad, list):
+        raise RuntimeError(f"{team}: Transfermarkt squad API failed: {response}")
+    ids = {
+        str(assignment.get("playerId"))
+        for assignment in squad
+        if assignment.get("playerId")
+        and assignment.get("type") in {"current", "additional"}
+    }
     rows = batch_entities("players", ids)
-    players = []
-    for player_id in sorted(ids, key=int):
-        row = rows.get(player_id)
-        if not row:
-            continue
-        players.append(tm_api_player(team, url, row))
-    return players
+    missing = sorted(ids - set(rows), key=int)
+    if missing:
+        raise RuntimeError(
+            f"{team}: Transfermarkt player API did not resolve squad IDs {missing}"
+        )
+    return [
+        tm_api_player(team, url, rows[player_id])
+        for player_id in sorted(ids, key=int)
+    ]
 
 
 def scrape_transfermarkt(team: str, club_id: int, slug: str) -> dict:
@@ -418,28 +422,15 @@ def scrape_transfermarkt(team: str, club_id: int, slug: str) -> dict:
                 f"{TM_BASE}/chance-liga/startseite/wettbewerb/TS1/"
                 f"plus/?saison_id={SEASON_ID}"
             ),
+            attempts=2,
         )
         players = parse_transfermarkt_html(team, url, payload)
     except RuntimeError as exc:
         direct_error = str(exc)
         players = []
     if not 18 <= len(players) <= 60:
-        source_method = "jina-reader-fallback"
-        detailed_path = urllib.parse.urlsplit(url).path
-        compact_path = re.sub(r"/plus/1/?$", "", detailed_path)
-        payload = fetch_bytes(
-            JINA_READER + compact_path,
-            accept="text/plain",
-            extra_headers={"X-No-Cache": "true", "X-Cache-Tolerance": "0"},
-        )
-        players = parse_transfermarkt_markdown(team, url, payload, club_id)
-        if not 18 <= len(players) <= 60 and compact_path != detailed_path:
-            payload = fetch_bytes(
-                JINA_READER + detailed_path,
-                accept="text/plain",
-                extra_headers={"X-No-Cache": "true", "X-Cache-Tolerance": "0"},
-            )
-            players = parse_transfermarkt_markdown(team, url, payload, club_id)
+        source_method = "transfermarkt-api-fallback"
+        players = parse_transfermarkt_api_squad(team, url, club_id)
     if not 18 <= len(players) <= 60:
         detail = f"; direct fetch: {direct_error}" if direct_error else ""
         raise RuntimeError(
@@ -458,31 +449,15 @@ def search_transfermarkt(name: str) -> dict | None:
         + urllib.parse.quote(clean(name))
     )
     try:
-        document = html.fromstring(fetch_bytes(url, referer=TM_BASE + "/"))
+        document = html.fromstring(
+            fetch_bytes(url, referer=TM_BASE + "/", attempts=1)
+        )
     except RuntimeError:
-        proxy_url = JINA_READER + urllib.parse.urlsplit(url).path + "?" + urllib.parse.urlsplit(url).query
-        text = fetch_bytes(
-            proxy_url,
-            accept="text/plain",
-            extra_headers={"X-No-Cache": "true", "X-Cache-Tolerance": "0"},
-        ).decode("utf-8", "replace")
-        ids = set(re.findall(r"/profil/spieler/(\d+)", text))
-        candidates = []
-        for row in batch_entities("players", ids).values():
-            player = tm_api_player("", "", row)
-            candidates.append(
-                {
-                    "name": player["name"],
-                    "transfermarktPlayerId": player["transfermarktPlayerId"],
-                    "transfermarktUrl": player["transfermarktUrl"],
-                    "mv": player["mv"],
-                    "marketValueEur": player["marketValueEur"],
-                    "transfermarktSearchUrl": url,
-                    "transfermarktReportedClub": None,
-                }
-            )
-        result = best_match(name, candidates, threshold=0.88)
-        return result[1] if result else None
+        # Official registrations absent from the current Transfermarkt squad
+        # keep their existing stable identity/value. A genuinely new unresolved
+        # player is emitted as a validation warning instead of trusting an
+        # unverified third-party search proxy.
+        return None
     candidates = []
     seen = set()
     for row in document.xpath("//tr[.//a[contains(@href,'/profil/spieler/')]]"):
