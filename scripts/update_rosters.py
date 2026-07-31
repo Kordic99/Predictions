@@ -234,6 +234,7 @@ def tm_position(value: str) -> str:
         return "D"
     if position in {
         "Midfield",
+        "Midfielder",
         "Defensive Midfield",
         "Central Midfield",
         "Attacking Midfield",
@@ -241,7 +242,16 @@ def tm_position(value: str) -> str:
         "Right Midfield",
     }:
         return "M"
-    if position in {"Striker", "Centre-Forward", "Second Striker", "Left Winger", "Right Winger"}:
+    if position in {
+        "Attack",
+        "Attacker",
+        "Forward",
+        "Striker",
+        "Centre-Forward",
+        "Second Striker",
+        "Left Winger",
+        "Right Winger",
+    }:
         return "A"
     raise RuntimeError(f"Unknown Transfermarkt position {position!r}")
 
