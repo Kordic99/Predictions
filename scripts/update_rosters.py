@@ -365,7 +365,11 @@ def tm_api_player(team: str, squad_url: str, row: dict) -> dict:
         or position.get("category")
     )
     current_value = ((row.get("marketValueDetails") or {}).get("current") or {}).get("value")
-    value_eur = int(current_value) if isinstance(current_value, (int, float)) else None
+    value_eur = (
+        int(current_value)
+        if isinstance(current_value, (int, float)) and current_value > 0
+        else None
+    )
     profile_path = row.get("relativeUrl") or ""
     return {
         "name": clean(row.get("name") or row.get("displayName") or row.get("shortName")),
