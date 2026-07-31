@@ -15,7 +15,9 @@ import json
 import os
 import re
 import tempfile
+import time
 import unicodedata
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter, defaultdict
@@ -32,6 +34,7 @@ SEASON_ID = 2026
 CHANCE_BASE = "https://www.chanceliga.cz"
 TM_BASE = "https://www.transfermarkt.com"
 TM_API = "https://tmapi.transfermarkt.technology"
+JINA_READER = "https://r.jina.ai/http://www.transfermarkt.com"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 Chrome/138 Safari/537.36"
@@ -156,7 +159,14 @@ def app_name(source_name: str) -> str:
     return " ".join([parts[-1], *parts[:-1]])
 
 
-def fetch_bytes(url: str, *, accept: str = "text/html", referer: str | None = None) -> bytes:
+def fetch_bytes(
+    url: str,
+    *,
+    accept: str = "text/html",
+    referer: str | None = None,
+    extra_headers: dict[str, str] | None = None,
+    attempts: int = 4,
+) -> bytes:
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": accept,
@@ -164,11 +174,29 @@ def fetch_bytes(url: str, *, accept: str = "text/html", referer: str | None = No
     }
     if referer:
         headers["Referer"] = referer
-    request = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(request, timeout=60) as response:
-        if response.status != 200:
-            raise RuntimeError(f"{url}: HTTP {response.status}")
-        return response.read()
+    if extra_headers:
+        headers.update(extra_headers)
+    transient_statuses = {202, 408, 425, 429, 500, 502, 503, 504}
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            request = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(request, timeout=120) as response:
+                payload = response.read()
+                if response.status == 200:
+                    return payload
+                last_error = RuntimeError(f"{url}: HTTP {response.status}")
+                if response.status not in transient_statuses:
+                    raise last_error
+        except urllib.error.HTTPError as exc:
+            last_error = RuntimeError(f"{url}: HTTP {exc.code}")
+            if exc.code not in transient_statuses:
+                raise last_error from exc
+        except (TimeoutError, urllib.error.URLError) as exc:
+            last_error = exc
+        if attempt + 1 < attempts:
+            time.sleep(2 ** attempt)
+    raise RuntimeError(f"{url}: failed after {attempts} attempts ({last_error})")
 
 
 def fetch_json(url: str) -> dict:
@@ -249,20 +277,32 @@ def scrape_official(team: str, path: str) -> dict:
     return {"sourceUrl": url, "players": players}
 
 
-def scrape_transfermarkt(team: str, club_id: int, slug: str) -> dict:
-    url = (
-        f"{TM_BASE}/{slug}/kader/verein/{club_id}/"
-        f"saison_id/{SEASON_ID}/plus/1"
-    )
-    document = html.fromstring(
-        fetch_bytes(
-            url,
-            referer=(
-                f"{TM_BASE}/chance-liga/startseite/wettbewerb/TS1/"
-                f"plus/?saison_id={SEASON_ID}"
-            ),
-        )
-    )
+def transfermarkt_player(
+    *,
+    team: str,
+    name: str,
+    player_id: str,
+    profile_url: str,
+    position_detail: str,
+    value_text: str,
+    squad_url: str,
+) -> dict:
+    value_eur = parse_value(value_text)
+    return {
+        "name": clean(name),
+        "team": team,
+        "position": tm_position(position_detail),
+        "positionDetail": position_detail,
+        "transfermarktPlayerId": player_id,
+        "transfermarktUrl": profile_url,
+        "mv": format_value(value_eur),
+        "marketValueEur": value_eur,
+        "transfermarktSquadUrl": squad_url,
+    }
+
+
+def parse_transfermarkt_html(team: str, url: str, payload: bytes) -> list[dict]:
+    document = html.fromstring(payload)
     xpath = (
         "//tr["
         "contains(concat(' ',normalize-space(@class),' '),' odd ') or "
@@ -293,23 +333,113 @@ def scrape_transfermarkt(team: str, club_id: int, slug: str) -> dict:
         value_text = clean(
             "".join(row.xpath("./td[contains(@class,'rechts') and contains(@class,'hauptlink')]//text()"))
         )
-        value_eur = parse_value(value_text)
         players.append(
-            {
-                "name": clean(link.text_content()),
-                "team": team,
-                "position": tm_position(position_detail),
-                "positionDetail": position_detail,
-                "transfermarktPlayerId": player_id,
-                "transfermarktUrl": TM_BASE + profile_path,
-                "mv": format_value(value_eur),
-                "marketValueEur": value_eur,
-                "transfermarktSquadUrl": url,
-            }
+            transfermarkt_player(
+                team=team,
+                name=link.text_content(),
+                player_id=player_id,
+                profile_url=TM_BASE + profile_path,
+                position_detail=position_detail,
+                value_text=value_text,
+                squad_url=url,
+            )
         )
+    return players
+
+
+def tm_api_player(team: str, squad_url: str, row: dict) -> dict:
+    attributes = row.get("attributes") or {}
+    position = attributes.get("position") or {}
+    position_detail = clean(
+        position.get("name")
+        or attributes.get("positionGroupName")
+        or position.get("category")
+    )
+    current_value = ((row.get("marketValueDetails") or {}).get("current") or {}).get("value")
+    value_eur = int(current_value) if isinstance(current_value, (int, float)) else None
+    profile_path = row.get("relativeUrl") or ""
+    return {
+        "name": clean(row.get("name") or row.get("displayName") or row.get("shortName")),
+        "team": team,
+        "position": tm_position(position_detail),
+        "positionDetail": position_detail,
+        "transfermarktPlayerId": str(row["id"]),
+        "transfermarktUrl": (
+            TM_BASE + profile_path
+            if profile_path.startswith("/")
+            else f"{TM_BASE}/profil/spieler/{row['id']}"
+        ),
+        "mv": format_value(value_eur),
+        "marketValueEur": value_eur,
+        "transfermarktSquadUrl": squad_url,
+    }
+
+
+def parse_transfermarkt_markdown(
+    team: str,
+    url: str,
+    payload: bytes,
+    club_id: int,
+) -> list[dict]:
+    text = payload.decode("utf-8", "replace")
+    ids = set(re.findall(r"/profil/spieler/(\d+)", text))
+    ids.update(re.findall(r"/marktwertverlauf/spieler/(\d+)", text))
+    rows = batch_entities("players", ids)
+    players = []
+    for player_id in sorted(ids, key=int):
+        row = rows.get(player_id)
+        if not row:
+            continue
+        players.append(tm_api_player(team, url, row))
+    return players
+
+
+def scrape_transfermarkt(team: str, club_id: int, slug: str) -> dict:
+    url = (
+        f"{TM_BASE}/{slug}/kader/verein/{club_id}/"
+        f"saison_id/{SEASON_ID}/plus/1"
+    )
+    source_method = "transfermarkt-direct"
+    direct_error = None
+    try:
+        payload = fetch_bytes(
+            url,
+            referer=(
+                f"{TM_BASE}/chance-liga/startseite/wettbewerb/TS1/"
+                f"plus/?saison_id={SEASON_ID}"
+            ),
+        )
+        players = parse_transfermarkt_html(team, url, payload)
+    except RuntimeError as exc:
+        direct_error = str(exc)
+        players = []
     if not 18 <= len(players) <= 60:
-        raise RuntimeError(f"{team}: Transfermarkt roster has implausible size {len(players)}")
-    return {"sourceUrl": url, "players": players}
+        source_method = "jina-reader-fallback"
+        detailed_path = urllib.parse.urlsplit(url).path
+        compact_path = re.sub(r"/plus/1/?$", "", detailed_path)
+        payload = fetch_bytes(
+            JINA_READER + compact_path,
+            accept="text/plain",
+            extra_headers={"X-No-Cache": "true", "X-Cache-Tolerance": "0"},
+        )
+        players = parse_transfermarkt_markdown(team, url, payload, club_id)
+        if not 18 <= len(players) <= 60 and compact_path != detailed_path:
+            payload = fetch_bytes(
+                JINA_READER + detailed_path,
+                accept="text/plain",
+                extra_headers={"X-No-Cache": "true", "X-Cache-Tolerance": "0"},
+            )
+            players = parse_transfermarkt_markdown(team, url, payload, club_id)
+    if not 18 <= len(players) <= 60:
+        detail = f"; direct fetch: {direct_error}" if direct_error else ""
+        raise RuntimeError(
+            f"{team}: Transfermarkt roster has implausible size {len(players)}{detail}"
+        )
+    return {
+        "sourceUrl": url,
+        "sourceMethod": source_method,
+        "players": players,
+    }
 
 
 def search_transfermarkt(name: str) -> dict | None:
@@ -317,7 +447,32 @@ def search_transfermarkt(name: str) -> dict | None:
         f"{TM_BASE}/schnellsuche/ergebnis/schnellsuche?query="
         + urllib.parse.quote(clean(name))
     )
-    document = html.fromstring(fetch_bytes(url, referer=TM_BASE + "/"))
+    try:
+        document = html.fromstring(fetch_bytes(url, referer=TM_BASE + "/"))
+    except RuntimeError:
+        proxy_url = JINA_READER + urllib.parse.urlsplit(url).path + "?" + urllib.parse.urlsplit(url).query
+        text = fetch_bytes(
+            proxy_url,
+            accept="text/plain",
+            extra_headers={"X-No-Cache": "true", "X-Cache-Tolerance": "0"},
+        ).decode("utf-8", "replace")
+        ids = set(re.findall(r"/profil/spieler/(\d+)", text))
+        candidates = []
+        for row in batch_entities("players", ids).values():
+            player = tm_api_player("", "", row)
+            candidates.append(
+                {
+                    "name": player["name"],
+                    "transfermarktPlayerId": player["transfermarktPlayerId"],
+                    "transfermarktUrl": player["transfermarktUrl"],
+                    "mv": player["mv"],
+                    "marketValueEur": player["marketValueEur"],
+                    "transfermarktSearchUrl": url,
+                    "transfermarktReportedClub": None,
+                }
+            )
+        result = best_match(name, candidates, threshold=0.88)
+        return result[1] if result else None
     candidates = []
     seen = set()
     for row in document.xpath("//tr[.//a[contains(@href,'/profil/spieler/')]]"):
