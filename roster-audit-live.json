@@ -1,67 +1,71 @@
 {
-  "generatedAt": "2026-07-31T09:28:49.605684Z",
+  "generatedAt": "2026-08-01T08:12:32.351171Z",
   "changes": {
     "added": [],
     "removed": [],
     "moved": [],
-    "marketValueUpdated": [
-      {
-        "team": "Bohemians 1905",
-        "name": "Heidenreich David",
-        "transfermarktPlayerId": "473887",
-        "from": 0,
-        "to": null
-      },
-      {
-        "team": "Bohemians 1905",
-        "name": "Šiman Jakub",
-        "transfermarktPlayerId": "198612",
-        "from": 0,
-        "to": null
-      },
-      {
-        "team": "Hradec Králové",
-        "name": "Wiesner Tomáš",
-        "transfermarktPlayerId": "334807",
-        "from": 0,
-        "to": null
-      },
-      {
-        "team": "Teplice",
-        "name": "Němeček Luděk",
-        "transfermarktPlayerId": "599580",
-        "from": 0,
-        "to": null
-      }
-    ]
+    "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 525,
+    "playerCount": 558,
     "teamCounts": {
       "Artis Brno": 36,
-      "Baník Ostrava": 33,
+      "Baník Ostrava": 37,
       "Bohemians 1905": 28,
-      "Hradec Králové": 29,
-      "Jablonec": 30,
-      "Mladá Boleslav": 32,
+      "Hradec Králové": 30,
+      "Jablonec": 31,
+      "Mladá Boleslav": 31,
       "Pardubice": 32,
-      "Sigma Olomouc": 34,
-      "Slavia Prague": 40,
-      "Slovan Liberec": 32,
-      "Slovácko": 32,
-      "Sparta Prague": 37,
-      "Teplice": 32,
-      "Viktoria Plzeň": 30,
-      "Zbrojovka Brno": 34,
-      "Zlín": 34
+      "Sigma Olomouc": 37,
+      "Slavia Prague": 45,
+      "Slovan Liberec": 33,
+      "Slovácko": 36,
+      "Sparta Prague": 44,
+      "Teplice": 33,
+      "Viktoria Plzeň": 32,
+      "Zbrojovka Brno": 38,
+      "Zlín": 35
     },
-    "withMarketValue": 495,
-    "withoutPublishedMarketValue": 30,
-    "withCareer": 523,
-    "withoutCareerRows": 2,
+    "withMarketValue": 497,
+    "withoutPublishedMarketValue": 61,
+    "withCareer": 527,
+    "withoutCareerRows": 31,
+    "withLivesportIdentity": 513,
+    "withLivesportSeasonStats": 512,
+    "activeLivesportPlayers": 267,
+    "activeLivesportScorers": 29,
     "warnings": [
-      "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity"
+      "Slovácko Slončík Šimon: missing Transfermarkt identity",
+      "Slovácko Novotný Lukáš: missing Transfermarkt identity",
+      "Sparta Prague Franc Lukáš: missing Transfermarkt identity",
+      "Sparta Prague Rodriguez Pedro: missing Transfermarkt identity",
+      "Sparta Prague Feit Jan: missing Transfermarkt identity",
+      "Sparta Prague Kotíšek Maxim: missing Transfermarkt identity",
+      "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
+      "Baník Ostrava Moučka Matyáš: missing Transfermarkt identity",
+      "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
+      "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
+      "Baník Ostrava Jaroň Petr: missing Transfermarkt identity",
+      "Slovan Liberec Sutr Jan: missing Transfermarkt identity",
+      "Viktoria Plzeň Kubín Petr: missing Transfermarkt identity",
+      "Viktoria Plzeň Paidar Zbyněk: missing Transfermarkt identity",
+      "Viktoria Plzeň Novák Adam: missing Transfermarkt identity",
+      "Zbrojovka Brno Kostelný Kryštof: missing Transfermarkt identity",
+      "Zbrojovka Brno Šmíd Vojtěch: missing Transfermarkt identity",
+      "Zbrojovka Brno Strnad Damián: missing Transfermarkt identity",
+      "Zlín Hönig Petr: missing Transfermarkt identity",
+      "Jablonec Malý Evžen: missing Transfermarkt identity",
+      "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity",
+      "Teplice Klimpl Oliver: missing Transfermarkt identity",
+      "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
+      "Sigma Olomouc Drábek David: missing Transfermarkt identity",
+      "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
+      "Slavia Prague Rezek Adam: missing Transfermarkt identity",
+      "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
+      "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
+      "Slavia Prague Teah Divine: missing Transfermarkt identity",
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ]
   },
   "ignoredSourceRows": [
@@ -138,6 +142,18 @@
       "reason": "current Transfermarkt squad places player at Mladá Boleslav"
     },
     {
+      "name": "Matěj Valenta",
+      "team": "Viktoria Plzeň",
+      "position": "M",
+      "chanceLigaPlayerId": "3649",
+      "chanceLigaUrl": "https://www.chanceliga.cz/hrac/3649-matej-valenta",
+      "shirtNumber": 32,
+      "dateOfBirth": "09.02.2000",
+      "heightCm": 171,
+      "weightKg": 62,
+      "reason": "current Transfermarkt squad places player at Hradec Králové"
+    },
+    {
       "name": "Lukáš Vorlický",
       "team": "Zbrojovka Brno",
       "position": "M",
@@ -148,6 +164,18 @@
       "heightCm": 185,
       "weightKg": 74,
       "reason": "current Transfermarkt squad places player at Slovácko"
+    },
+    {
+      "name": "Roman Macek",
+      "team": "Mladá Boleslav",
+      "position": "M",
+      "chanceLigaPlayerId": "4903",
+      "chanceLigaUrl": "https://www.chanceliga.cz/hrac/4903-roman-macek",
+      "shirtNumber": 7,
+      "dateOfBirth": "18.04.1997",
+      "heightCm": 188,
+      "weightKg": 73,
+      "reason": "current Transfermarkt squad places player at Sparta Prague"
     },
     {
       "name": "Dominik Javorček",
@@ -162,17 +190,4641 @@
       "reason": "current Transfermarkt squad places player at Bohemians 1905"
     }
   ],
+  "livesportReconciliation": {
+    "sourceRows": 512,
+    "attached": [
+      {
+        "team": "Artis Brno",
+        "name": "Stoppen Tadeáš",
+        "livesportName": "Stoppen Tadeáš",
+        "livesportPlayerId": "4Cm6uDQ0",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Glossoa Neil",
+        "livesportName": "Glossoa Neil",
+        "livesportPlayerId": "C03f1AqN",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Harazim Štěpán",
+        "livesportName": "Harazim Štěpán",
+        "livesportPlayerId": "OCNMDiIo",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Plechatý Dominik",
+        "livesportName": "Plechatý Dominik",
+        "livesportPlayerId": "phuyPzMB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Preisler Dominik",
+        "livesportName": "Preisler Dominik",
+        "livesportPlayerId": "ry30M7gM",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Šimek David",
+        "livesportName": "Šimek David",
+        "livesportPlayerId": "bknMFQjj",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Alegue Alexis",
+        "livesportName": "Alegue Alexis",
+        "livesportPlayerId": "GdFl9cD7",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Carlén Adam",
+        "livesportName": "Carlen Adam",
+        "livesportPlayerId": "tvJvXHbd",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Komljenović Sacha",
+        "livesportName": "Komljenovič Sacha",
+        "livesportPlayerId": "QaclFOj3",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Petrák Adam",
+        "livesportName": "Petrák Adam",
+        "livesportPlayerId": "ERqBRhQj",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Pospíšil Martin",
+        "livesportName": "Pospíšil Martin",
+        "livesportPlayerId": "MgwXisAU",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Adediran Quadri Adebayo",
+        "livesportName": "Adediran Quadri",
+        "livesportPlayerId": "ANkwk3iH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 2
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Fomba Issa",
+        "livesportName": "Fomba Issa",
+        "livesportPlayerId": "QuH2GYll",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Ndiaye El Hadji Latyr",
+        "livesportName": "Ndiaye El Hadji",
+        "livesportPlayerId": "GELIG2GO",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Papalelé",
+        "livesportName": "Papalelé",
+        "livesportPlayerId": "jVYzcZmn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Borek Jiří",
+        "livesportName": "Borek Jiří",
+        "livesportPlayerId": "8GmBojxQ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Kašík Richard",
+        "livesportName": "Kašík Richard",
+        "livesportPlayerId": "Yyo9TRLU",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Fully Emmanuel",
+        "livesportName": "Fully Emmanuel",
+        "livesportPlayerId": "xjJ7uHve",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Jeřábek Michal",
+        "livesportName": "Jeřábek Michal",
+        "livesportPlayerId": "drR1EKYp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Kolarić Danijel",
+        "livesportName": "Kolaric Danijel",
+        "livesportPlayerId": "Qgn3SRrd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Lutonský Milan",
+        "livesportName": "Lutonský Milan",
+        "livesportPlayerId": "0M4MXhM4",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Mach Marek",
+        "livesportName": "Mach Marek",
+        "livesportPlayerId": "CxABQJqA",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Čoudek Ondřej",
+        "livesportName": "Čoudek Ondřej",
+        "livesportPlayerId": "dGcCYEw7",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Fulnek Jakub",
+        "livesportName": "Fulnek Jakub",
+        "livesportPlayerId": "rLhFSdK7",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Navrátil Jan",
+        "livesportName": "Navrátil Jan",
+        "livesportPlayerId": "pjqM6KHu",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Rolínek Martin",
+        "livesportName": "Rolinek Martin",
+        "livesportPlayerId": "t6VAZ0W3",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Samek Daniel",
+        "livesportName": "Samek Daniel",
+        "livesportPlayerId": "zqnVQCW1",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Sedlák Jan",
+        "livesportName": "Sedlák Jan",
+        "livesportPlayerId": "CzaXT197",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Sokol Pavel",
+        "livesportName": "Sokol Pavel",
+        "livesportPlayerId": "bmwHZE5N",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Beauguel Jean-David",
+        "livesportName": "Beauguel Jean-David",
+        "livesportPlayerId": "lpCAixec",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Tauš Martin",
+        "livesportName": "Tauš Martin",
+        "livesportPlayerId": "KvURYLld",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Toula Daniel",
+        "livesportName": "Toula Daniel",
+        "livesportPlayerId": "WKzsNROb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Vukadinović Vukadin",
+        "livesportName": "Vukadinovič Vukadin",
+        "livesportPlayerId": "zDXKj3aD",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Švancara Daniel",
+        "livesportName": "Švancara Daniel",
+        "livesportPlayerId": "0x4fPoUG",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Jedlička Martin",
+        "livesportName": "Jedlička Martin",
+        "livesportPlayerId": "Q1wSa2Rk",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Chaluš Matěj",
+        "livesportName": "Chaluš Matěj",
+        "livesportPlayerId": "YPmW4CUE",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Frydrych Michal",
+        "livesportName": "Frydrych Michal",
+        "livesportPlayerId": "6q0h0slh",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Míček Jiří",
+        "livesportName": "Míček Jiří",
+        "livesportPlayerId": "hjPBEUFb",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Skyba Yevgeniy",
+        "livesportName": "Skyba Yevgeniy",
+        "livesportPlayerId": "tOV6amnR",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Gilbert Dantaye",
+        "livesportName": "Gilbert Dantaye",
+        "livesportPlayerId": "4CBR1jXk",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Holzer Daniel",
+        "livesportName": "Holzer Daniel",
+        "livesportPlayerId": "baoHpJdj",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Musák Artur",
+        "livesportName": "Musák Artur",
+        "livesportPlayerId": "AVeppu0p",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Nogha Roan",
+        "livesportName": "Nogha Roan",
+        "livesportPlayerId": "rVGUB5us",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Planka David",
+        "livesportName": "Planka David",
+        "livesportPlayerId": "fZmPKBKI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Sinyavskiy Vlasiy",
+        "livesportName": "Sinyavskiy Vlasiy",
+        "livesportPlayerId": "jgC1EPWq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Bewene Abdullahi",
+        "livesportName": "Bewene Abdullahi",
+        "livesportPlayerId": "hnBCvCBG",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Gning Abdallah",
+        "livesportName": "Gning Abdallah",
+        "livesportPlayerId": "0AD529OA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Jurečka Václav",
+        "livesportName": "Jurečka Václav",
+        "livesportPlayerId": "lIoVF69L",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Kubala Filip",
+        "livesportName": "Kubala Filip",
+        "livesportPlayerId": "65rQfHCo",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Škrkoň Vít",
+        "livesportName": "Škrkoň Vít",
+        "livesportPlayerId": "lIp2pOdc",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Babka Matouš",
+        "livesportName": "Babka Matouš",
+        "livesportPlayerId": "bTMmEbh0",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Budinský Viktor",
+        "livesportName": "Budinský Viktor",
+        "livesportPlayerId": "jopdBhx0",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Hrubý Martin",
+        "livesportName": "Hrubý Martin",
+        "livesportPlayerId": "6BlDhft3",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Moučka Matyáš",
+        "livesportName": "Moučka Matyáš",
+        "livesportPlayerId": "6yEybEfg",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Dyachuk Maksym",
+        "livesportName": "Dyachuk Maksym",
+        "livesportPlayerId": "ULDSyRlg",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Pojezný Karel",
+        "livesportName": "Pojezný Karel",
+        "livesportPlayerId": "roSVzv6J",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Boula Jiří",
+        "livesportName": "Boula Jiří",
+        "livesportPlayerId": "SGpWPG65",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Buchta David",
+        "livesportName": "Buchta David",
+        "livesportPlayerId": "OvUDHSBa",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Fiala Adrián",
+        "livesportName": "Fiala Adrián",
+        "livesportPlayerId": "tQChNI2F",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Frýdl Tadeáš",
+        "livesportName": "Frýdl Tadeáš",
+        "livesportPlayerId": "dSwiN99s",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Havran Marek",
+        "livesportName": "Havran Marek",
+        "livesportPlayerId": "f7HXa1WD",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Kmeť Matúš",
+        "livesportName": "Kmeť Matúš",
+        "livesportPlayerId": "6ZuwpYo1",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Kohút Michal",
+        "livesportName": "Kohút Michal",
+        "livesportPlayerId": "ULn22AHM",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Owusu Dennis",
+        "livesportName": "Owusu Dennis",
+        "livesportPlayerId": "Y9fDuzVA",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Traoré Aboubacar",
+        "livesportName": "Traore Aboubacar",
+        "livesportPlayerId": "zs96ZOma",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Šancl Filip",
+        "livesportName": "Šancl Filip",
+        "livesportPlayerId": "fs2kx74m",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Jaroň Petr",
+        "livesportName": "Jaroň Petr",
+        "livesportPlayerId": "ABCIcoZO",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Laine Lauri",
+        "livesportName": "Laine Lauri",
+        "livesportPlayerId": "jsZr40DD",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Frühwald Tomáš",
+        "livesportName": "Frühwald Tomáš",
+        "livesportPlayerId": "CU5OUEPM",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Banda Mathews",
+        "livesportName": "Banda Mathews",
+        "livesportPlayerId": "fH6Q7Iyj",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Havel Milan",
+        "livesportName": "Havel Milan",
+        "livesportPlayerId": "l0Cy8gzp",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Heidenreich David",
+        "livesportName": "Heidenreich David",
+        "livesportPlayerId": "hnbB72tn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Lischka David",
+        "livesportName": "Lischka David",
+        "livesportPlayerId": "QXTyNUIj",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Vala Denis",
+        "livesportName": "Vala Denis",
+        "livesportPlayerId": "0rvffT9J",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Vondra Jan",
+        "livesportName": "Vondra Jan",
+        "livesportPlayerId": "4Ii6GIv9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Kovařík Jan",
+        "livesportName": "Kovařík Jan",
+        "livesportPlayerId": "jqzTIkIH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Matoušek Jan",
+        "livesportName": "Matoušek Jan",
+        "livesportPlayerId": "G4aptRh3",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Pilař Václav",
+        "livesportName": "Pilař Václav",
+        "livesportPlayerId": "lCVTGyAS",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Sakala Benson",
+        "livesportName": "Sakala Benson",
+        "livesportPlayerId": "EwlYbdEo",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Smrž Vojtěch",
+        "livesportName": "Smrž Vojtěch",
+        "livesportPlayerId": "j9vo0mDT",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Zeman Vladimír",
+        "livesportName": "Zeman Vladimír",
+        "livesportPlayerId": "61tVasZR",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Čermák Aleš",
+        "livesportName": "Čermák Aleš",
+        "livesportPlayerId": "Qk8WS2Jn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Černý Šimon",
+        "livesportName": "Černý Šimon",
+        "livesportPlayerId": "pEXfkQdf",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Almási Ladislav",
+        "livesportName": "Almási Ladislav",
+        "livesportPlayerId": "E35O7sAa",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Reichl Michal",
+        "livesportName": "Reichl Michal",
+        "livesportPlayerId": "bPfJue5s",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Šiman Jakub",
+        "livesportName": "Šiman Jakub",
+        "livesportPlayerId": "jqLakLEb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Javorček Dominik",
+        "livesportName": "Javorček Dominik",
+        "livesportPlayerId": "AyWIpa9s",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Kadlec Matěj",
+        "livesportName": "Kadlec Matěj",
+        "livesportPlayerId": "tAbkwElp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Kareem Peter",
+        "livesportName": "Kareem Peter",
+        "livesportPlayerId": "W40SODyI",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Mirvald Petr",
+        "livesportName": "Mirvald Petr",
+        "livesportPlayerId": "EL1qmX5m",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Tichý Jakub",
+        "livesportName": "Tichý Jakub",
+        "livesportPlayerId": "SnMahfv2",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Kvet Roman",
+        "livesportName": "Květ Roman",
+        "livesportPlayerId": "EkhMetv5",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Mikuda Oliver",
+        "livesportName": "Mikuda Oliver",
+        "livesportPlayerId": "O0UeKAJ6",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Šurýn Matěj",
+        "livesportName": "Šurýn Matěj",
+        "livesportPlayerId": "dGHP45CU",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Krobot Ladislav",
+        "livesportName": "Krobot Ladislav",
+        "livesportPlayerId": "r1GzhTYJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Pleštil Dominik",
+        "livesportName": "Pleštil Dominik",
+        "livesportPlayerId": "Ugjx29rH",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Zadražil Adam",
+        "livesportName": "Zadražil Adam",
+        "livesportPlayerId": "IuM1qbTm",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Horák Daniel",
+        "livesportName": "Horák Daniel",
+        "livesportPlayerId": "MmoRMWJI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Ludvíček David",
+        "livesportName": "Ludvíček David",
+        "livesportPlayerId": "jysT10na",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Uhrinčať Jakub",
+        "livesportName": "Uhrinčať Jakub",
+        "livesportPlayerId": "nVesEAqH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Čech František",
+        "livesportName": "Čech František",
+        "livesportPlayerId": "jXIRfKBH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Čihák Filip",
+        "livesportName": "Čihák Filip",
+        "livesportPlayerId": "lWYpiT1K",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Dancák Samuel",
+        "livesportName": "Dancák Samuel",
+        "livesportPlayerId": "2o9CMupn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Darida Vladimír",
+        "livesportName": "Darida Vladimír",
+        "livesportPlayerId": "nkKnsgtI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Kučera Jakub",
+        "livesportName": "Kučera Jakub",
+        "livesportPlayerId": "KCMexHL4",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Slončík Tom",
+        "livesportName": "Slončík Tom",
+        "livesportPlayerId": "h8AD5SRf",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Trubač Daniel",
+        "livesportName": "Trubač Daniel",
+        "livesportPlayerId": "ATJSScMo",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Vlkanova Adam",
+        "livesportName": "Vlkanova Adam",
+        "livesportPlayerId": "8bbcnwTe",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Wiesner Tomáš",
+        "livesportName": "Wiesner Tomáš",
+        "livesportPlayerId": "MB9ze6pG",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Mihálik Ondřej",
+        "livesportName": "Mihálik Ondřej",
+        "livesportPlayerId": "W0u9rmGG",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Regža Marko",
+        "livesportName": "Regža Marko",
+        "livesportPlayerId": "WfS5kzgJ",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "van Buren Mick",
+        "livesportName": "van Buren Mick",
+        "livesportPlayerId": "6HrDuX1f",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Umar Abdullahi",
+        "livesportName": "Umar Abdullahi",
+        "livesportPlayerId": "SvpGeePj",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Vágner Matyáš",
+        "livesportName": "Vágner Matyáš",
+        "livesportPlayerId": "z3c1jWil",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Vízek Patrik",
+        "livesportName": "Vízek Patrik",
+        "livesportPlayerId": "0zWG3mWg",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Chvátal Juraj",
+        "livesportName": "Chvátal Juraj",
+        "livesportPlayerId": "Q9ooWQ1C",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Kubr Lucas",
+        "livesportName": "Kubr Lucas",
+        "livesportPlayerId": "2NJ1vcad",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Petrášek Tomáš",
+        "livesportName": "Petrášek Tomáš",
+        "livesportPlayerId": "n7UyCE4k",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Zentrich Viktor",
+        "livesportName": "Zentrich Viktor",
+        "livesportPlayerId": "IRn6kj7f",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Binar Adam",
+        "livesportName": "Binar Adam",
+        "livesportPlayerId": "fmDCuVec",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Neto Elione",
+        "livesportName": "Neto Elione",
+        "livesportPlayerId": "GxfCo1gb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Ponikelský Štěpán",
+        "livesportName": "Ponikelský Štěpán",
+        "livesportPlayerId": "Y7oUL6oJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Valenta Matěj",
+        "livesportName": "Valenta Matěj",
+        "livesportPlayerId": "2cPPSTMd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Hodek Jakub",
+        "livesportName": "Hodek Jakub",
+        "livesportPlayerId": "Qu4sWYWp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Mihelak Klemen",
+        "livesportName": "Mihelak Klemen",
+        "livesportPlayerId": "hpiQnNSJ",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Cedidla Martin",
+        "livesportName": "Cedidla Martin",
+        "livesportPlayerId": "8U8W18F0",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Jablonec",
+        "name": "Novák Filip",
+        "livesportName": "Novák Filip",
+        "livesportPlayerId": "IT6JePP2",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Pavlović Dušan",
+        "livesportName": "Pavlovic Dušan",
+        "livesportPlayerId": "McJ0wXLS",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Sláma Jiří",
+        "livesportName": "Sláma Jiří",
+        "livesportPlayerId": "AH7V3mMB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Tekijaški Nemanja",
+        "livesportName": "Tekijaški Nemanja",
+        "livesportPlayerId": "xS3OrhEA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Ahl Hugo",
+        "livesportName": "Ahl Hugo",
+        "livesportPlayerId": "8827X2D7",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Chanturishvili Vakhtang",
+        "livesportName": "Chanturishvili Vakhtang",
+        "livesportPlayerId": "4Eg2q37c",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Nebyla Sebastián",
+        "livesportName": "Nebyla Sebastián",
+        "livesportPlayerId": "vw9HXUxE",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Okeke Nelson",
+        "livesportName": "Okeke Nelson",
+        "livesportPlayerId": "EmFQHekg",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Polidar Matěj",
+        "livesportName": "Polidar Matěj",
+        "livesportPlayerId": "rywLehZ7",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Sedláček Richard",
+        "livesportName": "Sedláček Richard",
+        "livesportPlayerId": "SGCoKLXc",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Suchan Jan",
+        "livesportName": "Suchan Jan",
+        "livesportPlayerId": "Uy7GqapF",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Jablonec",
+        "name": "Zorvan Filip",
+        "livesportName": "Zorvan Filip",
+        "livesportPlayerId": "CdEaJIfK",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Jawo Lamin",
+        "livesportName": "Jawo Lamin",
+        "livesportPlayerId": "23rtJRit",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Vecheta Filip",
+        "livesportName": "Vecheta Filip",
+        "livesportPlayerId": "MDIXtr9q",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Hanuš Jan",
+        "livesportName": "Hanuš Jan",
+        "livesportPlayerId": "4IS8Wllk",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Sobol Eduard",
+        "livesportName": "Sobol Eduard",
+        "livesportPlayerId": "lt4ja89s",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Souček Daniel",
+        "livesportName": "Souček Daniel",
+        "livesportPlayerId": "SY5OfS67",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Chramosta Jan",
+        "livesportName": "Chramosta Jan",
+        "livesportPlayerId": "8MTkuYs9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Rusek Antonin",
+        "livesportName": "Růsek Antonín",
+        "livesportPlayerId": "EisgSZz0",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Kukučka Michal",
+        "livesportName": "Kukučka Michal",
+        "livesportPlayerId": "0jthSqAB",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Innocenti Nassim",
+        "livesportName": "Innocenti Nassim",
+        "livesportPlayerId": "h2v3Yih9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Malý Evžen",
+        "livesportName": "Malý Evžen",
+        "livesportPlayerId": "vP4GXNiL",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Nykrín David",
+        "livesportName": "Nykrín David",
+        "livesportPlayerId": "d8LXEdz7",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Horák Roman",
+        "livesportName": "Horák Roman",
+        "livesportPlayerId": "KxZzOMUr",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Lavrinčík Samuel",
+        "livesportName": "Lavrinčík Samuel",
+        "livesportPlayerId": "QsePKrcs",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Obinaya Samuel",
+        "livesportName": "Obinaya Samuel",
+        "livesportPlayerId": "zHgOo00h",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Malensek Matěj",
+        "livesportName": "Malensek Matěj",
+        "livesportPlayerId": "IkbARp3s",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Milla Kevin-Prince",
+        "livesportName": "Milla Kevin-Prince",
+        "livesportPlayerId": "MN0iqQSj",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Floder Jiří",
+        "livesportName": "Floder Jiří",
+        "livesportPlayerId": "tdKRVL5O",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Donát Denis",
+        "livesportName": "Donát Denis",
+        "livesportPlayerId": "GSafzztc",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Hybš Matěj",
+        "livesportName": "Hybš Matěj",
+        "livesportPlayerId": "CGZtxz4S",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Karafiát Ondřej",
+        "livesportName": "Karafiát Ondřej",
+        "livesportPlayerId": "xxMuA1lC",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Králik Martin",
+        "livesportName": "Králik Martin",
+        "livesportPlayerId": "dGEdXUK6",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Matoušek Filip",
+        "livesportName": "Matoušek Filip",
+        "livesportPlayerId": "OhSV9aka",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Kolářík Josef",
+        "livesportName": "Kolářík Josef",
+        "livesportPlayerId": "YstTA4q5",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Kozel David",
+        "livesportName": "Kozel David",
+        "livesportPlayerId": "Gbd2qxk0",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Langhamer Daniel",
+        "livesportName": "Langhamer Daniel",
+        "livesportPlayerId": "I5H0YQJ5",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Zika Jan",
+        "livesportName": "Zika Jan",
+        "livesportPlayerId": "QHllTwTi",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Šubert Martin",
+        "livesportName": "Šubert Martin",
+        "livesportPlayerId": "AXHhcDm9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Buryán Jan",
+        "livesportName": "Buryán Jan",
+        "livesportPlayerId": "8jmOPyto",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "John Solomon",
+        "livesportName": "John Solomon",
+        "livesportPlayerId": "K8QBwEb6",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Klíma Jiří",
+        "livesportName": "Klíma Jiří",
+        "livesportPlayerId": "QBW0x29C",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 2
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Špatenka Filip",
+        "livesportName": "Špatenka Filip",
+        "livesportPlayerId": "YmR6UQwS",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Vorel Vojtěch",
+        "livesportName": "Vorel Vojtěch",
+        "livesportPlayerId": "UPEoT6Kc",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Harušťák Jan",
+        "livesportName": "Harušťák Jan",
+        "livesportPlayerId": "hbisZJkD",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Kadlec Adam",
+        "livesportName": "Kadlec Adam",
+        "livesportPlayerId": "0hdyRc6o",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Zachoval Matěj",
+        "livesportName": "Zachoval Matěj",
+        "livesportPlayerId": "W21ykymM",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Mareš Dominik",
+        "livesportName": "Mareš Dominik",
+        "livesportPlayerId": "ppnlbF1r",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Pech David",
+        "livesportName": "Pech David",
+        "livesportPlayerId": "6wbyLLUG",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Penner Nicolas",
+        "livesportName": "Penner Nicolas",
+        "livesportPlayerId": "SYakv3bs",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Hora Vojtěch",
+        "livesportName": "Hora Vojtěch",
+        "livesportPlayerId": "b76iEKRu",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Lehký Filip",
+        "livesportName": "Lehký Filip",
+        "livesportPlayerId": "bJ5XINtI",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Letenay Lukáš",
+        "livesportName": "Letenay Lukáš",
+        "livesportPlayerId": "dSzeKEUT",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Teterja Roman",
+        "livesportName": "Teterja Roman",
+        "livesportPlayerId": "8pveMEE8",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Mandous Aleš",
+        "livesportName": "Mandous Aleš",
+        "livesportPlayerId": "GlediXbq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Boledovič Tobias",
+        "livesportName": "Boledovič Tobias",
+        "livesportPlayerId": "hAH4aSN3",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Pardubice",
+        "name": "Godwin Emmanuel",
+        "livesportName": "Godwin Emmanuel",
+        "livesportPlayerId": "hEDCJy2L",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Noslin Jason",
+        "livesportName": "Noslin Jason",
+        "livesportPlayerId": "6R498nRp",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Traore Mouhamed",
+        "livesportName": "Traore Mouhamed",
+        "livesportPlayerId": "6ubFU8ML",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Trédl Jan",
+        "livesportName": "Trédl Jan",
+        "livesportPlayerId": "IBRib08J",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Botos Giannis-Fivos",
+        "livesportName": "Botos Giannis-Fivos",
+        "livesportPlayerId": "nL5vEv4t",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Hlavatý Michal",
+        "livesportName": "Hlavatý Michal",
+        "livesportPlayerId": "OQfsKqWq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Icha Marek",
+        "livesportName": "Icha Marek",
+        "livesportPlayerId": "rTcmccxS",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Jelínek Tomáš",
+        "livesportName": "Jelínek Tomáš",
+        "livesportPlayerId": "pf9ysQF9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Šimek Samuel",
+        "livesportName": "Šimek Samuel",
+        "livesportPlayerId": "bglFAvcQ",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Drchal Václav",
+        "livesportName": "Drchal Václav",
+        "livesportPlayerId": "YDRJHked",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Patrák Vojtěch",
+        "livesportName": "Patrák Vojtěch",
+        "livesportPlayerId": "xEC7nAJB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Samuel Victor",
+        "livesportName": "Samuel Victor",
+        "livesportPlayerId": "xCfVORPh",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Smékal Daniel",
+        "livesportName": "Smékal Daniel",
+        "livesportPlayerId": "OO5OEBLI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Tanko Abdullahi",
+        "livesportName": "Tanko Abdullahi",
+        "livesportPlayerId": "fTgLFKWG",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Kharatishvili Luka",
+        "livesportName": "Kharatishvili Luka",
+        "livesportPlayerId": "KjR9NAo5",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Stejskal Jan",
+        "livesportName": "Stejskal Jan",
+        "livesportPlayerId": "ObKmy58j",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Šerák Jáchym",
+        "livesportName": "Šerák Jáchym",
+        "livesportPlayerId": "S0WBh9C2",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Bammens Simon",
+        "livesportName": "Bammens Simon",
+        "livesportPlayerId": "tzacoYEl",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Hamza Jiří",
+        "livesportName": "Hamza Jiří",
+        "livesportPlayerId": "SvSqSRN8",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Mahuta Ryan",
+        "livesportName": "Mahuta Ryan",
+        "livesportPlayerId": "ATKx4Zpf",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Slyubyk Bogdan",
+        "livesportName": "Slyubyk Bogdan",
+        "livesportPlayerId": "Is0LfAEA",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Míšek Štěpán",
+        "livesportName": "Míšek Štěpán",
+        "livesportPlayerId": "ptbeWHR1",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Saarma Robi",
+        "livesportName": "Saarma Robi",
+        "livesportPlayerId": "A3CMQ0mb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Solil Tomáš",
+        "livesportName": "Solil Tomáš",
+        "livesportPlayerId": "4tnjrDKJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Zima Jiří",
+        "livesportName": "Zima Jiří",
+        "livesportPlayerId": "6LHGQVXb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Koutný Jan",
+        "livesportName": "Koutný Jan",
+        "livesportPlayerId": "AsxyI2H9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Král Jan",
+        "livesportName": "Král Jan",
+        "livesportPlayerId": "ELMMPj4J",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Lurvink Louis",
+        "livesportName": "Lurvink Louis",
+        "livesportPlayerId": "YNGdqw08",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Baráth Péter",
+        "livesportName": "Baráth Péter",
+        "livesportPlayerId": "rcUDEgho",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Beran Michal",
+        "livesportName": "Beran Michal",
+        "livesportPlayerId": "ET28Z8Fd",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Fiala Jan",
+        "livesportName": "Fiala Jan",
+        "livesportPlayerId": "pGKig1PD",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Janošek Dominik",
+        "livesportName": "Janošek Dominik",
+        "livesportPlayerId": "tzR0DWNn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Krivak Fabijan",
+        "livesportName": "Krivak Fabijan",
+        "livesportPlayerId": "QBmz9gC9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Mikulenka Matěj",
+        "livesportName": "Mikulenka Matěj",
+        "livesportPlayerId": "GQgw6l6c",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Soldo Marko",
+        "livesportName": "Soldo Marko",
+        "livesportPlayerId": "xE2r6YMB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Spáčil Jiří",
+        "livesportName": "Spáčil Jiří",
+        "livesportPlayerId": "fweggBbN",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Sylla Abdoulaye",
+        "livesportName": "Sylla Abdoulaye",
+        "livesportPlayerId": "Q5fsEDd8",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Tkáč David",
+        "livesportName": "Tkáč David",
+        "livesportPlayerId": "O2KfBISN",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Ghali Ahmad",
+        "livesportName": "Ghali Ahmad",
+        "livesportPlayerId": "vwyxkgGq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Sejk Václav",
+        "livesportName": "Sejk Václav",
+        "livesportPlayerId": "x26ZWCZ6",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Šíp Jáchym",
+        "livesportName": "Šíp Jáchym",
+        "livesportPlayerId": "86xhtkkq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Berka Patrik",
+        "livesportName": "Berka Patrik",
+        "livesportPlayerId": "px2zpef9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Hruška Matúš",
+        "livesportName": "Hruška Matúš",
+        "livesportPlayerId": "M1bDt1jH",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Pavlesic Anthony",
+        "livesportName": "Pavlesic Anthony",
+        "livesportPlayerId": "t0L07aVK",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Elbel Jakub",
+        "livesportName": "Elbel Jakub",
+        "livesportPlayerId": "hlg7jiCp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Hadaš Matěj",
+        "livesportName": "Hadaš Matěj",
+        "livesportPlayerId": "vZ0r5V6s",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Malý Matúš",
+        "livesportName": "Malý Matúš",
+        "livesportPlayerId": "K6m7PXZr",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Noumbissie Stephane",
+        "livesportName": "Noumbissie Stephane",
+        "livesportPlayerId": "K8X3m0wh",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Siegl Patrik",
+        "livesportName": "Siegl Patrik",
+        "livesportPlayerId": "Cpy9NVsO",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Slavíček Filip",
+        "livesportName": "Slavíček Filip",
+        "livesportPlayerId": "M1xs6e26",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Drábek David",
+        "livesportName": "Drábek David",
+        "livesportPlayerId": "hxjbwInQ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Grgič Dario",
+        "livesportName": "Grgič Dario",
+        "livesportPlayerId": "4bBpHgQA",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Zahradníček Václav",
+        "livesportName": "Zahradníček Václav",
+        "livesportPlayerId": "xzo4VpYk",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Kliment Jan",
+        "livesportName": "Kliment Jan",
+        "livesportPlayerId": "8hRwt7Me",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Mikaelsson Hilmir",
+        "livesportName": "Mikaelsson Hilmir",
+        "livesportPlayerId": "EutPE0dn",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Palán Radek",
+        "livesportName": "Palán Radek",
+        "livesportPlayerId": "CEAQcDD5",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Yasser Mohamed",
+        "livesportName": "Yasser Mohamed",
+        "livesportPlayerId": "lIW9J0ca",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Markovič Jakub",
+        "livesportName": "Markovič Jakub",
+        "livesportPlayerId": "O8gQFEIi",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Chaloupek Štěpán",
+        "livesportName": "Chaloupek Štěpán",
+        "livesportPlayerId": "W4rJpOaK",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Holeš Tomáš",
+        "livesportName": "Holeš Tomáš",
+        "livesportPlayerId": "GU2BC13A",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kolísek Jakub",
+        "livesportName": "Kolísek Jakub",
+        "livesportPlayerId": "2sYP96UT",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Konečný Mikuláš",
+        "livesportName": "Konečný Mikuláš",
+        "livesportPlayerId": "6k1TE4WB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Labík Albert",
+        "livesportName": "Labík Albert",
+        "livesportPlayerId": "bk9GfZKI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "N'Guessan Ange",
+        "livesportName": "N'Guessan Ange",
+        "livesportPlayerId": "lU0M9sZL",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Piták Eliáš",
+        "livesportName": "Piták Eliáš",
+        "livesportPlayerId": "jJMMI7lp",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Ayaosi Emmanuel",
+        "livesportName": "Ayaosi Emmanuel",
+        "livesportPlayerId": "67pmTmsN",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Nowak Wiktor",
+        "livesportName": "Nowak Wiktor",
+        "livesportPlayerId": "2VeRfUpi",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 2
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Provod Lukáš",
+        "livesportName": "Provod Lukáš",
+        "livesportPlayerId": "82A7cLmi",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Sadílek Michal",
+        "livesportName": "Sadílek Michal",
+        "livesportPlayerId": "zJiFbA7r",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Chytil Mojmír",
+        "livesportName": "Chytil Mojmír",
+        "livesportPlayerId": "dhSLF6tC",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 2
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kačor Pavel",
+        "livesportName": "Kačor Pavel",
+        "livesportPlayerId": "hOjD2le2",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Ouanda Adonija",
+        "livesportName": "Ouanda Adonija",
+        "livesportPlayerId": "IBoly1YC",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Šturm Danijel",
+        "livesportName": "Šturm Danijel",
+        "livesportPlayerId": "WS55wx0h",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Domchak Nazar",
+        "livesportName": "Domchak Nazar",
+        "livesportPlayerId": "tblus7kT",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kolář Ondřej",
+        "livesportName": "Kolář Ondřej",
+        "livesportPlayerId": "xfBGcS1U",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Rezek Adam",
+        "livesportName": "Rezek Adam",
+        "livesportPlayerId": "Q5jtiynf",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Staněk Jindřich",
+        "livesportName": "Staněk Jindřich",
+        "livesportPlayerId": "xjKD0WQe",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Camara Sahmkou",
+        "livesportName": "Camara Sahmkou",
+        "livesportPlayerId": "8UoWc3zo",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Halinský Denis",
+        "livesportName": "Halinský Denis",
+        "livesportPlayerId": "vFaA2SCd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Isaiah Chinedu",
+        "livesportName": "Isaiah Chinedu",
+        "livesportPlayerId": "CnKKbzKi",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Isife Samuel",
+        "livesportName": "Isife Samuel",
+        "livesportPlayerId": "hE35fb2L",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Jurásek David",
+        "livesportName": "Jurásek David",
+        "livesportPlayerId": "AF2Br9IA",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kubiak Oskar",
+        "livesportName": "Kubiak Oskar",
+        "livesportPlayerId": "dSZBOc9N",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Mbodji Youssoupha",
+        "livesportName": "Mbodji Youssoupha",
+        "livesportPlayerId": "tCDJqaVP",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Ogbu Igoh",
+        "livesportName": "Ogbu Igoh",
+        "livesportPlayerId": "QkyQ3g8t",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Vlček Tomáš",
+        "livesportName": "Vlček Tomáš",
+        "livesportPlayerId": "ADkQ5Ufp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Zima David",
+        "livesportName": "Zima David",
+        "livesportPlayerId": "8tVYh60A",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Diakité Toumani",
+        "livesportName": "Diakite Toumani",
+        "livesportPlayerId": "O8K3UOLO",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Dorley Oscar",
+        "livesportName": "Dorley Oscar",
+        "livesportPlayerId": "jBZtJ5Rl",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Douděra David",
+        "livesportName": "Douděra David",
+        "livesportPlayerId": "pr09Lnhk",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kante Hamidou",
+        "livesportName": "Kante Hamidou",
+        "livesportPlayerId": "0bNiT0Nc",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Michez Simion",
+        "livesportName": "Michez Simion",
+        "livesportPlayerId": "KGxtsdTs",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Moses David",
+        "livesportName": "Moses David",
+        "livesportPlayerId": "vkbT7lsC",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Okonkwo Izuchukwu",
+        "livesportName": "Okonkwo Izuchukwu",
+        "livesportPlayerId": "880f5XCQ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Rajnoha Adam",
+        "livesportName": "Rajnoha Adam",
+        "livesportPlayerId": "OWQJmzTL",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Suleiman Mubarak",
+        "livesportName": "Suleiman Mubarak",
+        "livesportPlayerId": "ltctozq4",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Teah Divine",
+        "livesportName": "Teah Divine",
+        "livesportPlayerId": "A7u2ln9H",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Chorý Tomáš",
+        "livesportName": "Chorý Tomáš",
+        "livesportPlayerId": "EgGI8vM6",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kohout Dan",
+        "livesportName": "Kohout Dan",
+        "livesportPlayerId": "bqAt3j3S",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Sanyang Youssoupha",
+        "livesportName": "Sanyang Youssoupha",
+        "livesportPlayerId": "Ox0lejKQ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Schranz Ivan",
+        "livesportName": "Schranz Ivan",
+        "livesportPlayerId": "p0I1WZDo",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Urban Alexandr",
+        "livesportName": "Urban Alexandr",
+        "livesportPlayerId": "IoOcBsIi",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Behiratche Jocelin",
+        "livesportName": "Behiratche Jocelin",
+        "livesportPlayerId": "rcNMLGpU",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Král Tomáš",
+        "livesportName": "Král Tomáš",
+        "livesportPlayerId": "Gb1sR4Da",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Ndefe Gigli",
+        "livesportName": "Ndefe Gigli",
+        "livesportPlayerId": "23zt94fH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Stojcevski Andrej",
+        "livesportName": "Stojcevski Andrej",
+        "livesportPlayerId": "d4bcbXg0",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Štěpánek David",
+        "livesportName": "Štěpánek David",
+        "livesportPlayerId": "z3NIl4Nq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Blahút Patrik",
+        "livesportName": "Blahút Patrik",
+        "livesportPlayerId": "p2YG94Bt",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Dolžnikov Artur",
+        "livesportName": "Dolžnikov Artur",
+        "livesportPlayerId": "OCogLW4t",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Havlík Marek",
+        "livesportName": "Havlík Marek",
+        "livesportPlayerId": "EF7mXnTD",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Hruška Filip",
+        "livesportName": "Hruška Filip",
+        "livesportPlayerId": "6qMAkUIk",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Juroška Pavel",
+        "livesportName": "Juroška Pavel",
+        "livesportPlayerId": "0nlG422t",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Slovácko",
+        "name": "Kostadinov Tihomir",
+        "livesportName": "Kostadinov Tihomir",
+        "livesportPlayerId": "A9ouE1BB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Trávník Michal",
+        "livesportName": "Trávník Michal",
+        "livesportPlayerId": "Wd88alXH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Šviderský Martin",
+        "livesportName": "Šviderský Martin",
+        "livesportPlayerId": "8SBQ2uIP",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Niarchos Giannis",
+        "livesportName": "Niarchos Giannis",
+        "livesportPlayerId": "ljdHCrrM",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Puškáč David",
+        "livesportName": "Puškáč David",
+        "livesportPlayerId": "C8lQRr7M",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Halouska Pavel",
+        "livesportName": "Halouska Pavel",
+        "livesportPlayerId": "drqvsVQe",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Heča Milan",
+        "livesportName": "Heča Milan",
+        "livesportPlayerId": "G0bnVHxL",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Koscelník Martin",
+        "livesportName": "Koscelník Martin",
+        "livesportPlayerId": "I7WzuCVD",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Kosek Daniel",
+        "livesportName": "Kosek Daniel",
+        "livesportPlayerId": "QuEgBjXM",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Mulder Jonathan",
+        "livesportName": "Mulder Jonathan",
+        "livesportPlayerId": "zVCDi9Jt",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Prior Leoš",
+        "livesportName": "Prior Leoš",
+        "livesportPlayerId": "KnCMLvw9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Rundič Milan",
+        "livesportName": "Rundič Milan",
+        "livesportPlayerId": "6c8kvXdc",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Slončík Šimon",
+        "livesportName": "Slončík Šimon",
+        "livesportPlayerId": "fHnQMnWC",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Vaško Filip",
+        "livesportName": "Vaško Filip",
+        "livesportPlayerId": "hvI48Mh2",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Alabi Adam",
+        "livesportName": "Alabi Adam",
+        "livesportPlayerId": "G2Ps7nMi",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Ndubuisi Paul",
+        "livesportName": "Ndubuisi Paul",
+        "livesportPlayerId": "4WuyGjMj",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Novotný Lukáš",
+        "livesportName": "Novotný Lukáš",
+        "livesportPlayerId": "IBVYgYIS",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Sosseh Gibril",
+        "livesportName": "Sosseh Gibril",
+        "livesportPlayerId": "Y9n8l6Mo",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Tetour Daniel",
+        "livesportName": "Tetour Daniel",
+        "livesportPlayerId": "S2uZ1X20",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Vorlický Lukáš",
+        "livesportName": "Vorlický Lukáš",
+        "livesportPlayerId": "Khf3B44q",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Barát Daniel",
+        "livesportName": "Barát Daniel",
+        "livesportPlayerId": "MRYMhvxB",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Ceesay Ousman",
+        "livesportName": "Ceesay Ousman",
+        "livesportPlayerId": "0EisEnYh",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Horský Filip",
+        "livesportName": "Horský Filip",
+        "livesportPlayerId": "dApjtQf6",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Marinelli Alan",
+        "livesportName": "Marinelli Alan",
+        "livesportPlayerId": "jFLWFu3Q",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Koubek Tomáš",
+        "livesportName": "Koubek Tomáš",
+        "livesportPlayerId": "fglrE6w7",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Drakpe Augustin",
+        "livesportName": "Drakpe Augustin",
+        "livesportPlayerId": "4YPmTZ6J",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Hodouš Petr",
+        "livesportName": "Hodouš Petr",
+        "livesportPlayerId": "IPWPOt1D",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Hůlka Lukáš",
+        "livesportName": "Hůlka Lukáš",
+        "livesportPlayerId": "6wvXDkFr",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Kayondo Aziz",
+        "livesportName": "Kayondo Aziz",
+        "livesportPlayerId": "6NHefBqF",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Koželuh Josef",
+        "livesportName": "Koželuh Josef",
+        "livesportPlayerId": "GjnFsnYI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Mikula Jan",
+        "livesportName": "Mikula Jan",
+        "livesportPlayerId": "KtgIp3dn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Dulay Patrik",
+        "livesportName": "Dulay Patrik",
+        "livesportPlayerId": "KhHS9bJc",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Faye Fallou",
+        "livesportName": "Faye Fallou",
+        "livesportPlayerId": "pQqNGg7r",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Masopust Lukáš",
+        "livesportName": "Masopust Lukáš",
+        "livesportPlayerId": "nLaiMbxq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Soliu Afolabi",
+        "livesportName": "Soliu Afolabi",
+        "livesportPlayerId": "xQwGnjFi",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Stránský Vojtěch",
+        "livesportName": "Stránský Vojtěch",
+        "livesportPlayerId": "EXrPeW7d",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Krollis Raimonds",
+        "livesportName": "Krollis Raimonds",
+        "livesportPlayerId": "fJhzKfXc",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Kušej Vasil",
+        "livesportName": "Kušej Vasil",
+        "livesportPlayerId": "jonRrqeA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Mašek Lukáš",
+        "livesportName": "Mašek Lukáš",
+        "livesportPlayerId": "QZfFKvdH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Kudelčík Dominik",
+        "livesportName": "Kudelčík Dominik",
+        "livesportPlayerId": "GzV5fgpq",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Musil Jindřich",
+        "livesportName": "Musil Jindřich",
+        "livesportPlayerId": "YHI3x9H9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Pešl Lukáš",
+        "livesportName": "Pešl Lukáš",
+        "livesportPlayerId": "WEa5UNZh",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Sutr Jan",
+        "livesportName": "Sutr Jan",
+        "livesportPlayerId": "MX5vtBZI",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Bořil Jan",
+        "livesportName": "Bořil Jan",
+        "livesportPlayerId": "6XRulOAF",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Bužek Alexandr",
+        "livesportName": "Bužek Alexandr",
+        "livesportPlayerId": "xG2aAg39",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Lexa Milan",
+        "livesportName": "Lexa Milan",
+        "livesportPlayerId": "Au1Jp3rC",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Mahmič Ermin",
+        "livesportName": "Mahmič Ermin",
+        "livesportPlayerId": "lbdiuVzP",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Sychra Vojtěch",
+        "livesportName": "Sychra Vojtěch",
+        "livesportPlayerId": "6ePhots9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Baboula Venuste",
+        "livesportName": "Baboula Venuste",
+        "livesportPlayerId": "MipK1tKa",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Basiladze Aleko",
+        "livesportName": "Basiladze Aleko",
+        "livesportPlayerId": "SpsC4Spr",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Juliš Petr",
+        "livesportName": "Juliš Petr",
+        "livesportPlayerId": "nJDszH9F",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Rus Daniel",
+        "livesportName": "Rus Daniel",
+        "livesportPlayerId": "0WOoYPAl",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Surovčík Jakub",
+        "livesportName": "Surovčík Jakub",
+        "livesportPlayerId": "fwXhJa0F",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Kadeřábek Pavel",
+        "livesportName": "Kadeřábek Pavel",
+        "livesportPlayerId": "MwBrqRha",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Suchomel Martin",
+        "livesportName": "Suchomel Martin",
+        "livesportPlayerId": "S2L0pCiU",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Sørensen Asger",
+        "livesportName": "Sørensen Asger",
+        "livesportPlayerId": "KngkYwbE",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Zelený Jaroslav",
+        "livesportName": "Zelený Jaroslav",
+        "livesportPlayerId": "QXMeCeIq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Ševínský Adam",
+        "livesportName": "Ševínský Adam",
+        "livesportPlayerId": "8nTNJ9y7",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Alcócer Josimar",
+        "livesportName": "Alcócer Josimar",
+        "livesportPlayerId": "GtvcpX7m",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Eneme Santiago",
+        "livesportName": "Eneme Santiago",
+        "livesportPlayerId": "2Z49Cgqn",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Hollý Dominik",
+        "livesportName": "Hollý Dominik",
+        "livesportPlayerId": "8AwbHvuN",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Irving Andrew",
+        "livesportName": "Irving Andrew",
+        "livesportPlayerId": "SYegq3bT",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 1
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Karabec Adam",
+        "livesportName": "Karabec Adam",
+        "livesportPlayerId": "SClyr2eG",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 1
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Ryneš Matěj",
+        "livesportName": "Ryneš Matěj",
+        "livesportPlayerId": "Gh5wWWlD",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Sochůrek Hugo",
+        "livesportName": "Sochůrek Hugo",
+        "livesportPlayerId": "ddoXctfi",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Brunes Jonatan Braut",
+        "livesportName": "Brunes Jonatan Braut",
+        "livesportPlayerId": "t02ZMlBB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Haraslín Lukáš",
+        "livesportName": "Haraslín Lukáš",
+        "livesportPlayerId": "Asqi9KYR",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Kuchta Jan",
+        "livesportName": "Kuchta Jan",
+        "livesportPlayerId": "IPLNGwMg",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Kuol Garang",
+        "livesportName": "Kuol Garang",
+        "livesportPlayerId": "YXf9YWSF",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Mercado John",
+        "livesportName": "Mercado John",
+        "livesportPlayerId": "tSlWfuTh",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 1
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Vojta Matyáš",
+        "livesportName": "Vojta Matyáš",
+        "livesportPlayerId": "dK1AFaRf",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Franc Lukáš",
+        "livesportName": "Franc Lukáš",
+        "livesportPlayerId": "xCCl0RZp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Hegyi Krisztián",
+        "livesportName": "Hegyi Krisztián",
+        "livesportPlayerId": "GIYv8IVB",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Rodriguez Pedro",
+        "livesportName": "Rodriguez Pedro",
+        "livesportPlayerId": "C0iSRYqr",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Vindahl Peter",
+        "livesportName": "Vindahl Peter",
+        "livesportPlayerId": "4rgyylvj",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Zajac Sebastián",
+        "livesportName": "Zajac Sebastián",
+        "livesportPlayerId": "8IqBgcfr",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Guddal Tobias",
+        "livesportName": "Guddal Tobias",
+        "livesportPlayerId": "YZaauoS5",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Martinec Jakub",
+        "livesportName": "Martinec Jakub",
+        "livesportPlayerId": "jBu3wPkB",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Pech Sebastian",
+        "livesportName": "Pech Sebastian",
+        "livesportPlayerId": "vc05kchF",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Uchenna Emmanuel",
+        "livesportName": "Uchenna Emmanuel",
+        "livesportPlayerId": "UqjN9bSC",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Vitályos Viktor",
+        "livesportName": "Vitályos Viktor",
+        "livesportPlayerId": "K4u6qn9o",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Feit Jan",
+        "livesportName": "Feit Jan",
+        "livesportPlayerId": "AFqvOB9U",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Kotíšek Maxim",
+        "livesportName": "Kotíšek Maxim",
+        "livesportPlayerId": "j1yUhnwq",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Macek Roman",
+        "livesportName": "Macek Roman",
+        "livesportPlayerId": "4p4Z2cBP",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Mannsverk Sivert",
+        "livesportName": "Mannsverk Sivert",
+        "livesportPlayerId": "McdmkUE4",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Vydra Patrik",
+        "livesportName": "Vydra Patrik",
+        "livesportPlayerId": "pId9BXTD",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Azaka Lewis",
+        "livesportName": "Azaka Lewis",
+        "livesportPlayerId": "EVUd30X8",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Grimaldo Joao",
+        "livesportName": "Grimaldo Joao",
+        "livesportPlayerId": "YBQwHSDJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Singhateh Ebrima",
+        "livesportName": "Singhateh Ebrima",
+        "livesportPlayerId": "6wDvjsCE",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Trmal Matouš",
+        "livesportName": "Trmal Matouš",
+        "livesportPlayerId": "4WUW4771",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Takács Ladislav",
+        "livesportName": "Takács Ladislav",
+        "livesportPlayerId": "tYydKbUR",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Večerka Dalibor",
+        "livesportName": "Večerka Dalibor",
+        "livesportPlayerId": "OQUo5V79",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Vientiess Oskars",
+        "livesportName": "Vientiess Oskars",
+        "livesportPlayerId": "0EOlhNgF",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Bílek Michal",
+        "livesportName": "Bílek Michal",
+        "livesportPlayerId": "UDIhhLBr",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Fortelný Jan",
+        "livesportName": "Fortelný Jan",
+        "livesportPlayerId": "I1THGnR5",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Krejčí Ladislav",
+        "livesportName": "Krejčí Ladislav",
+        "livesportPlayerId": "n5GNCVot",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Mareček Daniel",
+        "livesportName": "Mareček Daniel",
+        "livesportPlayerId": "d0GkPFOo",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Mareček Lukáš",
+        "livesportName": "Mareček Lukáš",
+        "livesportPlayerId": "pzBlbY6Q",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Radosta Matěj",
+        "livesportName": "Radosta Matěj",
+        "livesportPlayerId": "Q5ekF7if",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Riznič Matej",
+        "livesportName": "Riznič Matej",
+        "livesportPlayerId": "6y6Z6wP1",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Čermák Marcel",
+        "livesportName": "Čermák Marcel",
+        "livesportPlayerId": "Eotm88qk",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Auta John",
+        "livesportName": "Auta John",
+        "livesportPlayerId": "23PLKN2n",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Teplice",
+        "name": "Hopi Idris",
+        "livesportName": "Hopi Idris",
+        "livesportPlayerId": "04ItvWYj",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Náprstek Matěj",
+        "livesportName": "Náprstek Matěj",
+        "livesportPlayerId": "nDSi16O9",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Pulkrab Matěj",
+        "livesportName": "Pulkrab Matěj",
+        "livesportPlayerId": "ng9Xt04A",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 2
+      },
+      {
+        "team": "Teplice",
+        "name": "Lichtenberg Kryštof",
+        "livesportName": "Lichtenberg Kryštof",
+        "livesportPlayerId": "rmcs7UYn",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Němeček Luděk",
+        "livesportName": "Němeček Luděk",
+        "livesportPlayerId": "tQutI5g5",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Audinis Nojus",
+        "livesportName": "Audinis Nojus",
+        "livesportPlayerId": "IXrYCTTL",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Danihel Daniel",
+        "livesportName": "Danihel Daniel",
+        "livesportPlayerId": "r5quXUAg",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Harušťák Jaroslav",
+        "livesportName": "Harušťák Jaroslav",
+        "livesportPlayerId": "6e5e2vde",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Jakubko Jakub",
+        "livesportName": "Jakubko Jakub",
+        "livesportPlayerId": "b7OHoK4B",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Klimpl Oliver",
+        "livesportName": "Klimpl Oliver",
+        "livesportPlayerId": "jTkxvgRl",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Taraduda Denys",
+        "livesportName": "Taraduda Denys",
+        "livesportPlayerId": "GlD6tVYi",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Jukl Robert",
+        "livesportName": "Jukl Robert",
+        "livesportPlayerId": "GnIGmR1P",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Kodeš Petr",
+        "livesportName": "Kodeš Petr",
+        "livesportPlayerId": "GApEF8XM",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Švanda Josef",
+        "livesportName": "Švanda Josef",
+        "livesportPlayerId": "E3ozWIVS",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Garzha Artem",
+        "livesportName": "Garzha Artem",
+        "livesportPlayerId": "hU70rs10",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Kozák Matyáš",
+        "livesportName": "Kozák Matyáš",
+        "livesportPlayerId": "ERcXQVW9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Svatek Pavel",
+        "livesportName": "Svatek Pavel",
+        "livesportPlayerId": "YmqJMH8d",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Zlatohlávek Tomáš",
+        "livesportName": "Zlatohlávek Tomáš",
+        "livesportPlayerId": "KhrlVUWQ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Wiegele Florian",
+        "livesportName": "Wiegele Florian",
+        "livesportPlayerId": "4S959aaD",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Doski Merchas",
+        "livesportName": "Doski Merchas",
+        "livesportPlayerId": "GxzhtVCs",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Dweh Sampson",
+        "livesportName": "Dweh Sampson",
+        "livesportPlayerId": "AP8bcoJS",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Krčík Dávid",
+        "livesportName": "Krčík Dávid",
+        "livesportPlayerId": "OIOKsnyg",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Boháč Sebastian",
+        "livesportName": "Boháč Sebastian",
+        "livesportPlayerId": "QZrY7HXg",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Hrošovský Patrik",
+        "livesportName": "Hrošovský Patrik",
+        "livesportPlayerId": "EofXzaaM",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Ladra Tomáš",
+        "livesportName": "Ladra Tomáš",
+        "livesportPlayerId": "Wnfs8q19",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Pirgič Stefan",
+        "livesportName": "Pirgič Stefan",
+        "livesportPlayerId": "d2hja8fN",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Sojka Alexandr",
+        "livesportName": "Sojka Alexandr",
+        "livesportPlayerId": "tp6VY6vA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Červ Lukáš",
+        "livesportName": "Červ Lukáš",
+        "livesportPlayerId": "IiOYBdC3",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Faal Baboucarr",
+        "livesportName": "Faal Baboucarr",
+        "livesportPlayerId": "tjr8IhBA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Kabongo Christophe",
+        "livesportName": "Kabongo Christophe",
+        "livesportPlayerId": "d8P1BRpf",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Lawal Salim",
+        "livesportName": "Lawal Salim",
+        "livesportPlayerId": "AcdisFDl",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Memić Amar",
+        "livesportName": "Memič Amar",
+        "livesportPlayerId": "O85x3xJ8",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Višinský Denis",
+        "livesportName": "Višinský Denis",
+        "livesportPlayerId": "Mcjm4kMm",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Vydra Matěj",
+        "livesportName": "Vydra Matěj",
+        "livesportPlayerId": "8Ewuow5i",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Tvrdoň Marián",
+        "livesportName": "Tvrdoň Marián",
+        "livesportPlayerId": "zcr46BZJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Ťapaj Dominik",
+        "livesportName": "Ťapaj Dominik",
+        "livesportPlayerId": "jN2ZU28B",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Jemelka Václav",
+        "livesportName": "Jemelka Václav",
+        "livesportPlayerId": "dldY3lBa",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Kubín Petr",
+        "livesportName": "Kubín Petr",
+        "livesportPlayerId": "tYOWuami",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Paidar Zbyněk",
+        "livesportName": "Paidar Zbyněk",
+        "livesportPlayerId": "0WYeVCC5",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Spáčil Karel",
+        "livesportName": "Spáčil Karel",
+        "livesportPlayerId": "88hkbc1i",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Panoš Jiří",
+        "livesportName": "Panoš Jiří",
+        "livesportPlayerId": "bRbUIq7p",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Prebsl Filip",
+        "livesportName": "Prebsl Filip",
+        "livesportPlayerId": "4Okjd8wA",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Souaré Cheick",
+        "livesportName": "Souaré Cheick",
+        "livesportPlayerId": "6VbrtIXS",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Adu Prince",
+        "livesportName": "Adu Prince",
+        "livesportPlayerId": "QTKIZWgb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Novák Adam",
+        "livesportName": "Novák Adam",
+        "livesportPlayerId": "fuZZ6RiJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Touré Mohamed",
+        "livesportName": "Toure Mohamed",
+        "livesportPlayerId": "QkrdV8Pc",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Hrdina Adam",
+        "livesportName": "Hrdina Adam",
+        "livesportPlayerId": "bTsofiwb",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Dante Amadou",
+        "livesportName": "Dante Amadou",
+        "livesportPlayerId": "42DX3rqU",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Hunal Eric",
+        "livesportName": "Hunal Eric",
+        "livesportPlayerId": "EaYvNtpk",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Kaká",
+        "livesportName": "Kaká",
+        "livesportPlayerId": "Ye5kQX55",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Klíma Jakub",
+        "livesportName": "Klíma Jakub",
+        "livesportPlayerId": "YaCByFyA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Vedral Filip",
+        "livesportName": "Vedral Filip",
+        "livesportPlayerId": "bJHXVubI",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Janetzký Jakub",
+        "livesportName": "Janetzký Jakub",
+        "livesportPlayerId": "YwmaWkH4",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Penxa Lukáš",
+        "livesportName": "Penxa Lukáš",
+        "livesportPlayerId": "0MPFLV6f",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Saal Lukáš",
+        "livesportName": "Saal Lukas",
+        "livesportPlayerId": "6ifYz7AS",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Vaníček Antonín",
+        "livesportName": "Vaníček Antonín",
+        "livesportPlayerId": "IalfT9LE",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Zmrhal Jaromír",
+        "livesportName": "Zmrhal Jaromír",
+        "livesportPlayerId": "nRtPQX71",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Čavoš Patrik",
+        "livesportName": "Čavoš Patrik",
+        "livesportPlayerId": "z5IckbPH",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Ezeh Lucky",
+        "livesportName": "Ezeh Lucky",
+        "livesportPlayerId": "tjKCWv1A",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Vachoušek Tadeáš",
+        "livesportName": "Vachoušek Tadeáš",
+        "livesportPlayerId": "M9e4XYMa",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Vašulín Daniel",
+        "livesportName": "Vašulín Daniel",
+        "livesportPlayerId": "YiQqvWIA",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 1
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Velich Oliver",
+        "livesportName": "Velich Oliver",
+        "livesportPlayerId": "G8iiQXBB",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Andrew Colin",
+        "livesportName": "Andrew Colin",
+        "livesportPlayerId": "6RI7Fo2a",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Kostelný Kryštof",
+        "livesportName": "Kostelný Kryštof",
+        "livesportPlayerId": "bXmKViX7",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Prodělal Ondřej",
+        "livesportName": "Prodělal Ondřej",
+        "livesportPlayerId": "Krla1bDM",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Sváček Dominik",
+        "livesportName": "Sváček Dominik",
+        "livesportPlayerId": "hWHJbloi",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Břečka Tomáš",
+        "livesportName": "Břečka Tomáš",
+        "livesportPlayerId": "rcQrTfC9",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Granečný Denis",
+        "livesportName": "Granečný Denis",
+        "livesportPlayerId": "KOtq9lUr",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Juroška Jan",
+        "livesportName": "Juroška Jan",
+        "livesportPlayerId": "lQTs6K4T",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Mareš Petr",
+        "livesportName": "Mareš Petr",
+        "livesportPlayerId": "8z7tX9Zn",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Markovič Alex",
+        "livesportName": "Markovič Alex",
+        "livesportPlayerId": "OYmcSeKb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Strnad Damián",
+        "livesportName": "Strnad Damián",
+        "livesportPlayerId": "QqguoG3n",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Šmíd Vojtěch",
+        "livesportName": "Šmíd Vojtěch",
+        "livesportPlayerId": "fRAgrwWJ",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Gjorgievski Martin",
+        "livesportName": "Gjorgievski Martin",
+        "livesportPlayerId": "v5bMJ63I",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Langer Štěpán",
+        "livesportName": "Langer Štěpán",
+        "livesportPlayerId": "l0E2pVmb",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Rymarenko Martin",
+        "livesportName": "Rymarenko Martin",
+        "livesportPlayerId": "M5YI4RFL",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Texl Jiří",
+        "livesportName": "Texl Jiří",
+        "livesportPlayerId": "Sl4iziZI",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Ševčík Petr",
+        "livesportName": "Ševčík Petr",
+        "livesportPlayerId": "WG5hL1ck",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Žitný Patrik",
+        "livesportName": "Žitný Patrik",
+        "livesportPlayerId": "GvYuBHfp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Cicilia Rigino",
+        "livesportName": "Cicilia Rigino",
+        "livesportPlayerId": "29kfXe2q",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Kanakimana Bienvenue",
+        "livesportName": "Kanakimana Bienvenue",
+        "livesportPlayerId": "IVSXIAgO",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
+        "name": "Večeřa Filip",
+        "livesportName": "Večeřa Filip",
+        "livesportPlayerId": "CAbTLbhE",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Dostál Stanislav",
+        "livesportName": "Dostál Stanislav",
+        "livesportPlayerId": "SMG00Vfq",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Bartošák Lukáš",
+        "livesportName": "Bartošák Lukáš",
+        "livesportPlayerId": "SvMO7ZEC",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Fukala Michal",
+        "livesportName": "Fukala Michal",
+        "livesportPlayerId": "vBdD6R6h",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Kopečný Miloš",
+        "livesportName": "Kopečný Miloš",
+        "livesportPlayerId": "OjGx3myt",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Kukučka Ondřej",
+        "livesportName": "Kukučka Ondřej",
+        "livesportPlayerId": "GldyZtL1",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Křapka Antonín",
+        "livesportName": "Křapka Antonín",
+        "livesportPlayerId": "GCLxMbpp",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Pišoja Marián",
+        "livesportName": "Pišoja Marián",
+        "livesportPlayerId": "pCVE0PqE",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Černín Jakub",
+        "livesportName": "Černín Jakub",
+        "livesportPlayerId": "Q1mFdbZ0",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Appiah Frank",
+        "livesportName": "Appiah Frank",
+        "livesportPlayerId": "6XTdthhj",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Cupák Michal",
+        "livesportName": "Cupák Michal",
+        "livesportPlayerId": "rgbjELW3",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Fojtů Tomáš",
+        "livesportName": "Fojtů Tomáš",
+        "livesportPlayerId": "vgjSuiKq",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Hellebrand Tomáš",
+        "livesportName": "Hellebrand Tomáš",
+        "livesportPlayerId": "EFdG9M41",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Nombil Cletus",
+        "livesportName": "Nombil Cletus",
+        "livesportPlayerId": "4MNTiZ81",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Petruta Stanislav",
+        "livesportName": "Petruta Stanislav",
+        "livesportPlayerId": "xtSOwMii",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Ulbrich Tom",
+        "livesportName": "Ulbrich Tom",
+        "livesportPlayerId": "OWHiIZJP",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Dorňák Filip",
+        "livesportName": "Dorňák Filip",
+        "livesportPlayerId": "lGPLxDkO",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Gaži Adam",
+        "livesportName": "Gaži Adam",
+        "livesportPlayerId": "G0JLkoRh",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Kanu Stanley",
+        "livesportName": "Kanu Stanley",
+        "livesportPlayerId": "2cdC67Or",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Poznar Tomáš",
+        "livesportName": "Poznar Tomáš",
+        "livesportPlayerId": "K2EcRwYA",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Toure Moustapha",
+        "livesportName": "Toure Moustapha",
+        "livesportPlayerId": "bmdlwbKF",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Šmiga Daniel",
+        "livesportName": "Šmiga Daniel",
+        "livesportPlayerId": "6uE4NoJE",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 1
+      },
+      {
+        "team": "Zlín",
+        "name": "Bachůrek Štěpán",
+        "livesportName": "Bachůrek Štěpán",
+        "livesportPlayerId": "lbHmvQTg",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Knobloch Milan",
+        "livesportName": "Knobloch Milan",
+        "livesportPlayerId": "fNIM6IIH",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Grygera David",
+        "livesportName": "Grygera David",
+        "livesportPlayerId": "zyltFxFj",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Hönig Petr",
+        "livesportName": "Hönig Petr",
+        "livesportPlayerId": "827glj6a",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Jugas Jakub",
+        "livesportName": "Jugas Jakub",
+        "livesportPlayerId": "ObNeP9MU",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Katalinić Zvonimir",
+        "livesportName": "Katalinič Zvonimir",
+        "livesportPlayerId": "nBq7a5WK",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Kolář Jakub",
+        "livesportName": "Kolář Jakub",
+        "livesportPlayerId": "KAmWy6g0",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Mbatshi Prince",
+        "livesportName": "Mbatshi Prince",
+        "livesportPlayerId": "WnyuYj6D",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Didiba Joss",
+        "livesportName": "Didiba Joss",
+        "livesportPlayerId": "Me5ssbfF",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Machalík David",
+        "livesportName": "Machalík David",
+        "livesportPlayerId": "OKq1hhme",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Penkevics Kristers",
+        "livesportName": "Penkevics Kristers",
+        "livesportPlayerId": "QZAG9jkl",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Štefan Jiří",
+        "livesportName": "Štefan Jiří",
+        "livesportPlayerId": "n7LrZubG",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Emmanuel Prince",
+        "livesportName": "Emmanuel Prince",
+        "livesportPlayerId": "jgP0qxGd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      }
+    ],
+    "added": [],
+    "moved": [],
+    "unresolved": [],
+    "publishedLivesportIds": 512
+  },
   "careerEnriched": [
     {
       "team": "Artis Brno",
       "name": "Kašík Richard",
       "transfermarktPlayerId": "1439972",
       "careerRows": 0
+    },
+    {
+      "team": "Zbrojovka Brno",
+      "name": "Večeřa Filip",
+      "transfermarktPlayerId": "765111",
+      "careerRows": 11
     }
   ],
   "sourceCounts": {
-    "officialRows": 498,
-    "transfermarktRows": 506,
-    "seedRows": 525
+    "officialRows": 499,
+    "transfermarktRows": 507,
+    "livesportRows": 512,
+    "seedRows": 558
   }
 }

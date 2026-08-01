@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Build the live Chance Liga roster and market-value data layer.
 
-Membership is reconciled from the official Chance Liga club pages and the
-current Transfermarkt squad pages.  Existing match and career data is preserved
-from the previous live file (or an explicitly supplied seed).  The script
-validates the complete result before atomically replacing rosters-live.json.
+Membership is reconciled from the official Chance Liga club pages, the current
+Transfermarkt squad pages and the current Livesport team rosters. Existing
+match and career data is preserved from the previous live file (or an
+explicitly supplied seed). The script validates the complete result before
+atomically replacing rosters-live.json.
 """
 
 from __future__ import annotations
@@ -34,6 +35,7 @@ SEASON_ID = 2026
 CHANCE_BASE = "https://www.chanceliga.cz"
 TM_BASE = "https://www.transfermarkt.com"
 TM_API = "https://tmapi.transfermarkt.technology"
+LIVESPORT_BASE = "https://www.livesport.cz"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 Chrome/138 Safari/537.36"
@@ -58,6 +60,30 @@ TEAM_CONFIG = [
 ]
 TEAM_ORDER = [row[0] for row in TEAM_CONFIG]
 OFFICIAL_POSITION = {"B": "GK", "O": "D", "Z": "M", "U": "A"}
+LIVESPORT_TEAM_CONFIG = {
+    "Artis Brno": ("artis-brno", "zHLktbZ1"),
+    "Baník Ostrava": ("banik-ostrava", "lI6ddlih"),
+    "Bohemians 1905": ("bohemians-1905", "fuXqHnxa"),
+    "Hradec Králové": ("hradec-kralove", "vFXjbHms"),
+    "Jablonec": ("jablonec", "CM8ySpMH"),
+    "Mladá Boleslav": ("mlada-boleslav", "0f7GpAMu"),
+    "Pardubice": ("pardubice", "Ys4YYBPn"),
+    "Sigma Olomouc": ("sigma-olomouc", "drA4fSL4"),
+    "Slavia Prague": ("slavia-praha", "viXGgnyB"),
+    "Slovácko": ("slovacko", "MNEDyOlF"),
+    "Slovan Liberec": ("slovan-liberec", "4bp6yRjU"),
+    "Sparta Prague": ("sparta-praha", "6qA358jH"),
+    "Teplice": ("teplice", "r9XWmtLq"),
+    "Viktoria Plzeň": ("viktoria-plzen", "2LA0e86b"),
+    "Zbrojovka Brno": ("zbrojovka-brno", "4d5TT6i5"),
+    "Zlín": ("zlin", "C09N1Ikd"),
+}
+LIVESPORT_POSITION = {
+    "brankari": "GK",
+    "obranci": "D",
+    "zaloznici": "M",
+    "utocnici": "A",
+}
 
 # The official site temporarily lists these player IDs under two clubs.  The
 # selected teams were verified against current club announcements/current
@@ -78,6 +104,9 @@ OFFICIAL_TO_TM_ID = {
     "5149": "558467",   # Michal Jeřábek (born 1995)
     "3558": "401475",   # Murphy Dorley Oscar / Oscar
     "4455": "723415",   # Hélio ... Papalele / Papalelé
+    "5067": "1052374",  # Jevgenij Skyba / Yevgeniy Skyba
+    "4519": "1048442",  # Ogungbayi Boluwatife / Bolu Ogungbayi
+    "5024": "717199",   # Bohdan Sliubyk / Bogdan Slyubyk
 }
 
 
@@ -149,6 +178,41 @@ def best_match(name: str, candidates: list[dict], threshold: float = 0.82):
     if len(ranked) > 1 and ranked[1][0] >= ranked[0][0] - 0.015:
         return None
     return ranked[0]
+
+
+def roster_position(row: dict) -> str | None:
+    return row.get("pos") or row.get("position")
+
+
+def best_identity_match(
+    name: str,
+    candidates: list[dict],
+    *,
+    position: str | None = None,
+) -> tuple[float, dict] | None:
+    """Match names without letting a shared first name merge two people.
+
+    Exact token identities and high-confidence extra-name variants are allowed
+    across position labels because the three sources sometimes classify a
+    winger differently. Lower-confidence fuzzy matching is only accepted when
+    the position agrees.
+    """
+
+    exact = [row for row in candidates if identity_key(row.get("name", "")) == identity_key(name)]
+    if len(exact) == 1:
+        return 1.0, exact[0]
+    if len(exact) > 1 and position:
+        positioned = [row for row in exact if roster_position(row) == position]
+        if len(positioned) == 1:
+            return 1.0, positioned[0]
+        return None
+    high_confidence = best_match(name, candidates, threshold=0.94)
+    if high_confidence:
+        return high_confidence
+    if position:
+        positioned = [row for row in candidates if roster_position(row) == position]
+        return best_match(name, positioned, threshold=0.86)
+    return None
 
 
 def app_name(source_name: str) -> str:
@@ -283,6 +347,82 @@ def scrape_official(team: str, path: str) -> dict:
         )
     if not 18 <= len(players) <= 60:
         raise RuntimeError(f"{team}: official roster has implausible size {len(players)}")
+    return {"sourceUrl": url, "players": players}
+
+
+def class_text(row, class_name: str) -> str:
+    values = row.xpath(
+        ".//*[contains(concat(' ',normalize-space(@class),' '),"
+        f"' {class_name} ')]//text()"
+    )
+    return clean(" ".join(values))
+
+
+def scrape_livesport(team: str, slug: str, team_id: str) -> dict:
+    """Read the visible Chance Liga/current-roster tables from Livesport.
+
+    Livesport renders both the selected competition table and the full roster
+    in the page HTML. Rows are therefore deduplicated by the stable player ID;
+    the first row is the selected Chance Liga season total.
+    """
+
+    url = f"{LIVESPORT_BASE}/tym/{slug}/{team_id}/soupiska/"
+    document = html.fromstring(
+        fetch_bytes(
+            url,
+            referer=f"{LIVESPORT_BASE}/fotbal/cesko/chance-liga/",
+            extra_headers={"Accept-Language": "cs-CZ,cs;q=0.9,en;q=0.7"},
+        )
+    )
+    players_by_id: dict[str, dict] = {}
+    rows = document.xpath(
+        "//*[contains(concat(' ',normalize-space(@class),' '),' lineupTable__row ')]"
+        "[.//a[contains(@href,'/hrac/')]]"
+    )
+    for row in rows:
+        links = row.xpath(".//a[contains(@href,'/hrac/')]")
+        if not links:
+            continue
+        link = links[0]
+        path = link.get("href") or ""
+        match = re.search(r"/hrac/([^/]+)/([^/]+)/", path)
+        if not match:
+            continue
+        player_id = match.group(2)
+        if player_id in players_by_id:
+            continue
+        table = row.getparent()
+        heading = clean(" ".join(table.xpath("./*[contains(@class,'lineupTable__title')]//text()")))
+        position = LIVESPORT_POSITION.get(normalize(heading).replace(" ", ""))
+        # Coach rows have player links too, but no playing-stat columns.
+        if not position or not row.xpath(
+            ".//*[contains(concat(' ',normalize-space(@class),' '),' lineupTable__cell--matchesPlayed ')]"
+        ):
+            continue
+        stats = {
+            "season": SEASON,
+            "competition": "Chance Liga",
+            "apps": parse_int(class_text(row, "lineupTable__cell--matchesPlayed")) or 0,
+            "minutes": parse_int(class_text(row, "lineupTable__cell--minutesPlayed")) or 0,
+            "goals": parse_int(class_text(row, "lineupTable__cell--goal")) or 0,
+            "assists": parse_int(class_text(row, "lineupTable__cell--assist")) or 0,
+            "yellowCards": parse_int(class_text(row, "lineupTable__cell--yellowCard")) or 0,
+            "redCards": parse_int(class_text(row, "lineupTable__cell--redCard")) or 0,
+            "source": "Livesport team roster",
+            "sourceUrl": url,
+        }
+        players_by_id[player_id] = {
+            "name": clean(link.text_content()),
+            "team": team,
+            "position": position,
+            "livesportPlayerId": player_id,
+            "livesportUrl": urllib.parse.urljoin(LIVESPORT_BASE, path),
+            "shirtNumber": parse_int(class_text(row, "lineupTable__cell--jersey")),
+            "seasonStats": stats,
+        }
+    players = list(players_by_id.values())
+    if not 18 <= len(players) <= 60:
+        raise RuntimeError(f"{team}: Livesport roster has implausible size {len(players)}")
     return {"sourceUrl": url, "players": players}
 
 
@@ -533,14 +673,17 @@ def choose_donor(
         for donor in donors
         if id(donor) not in used and donor.get("team") == target.get("team")
     ]
-    result = best_match(target["name"], same_team)
+    result = best_identity_match(
+        target["name"],
+        same_team,
+        position=roster_position(target),
+    )
     if result:
         return result[1]
     if allow_cross_team:
-        result = best_match(
+        result = best_identity_match(
             target["name"],
             [donor for donor in donors if id(donor) not in used],
-            threshold=0.92,
         )
         if result:
             return result[1]
@@ -767,15 +910,37 @@ def reconcile(
 
     attached_official = set()
     official_for_tm = {}
+    matched_tm_ids = set()
     for official in resolved_official:
         manual_tm_id = OFFICIAL_TO_TM_ID.get(str(official["chanceLigaPlayerId"]))
-        match = tm_by_id.get(manual_tm_id) if manual_tm_id else None
+        match = (
+            tm_by_id.get(manual_tm_id)
+            if manual_tm_id and manual_tm_id not in matched_tm_ids
+            else None
+        )
         if not match:
-            same_team = [row for row in tm_rows if row["team"] == official["team"]]
-            result = best_match(official["name"], same_team, threshold=0.78)
+            same_team = [
+                row
+                for row in tm_rows
+                if row["team"] == official["team"]
+                and str(row["transfermarktPlayerId"]) not in matched_tm_ids
+            ]
+            result = best_identity_match(
+                official["name"],
+                same_team,
+                position=official["position"],
+            )
             match = result[1] if result else None
         if not match:
-            result = best_match(official["name"], tm_rows, threshold=0.91)
+            cross_team_candidates = [
+                row
+                for row in tm_rows
+                if str(row["transfermarktPlayerId"]) not in matched_tm_ids
+            ]
+            result = best_identity_match(
+                official["name"],
+                cross_team_candidates,
+            )
             if result:
                 cross_team = result[1]
                 if cross_team["team"] != official["team"]:
@@ -792,7 +957,13 @@ def reconcile(
                     continue
                 match = cross_team
         if match:
-            official_for_tm[str(match["transfermarktPlayerId"])] = official
+            transfermarkt_id = str(match["transfermarktPlayerId"])
+            if transfermarkt_id in official_for_tm:
+                raise RuntimeError(
+                    f"Transfermarkt identity {transfermarkt_id} matched multiple official players"
+                )
+            official_for_tm[transfermarkt_id] = official
+            matched_tm_ids.add(transfermarkt_id)
             attached_official.add(id(official))
 
     final = []
@@ -939,6 +1110,308 @@ def reconcile(
     return final, ignored
 
 
+def livesport_ids(player: dict) -> set[str]:
+    output = set()
+    direct = str(player.get("livesportPlayerId") or "").strip()
+    if direct:
+        output.add(direct)
+    for field in ("livesportUrl", "sourceUrl", "careerSourceUrl"):
+        match = re.search(r"/hrac/[^/]+/([^/]+)/", str(player.get(field) or ""))
+        if match:
+            output.add(match.group(1))
+    for match_row in player.get("matches") or []:
+        player_id = str(match_row.get("livesportPlayerId") or "").strip()
+        if player_id:
+            output.add(player_id)
+    return output
+
+
+def update_current_livesport_career(player: dict, stats: dict) -> None:
+    """Expose a current-season aggregate even before match detail is imported."""
+
+    if not stats.get("apps"):
+        return
+    career = copy.deepcopy(player.get("career") or [])
+    current = next(
+        (
+            row
+            for row in career
+            if row.get("season") in {SEASON, "2026/2027"}
+            and normalize(row.get("competition") or "") == "chance liga"
+            and name_score(row.get("team") or "", player["team"]) >= 0.78
+        ),
+        None,
+    )
+    if current is None:
+        current = {
+            "season": SEASON,
+            "team": player["team"],
+            "competition": "Chance Liga",
+            "rating": None,
+        }
+        career.insert(0, current)
+    current.update(
+        {
+            "matches": stats["apps"],
+            "minutes": stats["minutes"],
+            "goals": stats["goals"],
+            "assists": stats["assists"],
+            "yellowCards": stats["yellowCards"],
+            "redCards": stats["redCards"],
+            "source": stats["source"],
+            "sourceUrl": stats["sourceUrl"],
+        }
+    )
+    player["career"] = career
+
+
+def attach_match_team_context(players: list[dict]) -> None:
+    """Persist the club represented in a match so later transfers stay valid."""
+
+    team_ids = {
+        team_id: team
+        for team, (_, team_id) in LIVESPORT_TEAM_CONFIG.items()
+    }
+    for player in players:
+        for match in player.get("matches") or []:
+            if match.get("team"):
+                continue
+            source_url = str(match.get("sourceUrl") or "")
+            opponent = normalize(match.get("opponent") or match.get("vs") or "")
+            candidates = [
+                team
+                for team_id, team in team_ids.items()
+                if team_id in source_url and normalize(team) != opponent
+            ]
+            if len(candidates) == 1:
+                match["team"] = candidates[0]
+
+
+def attach_livesport(
+    players: list[dict],
+    livesport_clubs: dict,
+    donors: list[dict],
+    checked_at: str,
+) -> tuple[list[dict], dict]:
+    """Attach stable Livesport identities/stats and add newly listed players.
+
+    Livesport is the final current-club signal. Official and Transfermarkt rows
+    remain preserved when Livesport does not list them, but a player shown by
+    Livesport can never disappear from the published roster.
+    """
+
+    source_rows = [
+        copy.deepcopy(player)
+        for club in livesport_clubs.values()
+        for player in club["players"]
+    ]
+    source_id_owners = defaultdict(list)
+    for row in source_rows:
+        source_id_owners[str(row["livesportPlayerId"])].append(row["team"])
+    duplicate_source_ids = {
+        player_id: teams
+        for player_id, teams in source_id_owners.items()
+        if len(set(teams)) > 1
+    }
+    if duplicate_source_ids:
+        raise RuntimeError(f"Livesport player IDs occur at multiple clubs: {duplicate_source_ids}")
+
+    matched_player_ids = set()
+    added = []
+    moved = []
+    attached = []
+    donor_by_livesport_id = {
+        player_id: donor
+        for donor in donors
+        for player_id in livesport_ids(donor)
+    }
+
+    for source in source_rows:
+        player_id = str(source["livesportPlayerId"])
+        player = next(
+            (
+                candidate
+                for candidate in players
+                if id(candidate) not in matched_player_ids
+                and player_id in livesport_ids(candidate)
+                and name_score(candidate.get("name", ""), source["name"]) >= 0.90
+            ),
+            None,
+        )
+        match_method = "livesport-id" if player else None
+        if player is None:
+            same_team = [
+                candidate
+                for candidate in players
+                if candidate["team"] == source["team"]
+                and id(candidate) not in matched_player_ids
+            ]
+            result = best_identity_match(
+                source["name"],
+                same_team,
+                position=source["position"],
+            )
+            if result:
+                player = result[1]
+                match_method = "same-team-name"
+        if player is None:
+            cross_team_candidates = [
+                candidate
+                for candidate in players
+                if id(candidate) not in matched_player_ids
+            ]
+            result = best_identity_match(
+                source["name"],
+                cross_team_candidates,
+            )
+            if result:
+                player = result[1]
+                match_method = "cross-team-name"
+
+        if player is None:
+            donor_candidate = donor_by_livesport_id.get(player_id)
+            donor = (
+                donor_candidate
+                if donor_candidate
+                and name_score(donor_candidate.get("name", ""), source["name"]) >= 0.90
+                else None
+            )
+            player = copy.deepcopy(donor) if donor else {}
+            search = search_transfermarkt(source["name"])
+            if search:
+                player.update(search)
+            player.update(
+                {
+                    "name": donor.get("name") if donor else source["name"],
+                    "team": source["team"],
+                    "pos": source["position"],
+                    "matches": copy.deepcopy(player.get("matches") or []),
+                    "career": copy.deepcopy(player.get("career") or []),
+                    "marketValueSeason": SEASON,
+                    "marketValueCheckedAt": checked_at,
+                    "marketValueSource": (
+                        "Transfermarkt player search"
+                        if search
+                        else player.get("marketValueSource") or "Transfermarkt"
+                    ),
+                    "marketValueStatus": (
+                        None
+                        if player.get("marketValueEur") is not None
+                        else "no-published-value"
+                    ),
+                }
+            )
+            if player.get("marketValueEur") is not None:
+                player["mv"] = format_value(int(player["marketValueEur"]))
+            players.append(player)
+            added.append(
+                {
+                    "team": source["team"],
+                    "name": player["name"],
+                    "livesportPlayerId": player_id,
+                }
+            )
+            match_method = "livesport-new"
+
+        previous_team = player.get("team")
+        previous_livesport = {
+            "team": previous_team,
+            "pos": player.get("pos"),
+            "livesportPlayerId": player.get("livesportPlayerId"),
+            "livesportUrl": player.get("livesportUrl"),
+            "shirtNumber": player.get("shirtNumber"),
+            "seasonStats": {
+                key: value
+                for key, value in (player.get("livesportSeasonStats") or {}).items()
+                if key != "checkedAt"
+            },
+        }
+        if previous_team != source["team"]:
+            moved.append(
+                {
+                    "name": player.get("name") or source["name"],
+                    "from": previous_team,
+                    "to": source["team"],
+                    "livesportPlayerId": player_id,
+                }
+            )
+            player["team"] = source["team"]
+        player["pos"] = source["position"]
+        player["livesportPlayerId"] = player_id
+        player["livesportUrl"] = source["livesportUrl"]
+        player["livesportRosterSourceUrl"] = livesport_clubs[source["team"]]["sourceUrl"]
+        if source.get("shirtNumber") is not None:
+            player["shirtNumber"] = source["shirtNumber"]
+        current_livesport = {
+            "team": player.get("team"),
+            "pos": player.get("pos"),
+            "livesportPlayerId": player_id,
+            "livesportUrl": source["livesportUrl"],
+            "shirtNumber": player.get("shirtNumber"),
+            "seasonStats": source["seasonStats"],
+        }
+        livesport_changed = previous_livesport != current_livesport
+        verified_at = (
+            checked_at
+            if livesport_changed
+            else player.get("livesportRosterVerifiedAt") or checked_at
+        )
+        stats_checked_at = (
+            checked_at
+            if livesport_changed
+            else (player.get("livesportSeasonStats") or {}).get("checkedAt") or checked_at
+        )
+        player["livesportRosterVerifiedAt"] = verified_at
+        player["livesportSeasonStats"] = {
+            **source["seasonStats"],
+            "checkedAt": stats_checked_at,
+        }
+        update_current_livesport_career(player, player["livesportSeasonStats"])
+        matched_player_ids.add(id(player))
+        attached.append(
+            {
+                "team": source["team"],
+                "name": player["name"],
+                "livesportName": source["name"],
+                "livesportPlayerId": player_id,
+                "method": match_method,
+                "apps": source["seasonStats"]["apps"],
+                "goals": source["seasonStats"]["goals"],
+            }
+        )
+
+    source_ids = {str(row["livesportPlayerId"]) for row in source_rows}
+    unresolved = [
+        {
+            "team": row["team"],
+            "name": row["name"],
+            "livesportPlayerId": row["livesportPlayerId"],
+            "apps": row["seasonStats"]["apps"],
+            "goals": row["seasonStats"]["goals"],
+        }
+        for row in source_rows
+        if not any(str(row["livesportPlayerId"]) in livesport_ids(player) for player in players)
+    ]
+    if unresolved:
+        raise RuntimeError(f"Livesport roster rows were not attached: {unresolved}")
+    attach_match_team_context(players)
+    return players, {
+        "sourceRows": len(source_rows),
+        "attached": attached,
+        "added": added,
+        "moved": moved,
+        "unresolved": unresolved,
+        "publishedLivesportIds": len(
+            {
+                player_id
+                for player in players
+                for player_id in livesport_ids(player)
+                if player_id in source_ids
+            }
+        ),
+    }
+
+
 def validate(players: list[dict]) -> dict:
     errors = []
     warnings = []
@@ -951,6 +1424,7 @@ def validate(players: list[dict]) -> dict:
             errors.append(f"{team}: implausible final roster size {count}")
     tm_ids = defaultdict(list)
     chance_ids = defaultdict(list)
+    livesport_player_ids = defaultdict(list)
     team_names = defaultdict(list)
     for player in players:
         if player.get("pos") not in {"GK", "D", "M", "A"}:
@@ -963,16 +1437,51 @@ def validate(players: list[dict]) -> dict:
             warnings.append(f"{player['team']} {player['name']}: missing Transfermarkt identity")
         if chance_id:
             chance_ids[chance_id].append(f"{player['team']} {player['name']}")
+        for livesport_player_id in livesport_ids(player):
+            livesport_player_ids[livesport_player_id].append(
+                f"{player['team']} {player['name']}"
+            )
+        if len(livesport_ids(player)) > 1:
+            errors.append(
+                f"{player['team']} {player['name']}: multiple Livesport identities "
+                f"{sorted(livesport_ids(player))}"
+            )
         team_names[(player["team"], identity_key(player["name"]))].append(player["name"])
         value = player.get("marketValueEur")
         if value is not None and (not isinstance(value, int) or value < 0 or value > 250_000_000):
             errors.append(f"{player['team']} {player['name']}: implausible market value {value}")
+        season_stats = player.get("livesportSeasonStats")
+        if season_stats:
+            apps = season_stats.get("apps")
+            minutes = season_stats.get("minutes")
+            goals = season_stats.get("goals")
+            assists = season_stats.get("assists")
+            yellow_cards = season_stats.get("yellowCards")
+            red_cards = season_stats.get("redCards")
+            values = (apps, minutes, goals, assists, yellow_cards, red_cards)
+            if any(not isinstance(item, int) or item < 0 for item in values):
+                errors.append(f"{player['team']} {player['name']}: invalid Livesport season totals")
+            elif (
+                apps > 60
+                or minutes > apps * 130
+                or goals > max(20, apps * 5)
+                or assists > max(20, apps * 5)
+                or yellow_cards > apps * 2
+                or red_cards > apps
+            ):
+                errors.append(
+                    f"{player['team']} {player['name']}: implausible Livesport season totals "
+                    f"{season_stats}"
+                )
     for player_id, rows in tm_ids.items():
         if len(rows) > 1:
             errors.append(f"duplicate Transfermarkt id {player_id}: {rows}")
     for player_id, rows in chance_ids.items():
         if len(rows) > 1:
             errors.append(f"duplicate Chance Liga id {player_id}: {rows}")
+    for player_id, rows in livesport_player_ids.items():
+        if len(rows) > 1:
+            errors.append(f"duplicate Livesport player id {player_id}: {rows}")
     for (team, key), names in team_names.items():
         if len(names) > 1:
             errors.append(f"{team}: duplicate normalized identity {key}: {names}")
@@ -988,6 +1497,16 @@ def validate(players: list[dict]) -> dict:
         ),
         "withCareer": sum(bool(player.get("career")) for player in players),
         "withoutCareerRows": sum(not player.get("career") for player in players),
+        "withLivesportIdentity": sum(bool(livesport_ids(player)) for player in players),
+        "withLivesportSeasonStats": sum(bool(player.get("livesportSeasonStats")) for player in players),
+        "activeLivesportPlayers": sum(
+            int((player.get("livesportSeasonStats") or {}).get("apps") or 0) > 0
+            for player in players
+        ),
+        "activeLivesportScorers": sum(
+            int((player.get("livesportSeasonStats") or {}).get("goals") or 0) > 0
+            for player in players
+        ),
         "warnings": warnings,
     }
 
@@ -1091,11 +1610,19 @@ def main() -> None:
     checked_at = now_iso()
     official_clubs = {}
     tm_clubs = {}
+    livesport_clubs = {}
     for team, official_path, club_id, slug in TEAM_CONFIG:
         official_clubs[team] = scrape_official(team, official_path)
         tm_clubs[team] = scrape_transfermarkt(team, club_id, slug)
+        livesport_slug, livesport_team_id = LIVESPORT_TEAM_CONFIG[team]
+        livesport_clubs[team] = scrape_livesport(
+            team, livesport_slug, livesport_team_id
+        )
     donors = load_seed(args.seed, args.output)
     players, ignored = reconcile(official_clubs, tm_clubs, donors, checked_at)
+    players, livesport_reconciliation = attach_livesport(
+        players, livesport_clubs, donors, checked_at
+    )
     enriched = [] if args.skip_career else enrich_empty_careers(players, args.workers)
     validation = validate(players)
     if args.output.exists():
@@ -1146,6 +1673,9 @@ def main() -> None:
             "transfermarktClubs": {
                 team: club["sourceUrl"] for team, club in tm_clubs.items()
             },
+            "livesportClubs": {
+                team: club["sourceUrl"] for team, club in livesport_clubs.items()
+            },
         },
         "rosters": rosters,
         "players": players,
@@ -1157,10 +1687,12 @@ def main() -> None:
         "changes": changes,
         "validation": validation,
         "ignoredSourceRows": ignored,
+        "livesportReconciliation": livesport_reconciliation,
         "careerEnriched": enriched,
         "sourceCounts": {
             "officialRows": sum(len(club["players"]) for club in official_clubs.values()),
             "transfermarktRows": sum(len(club["players"]) for club in tm_clubs.values()),
+            "livesportRows": sum(len(club["players"]) for club in livesport_clubs.values()),
             "seedRows": len(donors),
         },
     }

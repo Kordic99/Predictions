@@ -988,6 +988,21 @@ function inspectPlayerMatch(match,label){
   return errors;
 }
 
+function storedLivesportPlayerIds(player){
+  const ids=new Set();
+  const direct=String(player?.livesportPlayerId||'').trim();
+  if(direct)ids.add(direct);
+  ['livesportUrl','sourceUrl','careerSourceUrl'].forEach(field=>{
+    const match=String(player?.[field]||'').match(/\/hrac\/[^/]+\/([^/]+)\//);
+    if(match)ids.add(match[1]);
+  });
+  (Array.isArray(player?.matches)?player.matches:[]).forEach(match=>{
+    const id=String(match?.livesportPlayerId||'').trim();
+    if(id)ids.add(id);
+  });
+  return [...ids];
+}
+
 function inspectDataSnapshot(raw){
   const data=raw||{};
   const hasSplitResults=Array.isArray(data.results_current)||Array.isArray(data.results_extra);
@@ -1074,8 +1089,29 @@ function inspectDataSnapshot(raw){
     (Array.isArray(player?.career)?player.career:[]).forEach((row,index)=>{
       errors.push(...inspectCareerRow(row,`${label} / kariéra ${index+1}`));
     });
+    const seasonStats=player?.livesportSeasonStats;
+    if(seasonStats&&typeof seasonStats==='object'){
+      ['apps','minutes','goals','assists','yellowCards','redCards'].forEach(field=>{
+        const max=field==='minutes'?DATA_LIMITS.careerMatches[1]*130:DATA_LIMITS.count[1];
+        const error=healthNumber(seasonStats[field],`${label} / livesportSeasonStats.${field}`,0,max,{integer:true,optional:false});
+        if(error)errors.push(error);
+      });
+      const apps=Number(seasonStats.apps),minutes=Number(seasonStats.minutes);
+      if(Number.isFinite(apps)&&Number.isFinite(minutes)&&minutes>apps*130){
+        errors.push(`${label}: Livesport minuty (${minutes}) neodpovídají počtu zápasů (${apps}).`);
+      }
+      ['goals','assists'].forEach(field=>{
+        if(Number.isFinite(apps)&&Number(seasonStats[field])>Math.max(20,apps*5)){
+          errors.push(`${label}: Livesport ${field} (${seasonStats[field]}) je nepravděpodobné vůči ${apps} zápasům.`);
+        }
+      });
+      if(Number.isFinite(apps)&&Number(seasonStats.yellowCards)>apps*2)errors.push(`${label}: Livesport žluté karty jsou nepravděpodobně vysoké.`);
+      if(Number.isFinite(apps)&&Number(seasonStats.redCards)>apps)errors.push(`${label}: Livesport červené karty jsou vyšší než počet zápasů.`);
+      const sourceError=healthHttpsError(seasonStats.sourceUrl,`${label} / livesportSeasonStats.sourceUrl`);
+      if(sourceError)errors.push(sourceError);
+    }
     const matches=Array.isArray(player?.matches)?player.matches:[];
-    const playerLivesportIds=[...new Set(matches.map(match=>String(match?.livesportPlayerId||'').trim()).filter(Boolean))];
+    const playerLivesportIds=storedLivesportPlayerIds(player);
     if(playerLivesportIds.length>1){
       errors.push(`${label}: jeden hráč má více různých Livesport ID (${playerLivesportIds.join(', ')}).`);
     }
@@ -1104,7 +1140,7 @@ function inspectDataSnapshot(raw){
           resultRows.find(result=>{
             if((result?.season||CURRENT_SEASON)!==(match?.season||CURRENT_SEASON))return false;
             if(Number(result?.r??result?.round)!==Number(match?.round??match?.r))return false;
-            const playerTeam=healthTeamKey(player.team),opponent=healthTeamKey(match.opponent||match.vs);
+            const playerTeam=healthTeamKey(match.team||player.team),opponent=healthTeamKey(match.opponent||match.vs);
             const home=healthTeamKey(result?.h??result?.home),away=healthTeamKey(result?.a??result?.away);
             return (playerTeam===home&&opponent===away)||(playerTeam===away&&opponent===home);
           });
@@ -1118,7 +1154,7 @@ function inspectDataSnapshot(raw){
           const opponent=healthTeamKey(match.opponent||match.vs);
           const expectedTeam=healthTeamKey(fixture.h)===opponent?fixture.a:
             (healthTeamKey(fixture.a)===opponent?fixture.h:null);
-          if(expectedTeam&&healthTeamKey(expectedTeam)!==healthTeamKey(player.team)){
+          if(expectedTeam&&healthTeamKey(expectedTeam)!==healthTeamKey(match.team||player.team)){
             warnings.push(`${label}: tým hráče neodpovídá jeho Livesport zápasu; záznam je potřeba sloučit nebo opravit.`);
           }
         }else if(resultSeasons.has(match?.season||CURRENT_SEASON)){
@@ -1137,8 +1173,8 @@ function inspectDataSnapshot(raw){
     if(!result?.livesportMatchId)return;
     const rows=allPerformances.filter(item=>item.match?.livesportMatchId===result.livesportMatchId);
     if(!rows.length)return;
-    const homeRows=rows.filter(item=>healthTeamKey(item.player.team)===healthTeamKey(result.h??result.home));
-    const awayRows=rows.filter(item=>healthTeamKey(item.player.team)===healthTeamKey(result.a??result.away));
+    const homeRows=rows.filter(item=>healthTeamKey(item.match.team||item.player.team)===healthTeamKey(result.h??result.home));
+    const awayRows=rows.filter(item=>healthTeamKey(item.match.team||item.player.team)===healthTeamKey(result.a??result.away));
     const homeGoals=homeRows.reduce((sum,item)=>sum+(Number(item.match.goals)||0),0)+
       awayRows.reduce((sum,item)=>sum+(Number(item.match.ownGoals)||0),0);
     const awayGoals=awayRows.reduce((sum,item)=>sum+(Number(item.match.goals)||0),0)+
@@ -1211,7 +1247,11 @@ function inferCurrentPlayerTeam(player){
 }
 
 function mergePlayerRecords(target,source){
-  const inferred=inferCurrentPlayerTeam(target)||inferCurrentPlayerTeam(source);
+  const hasVerifiedRoster=Boolean(
+    target?.livesportRosterVerifiedAt||source?.livesportRosterVerifiedAt||
+    target?.rosterVerifiedAt||source?.rosterVerifiedAt
+  );
+  const inferred=hasVerifiedRoster?null:(inferCurrentPlayerTeam(target)||inferCurrentPlayerTeam(source));
   Object.entries(source||{}).forEach(([key,value])=>{
     if(['matches','career','team'].includes(key))return;
     if((target[key]===undefined||target[key]===null||target[key]==='')&&value!==undefined&&value!==null&&value!==''){
@@ -1222,6 +1262,11 @@ function mergePlayerRecords(target,source){
   target.career=mergeStoredRows(target.career,source.career,row=>[
     row?.season||'',healthTextKey(row?.team),healthTextKey(row?.competition)
   ].join('|'));
+  const targetStatsTime=Date.parse(target?.livesportSeasonStats?.checkedAt||0)||0;
+  const sourceStatsTime=Date.parse(source?.livesportSeasonStats?.checkedAt||0)||0;
+  if(source?.livesportSeasonStats&&(!target?.livesportSeasonStats||sourceStatsTime>=targetStatsTime)){
+    target.livesportSeasonStats={...source.livesportSeasonStats};
+  }
   if(inferred&&TEAMS.includes(inferred))target.team=inferred;
   return target;
 }
@@ -1234,7 +1279,7 @@ function enrichResultsFromPlayerMatches(){
     ).find(({player,match})=>{
       if((match.season||CURRENT_SEASON)!==(result.season||CURRENT_SEASON))return false;
       if(Number(match.round??match.r)!==Number(result.r??result.round))return false;
-      const playerTeam=healthTeamKey(player.team),opponent=healthTeamKey(match.opponent||match.vs);
+      const playerTeam=healthTeamKey(match.team||player.team),opponent=healthTeamKey(match.opponent||match.vs);
       const home=healthTeamKey(result.h),away=healthTeamKey(result.a);
       return Boolean(match.livesportMatchId)&&(
         (playerTeam===home&&opponent===away)||(playerTeam===away&&opponent===home)
@@ -1307,9 +1352,7 @@ function dedupeRuntimeData(){
   const afterIds=[...playerById.values(),...withoutId];
   const playerByLivesportId=new Map(),withoutLivesportId=[];
   afterIds.forEach(player=>{
-    const livesportIds=[...new Set(
-      (player?.matches||[]).map(match=>String(match?.livesportPlayerId||'').trim()).filter(Boolean)
-    )];
+    const livesportIds=storedLivesportPlayerIds(player);
     if(!livesportIds.length){withoutLivesportId.push(player);return;}
     const id=livesportIds[0];
     if(playerByLivesportId.has(id)){
@@ -2195,7 +2238,7 @@ function playerMatchBelongsToResult(player,match,result){
   if(match?.manualMatchId&&match.manualMatchId===manualId)return true;
   if((match?.season||CURRENT_SEASON)!==(result?.season||CURRENT_SEASON))return false;
   if(Number(match?.round??match?.r)!==Number(result?.r??result?.round))return false;
-  const playerTeam=healthTeamKey(player?.team);
+  const playerTeam=healthTeamKey(match?.team||player?.team);
   const opponent=healthTeamKey(match?.opponent||match?.vs);
   const home=healthTeamKey(result?.h),away=healthTeamKey(result?.a);
   return (playerTeam===home&&opponent===away)||(playerTeam===away&&opponent===home);
@@ -2210,7 +2253,7 @@ function syncPlayerMatchesWithResult(result){
       match.season=result.season||CURRENT_SEASON;
       match.round=result.r??result.round;
       match.score=result.score;
-      const isHome=healthTeamKey(player.team)===healthTeamKey(result.h);
+      const isHome=healthTeamKey(match.team||player.team)===healthTeamKey(result.h);
       const goalsFor=isHome?homeGoals:awayGoals,goalsAgainst=isHome?awayGoals:homeGoals;
       match.homeAway=isHome?'H':'A';
       match.opponent=isHome?result.a:result.h;
@@ -5075,8 +5118,16 @@ function buildPlayerSummary(player){
   const defensive=aggregatePlayerRatio(matches,'defensiveActions');
   const concessions=player.pos==='GK'
     ?matches.map(playerGoalsConceded).filter(value=>value!=null):[];
-  const goals=sum(match=>match.goals);
-  const assists=sum(match=>match.assists);
+  const publishedStats=(player?.livesportSeasonStats?.season===CURRENT_SEASON)
+    ?player.livesportSeasonStats:null;
+  const publishedTotal=(key,detailed)=>publishedStats&&Number.isFinite(Number(publishedStats[key]))
+    ?Math.max(detailed,Number(publishedStats[key])):detailed;
+  const apps=publishedTotal('apps',matches.length);
+  const minutes=publishedTotal('minutes',sum(match=>match.mins));
+  const goals=publishedTotal('goals',sum(match=>match.goals));
+  const assists=publishedTotal('assists',sum(match=>match.assists));
+  const yellowCards=publishedTotal('yellowCards',sum(match=>match.yellowCards));
+  const redCards=publishedTotal('redCards',sum(match=>match.redCards));
   const saves=player.pos==='GK'
     ?sum(match=>match.saves??match.stats?.goalkeeper?.saves):null;
   const shotsFaced=player.pos==='GK'?sum(match=>match.shotsOn):null;
@@ -5086,18 +5137,18 @@ function buildPlayerSummary(player){
     name:player.name,
     team:player.team,
     pos:player.pos,
-    shirtNumber:latest?.shirtNumber??null,
+    shirtNumber:latest?.shirtNumber??player.shirtNumber??null,
     role:latest?.livesportPosition||null,
-    apps:matches.length,
+    apps,
     starts:matches.filter(match=>match.starter!==false).length,
-    minutes:sum(match=>match.mins),
+    minutes,
     rating:ratings.length?ratings.reduce((a,b)=>a+b,0)/ratings.length:null,
     goals,
     assists,
     goalContributions:goals+assists,
     ownGoals:sum(match=>match.ownGoals),
-    yellowCards:sum(match=>match.yellowCards),
-    redCards:sum(match=>match.redCards),
+    yellowCards,
+    redCards,
     shotsTotal:statsSum('shotsTotal'),
     shotsOnTarget:statsSum('shotsOnTarget'),
     xG:statsSum('xG'),
@@ -5367,7 +5418,10 @@ function buildPlayerDetailContent(player){
   const details=player.pos==='GK'
     ?`<table class="player-match-table"><thead><tr><th>vs</th><th>Rating</th><th>Saves</th><th>Save %</th></tr></thead><tbody>${buildGKMatchRows(player)}</tbody></table>`
     :`<table class="player-match-table"><thead><tr><th>vs</th><th>Mins</th><th>Rating</th><th>Goals</th><th>Assists</th></tr></thead><tbody>${buildFieldMatchRows(player)}</tbody></table>`;
-  return`<div class="players-compact-meta">${lsEsc(player.name)} · ${lsEsc(player.team)} · ${lsEsc(player.pos)}${sourceLinks?' · '+sourceLinks:''}</div>${details}`;
+  const season=player?.livesportSeasonStats;
+  const published=season?.season===CURRENT_SEASON
+    ?`<div class="players-compact-meta">Livesport ${lsEsc(CURRENT_SEASON)}: ${Number(season.apps)||0} apps · ${Number(season.minutes)||0} min · ${Number(season.goals)||0} goals · ${Number(season.assists)||0} assists · ${Number(season.yellowCards)||0} yellow · ${Number(season.redCards)||0} red</div>`:'';
+  return`<div class="players-compact-meta">${lsEsc(player.name)} · ${lsEsc(player.team)} · ${lsEsc(player.pos)}${sourceLinks?' · '+sourceLinks:''}</div>${published}${details}`;
 }
 
 function syncPlayerTableScrollbars(initialScroll=0){
@@ -7902,6 +7956,7 @@ async function lsLoadPlayerPerformances(matchInfo, fixture) {
       name: player.participant?.name || player.participant?.shortDisplayName || 'Neznámý hráč',
       pos: lsPositionCode(player),
       match: {
+        team: team.name,
         season: fixture.season || CURRENT_SEASON,
         round: Number(fixture.round),
         competition: 'Chance Liga',
@@ -8201,7 +8256,7 @@ function applyLivesportRound1PlayerMatches(shouldRender=true){
       !(m.season===CURRENT_SEASON && Number(m.round)===1)
       && m.livesportMatchId!==row.match.livesportMatchId
     );
-    player.matches.push({...row.match,stats:row.match.stats?{...row.match.stats}:row.match.stats});
+    player.matches.push({...row.match,team:row.team,stats:row.match.stats?{...row.match.stats}:row.match.stats});
     player.matches.sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
     applied++;
   });
@@ -8358,6 +8413,7 @@ function validatePublishedRosterData(raw){
   const teams=new Set();
   const transfermarktIds=new Set();
   const chanceIds=new Set();
+  const livesportIds=new Set();
   const teamNames=new Set();
   raw.players.forEach((row,index)=>{
     if(!row || !row.name || !TEAMS.includes(row.team) || !['GK','D','M','A'].includes(row.pos)){
@@ -8377,6 +8433,17 @@ function validatePublishedRosterData(raw){
       if(chanceIds.has(id))throw new Error(`duplicitní Chance Liga ID ${id}`);
       chanceIds.add(id);
     }
+    storedLivesportPlayerIds(row).forEach(id=>{
+      if(livesportIds.has(id))throw new Error(`duplicitní Livesport ID ${id}`);
+      livesportIds.add(id);
+    });
+    if(row.livesportSeasonStats){
+      const stats=row.livesportSeasonStats;
+      ['apps','minutes','goals','assists','yellowCards','redCards'].forEach(field=>{
+        if(!Number.isInteger(stats[field])||stats[field]<0)throw new Error(`neplatný Livesport součet ${row.team}: ${row.name} / ${field}`);
+      });
+      if(stats.minutes>stats.apps*130)throw new Error(`nesmyslné Livesport minuty ${row.team}: ${row.name}`);
+    }
   });
   if(teams.size!==TEAMS.length)throw new Error(`neúplný počet klubů (${teams.size}/${TEAMS.length})`);
   if(raw.players.length<400 || raw.players.length>800)throw new Error(`nesmyslný počet hráčů (${raw.players.length})`);
@@ -8388,27 +8455,54 @@ function applyPublishedRosterData(raw,shouldRender=true){
   const donors=[...players];
   const byTmId=new Map();
   const byChanceId=new Map();
+  const byLivesportId=new Map();
   const byName=new Map();
   donors.forEach(player=>{
     if(player.transfermarktPlayerId)byTmId.set(String(player.transfermarktPlayerId),player);
     if(player.chanceLigaPlayerId)byChanceId.set(String(player.chanceLigaPlayerId),player);
+    storedLivesportPlayerIds(player).forEach(id=>{
+      if(!byLivesportId.has(id))byLivesportId.set(id,player);
+    });
     const key=authoritativeRosterKey(player.name);
     if(!byName.has(key))byName.set(key,[]);
     byName.get(key).push(player);
   });
+  const compatibleDonor=(row,donor)=>{
+    if(!donor)return null;
+    const rowTm=String(row?.transfermarktPlayerId||'').trim();
+    const donorTm=String(donor?.transfermarktPlayerId||'').trim();
+    if(rowTm&&donorTm&&rowTm!==donorTm)return null;
+    const rowChance=String(row?.chanceLigaPlayerId||'').trim();
+    const donorChance=String(donor?.chanceLigaPlayerId||'').trim();
+    if(rowChance&&donorChance&&rowChance!==donorChance)return null;
+    const rowLivesport=new Set(storedLivesportPlayerIds(row));
+    const donorLivesport=storedLivesportPlayerIds(donor);
+    if(rowLivesport.size&&donorLivesport.length&&!donorLivesport.some(id=>rowLivesport.has(id)))return null;
+    return donor;
+  };
   const rebuilt=data.players.map(row=>{
     const sameName=(byName.get(authoritativeRosterKey(row.name))||[]);
+    const livesportDonor=storedLivesportPlayerIds(row)
+      .map(id=>byLivesportId.get(id))
+      .find(Boolean);
     const donor=
-      (row.transfermarktPlayerId&&byTmId.get(String(row.transfermarktPlayerId)))||
-      (row.chanceLigaPlayerId&&byChanceId.get(String(row.chanceLigaPlayerId)))||
-      sameName.find(player=>player.team===row.team)||
-      (sameName.length===1?sameName[0]:null)||
+      compatibleDonor(row,row.transfermarktPlayerId&&byTmId.get(String(row.transfermarktPlayerId)))||
+      compatibleDonor(row,row.chanceLigaPlayerId&&byChanceId.get(String(row.chanceLigaPlayerId)))||
+      compatibleDonor(row,livesportDonor)||
+      compatibleDonor(row,sameName.find(player=>player.team===row.team))||
+      compatibleDonor(row,sameName.length===1?sameName[0]:null)||
       {};
-    const matches=[];
-    [...(Array.isArray(row.matches)?row.matches:[]),...(Array.isArray(donor.matches)?donor.matches:[])].forEach(match=>{
-      const signature=JSON.stringify(match);
-      if(!matches.some(item=>JSON.stringify(item)===signature))matches.push({...match});
+    const matchesByKey=new Map();
+    const rowLivesportIds=new Set(storedLivesportPlayerIds(row));
+    const donorMatches=(Array.isArray(donor.matches)?donor.matches:[]).filter(match=>{
+      const matchId=String(match?.livesportPlayerId||'').trim();
+      return !matchId||!rowLivesportIds.size||rowLivesportIds.has(matchId);
     });
+    [...(Array.isArray(row.matches)?row.matches:[]),...donorMatches].forEach(match=>{
+      const key=storagePlayerMatchKey(match);
+      matchesByKey.set(key,{...(matchesByKey.get(key)||{}),...match});
+    });
+    const matches=[...matchesByKey.values()];
     const rowCareer=Array.isArray(row.career)?row.career:[];
     const donorCareer=Array.isArray(donor.career)?donor.career:[];
     const career=donorCareer.length>=rowCareer.length?donorCareer:rowCareer;
