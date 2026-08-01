@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T17:33:36.654522Z",
+  "generatedAt": "2026-08-01T18:32:38.325251Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 513,
     "withLivesportSeasonStats": 512,
     "activeLivesportPlayers": 282,
-    "activeLivesportScorers": 30,
+    "activeLivesportScorers": 34,
     "warnings": [
       "Slovácko Slončík Šimon: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -68,339 +68,39 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
-      "eventCount": 9,
+      "status": "ok",
+      "eventCount": 12,
       "eventPlayerCounts": {
         "48MjBAwH": 32,
         "Ek8Yv5nA": 31,
+        "IT1A0nBa": 32,
         "QcTe71xq": 32,
         "WfOrDW84": 32,
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
         "lIZHEqp9": 32,
-        "lbqOh2Nk": 32
+        "lbqOh2Nk": 32,
+        "n36twqHM": 29,
+        "xbbQd4AO": 32
       },
       "eventRatedCounts": {
         "48MjBAwH": 30,
         "Ek8Yv5nA": 28,
+        "IT1A0nBa": 27,
         "QcTe71xq": 29,
         "WfOrDW84": 28,
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
         "lIZHEqp9": 28,
-        "lbqOh2Nk": 30
+        "lbqOh2Nk": 30,
+        "n36twqHM": 27,
+        "xbbQd4AO": 32
       },
-      "playerPerformances": 287,
-      "ratedPerformances": 259,
-      "reconciliationIssues": [
-        {
-          "team": "Slovácko",
-          "name": "Heča Milan",
-          "livesportPlayerId": "G0bnVHxL",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovácko",
-          "name": "Slončík Šimon",
-          "livesportPlayerId": "fHnQMnWC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovácko",
-          "name": "Horský Filip",
-          "livesportPlayerId": "dApjtQf6",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 20,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovácko",
-          "name": "Marinelli Alan",
-          "livesportPlayerId": "jFLWFu3Q",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 20,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Baník Ostrava",
-          "name": "Traoré Aboubacar",
-          "livesportPlayerId": "zs96ZOma",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovan Liberec",
-          "name": "Lexa Milan",
-          "livesportPlayerId": "Au1Jp3rC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 45,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovan Liberec",
-          "name": "Baboula Venuste",
-          "livesportPlayerId": "MipK1tKa",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 8,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovan Liberec",
-          "name": "Juliš Petr",
-          "livesportPlayerId": "nJDszH9F",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 21,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Jakubko Jakub",
-          "livesportPlayerId": "b7OHoK4B",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Kodeš Petr",
-          "livesportPlayerId": "GApEF8XM",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 10,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Švanda Josef",
-          "livesportPlayerId": "E3ozWIVS",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 45,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Garzha Artem",
-          "livesportPlayerId": "hU70rs10",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 28,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Fully Emmanuel",
-          "livesportPlayerId": "xjJ7uHve",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Jeřábek Michal",
-          "livesportPlayerId": "drR1EKYp",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Isife Samuel",
-          "livesportPlayerId": "hE35fb2L",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Vlček Tomáš",
-          "livesportPlayerId": "ADkQ5Ufp",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 14,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Zima David",
-          "livesportPlayerId": "8tVYh60A",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            },
-            "goals": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Suleiman Mubarak",
-          "livesportPlayerId": "ltctozq4",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Schranz Ivan",
-          "livesportPlayerId": "p0I1WZDo",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 27,
-              "detailed": 0
-            },
-            "assists": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 380,
+      "ratedPerformances": 345,
+      "reconciliationIssues": []
     }
   },
   "ignoredSourceRows": [
@@ -5148,9 +4848,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 9,
-    "playerPerformances": 287,
-    "ratedPerformances": 259,
+    "completedMatches": 12,
+    "playerPerformances": 380,
+    "ratedPerformances": 345,
     "processed": [
       {
         "livesportMatchId": "dOnWjth2",
@@ -5241,344 +4941,74 @@
         "playerPerformances": 32,
         "ratedPerformances": 28,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sparta-praha-6qA358jH/zlin-C09N1Ikd/js0IbQuC/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "IT1A0nBa",
+        "round": 2,
+        "home": "Slovan Liberec",
+        "away": "Teplice",
+        "score": "0:1",
+        "playerPerformances": 32,
+        "ratedPerformances": 27,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovan-liberec-4bp6yRjU/teplice-r9XWmtLq/IT1A0nBa/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "n36twqHM",
+        "round": 2,
+        "home": "Slovácko",
+        "away": "Artis Brno",
+        "score": "1:1",
+        "playerPerformances": 29,
+        "ratedPerformances": 27,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/artis-brno-zHLktbZ1/n36twqHM/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "xbbQd4AO",
+        "round": 2,
+        "home": "Baník Ostrava",
+        "away": "Slavia Prague",
+        "score": "0:4",
+        "playerPerformances": 32,
+        "ratedPerformances": 32,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/banik-ostrava-lI6ddlih/slavia-praha-viXGgnyB/xbbQd4AO/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [],
     "validation": {
-      "status": "needs-review",
-      "eventCount": 9,
+      "status": "ok",
+      "eventCount": 12,
       "eventPlayerCounts": {
         "48MjBAwH": 32,
         "Ek8Yv5nA": 31,
+        "IT1A0nBa": 32,
         "QcTe71xq": 32,
         "WfOrDW84": 32,
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
         "lIZHEqp9": 32,
-        "lbqOh2Nk": 32
+        "lbqOh2Nk": 32,
+        "n36twqHM": 29,
+        "xbbQd4AO": 32
       },
       "eventRatedCounts": {
         "48MjBAwH": 30,
         "Ek8Yv5nA": 28,
+        "IT1A0nBa": 27,
         "QcTe71xq": 29,
         "WfOrDW84": 28,
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
         "lIZHEqp9": 28,
-        "lbqOh2Nk": 30
+        "lbqOh2Nk": 30,
+        "n36twqHM": 27,
+        "xbbQd4AO": 32
       },
-      "playerPerformances": 287,
-      "ratedPerformances": 259,
-      "reconciliationIssues": [
-        {
-          "team": "Slovácko",
-          "name": "Heča Milan",
-          "livesportPlayerId": "G0bnVHxL",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovácko",
-          "name": "Slončík Šimon",
-          "livesportPlayerId": "fHnQMnWC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovácko",
-          "name": "Horský Filip",
-          "livesportPlayerId": "dApjtQf6",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 20,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovácko",
-          "name": "Marinelli Alan",
-          "livesportPlayerId": "jFLWFu3Q",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 20,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Baník Ostrava",
-          "name": "Traoré Aboubacar",
-          "livesportPlayerId": "zs96ZOma",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovan Liberec",
-          "name": "Lexa Milan",
-          "livesportPlayerId": "Au1Jp3rC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 45,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovan Liberec",
-          "name": "Baboula Venuste",
-          "livesportPlayerId": "MipK1tKa",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 8,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slovan Liberec",
-          "name": "Juliš Petr",
-          "livesportPlayerId": "nJDszH9F",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 21,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Jakubko Jakub",
-          "livesportPlayerId": "b7OHoK4B",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Kodeš Petr",
-          "livesportPlayerId": "GApEF8XM",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 10,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Švanda Josef",
-          "livesportPlayerId": "E3ozWIVS",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 45,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Garzha Artem",
-          "livesportPlayerId": "hU70rs10",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 28,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Fully Emmanuel",
-          "livesportPlayerId": "xjJ7uHve",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Jeřábek Michal",
-          "livesportPlayerId": "drR1EKYp",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Isife Samuel",
-          "livesportPlayerId": "hE35fb2L",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Vlček Tomáš",
-          "livesportPlayerId": "ADkQ5Ufp",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 14,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Zima David",
-          "livesportPlayerId": "8tVYh60A",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            },
-            "goals": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Suleiman Mubarak",
-          "livesportPlayerId": "ltctozq4",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Schranz Ivan",
-          "livesportPlayerId": "p0I1WZDo",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 27,
-              "detailed": 0
-            },
-            "assists": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 380,
+      "ratedPerformances": 345,
+      "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-01T17:33:36.654522Z"
+    "checkedAt": "2026-08-01T18:32:38.325251Z"
   }
 }
