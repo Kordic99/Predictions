@@ -7365,7 +7365,7 @@ const LIVESPORT_TEAM_SEGMENTS = {
   "Mladá Boleslav": "mlada-boleslav-0f7GpAMu"
 };
 const LIVESPORT_FINAL_STAGES = new Set([3, 9, 10, 11, 54]);
-const LIVESPORT_CHECK_IMPORT_VERSION = '2026-07-27-live-check-v1';
+const LIVESPORT_CHECK_IMPORT_VERSION = '2026-08-01-live-check-stable-id-v2';
 const LIVESPORT_AUTO_CHECK_INTERVAL_MS = 5 * 60 * 1000;
 const LIVESPORT_AUTO_CHECK_INITIAL_DELAY_MS = 5000;
 let livesportAutoCheckTimer = null;
@@ -7888,9 +7888,9 @@ function lsBuildPlayerStats(playerEntries, isGoalkeeper) {
       goalsConceded: value('GOALS_CONCEDED'),
       goalsPrevented: lsRounded(value('GOALS_PREVENTED')),
       xGOTAgainst: lsRounded(value('EXPECTED_GOALS_ON_TARGET_FACED')),
-      punches: value('PUNCHES'),
-      throws: value('THROWS'),
-      sweeperActions: value('SWEEPER_ACTIONS')
+      punches: value('PUNCHES_TOTAL'),
+      throws: value('KEEPER_THROWS_TOTAL'),
+      sweeperActions: value('KEEPER_SWEEPER_TOTAL')
     };
   }
   return stats;
@@ -7945,9 +7945,11 @@ async function lsLoadPlayerPerformances(matchInfo, fixture) {
     const isGoalkeeper = Boolean(player.position?.isGoalkeeper);
     const richStats = lsBuildPlayerStats(playerEntries, isGoalkeeper);
     xgTotals[isHome ? 'home' : 'away'] += Number(richStats.xG) || 0;
-    const redCards =
-      lsEntryValue(playerEntries, 'CARDS_RED') +
-      lsEntryValue(playerEntries, 'CARDS_YELLOW_RED');
+    const secondYellow = Math.max(
+      lsEntryValue(playerEntries, 'CARDS_YELLOW_SECOND'),
+      lsEntryValue(playerEntries, 'CARDS_YELLOW_RED')
+    );
+    const redCards = lsEntryValue(playerEntries, 'CARDS_RED') + secondYellow;
     const saves = isGoalkeeper ? richStats.goalkeeper.saves : null;
     const goalsConceded = isGoalkeeper ? richStats.goalkeeper.goalsConceded : 0;
 
@@ -8003,19 +8005,46 @@ async function lsLoadPlayerPerformances(matchInfo, fixture) {
 
 function lsApplyPlayerPerformances(rows, fixture, eventId) {
   let applied = 0;
+  // Remove the old event globally first. This also repairs a historical row
+  // that may have been attached to a duplicate short-name player.
+  players.forEach(player=>{
+    if(!Array.isArray(player.matches))player.matches=[];
+    player.matches=player.matches.filter(match=>match.livesportMatchId!==eventId);
+  });
   for (const row of rows) {
     const playerKey = lsNormalize(row.name);
-    let player = players.find(candidate =>
-      lsNormalize(candidate.team) === lsNormalize(row.team) &&
-      lsNormalize(candidate.name) === playerKey
-    );
+    const livesportPlayerId=String(row.match?.livesportPlayerId||'').trim();
+    let player=livesportPlayerId
+      ?players.find(candidate=>storedLivesportPlayerIds(candidate).includes(livesportPlayerId))
+      :null;
+    if(!player){
+      player=players.find(candidate =>
+        lsNormalize(candidate.team) === lsNormalize(row.team) &&
+        lsNormalize(candidate.name) === playerKey &&
+        (!livesportPlayerId||storedLivesportPlayerIds(candidate).length===0)
+      );
+    }
     if (!player) {
-      player = { name: row.name, team: row.team, pos: row.pos || 'M', matches: [], mv: null, career: [] };
+      player = {
+        name: row.name,
+        team: row.team,
+        pos: row.pos || 'M',
+        matches: [],
+        mv: null,
+        career: [],
+        livesportPlayerId:livesportPlayerId||null
+      };
       players.push(player);
+    }
+    if(livesportPlayerId){
+      const existingIds=storedLivesportPlayerIds(player);
+      if(existingIds.length&&!existingIds.includes(livesportPlayerId)){
+        throw new Error(`Livesport ID conflict: ${player.name} / ${livesportPlayerId}`);
+      }
+      if(!player.livesportPlayerId)player.livesportPlayerId=livesportPlayerId;
     }
     if (!Array.isArray(player.matches)) player.matches = [];
     player.matches = player.matches.filter(match =>
-      match.livesportMatchId !== eventId &&
       !(
         (match.season || CURRENT_SEASON) === (fixture.season || CURRENT_SEASON) &&
         Number(match.round) === Number(fixture.round) &&
@@ -8414,6 +8443,7 @@ function validatePublishedRosterData(raw){
   const transfermarktIds=new Set();
   const chanceIds=new Set();
   const livesportIds=new Set();
+  const livesportMatchPlayerIds=new Set();
   const teamNames=new Set();
   raw.players.forEach((row,index)=>{
     if(!row || !row.name || !TEAMS.includes(row.team) || !['GK','D','M','A'].includes(row.pos)){
@@ -8444,6 +8474,32 @@ function validatePublishedRosterData(raw){
       });
       if(stats.minutes>stats.apps*130)throw new Error(`nesmyslné Livesport minuty ${row.team}: ${row.name}`);
     }
+    (Array.isArray(row.matches)?row.matches:[]).forEach((match,matchIndex)=>{
+      const eventId=String(match?.livesportMatchId||'').trim();
+      const playerId=String(match?.livesportPlayerId||'').trim();
+      if(!eventId||!playerId)throw new Error(`neúplná identita zápasu ${row.team}: ${row.name} / ${matchIndex+1}`);
+      const key=`${eventId}|${playerId}`;
+      if(livesportMatchPlayerIds.has(key))throw new Error(`duplicitní výkon ${eventId}/${playerId}`);
+      livesportMatchPlayerIds.add(key);
+      const playerIds=storedLivesportPlayerIds(row);
+      if(playerIds.length&&!playerIds.includes(playerId))throw new Error(`nesouhlasí Livesport ID ${row.team}: ${row.name}`);
+      const minutes=Number(match.mins);
+      if(!Number.isFinite(minutes)||minutes<=0||minutes>130)throw new Error(`nesmyslné minuty v zápasu ${row.team}: ${row.name}`);
+      if(match.form!=null){
+        const rating=Number(match.form);
+        if(!Number.isFinite(rating)||rating<1||rating>10)throw new Error(`nesmyslný rating ${row.team}: ${row.name}`);
+      }
+      ['goals','ownGoals','assists','yellowCards','redCards'].forEach(field=>{
+        const value=Number(match[field]||0);
+        if(!Number.isFinite(value)||value<0||value>10)throw new Error(`nesmyslná hodnota ${field} ${row.team}: ${row.name}`);
+      });
+      if(row.pos==='GK'&&match.saves!=null){
+        const saves=Number(match.saves),shotsOn=Number(match.shotsOn);
+        if(!Number.isFinite(saves)||!Number.isFinite(shotsOn)||saves<0||shotsOn<saves){
+          throw new Error(`nesmyslné zákroky ${row.team}: ${row.name}`);
+        }
+      }
+    });
   });
   if(teams.size!==TEAMS.length)throw new Error(`neúplný počet klubů (${teams.size}/${TEAMS.length})`);
   if(raw.players.length<400 || raw.players.length>800)throw new Error(`nesmyslný počet hráčů (${raw.players.length})`);

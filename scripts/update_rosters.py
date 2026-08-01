@@ -361,9 +361,11 @@ def class_text(row, class_name: str) -> str:
 def scrape_livesport(team: str, slug: str, team_id: str) -> dict:
     """Read the visible Chance Liga/current-roster tables from Livesport.
 
-    Livesport renders both the selected competition table and the full roster
-    in the page HTML. Rows are therefore deduplicated by the stable player ID;
-    the first row is the selected Chance Liga season total.
+    Livesport renders separate domestic-league, international-cup and overall
+    tables in the page HTML. Membership comes from the overall table, while
+    season totals must come only from the ``league-*`` table. Using the first
+    occurrence is incorrect for clubs playing in Europe because a player who
+    has not yet appeared in the league may first occur in the cup table.
     """
 
     url = f"{LIVESPORT_BASE}/tym/{slug}/{team_id}/soupiska/"
@@ -374,31 +376,49 @@ def scrape_livesport(team: str, slug: str, team_id: str) -> dict:
             extra_headers={"Accept-Language": "cs-CZ,cs;q=0.9,en;q=0.7"},
         )
     )
-    players_by_id: dict[str, dict] = {}
-    rows = document.xpath(
-        "//*[contains(concat(' ',normalize-space(@class),' '),' lineupTable__row ')]"
+    profile_tables = document.xpath(
+        "//div[contains(concat(' ',normalize-space(@class),' '),' profileTable ')]"
+    )
+    overall_table = next(
+        (table for table in profile_tables if table.get("id") == "overall-all-table"),
+        None,
+    )
+    league_table = next(
+        (table for table in profile_tables if str(table.get("id") or "").startswith("league-")),
+        None,
+    )
+    if overall_table is None or league_table is None:
+        raise RuntimeError(f"{team}: Livesport roster is missing overall or league table")
+
+    row_xpath = (
+        ".//*[contains(concat(' ',normalize-space(@class),' '),' lineupTable__row ')]"
         "[.//a[contains(@href,'/hrac/')]]"
     )
-    for row in rows:
+
+    def parse_row(row) -> tuple[str, Any, str, str] | None:
         links = row.xpath(".//a[contains(@href,'/hrac/')]")
         if not links:
-            continue
+            return None
         link = links[0]
         path = link.get("href") or ""
         match = re.search(r"/hrac/([^/]+)/([^/]+)/", path)
         if not match:
-            continue
-        player_id = match.group(2)
-        if player_id in players_by_id:
-            continue
+            return None
         table = row.getparent()
         heading = clean(" ".join(table.xpath("./*[contains(@class,'lineupTable__title')]//text()")))
         position = LIVESPORT_POSITION.get(normalize(heading).replace(" ", ""))
-        # Coach rows have player links too, but no playing-stat columns.
         if not position or not row.xpath(
             ".//*[contains(concat(' ',normalize-space(@class),' '),' lineupTable__cell--matchesPlayed ')]"
         ):
+            return None
+        return match.group(2), link, path, position
+
+    league_stats: dict[str, dict] = {}
+    for row in league_table.xpath(row_xpath):
+        parsed = parse_row(row)
+        if parsed is None:
             continue
+        player_id, _, _, _ = parsed
         stats = {
             "season": SEASON,
             "competition": "Chance Liga",
@@ -411,6 +431,29 @@ def scrape_livesport(team: str, slug: str, team_id: str) -> dict:
             "source": "Livesport team roster",
             "sourceUrl": url,
         }
+        league_stats[player_id] = stats
+
+    players_by_id: dict[str, dict] = {}
+    for row in overall_table.xpath(row_xpath):
+        parsed = parse_row(row)
+        if parsed is None:
+            continue
+        player_id, link, path, position = parsed
+        stats = league_stats.get(
+            player_id,
+            {
+                "season": SEASON,
+                "competition": "Chance Liga",
+                "apps": 0,
+                "minutes": 0,
+                "goals": 0,
+                "assists": 0,
+                "yellowCards": 0,
+                "redCards": 0,
+                "source": "Livesport domestic-league roster table",
+                "sourceUrl": url,
+            },
+        )
         players_by_id[player_id] = {
             "name": clean(link.text_content()),
             "team": team,
@@ -1130,6 +1173,15 @@ def update_current_livesport_career(player: dict, stats: dict) -> None:
     """Expose a current-season aggregate even before match detail is imported."""
 
     if not stats.get("apps"):
+        player["career"] = [
+            row
+            for row in player.get("career") or []
+            if not (
+                row.get("season") in {SEASON, "2026/2027"}
+                and normalize(row.get("competition") or "") == "chance liga"
+                and row.get("source") == "Livesport team roster"
+            )
+        ]
         return
     career = copy.deepcopy(player.get("career") or [])
     current = next(

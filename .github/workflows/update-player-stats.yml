@@ -1,4 +1,4 @@
-name: Update Livesport player rosters and season totals
+name: Update Livesport player rosters, match ratings and season totals
 
 on:
   workflow_dispatch:
@@ -24,11 +24,12 @@ jobs:
           python-version: "3.12"
       - name: Install parser
         run: python -m pip install --disable-pip-version-check lxml==5.4.0
-      - name: Refresh all 16 Livesport rosters and current-season totals
+      - name: Refresh rosters, completed-match ratings and season totals
         run: >-
           python scripts/update_livesport_rosters.py
           --output rosters-live.json
           --audit-output roster-audit-live.json
+          --schedule schedule-live.json
       - name: Validate generated JSON
         run: |
           python -m json.tool rosters-live.json > /dev/null
@@ -52,5 +53,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add rosters-live.json roster-audit-live.json
-          git commit -m "Update Livesport player rosters and season totals"
+          git commit -m "Update Livesport player ratings and season totals"
           git push
