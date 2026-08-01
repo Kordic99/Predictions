@@ -1,0 +1,37 @@
+name: Update prediction match context
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prediction-match-context
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh Livesport lineups, absences and preseason form
+        run: python scripts/update_match_context.py
+      - name: Validate generated JSON
+        run: python -m json.tool match-context-live.json > /dev/null
+      - name: Commit changed context only
+        run: |
+          if git diff --quiet -- match-context-live.json; then
+            echo "Prediction context has not changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add match-context-live.json
+          git commit -m "Update prediction match context"
+          git push

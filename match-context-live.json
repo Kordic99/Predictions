@@ -1,0 +1,4997 @@
+{
+  "schemaVersion": 1,
+  "season": "2026/27",
+  "modelVersion": "2026.07-preseason-xi-v1",
+  "sources": {
+    "lineupsAndAbsences": "Livesport match detail",
+    "preseason": "Livesport team results"
+  },
+  "preseason": {
+    "windowStart": "2026-06-01",
+    "windowEnd": "2026-07-24",
+    "teams": {
+      "Hradec Králové": {
+        "participantId": "vFXjbHms",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/hradec-kralove/vFXjbHms/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "IT1CNIcK",
+            "date": "2026-07-16",
+            "home": "FC Charkov (Ukr)",
+            "away": "Hradec Králové (Cze)",
+            "score": "3:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 3,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/hradec-kralove/vFXjbHms/vysledky/"
+          },
+          {
+            "livesportMatchId": "tnqBSEte",
+            "date": "2026-07-13",
+            "home": "Wolfsberg (Aut)",
+            "away": "Hradec Králové (Cze)",
+            "score": "1:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/hradec-kralove/vFXjbHms/vysledky/"
+          },
+          {
+            "livesportMatchId": "jcvadtaL",
+            "date": "2026-07-10",
+            "home": "Nordsjaelland (Den)",
+            "away": "Hradec Králové (Cze)",
+            "score": "0:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/hradec-kralove/vFXjbHms/vysledky/"
+          },
+          {
+            "livesportMatchId": "lChrIdLs",
+            "date": "2026-07-04",
+            "home": "Hradec Králové (Cze)",
+            "away": "Sparta Praha B (Cze)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/hradec-kralove/vFXjbHms/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 4,
+          "wins": 2,
+          "draws": 2,
+          "losses": 0,
+          "goalsFor": 9,
+          "goalsAgainst": 5,
+          "ppg": 2.0,
+          "score": 0.6917
+        }
+      },
+      "Pardubice": {
+        "participantId": "Ys4YYBPn",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "S40gjOet",
+            "date": "2026-07-18",
+            "home": "Jihlava (Cze)",
+            "away": "Pardubice (Cze)",
+            "score": "0:5",
+            "isHome": false,
+            "goalsFor": 5,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/"
+          },
+          {
+            "livesportMatchId": "WxcHklF5",
+            "date": "2026-07-09",
+            "home": "Cracovia (Pol)",
+            "away": "Pardubice (Cze)",
+            "score": "2:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/"
+          },
+          {
+            "livesportMatchId": "htqcKmxP",
+            "date": "2026-07-05",
+            "home": "SK Rapid (Aut)",
+            "away": "Pardubice (Cze)",
+            "score": "2:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/"
+          },
+          {
+            "livesportMatchId": "SQDo8Qr1",
+            "date": "2026-07-01",
+            "home": "Pardubice (Cze)",
+            "away": "Žilina (Svk)",
+            "score": "2:2",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/"
+          },
+          {
+            "livesportMatchId": "6PpkM97C",
+            "date": "2026-07-01",
+            "home": "Odra Opole (Pol)",
+            "away": "Pardubice (Cze)",
+            "score": "1:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/"
+          },
+          {
+            "livesportMatchId": "6NgaeD4t",
+            "date": "2026-06-27",
+            "home": "Holice (Cze)",
+            "away": "Pardubice (Cze)",
+            "score": "0:17",
+            "isHome": false,
+            "goalsFor": 17,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/pardubice/Ys4YYBPn/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 2,
+          "draws": 3,
+          "losses": 1,
+          "goalsFor": 27,
+          "goalsAgainst": 7,
+          "ppg": 1.5,
+          "score": 0.635
+        }
+      },
+      "Jablonec": {
+        "participantId": "CM8ySpMH",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "rRFjPOrR",
+            "date": "2026-07-15",
+            "home": "Jablonec (Cze)",
+            "away": "FC Charkov (Ukr)",
+            "score": "1:0",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          },
+          {
+            "livesportMatchId": "xjbsfesI",
+            "date": "2026-07-12",
+            "home": "Jablonec (Cze)",
+            "away": "Osnabrück (Ger)",
+            "score": "1:0",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          },
+          {
+            "livesportMatchId": "rHCkv0J6",
+            "date": "2026-07-11",
+            "home": "Liefering (Aut)",
+            "away": "Jablonec (Cze)",
+            "score": "3:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 3,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          },
+          {
+            "livesportMatchId": "Aa2qRpEE",
+            "date": "2026-07-08",
+            "home": "Jablonec (Cze)",
+            "away": "Pafos (Cyp)",
+            "score": "0:0",
+            "isHome": true,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          },
+          {
+            "livesportMatchId": "I5Fc3sM7",
+            "date": "2026-07-03",
+            "home": "Jablonec (Cze)",
+            "away": "Ústí n. L. (Cze)",
+            "score": "1:1",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          },
+          {
+            "livesportMatchId": "S0SLiH9N",
+            "date": "2026-06-27",
+            "home": "Jablonec (Cze)",
+            "away": "Mladá Boleslav (Cze)",
+            "score": "5:0",
+            "isHome": true,
+            "goalsFor": 5,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          },
+          {
+            "livesportMatchId": "AuCk53ie",
+            "date": "2026-06-26",
+            "home": "Jablonec (Cze)",
+            "away": "Vlašim (Cze)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/jablonec/CM8ySpMH/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 7,
+          "wins": 4,
+          "draws": 2,
+          "losses": 1,
+          "goalsFor": 11,
+          "goalsAgainst": 5,
+          "ppg": 2.0,
+          "score": 0.681
+        }
+      },
+      "Sigma Olomouc": {
+        "participantId": "drA4fSL4",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "UeisFEwe",
+            "date": "2026-07-17",
+            "home": "Sigma Olomouc (Cze)",
+            "away": "Al-Sadd (Qat)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/"
+          },
+          {
+            "livesportMatchId": "MVmZGz9r",
+            "date": "2026-07-13",
+            "home": "Sigma Olomouc (Cze)",
+            "away": "Al-Ahli Dubai (Uae)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/"
+          },
+          {
+            "livesportMatchId": "8twuPt6M",
+            "date": "2026-07-04",
+            "home": "Sigma Olomouc (Cze)",
+            "away": "Kroměříž (Cze)",
+            "score": "5:1",
+            "isHome": true,
+            "goalsFor": 5,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/"
+          },
+          {
+            "livesportMatchId": "QgsH0gCO",
+            "date": "2026-07-04",
+            "home": "Sigma Olomouc (Cze)",
+            "away": "B. Bystrica (Svk)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/"
+          },
+          {
+            "livesportMatchId": "Qq0jblKa",
+            "date": "2026-07-01",
+            "home": "Sigma Olomouc (Cze)",
+            "away": "Skalica (Svk)",
+            "score": "0:0",
+            "isHome": true,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/"
+          },
+          {
+            "livesportMatchId": "Slr0WHxh",
+            "date": "2026-06-27",
+            "home": "Sigma Olomouc (Cze)",
+            "away": "Ružomberok (Svk)",
+            "score": "1:0",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sigma-olomouc/drA4fSL4/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 5,
+          "draws": 1,
+          "losses": 0,
+          "goalsFor": 12,
+          "goalsAgainst": 3,
+          "ppg": 2.667,
+          "score": 0.8847
+        }
+      },
+      "Slavia Prague": {
+        "participantId": "viXGgnyB",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "v9DBxSIs",
+            "date": "2026-07-18",
+            "home": "Slavia Praha (Cze)",
+            "away": "Lyon (Fra)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/"
+          },
+          {
+            "livesportMatchId": "Ueu88uge",
+            "date": "2026-07-12",
+            "home": "Slavia Praha (Cze)",
+            "away": "Ružomberok (Svk)",
+            "score": "3:0",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/"
+          },
+          {
+            "livesportMatchId": "U9Ysdbo3",
+            "date": "2026-07-11",
+            "home": "Slavia Praha (Cze)",
+            "away": "Slovan Bratislava (Svk)",
+            "score": "0:1",
+            "isHome": true,
+            "goalsFor": 0,
+            "goalsAgainst": 1,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/"
+          },
+          {
+            "livesportMatchId": "Y5Hm5hZR",
+            "date": "2026-07-05",
+            "home": "Wieczysta Krakow (Pol)",
+            "away": "Slavia Praha (Cze)",
+            "score": "2:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/"
+          },
+          {
+            "livesportMatchId": "0v4CTrwS",
+            "date": "2026-07-01",
+            "home": "Slavia Praha (Cze)",
+            "away": "Vlašim (Cze)",
+            "score": "1:2",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/"
+          },
+          {
+            "livesportMatchId": "MFLe2O8e",
+            "date": "2026-06-20",
+            "home": "Dyn. Kyjev (Ukr)",
+            "away": "Slavia Praha (Cze)",
+            "score": "1:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/slavia-praha/viXGgnyB/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 2,
+          "draws": 2,
+          "losses": 2,
+          "goalsFor": 9,
+          "goalsAgainst": 6,
+          "ppg": 1.333,
+          "score": 0.4986
+        }
+      },
+      "Slovácko": {
+        "participantId": "MNEDyOlF",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/slovacko/MNEDyOlF/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "2sN8Re7s",
+            "date": "2026-07-18",
+            "home": "Slovácko (Cze)",
+            "away": "Skalica (Svk)",
+            "score": "1:3",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 3,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/slovacko/MNEDyOlF/vysledky/"
+          },
+          {
+            "livesportMatchId": "nZd9nte5",
+            "date": "2026-07-11",
+            "home": "Slovácko (Cze)",
+            "away": "Zalaegerszeg (Hun)",
+            "score": "3:3",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 3,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/slovacko/MNEDyOlF/vysledky/"
+          },
+          {
+            "livesportMatchId": "dreyp4N8",
+            "date": "2026-07-08",
+            "home": "Slovácko (Cze)",
+            "away": "Zorja (Ukr)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/slovacko/MNEDyOlF/vysledky/"
+          },
+          {
+            "livesportMatchId": "p2ScKnA5",
+            "date": "2026-07-04",
+            "home": "Slovácko (Cze)",
+            "away": "Trnava (Svk)",
+            "score": "1:1",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/slovacko/MNEDyOlF/vysledky/"
+          },
+          {
+            "livesportMatchId": "rwGbjgIM",
+            "date": "2026-06-24",
+            "home": "Slovácko (Cze)",
+            "away": "Jihlava (Cze)",
+            "score": "1:2",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/slovacko/MNEDyOlF/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 2,
+          "goalsFor": 8,
+          "goalsAgainst": 10,
+          "ppg": 1.0,
+          "score": 0.3533
+        }
+      },
+      "Zbrojovka Brno": {
+        "participantId": "4d5TT6i5",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "Yc5oILHk",
+            "date": "2026-07-17",
+            "home": "Zbrojovka Brno (Cze)",
+            "away": "Podbrezová (Svk)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/"
+          },
+          {
+            "livesportMatchId": "dAoqtqw3",
+            "date": "2026-07-08",
+            "home": "Hartberg (Aut)",
+            "away": "Zbrojovka Brno (Cze)",
+            "score": "2:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/"
+          },
+          {
+            "livesportMatchId": "hdy03J7K",
+            "date": "2026-07-04",
+            "home": "Zbrojovka Brno (Cze)",
+            "away": "Csikszereda M. Ciuc (Rou)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/"
+          },
+          {
+            "livesportMatchId": "GxiTvJfJ",
+            "date": "2026-07-01",
+            "home": "Tiszakecske (Hun)",
+            "away": "Zbrojovka Brno (Cze)",
+            "score": "2:4",
+            "isHome": false,
+            "goalsFor": 4,
+            "goalsAgainst": 2,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/"
+          },
+          {
+            "livesportMatchId": "tO8gGan2",
+            "date": "2026-06-30",
+            "home": "Nyiregyhaza (Hun)",
+            "away": "Zbrojovka Brno (Cze)",
+            "score": "0:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/"
+          },
+          {
+            "livesportMatchId": "U1G7P3PF",
+            "date": "2026-06-23",
+            "home": "Zbrojovka Brno (Cze)",
+            "away": "Prostějov (Cze)",
+            "score": "4:1",
+            "isHome": true,
+            "goalsFor": 4,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zbrojovka-brno/4d5TT6i5/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 5,
+          "draws": 0,
+          "losses": 1,
+          "goalsFor": 15,
+          "goalsAgainst": 6,
+          "ppg": 2.5,
+          "score": 0.8458
+        }
+      },
+      "Sparta Prague": {
+        "participantId": "6qA358jH",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/sparta-praha/6qA358jH/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "MgtcCHgC",
+            "date": "2026-07-17",
+            "home": "Nordsjaelland (Den)",
+            "away": "Sparta Praha (Cze)",
+            "score": "5:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 5,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/sparta-praha/6qA358jH/vysledky/"
+          },
+          {
+            "livesportMatchId": "GvQMGfr3",
+            "date": "2026-07-16",
+            "home": "Jagiellonia (Pol)",
+            "away": "Sparta Praha (Cze)",
+            "score": "1:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 1,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/sparta-praha/6qA358jH/vysledky/"
+          },
+          {
+            "livesportMatchId": "MLKsGafm",
+            "date": "2026-07-11",
+            "home": "Sparta Praha (Cze)",
+            "away": "G-Osaka (Jpn)",
+            "score": "3:0",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sparta-praha/6qA358jH/vysledky/"
+          },
+          {
+            "livesportMatchId": "xC7GCQme",
+            "date": "2026-07-04",
+            "home": "Sparta Praha (Cze)",
+            "away": "Opava (Cze)",
+            "score": "4:1",
+            "isHome": true,
+            "goalsFor": 4,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/sparta-praha/6qA358jH/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 4,
+          "wins": 2,
+          "draws": 0,
+          "losses": 2,
+          "goalsFor": 8,
+          "goalsAgainst": 7,
+          "ppg": 1.5,
+          "score": 0.5187
+        }
+      },
+      "Teplice": {
+        "participantId": "r9XWmtLq",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/teplice/r9XWmtLq/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "8SqGSZyH",
+            "date": "2026-07-18",
+            "home": "Ružomberok (Svk)",
+            "away": "Teplice (Cze)",
+            "score": "0:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/teplice/r9XWmtLq/vysledky/"
+          },
+          {
+            "livesportMatchId": "CSUBUlYA",
+            "date": "2026-07-13",
+            "home": "Innsbruck (Aut)",
+            "away": "Teplice (Cze)",
+            "score": "0:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/teplice/r9XWmtLq/vysledky/"
+          },
+          {
+            "livesportMatchId": "0MvVe05D",
+            "date": "2026-07-08",
+            "home": "Teplice (Cze)",
+            "away": "Táborsko (Cze)",
+            "score": "3:0",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/teplice/r9XWmtLq/vysledky/"
+          },
+          {
+            "livesportMatchId": "hdyNcMz1",
+            "date": "2026-07-04",
+            "home": "Teplice (Cze)",
+            "away": "Příbram (Cze)",
+            "score": "0:0",
+            "isHome": true,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/teplice/r9XWmtLq/vysledky/"
+          },
+          {
+            "livesportMatchId": "6uwFar6l",
+            "date": "2026-06-27",
+            "home": "Teplice (Cze)",
+            "away": "Trnava (Svk)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/teplice/r9XWmtLq/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 5,
+          "wins": 4,
+          "draws": 1,
+          "losses": 0,
+          "goalsFor": 11,
+          "goalsAgainst": 0,
+          "ppg": 2.6,
+          "score": 0.8917
+        }
+      },
+      "Bohemians 1905": {
+        "participantId": "fuXqHnxa",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/bohemians-1905/fuXqHnxa/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "00HIOJCc",
+            "date": "2026-07-17",
+            "home": "Zaglebie (Pol)",
+            "away": "Bohemians (Cze)",
+            "score": "0:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/bohemians-1905/fuXqHnxa/vysledky/"
+          },
+          {
+            "livesportMatchId": "GSLFtNZr",
+            "date": "2026-07-14",
+            "home": "Plock (Pol)",
+            "away": "Bohemians (Cze)",
+            "score": "2:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/bohemians-1905/fuXqHnxa/vysledky/"
+          },
+          {
+            "livesportMatchId": "IJvdCtYI",
+            "date": "2026-07-11",
+            "home": "Lech (Pol)",
+            "away": "Bohemians (Cze)",
+            "score": "4:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 4,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/bohemians-1905/fuXqHnxa/vysledky/"
+          },
+          {
+            "livesportMatchId": "xxyj7SSP",
+            "date": "2026-07-04",
+            "home": "Táborsko (Cze)",
+            "away": "Bohemians (Cze)",
+            "score": "2:4",
+            "isHome": false,
+            "goalsFor": 4,
+            "goalsAgainst": 2,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/bohemians-1905/fuXqHnxa/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 4,
+          "wins": 2,
+          "draws": 0,
+          "losses": 2,
+          "goalsFor": 6,
+          "goalsAgainst": 8,
+          "ppg": 1.5,
+          "score": 0.4625
+        }
+      },
+      "Viktoria Plzeň": {
+        "participantId": "2LA0e86b",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/viktoria-plzen/2LA0e86b/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "WQllZUce",
+            "date": "2026-07-14",
+            "home": "Viktoria Plzeň (Cze)",
+            "away": "Žytomyr (Ukr)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/viktoria-plzen/2LA0e86b/vysledky/"
+          },
+          {
+            "livesportMatchId": "O0otyiTr",
+            "date": "2026-07-10",
+            "home": "Viktoria Plzeň (Cze)",
+            "away": "Young Boys (Sui)",
+            "score": "3:5",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 5,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/viktoria-plzen/2LA0e86b/vysledky/"
+          },
+          {
+            "livesportMatchId": "hMUc1YOc",
+            "date": "2026-07-07",
+            "home": "Viktoria Plzeň (Cze)",
+            "away": "FC Kodaň (Den)",
+            "score": "1:1",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/viktoria-plzen/2LA0e86b/vysledky/"
+          },
+          {
+            "livesportMatchId": "n118MiEk",
+            "date": "2026-07-01",
+            "home": "Viktoria Plzeň (Cze)",
+            "away": "Trnava (Svk)",
+            "score": "1:1",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/viktoria-plzen/2LA0e86b/vysledky/"
+          },
+          {
+            "livesportMatchId": "IqCy8had",
+            "date": "2026-06-27",
+            "home": "Viktoria Plzeň (Cze)",
+            "away": "Artis Brno (Cze)",
+            "score": "4:2",
+            "isHome": true,
+            "goalsFor": 4,
+            "goalsAgainst": 2,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/viktoria-plzen/2LA0e86b/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 5,
+          "wins": 2,
+          "draws": 2,
+          "losses": 1,
+          "goalsFor": 11,
+          "goalsAgainst": 9,
+          "ppg": 1.6,
+          "score": 0.5533
+        }
+      },
+      "Slovan Liberec": {
+        "participantId": "4bp6yRjU",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/slovan-liberec/4bp6yRjU/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "QaAcowb4",
+            "date": "2026-07-17",
+            "home": "St. Polten (Aut)",
+            "away": "Slovan Liberec (Cze)",
+            "score": "1:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/slovan-liberec/4bp6yRjU/vysledky/"
+          },
+          {
+            "livesportMatchId": "Kxt9MIK7",
+            "date": "2026-07-09",
+            "home": "Rapid Bukurešť (Rou)",
+            "away": "Slovan Liberec (Cze)",
+            "score": "1:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/slovan-liberec/4bp6yRjU/vysledky/"
+          },
+          {
+            "livesportMatchId": "0l7jVGQE",
+            "date": "2026-07-04",
+            "home": "Slovan Liberec (Cze)",
+            "away": "Dukla Praha (Cze)",
+            "score": "2:2",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/slovan-liberec/4bp6yRjU/vysledky/"
+          },
+          {
+            "livesportMatchId": "O6EBIws9",
+            "date": "2026-06-27",
+            "home": "Slovan Liberec (Cze)",
+            "away": "Ústí n. L. (Cze)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/slovan-liberec/4bp6yRjU/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 4,
+          "wins": 3,
+          "draws": 1,
+          "losses": 0,
+          "goalsFor": 9,
+          "goalsAgainst": 4,
+          "ppg": 2.5,
+          "score": 0.8271
+        }
+      },
+      "Zlín": {
+        "participantId": "C09N1Ikd",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "EyZFloRG",
+            "date": "2026-07-18",
+            "home": "Slask (Pol)",
+            "away": "Zlín (Cze)",
+            "score": "3:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 3,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "SrZ00gOq",
+            "date": "2026-07-15",
+            "home": "Polonia V. (Pol)",
+            "away": "Zlín (Cze)",
+            "score": "0:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "d0rV5F0M",
+            "date": "2026-07-10",
+            "home": "Zlín (Cze)",
+            "away": "B. Bystrica (Svk)",
+            "score": "2:1",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "OnpN7yW9",
+            "date": "2026-07-08",
+            "home": "Zlín (Cze)",
+            "away": "H. Tel Aviv (Isr)",
+            "score": "1:2",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "Qo1EO8Z2",
+            "date": "2026-07-03",
+            "home": "Trenčín (Svk)",
+            "away": "Zlín (Cze)",
+            "score": "1:3",
+            "isHome": false,
+            "goalsFor": 3,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "Mao8goBa",
+            "date": "2026-06-27",
+            "home": "Zlín (Cze)",
+            "away": "Skalica (Svk)",
+            "score": "1:2",
+            "isHome": true,
+            "goalsFor": 1,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "2wmOk3AO",
+            "date": "2026-06-27",
+            "home": "Zlín (Cze)",
+            "away": "Kroměříž (Cze)",
+            "score": "0:2",
+            "isHome": true,
+            "goalsFor": 0,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          },
+          {
+            "livesportMatchId": "dj3c4CHi",
+            "date": "2026-06-20",
+            "home": "Zlín (Cze)",
+            "away": "Petržalka (Svk)",
+            "score": "3:3",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 3,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/zlin/C09N1Ikd/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 8,
+          "wins": 3,
+          "draws": 1,
+          "losses": 4,
+          "goalsFor": 13,
+          "goalsAgainst": 14,
+          "ppg": 1.25,
+          "score": 0.4323
+        }
+      },
+      "Baník Ostrava": {
+        "participantId": "lI6ddlih",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "OOi8DrR1",
+            "date": "2026-07-18",
+            "home": "Trenčín (Svk)",
+            "away": "Baník Ostrava (Cze)",
+            "score": "3:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 3,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/"
+          },
+          {
+            "livesportMatchId": "Wjb0Kh74",
+            "date": "2026-07-11",
+            "home": "Legnica (Pol)",
+            "away": "Baník Ostrava (Cze)",
+            "score": "2:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 2,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/"
+          },
+          {
+            "livesportMatchId": "Ms8te97c",
+            "date": "2026-07-11",
+            "home": "Plock (Pol)",
+            "away": "Baník Ostrava (Cze)",
+            "score": "2:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/"
+          },
+          {
+            "livesportMatchId": "Ag1eX5Fj",
+            "date": "2026-07-08",
+            "home": "Zaglebie (Pol)",
+            "away": "Baník Ostrava (Cze)",
+            "score": "0:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/"
+          },
+          {
+            "livesportMatchId": "tIFySrU0",
+            "date": "2026-07-04",
+            "home": "Piast (Pol)",
+            "away": "Baník Ostrava (Cze)",
+            "score": "1:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 1,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/"
+          },
+          {
+            "livesportMatchId": "vBAPxSiT",
+            "date": "2026-07-01",
+            "home": "Baník Ostrava (Cze)",
+            "away": "Kroměříž (Cze)",
+            "score": "3:1",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/banik-ostrava/lI6ddlih/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 2,
+          "draws": 1,
+          "losses": 3,
+          "goalsFor": 10,
+          "goalsAgainst": 9,
+          "ppg": 1.167,
+          "score": 0.4347
+        }
+      },
+      "Artis Brno": {
+        "participantId": "zHLktbZ1",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "Iq6VUYh2",
+            "date": "2026-07-18",
+            "home": "Wisla (Pol)",
+            "away": "Artis Brno (Cze)",
+            "score": "1:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 1,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/"
+          },
+          {
+            "livesportMatchId": "v36Ef3Wj",
+            "date": "2026-07-18",
+            "home": "Wisla (Pol)",
+            "away": "Artis Brno (Cze)",
+            "score": "2:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/"
+          },
+          {
+            "livesportMatchId": "f38p0ulD",
+            "date": "2026-07-10",
+            "home": "Amstetten (Aut)",
+            "away": "Artis Brno (Cze)",
+            "score": "2:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 2,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/"
+          },
+          {
+            "livesportMatchId": "nw5x21J0",
+            "date": "2026-07-03",
+            "home": "St. Polten (Aut)",
+            "away": "Artis Brno (Cze)",
+            "score": "1:1",
+            "isHome": false,
+            "goalsFor": 1,
+            "goalsAgainst": 1,
+            "outcome": "D",
+            "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/"
+          },
+          {
+            "livesportMatchId": "0v4t7E4F",
+            "date": "2026-07-02",
+            "home": "Wieczysta Krakow (Pol)",
+            "away": "Artis Brno (Cze)",
+            "score": "1:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 1,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/"
+          },
+          {
+            "livesportMatchId": "IqCy8had",
+            "date": "2026-06-27",
+            "home": "Viktoria Plzeň (Cze)",
+            "away": "Artis Brno (Cze)",
+            "score": "4:2",
+            "isHome": false,
+            "goalsFor": 2,
+            "goalsAgainst": 4,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/artis-brno/zHLktbZ1/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 1,
+          "draws": 3,
+          "losses": 2,
+          "goalsFor": 9,
+          "goalsAgainst": 11,
+          "ppg": 1.0,
+          "score": 0.3583
+        }
+      },
+      "Mladá Boleslav": {
+        "participantId": "0f7GpAMu",
+        "source": "Livesport team results",
+        "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/",
+        "matches": [
+          {
+            "livesportMatchId": "ngcAsC1S",
+            "date": "2026-07-18",
+            "home": "Mladá Boleslav (Cze)",
+            "away": "Ried (Aut)",
+            "score": "4:0",
+            "isHome": true,
+            "goalsFor": 4,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/"
+          },
+          {
+            "livesportMatchId": "h4N6ZAu9",
+            "date": "2026-07-15",
+            "home": "Chotěbuz (Ger)",
+            "away": "Mladá Boleslav (Cze)",
+            "score": "2:4",
+            "isHome": false,
+            "goalsFor": 4,
+            "goalsAgainst": 2,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/"
+          },
+          {
+            "livesportMatchId": "QkFULUQ8",
+            "date": "2026-07-11",
+            "home": "Mladá Boleslav (Cze)",
+            "away": "Táborsko (Cze)",
+            "score": "3:0",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/"
+          },
+          {
+            "livesportMatchId": "YeSrbRY1",
+            "date": "2026-07-04",
+            "home": "Mladá Boleslav (Cze)",
+            "away": "Žižkov (Cze)",
+            "score": "3:0",
+            "isHome": true,
+            "goalsFor": 3,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/"
+          },
+          {
+            "livesportMatchId": "S0SLiH9N",
+            "date": "2026-06-27",
+            "home": "Jablonec (Cze)",
+            "away": "Mladá Boleslav (Cze)",
+            "score": "5:0",
+            "isHome": false,
+            "goalsFor": 0,
+            "goalsAgainst": 5,
+            "outcome": "L",
+            "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/"
+          },
+          {
+            "livesportMatchId": "ObInEsLs",
+            "date": "2026-06-26",
+            "home": "Mladá Boleslav (Cze)",
+            "away": "Dukla Praha (Cze)",
+            "score": "2:0",
+            "isHome": true,
+            "goalsFor": 2,
+            "goalsAgainst": 0,
+            "outcome": "W",
+            "sourceUrl": "https://www.livesport.cz/tym/mlada-boleslav/0f7GpAMu/vysledky/"
+          }
+        ],
+        "summary": {
+          "games": 6,
+          "wins": 5,
+          "draws": 0,
+          "losses": 1,
+          "goalsFor": 16,
+          "goalsAgainst": 7,
+          "ppg": 2.5,
+          "score": 0.8458
+        }
+      }
+    }
+  },
+  "fixtures": [
+    {
+      "officialMatchId": "8337",
+      "round": 2,
+      "date": "2026-07-31",
+      "time": "19:00",
+      "home": "Sparta Prague",
+      "away": "Zlín",
+      "livesportMatchId": "js0IbQuC",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sparta-praha-6qA358jH/zlin-C09N1Ikd/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "fwXhJa0F",
+            "name": "Surovčík",
+            "listName": "Surovčík J.",
+            "number": "44",
+            "position": "GK",
+            "profileSlug": "surovcik-jakub"
+          },
+          {
+            "livesportPlayerId": "MwBrqRha",
+            "name": "Kadeřábek",
+            "listName": "Kadeřábek P.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "kaderabek-pavel"
+          },
+          {
+            "livesportPlayerId": "8nTNJ9y7",
+            "name": "Ševínský",
+            "listName": "Ševínský A.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "sevinsky-adam"
+          },
+          {
+            "livesportPlayerId": "QXMeCeIq",
+            "name": "Zelený",
+            "listName": "Zelený J.",
+            "number": "30",
+            "position": null,
+            "profileSlug": "zeleny-jaroslav"
+          },
+          {
+            "livesportPlayerId": "Gh5wWWlD",
+            "name": "Ryneš",
+            "listName": "Ryneš M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "rynes-matej"
+          },
+          {
+            "livesportPlayerId": "SYegq3bT",
+            "name": "Irving",
+            "listName": "Irving A.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "irving-andrew"
+          },
+          {
+            "livesportPlayerId": "ddoXctfi",
+            "name": "Sochůrek",
+            "listName": "Sochůrek H.",
+            "number": "38",
+            "position": null,
+            "profileSlug": "sochurek-hugo"
+          },
+          {
+            "livesportPlayerId": "tSlWfuTh",
+            "name": "Mercado",
+            "listName": "Mercado J.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "john-mercado"
+          },
+          {
+            "livesportPlayerId": "SClyr2eG",
+            "name": "Karabec",
+            "listName": "Karabec A.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "karabec-adam"
+          },
+          {
+            "livesportPlayerId": "Asqi9KYR",
+            "name": "Haraslín",
+            "listName": "Haraslín L.",
+            "number": "22",
+            "position": null,
+            "profileSlug": "haraslin-lukas"
+          },
+          {
+            "livesportPlayerId": "IPLNGwMg",
+            "name": "Kuchta",
+            "listName": "Kuchta J.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "kuchta-jan"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "fwXhJa0F",
+            "name": "Surovčík",
+            "listName": "Surovčík J.",
+            "number": "44",
+            "position": "GK",
+            "profileSlug": "surovcik-jakub"
+          },
+          {
+            "livesportPlayerId": "MwBrqRha",
+            "name": "Kadeřábek",
+            "listName": "Kadeřábek P.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "kaderabek-pavel"
+          },
+          {
+            "livesportPlayerId": "8nTNJ9y7",
+            "name": "Ševínský",
+            "listName": "Ševínský A.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "sevinsky-adam"
+          },
+          {
+            "livesportPlayerId": "QXMeCeIq",
+            "name": "Zelený",
+            "listName": "Zelený J.",
+            "number": "30",
+            "position": null,
+            "profileSlug": "zeleny-jaroslav"
+          },
+          {
+            "livesportPlayerId": "Gh5wWWlD",
+            "name": "Ryneš",
+            "listName": "Ryneš M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "rynes-matej"
+          },
+          {
+            "livesportPlayerId": "SYegq3bT",
+            "name": "Irving",
+            "listName": "Irving A.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "irving-andrew"
+          },
+          {
+            "livesportPlayerId": "ddoXctfi",
+            "name": "Sochůrek",
+            "listName": "Sochůrek H.",
+            "number": "38",
+            "position": null,
+            "profileSlug": "sochurek-hugo"
+          },
+          {
+            "livesportPlayerId": "tSlWfuTh",
+            "name": "Mercado",
+            "listName": "Mercado J.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "john-mercado"
+          },
+          {
+            "livesportPlayerId": "SClyr2eG",
+            "name": "Karabec",
+            "listName": "Karabec A.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "karabec-adam"
+          },
+          {
+            "livesportPlayerId": "Asqi9KYR",
+            "name": "Haraslín",
+            "listName": "Haraslín L.",
+            "number": "22",
+            "position": null,
+            "profileSlug": "haraslin-lukas"
+          },
+          {
+            "livesportPlayerId": "IPLNGwMg",
+            "name": "Kuchta",
+            "listName": "Kuchta J.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "kuchta-jan"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "hpae2jw4",
+            "name": "Andersen M.",
+            "listName": "Andersen M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "andersen-magnus-kofod",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "b50EKJ3n",
+            "name": "Cobbaut E.",
+            "listName": "Cobbaut E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "cobbaut-elias",
+            "reason": "Poranění třísel"
+          },
+          {
+            "livesportPlayerId": "McdmkUE4",
+            "name": "Mannsverk S.",
+            "listName": "Mannsverk S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mannsverk-heggheim-sivert",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "4jKi5Qxo",
+            "name": "Penxa O.",
+            "listName": "Penxa O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "penxa-ondrej",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "6wDvjsCE",
+            "name": "Singhateh E.",
+            "listName": "Singhateh E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "singateh-ebriha",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "UqjN9bSC",
+            "name": "Uchenna E.",
+            "listName": "Uchenna E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "aririerisim-uchenna",
+            "reason": "Poranění třísel"
+          },
+          {
+            "livesportPlayerId": "4rgyylvj",
+            "name": "Vindahl P.",
+            "listName": "Vindahl P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "vindahl-jensen-peter",
+            "reason": "Zranění chodidla"
+          },
+          {
+            "livesportPlayerId": "pId9BXTD",
+            "name": "Vydra P.",
+            "listName": "Vydra P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "vydra-patrik",
+            "reason": "Poranění kotníku"
+          }
+        ],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "SMG00Vfq",
+            "name": "Dostál",
+            "listName": "Dostál S.",
+            "number": "17",
+            "position": "GK",
+            "profileSlug": "dostal-stanislav"
+          },
+          {
+            "livesportPlayerId": "OjGx3myt",
+            "name": "Kopečný",
+            "listName": "Kopečný M.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "kopecny-milos"
+          },
+          {
+            "livesportPlayerId": "Q1mFdbZ0",
+            "name": "Černín",
+            "listName": "Černín J.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "cernin-jakub"
+          },
+          {
+            "livesportPlayerId": "GCLxMbpp",
+            "name": "Křapka",
+            "listName": "Křapka A.",
+            "number": "39",
+            "position": null,
+            "profileSlug": "krapka-antonin"
+          },
+          {
+            "livesportPlayerId": "pCVE0PqE",
+            "name": "Pišoja",
+            "listName": "Pišoja M.",
+            "number": "82",
+            "position": null,
+            "profileSlug": "pisoja-marian"
+          },
+          {
+            "livesportPlayerId": "4MNTiZ81",
+            "name": "Nombil",
+            "listName": "Nombil C.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "nombil-cletus"
+          },
+          {
+            "livesportPlayerId": "EFdG9M41",
+            "name": "Hellebrand",
+            "listName": "Hellebrand T.",
+            "number": "53",
+            "position": null,
+            "profileSlug": "hellebrand-tomas"
+          },
+          {
+            "livesportPlayerId": "6XTdthhj",
+            "name": "Appiah",
+            "listName": "Appiah F.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "appiah-frank"
+          },
+          {
+            "livesportPlayerId": "OWHiIZJP",
+            "name": "Ulbrich",
+            "listName": "Ulbrich T.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "ulbrich-tom"
+          },
+          {
+            "livesportPlayerId": "SvMO7ZEC",
+            "name": "Bartošák",
+            "listName": "Bartošák L.",
+            "number": "31",
+            "position": null,
+            "profileSlug": "bartosak-lukas"
+          },
+          {
+            "livesportPlayerId": "K2EcRwYA",
+            "name": "Poznar",
+            "listName": "Poznar T.",
+            "number": "88",
+            "position": null,
+            "profileSlug": "poznar-tomas"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "SMG00Vfq",
+            "name": "Dostál",
+            "listName": "Dostál S.",
+            "number": "17",
+            "position": "GK",
+            "profileSlug": "dostal-stanislav"
+          },
+          {
+            "livesportPlayerId": "OjGx3myt",
+            "name": "Kopečný",
+            "listName": "Kopečný M.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "kopecny-milos"
+          },
+          {
+            "livesportPlayerId": "Q1mFdbZ0",
+            "name": "Černín",
+            "listName": "Černín J.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "cernin-jakub"
+          },
+          {
+            "livesportPlayerId": "GCLxMbpp",
+            "name": "Křapka",
+            "listName": "Křapka A.",
+            "number": "39",
+            "position": null,
+            "profileSlug": "krapka-antonin"
+          },
+          {
+            "livesportPlayerId": "pCVE0PqE",
+            "name": "Pišoja",
+            "listName": "Pišoja M.",
+            "number": "82",
+            "position": null,
+            "profileSlug": "pisoja-marian"
+          },
+          {
+            "livesportPlayerId": "4MNTiZ81",
+            "name": "Nombil",
+            "listName": "Nombil C.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "nombil-cletus"
+          },
+          {
+            "livesportPlayerId": "EFdG9M41",
+            "name": "Hellebrand",
+            "listName": "Hellebrand T.",
+            "number": "53",
+            "position": null,
+            "profileSlug": "hellebrand-tomas"
+          },
+          {
+            "livesportPlayerId": "6XTdthhj",
+            "name": "Appiah",
+            "listName": "Appiah F.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "appiah-frank"
+          },
+          {
+            "livesportPlayerId": "OWHiIZJP",
+            "name": "Ulbrich",
+            "listName": "Ulbrich T.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "ulbrich-tom"
+          },
+          {
+            "livesportPlayerId": "SvMO7ZEC",
+            "name": "Bartošák",
+            "listName": "Bartošák L.",
+            "number": "31",
+            "position": null,
+            "profileSlug": "bartosak-lukas"
+          },
+          {
+            "livesportPlayerId": "K2EcRwYA",
+            "name": "Poznar",
+            "listName": "Poznar T.",
+            "number": "88",
+            "position": null,
+            "profileSlug": "poznar-tomas"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "Me5ssbfF",
+            "name": "Didiba J.",
+            "listName": "Didiba J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "didiba-joss",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "jgP0qxGd",
+            "name": "Emmanuel P.",
+            "listName": "Emmanuel P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "emmanuel-prince",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "vBdD6R6h",
+            "name": "Fukala M.",
+            "listName": "Fukala M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "fukala-michal",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "ObNeP9MU",
+            "name": "Jugas J.",
+            "listName": "Jugas J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jugas-jakub",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "KAmWy6g0",
+            "name": "Kolář J.",
+            "listName": "Kolář J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kolar-jakub",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "GldyZtL1",
+            "name": "Kukučka O.",
+            "listName": "Kukučka O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kukucka-ondrej",
+            "reason": "Dohoda o hostování"
+          },
+          {
+            "livesportPlayerId": "OKq1hhme",
+            "name": "Machalík D.",
+            "listName": "Machalík D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "machalik-david",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "WnyuYj6D",
+            "name": "Mbatshi P.",
+            "listName": "Mbatshi P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mbatshi-mukuba-prince",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "QZAG9jkl",
+            "name": "Penkevics K.",
+            "listName": "Penkevics K.",
+            "number": null,
+            "position": null,
+            "profileSlug": "penkevics-kristers",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "xtSOwMii",
+            "name": "Petruta S.",
+            "listName": "Petruta S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "petruta-stanislav",
+            "reason": "Zranění chodidla"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "nBq7a5WK",
+            "name": "Katalinič Z.",
+            "listName": "Katalinič Z.",
+            "number": null,
+            "position": null,
+            "profileSlug": "katalinic-zvonimir",
+            "reason": "Zdravotní problémy"
+          }
+        ]
+      }
+    },
+    {
+      "officialMatchId": "8336",
+      "round": 2,
+      "date": "2026-08-01",
+      "time": "17:00",
+      "home": "Slovan Liberec",
+      "away": "Teplice",
+      "livesportMatchId": "IT1A0nBa",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovan-liberec-4bp6yRjU/teplice-r9XWmtLq/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "fglrE6w7",
+            "name": "Koubek",
+            "listName": "Koubek T.",
+            "number": "40",
+            "position": "GK",
+            "profileSlug": "koubek-tomas"
+          },
+          {
+            "livesportPlayerId": "GjnFsnYI",
+            "name": "Koželuh",
+            "listName": "Koželuh J.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "kozeluh-josef"
+          },
+          {
+            "livesportPlayerId": "4YPmTZ6J",
+            "name": "Drakpe",
+            "listName": "Drakpe A.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "drakpe-augustin"
+          },
+          {
+            "livesportPlayerId": "6wvXDkFr",
+            "name": "Hůlka",
+            "listName": "Hůlka L.",
+            "number": "29",
+            "position": null,
+            "profileSlug": "hulka-lukas"
+          },
+          {
+            "livesportPlayerId": "6NHefBqF",
+            "name": "Kayondo",
+            "listName": "Kayondo A.",
+            "number": "27",
+            "position": null,
+            "profileSlug": "kayondo-aziz-abdu"
+          },
+          {
+            "livesportPlayerId": "EXrPeW7d",
+            "name": "Stránský",
+            "listName": "Stránský V.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "stransky-vojtech"
+          },
+          {
+            "livesportPlayerId": "nLaiMbxq",
+            "name": "Masopust",
+            "listName": "Masopust L.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "masopust-lukas"
+          },
+          {
+            "livesportPlayerId": "KhHS9bJc",
+            "name": "Dulay",
+            "listName": "Dulay P.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "dulay-patrik"
+          },
+          {
+            "livesportPlayerId": "jonRrqeA",
+            "name": "Kušej",
+            "listName": "Kušej V.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kusej-vasil"
+          },
+          {
+            "livesportPlayerId": "IPWPOt1D",
+            "name": "Hodouš",
+            "listName": "Hodouš P.",
+            "number": "5",
+            "position": null,
+            "profileSlug": "hodous-petr"
+          },
+          {
+            "livesportPlayerId": "QZfFKvdH",
+            "name": "Mašek",
+            "listName": "Mašek L.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "masek-lukas"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "fglrE6w7",
+            "name": "Koubek",
+            "listName": "Koubek T.",
+            "number": "40",
+            "position": "GK",
+            "profileSlug": "koubek-tomas"
+          },
+          {
+            "livesportPlayerId": "GjnFsnYI",
+            "name": "Koželuh",
+            "listName": "Koželuh J.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "kozeluh-josef"
+          },
+          {
+            "livesportPlayerId": "4YPmTZ6J",
+            "name": "Drakpe",
+            "listName": "Drakpe A.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "drakpe-augustin"
+          },
+          {
+            "livesportPlayerId": "6wvXDkFr",
+            "name": "Hůlka",
+            "listName": "Hůlka L.",
+            "number": "29",
+            "position": null,
+            "profileSlug": "hulka-lukas"
+          },
+          {
+            "livesportPlayerId": "6NHefBqF",
+            "name": "Kayondo",
+            "listName": "Kayondo A.",
+            "number": "27",
+            "position": null,
+            "profileSlug": "kayondo-aziz-abdu"
+          },
+          {
+            "livesportPlayerId": "EXrPeW7d",
+            "name": "Stránský",
+            "listName": "Stránský V.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "stransky-vojtech"
+          },
+          {
+            "livesportPlayerId": "nLaiMbxq",
+            "name": "Masopust",
+            "listName": "Masopust L.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "masopust-lukas"
+          },
+          {
+            "livesportPlayerId": "KhHS9bJc",
+            "name": "Dulay",
+            "listName": "Dulay P.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "dulay-patrik"
+          },
+          {
+            "livesportPlayerId": "jonRrqeA",
+            "name": "Kušej",
+            "listName": "Kušej V.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kusej-vasil"
+          },
+          {
+            "livesportPlayerId": "IPWPOt1D",
+            "name": "Hodouš",
+            "listName": "Hodouš P.",
+            "number": "5",
+            "position": null,
+            "profileSlug": "hodous-petr"
+          },
+          {
+            "livesportPlayerId": "QZfFKvdH",
+            "name": "Mašek",
+            "listName": "Mašek L.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "masek-lukas"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "WAaL43mg",
+            "name": "Berbič H.",
+            "listName": "Berbič H.",
+            "number": null,
+            "position": null,
+            "profileSlug": "berbic-haris",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "EcnwDC2A",
+            "name": "Gabriel Š.",
+            "listName": "Gabriel Š.",
+            "number": null,
+            "position": null,
+            "profileSlug": "gabriel-simon",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "lUHgcR8U",
+            "name": "Knapík J.",
+            "listName": "Knapík J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "knapik-jan",
+            "reason": "Poranění kolena"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "MipK1tKa",
+            "name": "Baboula V.",
+            "listName": "Baboula V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "baboula-ghislain",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "SpsC4Spr",
+            "name": "Basiladze A.",
+            "listName": "Basiladze A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "basiladze-aleko",
+            "reason": "Nedostatek herní kondice"
+          },
+          {
+            "livesportPlayerId": "lbdiuVzP",
+            "name": "Mahmič E.",
+            "listName": "Mahmič E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mahmic-ermin",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "bB3G9F84",
+            "name": "Zyba Q.",
+            "listName": "Zyba Q.",
+            "number": null,
+            "position": null,
+            "profileSlug": "zyba-qendrim",
+            "reason": "Poranění kolena"
+          }
+        ]
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "4WUW4771",
+            "name": "Trmal",
+            "listName": "Trmal M.",
+            "number": "29",
+            "position": "GK",
+            "profileSlug": "trmal-matous"
+          },
+          {
+            "livesportPlayerId": "UDIhhLBr",
+            "name": "Bílek",
+            "listName": "Bílek M.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "bilek-michal"
+          },
+          {
+            "livesportPlayerId": "0EOlhNgF",
+            "name": "Vientiess",
+            "listName": "Vientiess O.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "vientiess-oskars"
+          },
+          {
+            "livesportPlayerId": "OQUo5V79",
+            "name": "Večerka",
+            "listName": "Večerka D.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "vecerka-dalibor"
+          },
+          {
+            "livesportPlayerId": "6y6Z6wP1",
+            "name": "Riznič",
+            "listName": "Riznič M.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "riznic-matej"
+          },
+          {
+            "livesportPlayerId": "I1THGnR5",
+            "name": "Fortelný",
+            "listName": "Fortelný J.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "fortelny-jan"
+          },
+          {
+            "livesportPlayerId": "pzBlbY6Q",
+            "name": "Mareček",
+            "listName": "Mareček L.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "marecek-lukas"
+          },
+          {
+            "livesportPlayerId": "Q5ekF7if",
+            "name": "Radosta",
+            "listName": "Radosta M.",
+            "number": "35",
+            "position": null,
+            "profileSlug": "radosta-matej"
+          },
+          {
+            "livesportPlayerId": "Eotm88qk",
+            "name": "Čermák",
+            "listName": "Čermák M.",
+            "number": "57",
+            "position": null,
+            "profileSlug": "cermak-marcel"
+          },
+          {
+            "livesportPlayerId": "23PLKN2n",
+            "name": "Auta",
+            "listName": "Auta J.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "auta-john"
+          },
+          {
+            "livesportPlayerId": "ng9Xt04A",
+            "name": "Pulkrab",
+            "listName": "Pulkrab M.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "pulkrab-matej"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "4WUW4771",
+            "name": "Trmal",
+            "listName": "Trmal M.",
+            "number": "29",
+            "position": "GK",
+            "profileSlug": "trmal-matous"
+          },
+          {
+            "livesportPlayerId": "UDIhhLBr",
+            "name": "Bílek",
+            "listName": "Bílek M.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "bilek-michal"
+          },
+          {
+            "livesportPlayerId": "0EOlhNgF",
+            "name": "Vientiess",
+            "listName": "Vientiess O.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "vientiess-oskars"
+          },
+          {
+            "livesportPlayerId": "OQUo5V79",
+            "name": "Večerka",
+            "listName": "Večerka D.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "vecerka-dalibor"
+          },
+          {
+            "livesportPlayerId": "6y6Z6wP1",
+            "name": "Riznič",
+            "listName": "Riznič M.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "riznic-matej"
+          },
+          {
+            "livesportPlayerId": "I1THGnR5",
+            "name": "Fortelný",
+            "listName": "Fortelný J.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "fortelny-jan"
+          },
+          {
+            "livesportPlayerId": "pzBlbY6Q",
+            "name": "Mareček",
+            "listName": "Mareček L.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "marecek-lukas"
+          },
+          {
+            "livesportPlayerId": "Q5ekF7if",
+            "name": "Radosta",
+            "listName": "Radosta M.",
+            "number": "35",
+            "position": null,
+            "profileSlug": "radosta-matej"
+          },
+          {
+            "livesportPlayerId": "Eotm88qk",
+            "name": "Čermák",
+            "listName": "Čermák M.",
+            "number": "57",
+            "position": null,
+            "profileSlug": "cermak-marcel"
+          },
+          {
+            "livesportPlayerId": "23PLKN2n",
+            "name": "Auta",
+            "listName": "Auta J.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "auta-john"
+          },
+          {
+            "livesportPlayerId": "ng9Xt04A",
+            "name": "Pulkrab",
+            "listName": "Pulkrab M.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "pulkrab-matej"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "IXrYCTTL",
+            "name": "Audinis N.",
+            "listName": "Audinis N.",
+            "number": null,
+            "position": null,
+            "profileSlug": "audinis-nojus",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "r5quXUAg",
+            "name": "Danihel D.",
+            "listName": "Danihel D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "danihel-daniel",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "YmqJMH8d",
+            "name": "Svatek P.",
+            "listName": "Svatek P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "svatek-pavel",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "CtBthVqR",
+            "name": "Beránek M.",
+            "listName": "Beránek M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "beranek-marek",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "GnIGmR1P",
+            "name": "Jukl R.",
+            "listName": "Jukl R.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jukl-robert",
+            "reason": "Není k dispozici"
+          }
+        ]
+      }
+    },
+    {
+      "officialMatchId": "8339",
+      "round": 2,
+      "date": "2026-08-01",
+      "time": "17:00",
+      "home": "Baník Ostrava",
+      "away": "Slavia Prague",
+      "livesportMatchId": "xbbQd4AO",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/banik-ostrava-lI6ddlih/slavia-praha-viXGgnyB/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "Q1wSa2Rk",
+            "name": "Jedlička",
+            "listName": "Jedlička M.",
+            "number": "23",
+            "position": "GK",
+            "profileSlug": "jedlicka-martin"
+          },
+          {
+            "livesportPlayerId": "tOV6amnR",
+            "name": "Skyba",
+            "listName": "Skyba Y.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "skyba-yevgeniy"
+          },
+          {
+            "livesportPlayerId": "YPmW4CUE",
+            "name": "Chaluš",
+            "listName": "Chaluš M.",
+            "number": "37",
+            "position": null,
+            "profileSlug": "chalus-matej"
+          },
+          {
+            "livesportPlayerId": "hjPBEUFb",
+            "name": "Míček",
+            "listName": "Míček J.",
+            "number": "42",
+            "position": null,
+            "profileSlug": "micek-jiri"
+          },
+          {
+            "livesportPlayerId": "hnBCvCBG",
+            "name": "Bewene",
+            "listName": "Bewene A.",
+            "number": "34",
+            "position": null,
+            "profileSlug": "bewene-abdullahi-ibrahim"
+          },
+          {
+            "livesportPlayerId": "AVeppu0p",
+            "name": "Musák",
+            "listName": "Musák A.",
+            "number": "55",
+            "position": null,
+            "profileSlug": "musak-artur"
+          },
+          {
+            "livesportPlayerId": "rVGUB5us",
+            "name": "Nogha",
+            "listName": "Nogha R.",
+            "number": "83",
+            "position": null,
+            "profileSlug": "nogha-raymond"
+          },
+          {
+            "livesportPlayerId": "fZmPKBKI",
+            "name": "Planka",
+            "listName": "Planka D.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "planka-david"
+          },
+          {
+            "livesportPlayerId": "jgC1EPWq",
+            "name": "Sinyavskiy",
+            "listName": "Sinyavskiy V.",
+            "number": "99",
+            "position": null,
+            "profileSlug": "sinyavskiy-vlasiy"
+          },
+          {
+            "livesportPlayerId": "0AD529OA",
+            "name": "Gning",
+            "listName": "Gning A.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "gningue-abdallah"
+          },
+          {
+            "livesportPlayerId": "lIoVF69L",
+            "name": "Jurečka",
+            "listName": "Jurečka V.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "jurecka-vaclav"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "Q1wSa2Rk",
+            "name": "Jedlička",
+            "listName": "Jedlička M.",
+            "number": "23",
+            "position": "GK",
+            "profileSlug": "jedlicka-martin"
+          },
+          {
+            "livesportPlayerId": "tOV6amnR",
+            "name": "Skyba",
+            "listName": "Skyba Y.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "skyba-yevgeniy"
+          },
+          {
+            "livesportPlayerId": "YPmW4CUE",
+            "name": "Chaluš",
+            "listName": "Chaluš M.",
+            "number": "37",
+            "position": null,
+            "profileSlug": "chalus-matej"
+          },
+          {
+            "livesportPlayerId": "hjPBEUFb",
+            "name": "Míček",
+            "listName": "Míček J.",
+            "number": "42",
+            "position": null,
+            "profileSlug": "micek-jiri"
+          },
+          {
+            "livesportPlayerId": "hnBCvCBG",
+            "name": "Bewene",
+            "listName": "Bewene A.",
+            "number": "34",
+            "position": null,
+            "profileSlug": "bewene-abdullahi-ibrahim"
+          },
+          {
+            "livesportPlayerId": "AVeppu0p",
+            "name": "Musák",
+            "listName": "Musák A.",
+            "number": "55",
+            "position": null,
+            "profileSlug": "musak-artur"
+          },
+          {
+            "livesportPlayerId": "rVGUB5us",
+            "name": "Nogha",
+            "listName": "Nogha R.",
+            "number": "83",
+            "position": null,
+            "profileSlug": "nogha-raymond"
+          },
+          {
+            "livesportPlayerId": "fZmPKBKI",
+            "name": "Planka",
+            "listName": "Planka D.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "planka-david"
+          },
+          {
+            "livesportPlayerId": "jgC1EPWq",
+            "name": "Sinyavskiy",
+            "listName": "Sinyavskiy V.",
+            "number": "99",
+            "position": null,
+            "profileSlug": "sinyavskiy-vlasiy"
+          },
+          {
+            "livesportPlayerId": "0AD529OA",
+            "name": "Gning",
+            "listName": "Gning A.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "gningue-abdallah"
+          },
+          {
+            "livesportPlayerId": "lIoVF69L",
+            "name": "Jurečka",
+            "listName": "Jurečka V.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "jurecka-vaclav"
+          }
+        ],
+        "missing": [],
+        "uncertain": [
+          {
+            "livesportPlayerId": "SGpWPG65",
+            "name": "Boula J.",
+            "listName": "Boula J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "boula-jiri",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "2XEqTT51",
+            "name": "Grygar S.",
+            "listName": "Grygar S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "grygar-samuel",
+            "reason": "Poranění kotníku"
+          },
+          {
+            "livesportPlayerId": "ULn22AHM",
+            "name": "Kohút M.",
+            "listName": "Kohút M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kohut-michal",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "IsrGPFwg",
+            "name": "Látal D.",
+            "listName": "Látal D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "latal-david",
+            "reason": "Poranění kolena"
+          }
+        ]
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "O8gQFEIi",
+            "name": "Markovič",
+            "listName": "Markovič J.",
+            "number": "35",
+            "position": "GK",
+            "profileSlug": "markovic-jakub"
+          },
+          {
+            "livesportPlayerId": "GU2BC13A",
+            "name": "Holeš",
+            "listName": "Holeš T.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "holes-tomas"
+          },
+          {
+            "livesportPlayerId": "lU0M9sZL",
+            "name": "N'Guessan",
+            "listName": "N'Guessan A.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "n-guessan-ange-caumenan"
+          },
+          {
+            "livesportPlayerId": "W4rJpOaK",
+            "name": "Chaloupek",
+            "listName": "Chaloupek Š.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "chaloupek-stepan"
+          },
+          {
+            "livesportPlayerId": "jJMMI7lp",
+            "name": "Piták",
+            "listName": "Piták E.",
+            "number": "43",
+            "position": null,
+            "profileSlug": "pitak-elias"
+          },
+          {
+            "livesportPlayerId": "zJiFbA7r",
+            "name": "Sadílek",
+            "listName": "Sadílek M.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "sadilek-michal"
+          },
+          {
+            "livesportPlayerId": "2VeRfUpi",
+            "name": "Nowak",
+            "listName": "Nowak W.",
+            "number": "30",
+            "position": null,
+            "profileSlug": "nowak-wiktor"
+          },
+          {
+            "livesportPlayerId": "bk9GfZKI",
+            "name": "Labík",
+            "listName": "Labík A.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "labik-albert"
+          },
+          {
+            "livesportPlayerId": "IBoly1YC",
+            "name": "Ouanda",
+            "listName": "Ouanda A.",
+            "number": "31",
+            "position": null,
+            "profileSlug": "ouanda-adonija"
+          },
+          {
+            "livesportPlayerId": "dhSLF6tC",
+            "name": "Chytil",
+            "listName": "Chytil M.",
+            "number": "13",
+            "position": null,
+            "profileSlug": "chytil-mojmir"
+          },
+          {
+            "livesportPlayerId": "WS55wx0h",
+            "name": "Šturm",
+            "listName": "Šturm D.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "sturm-danijel"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "O8gQFEIi",
+            "name": "Markovič",
+            "listName": "Markovič J.",
+            "number": "35",
+            "position": "GK",
+            "profileSlug": "markovic-jakub"
+          },
+          {
+            "livesportPlayerId": "GU2BC13A",
+            "name": "Holeš",
+            "listName": "Holeš T.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "holes-tomas"
+          },
+          {
+            "livesportPlayerId": "lU0M9sZL",
+            "name": "N'Guessan",
+            "listName": "N'Guessan A.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "n-guessan-ange-caumenan"
+          },
+          {
+            "livesportPlayerId": "W4rJpOaK",
+            "name": "Chaloupek",
+            "listName": "Chaloupek Š.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "chaloupek-stepan"
+          },
+          {
+            "livesportPlayerId": "jJMMI7lp",
+            "name": "Piták",
+            "listName": "Piták E.",
+            "number": "43",
+            "position": null,
+            "profileSlug": "pitak-elias"
+          },
+          {
+            "livesportPlayerId": "zJiFbA7r",
+            "name": "Sadílek",
+            "listName": "Sadílek M.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "sadilek-michal"
+          },
+          {
+            "livesportPlayerId": "2VeRfUpi",
+            "name": "Nowak",
+            "listName": "Nowak W.",
+            "number": "30",
+            "position": null,
+            "profileSlug": "nowak-wiktor"
+          },
+          {
+            "livesportPlayerId": "bk9GfZKI",
+            "name": "Labík",
+            "listName": "Labík A.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "labik-albert"
+          },
+          {
+            "livesportPlayerId": "IBoly1YC",
+            "name": "Ouanda",
+            "listName": "Ouanda A.",
+            "number": "31",
+            "position": null,
+            "profileSlug": "ouanda-adonija"
+          },
+          {
+            "livesportPlayerId": "dhSLF6tC",
+            "name": "Chytil",
+            "listName": "Chytil M.",
+            "number": "13",
+            "position": null,
+            "profileSlug": "chytil-mojmir"
+          },
+          {
+            "livesportPlayerId": "WS55wx0h",
+            "name": "Šturm",
+            "listName": "Šturm D.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "sturm-danijel"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "EgGI8vM6",
+            "name": "Chorý T.",
+            "listName": "Chorý T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "chory-tomas",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "AF2Br9IA",
+            "name": "Jurásek D.",
+            "listName": "Jurásek D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jurasek-david",
+            "reason": "Poranění stehna"
+          },
+          {
+            "livesportPlayerId": "6k1TE4WB",
+            "name": "Konečný M.",
+            "listName": "Konečný M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "konecny-mikulas",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "dSZBOc9N",
+            "name": "Kubiak O.",
+            "listName": "Kubiak O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ubiak-oskar",
+            "reason": "Svalové zranění"
+          },
+          {
+            "livesportPlayerId": "tCDJqaVP",
+            "name": "Mbodji Y.",
+            "listName": "Mbodji Y.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mbodji-youssoupha",
+            "reason": "Mimo soupisku"
+          },
+          {
+            "livesportPlayerId": "vkbT7lsC",
+            "name": "Moses D.",
+            "listName": "Moses D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "moses-david",
+            "reason": "Trest"
+          },
+          {
+            "livesportPlayerId": "QkyQ3g8t",
+            "name": "Ogbu I.",
+            "listName": "Ogbu I.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogbu-igoh",
+            "reason": "Zranění achill. šlachy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "pr09Lnhk",
+            "name": "Douděra D.",
+            "listName": "Douděra D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "doudera-david",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "vFaA2SCd",
+            "name": "Halinský D.",
+            "listName": "Halinský D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "halinsky-denis",
+            "reason": "Není k dispozici"
+          }
+        ]
+      }
+    },
+    {
+      "officialMatchId": "8341",
+      "round": 2,
+      "date": "2026-08-01",
+      "time": "17:00",
+      "home": "Slovácko",
+      "away": "Artis Brno",
+      "livesportMatchId": "n36twqHM",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/artis-brno-zHLktbZ1/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "IoOcBsIi",
+            "name": "Urban",
+            "listName": "Urban A.",
+            "number": "33",
+            "position": "GK",
+            "profileSlug": "urban-alexandr"
+          },
+          {
+            "livesportPlayerId": "Gb1sR4Da",
+            "name": "Král",
+            "listName": "Král T.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kral-tomas"
+          },
+          {
+            "livesportPlayerId": "d4bcbXg0",
+            "name": "Stojcevski",
+            "listName": "Stojcevski A.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "stojchevski-andrej"
+          },
+          {
+            "livesportPlayerId": "z3NIl4Nq",
+            "name": "Štěpánek",
+            "listName": "Štěpánek D.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "stepanek-david"
+          },
+          {
+            "livesportPlayerId": "23zt94fH",
+            "name": "Ndefe",
+            "listName": "Ndefe G.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "ndefe-gigli"
+          },
+          {
+            "livesportPlayerId": "A9ouE1BB",
+            "name": "Kostadinov",
+            "listName": "Kostadinov T.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "kostadinov-tihomir"
+          },
+          {
+            "livesportPlayerId": "Wd88alXH",
+            "name": "Trávník",
+            "listName": "Trávník M.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "travnik-michal"
+          },
+          {
+            "livesportPlayerId": "p2YG94Bt",
+            "name": "Blahút",
+            "listName": "Blahút P.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "blahut-patrik"
+          },
+          {
+            "livesportPlayerId": "OCogLW4t",
+            "name": "Dolžnikov",
+            "listName": "Dolžnikov A.",
+            "number": "27",
+            "position": null,
+            "profileSlug": "dolznikov-artur"
+          },
+          {
+            "livesportPlayerId": "EF7mXnTD",
+            "name": "Havlík",
+            "listName": "Havlík M.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "havlik-marek"
+          },
+          {
+            "livesportPlayerId": "C8lQRr7M",
+            "name": "Puškáč",
+            "listName": "Puškáč D.",
+            "number": "5",
+            "position": null,
+            "profileSlug": "puskac-david"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "IoOcBsIi",
+            "name": "Urban",
+            "listName": "Urban A.",
+            "number": "33",
+            "position": "GK",
+            "profileSlug": "urban-alexandr"
+          },
+          {
+            "livesportPlayerId": "Gb1sR4Da",
+            "name": "Král",
+            "listName": "Král T.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kral-tomas"
+          },
+          {
+            "livesportPlayerId": "d4bcbXg0",
+            "name": "Stojcevski",
+            "listName": "Stojcevski A.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "stojchevski-andrej"
+          },
+          {
+            "livesportPlayerId": "z3NIl4Nq",
+            "name": "Štěpánek",
+            "listName": "Štěpánek D.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "stepanek-david"
+          },
+          {
+            "livesportPlayerId": "23zt94fH",
+            "name": "Ndefe",
+            "listName": "Ndefe G.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "ndefe-gigli"
+          },
+          {
+            "livesportPlayerId": "A9ouE1BB",
+            "name": "Kostadinov",
+            "listName": "Kostadinov T.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "kostadinov-tihomir"
+          },
+          {
+            "livesportPlayerId": "Wd88alXH",
+            "name": "Trávník",
+            "listName": "Trávník M.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "travnik-michal"
+          },
+          {
+            "livesportPlayerId": "p2YG94Bt",
+            "name": "Blahút",
+            "listName": "Blahút P.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "blahut-patrik"
+          },
+          {
+            "livesportPlayerId": "OCogLW4t",
+            "name": "Dolžnikov",
+            "listName": "Dolžnikov A.",
+            "number": "27",
+            "position": null,
+            "profileSlug": "dolznikov-artur"
+          },
+          {
+            "livesportPlayerId": "EF7mXnTD",
+            "name": "Havlík",
+            "listName": "Havlík M.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "havlik-marek"
+          },
+          {
+            "livesportPlayerId": "C8lQRr7M",
+            "name": "Puškáč",
+            "listName": "Puškáč D.",
+            "number": "5",
+            "position": null,
+            "profileSlug": "puskac-david"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "0nlG422t",
+            "name": "Juroška P.",
+            "listName": "Juroška P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "juroska-pavel",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "6c8kvXdc",
+            "name": "Rundič M.",
+            "listName": "Rundič M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "rundic-milan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "S2uZ1X20",
+            "name": "Tetour D.",
+            "listName": "Tetour D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "tetour-daniel",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "Khf3B44q",
+            "name": "Vorlický L.",
+            "listName": "Vorlický L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "vorlicky-lukas",
+            "reason": "Zranění"
+          }
+        ]
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "4Cm6uDQ0",
+            "name": "Stoppen",
+            "listName": "Stoppen T.",
+            "number": "71",
+            "position": "GK",
+            "profileSlug": "stoppen-tadeas"
+          },
+          {
+            "livesportPlayerId": "C03f1AqN",
+            "name": "Glossoa",
+            "listName": "Glossoa N.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "glossoa-neil"
+          },
+          {
+            "livesportPlayerId": "bknMFQjj",
+            "name": "Šimek",
+            "listName": "Šimek D.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "simek-david"
+          },
+          {
+            "livesportPlayerId": "phuyPzMB",
+            "name": "Plechatý",
+            "listName": "Plechatý D.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "plechaty-dominik"
+          },
+          {
+            "livesportPlayerId": "xjJ7uHve",
+            "name": "Fully",
+            "listName": "Fully E.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "fully-emmanuel"
+          },
+          {
+            "livesportPlayerId": "tvJvXHbd",
+            "name": "Carlen",
+            "listName": "Carlen A.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "carlen-adam"
+          },
+          {
+            "livesportPlayerId": "MgwXisAU",
+            "name": "Pospíšil",
+            "listName": "Pospíšil M.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "pospisil-martin"
+          },
+          {
+            "livesportPlayerId": "GdFl9cD7",
+            "name": "Alegue",
+            "listName": "Alegue A.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "alegue-alexis"
+          },
+          {
+            "livesportPlayerId": "ANkwk3iH",
+            "name": "Adediran",
+            "listName": "Adediran Q.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "adediran-quadri-adebayo"
+          },
+          {
+            "livesportPlayerId": "jVYzcZmn",
+            "name": "Papalelé",
+            "listName": "Papalelé",
+            "number": "17",
+            "position": null,
+            "profileSlug": "papalele"
+          },
+          {
+            "livesportPlayerId": "GELIG2GO",
+            "name": "Ndiaye",
+            "listName": "Ndiaye E. H.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "ndiaye-el-hadji-latyr"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "4Cm6uDQ0",
+            "name": "Stoppen",
+            "listName": "Stoppen T.",
+            "number": "71",
+            "position": "GK",
+            "profileSlug": "stoppen-tadeas"
+          },
+          {
+            "livesportPlayerId": "C03f1AqN",
+            "name": "Glossoa",
+            "listName": "Glossoa N.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "glossoa-neil"
+          },
+          {
+            "livesportPlayerId": "bknMFQjj",
+            "name": "Šimek",
+            "listName": "Šimek D.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "simek-david"
+          },
+          {
+            "livesportPlayerId": "phuyPzMB",
+            "name": "Plechatý",
+            "listName": "Plechatý D.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "plechaty-dominik"
+          },
+          {
+            "livesportPlayerId": "xjJ7uHve",
+            "name": "Fully",
+            "listName": "Fully E.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "fully-emmanuel"
+          },
+          {
+            "livesportPlayerId": "tvJvXHbd",
+            "name": "Carlen",
+            "listName": "Carlen A.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "carlen-adam"
+          },
+          {
+            "livesportPlayerId": "MgwXisAU",
+            "name": "Pospíšil",
+            "listName": "Pospíšil M.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "pospisil-martin"
+          },
+          {
+            "livesportPlayerId": "GdFl9cD7",
+            "name": "Alegue",
+            "listName": "Alegue A.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "alegue-alexis"
+          },
+          {
+            "livesportPlayerId": "ANkwk3iH",
+            "name": "Adediran",
+            "listName": "Adediran Q.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "adediran-quadri-adebayo"
+          },
+          {
+            "livesportPlayerId": "jVYzcZmn",
+            "name": "Papalelé",
+            "listName": "Papalelé",
+            "number": "17",
+            "position": null,
+            "profileSlug": "papalele"
+          },
+          {
+            "livesportPlayerId": "GELIG2GO",
+            "name": "Ndiaye",
+            "listName": "Ndiaye E. H.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "ndiaye-el-hadji-latyr"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "lpCAixec",
+            "name": "Beauguel J.",
+            "listName": "Beauguel J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "beauguel-jean-david",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "dGcCYEw7",
+            "name": "Čoudek O.",
+            "listName": "Čoudek O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "coudek-ondrej",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "pjqM6KHu",
+            "name": "Navrátil J.",
+            "listName": "Navrátil J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "navratil-jan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "ry30M7gM",
+            "name": "Preisler D.",
+            "listName": "Preisler D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "preisler-dominik",
+            "reason": "Červená karta"
+          }
+        ],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8335",
+      "round": 2,
+      "date": "2026-08-01",
+      "time": "20:00",
+      "home": "Viktoria Plzeň",
+      "away": "Zbrojovka Brno",
+      "livesportMatchId": "ClhRb9oA",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/zbrojovka-brno-4d5TT6i5/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "4S959aaD",
+            "name": "Wiegele",
+            "listName": "Wiegele F.",
+            "number": "44",
+            "position": "GK",
+            "profileSlug": "wiegele-florian"
+          },
+          {
+            "livesportPlayerId": "O85x3xJ8",
+            "name": "Memič",
+            "listName": "Memič A.",
+            "number": "99",
+            "position": null,
+            "profileSlug": "memic-amar"
+          },
+          {
+            "livesportPlayerId": "OIOKsnyg",
+            "name": "Krčík",
+            "listName": "Krčík D.",
+            "number": "37",
+            "position": null,
+            "profileSlug": "krcik-david"
+          },
+          {
+            "livesportPlayerId": "AP8bcoJS",
+            "name": "Dweh",
+            "listName": "Dweh S.",
+            "number": "40",
+            "position": null,
+            "profileSlug": "dweh-sampson"
+          },
+          {
+            "livesportPlayerId": "GxzhtVCs",
+            "name": "Doski",
+            "listName": "Doski M.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "doski-merchas"
+          },
+          {
+            "livesportPlayerId": "EofXzaaM",
+            "name": "Hrošovský",
+            "listName": "Hrošovský P.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "hrosovsky-patrik"
+          },
+          {
+            "livesportPlayerId": "IiOYBdC3",
+            "name": "Červ",
+            "listName": "Červ L.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "cerv-lukas"
+          },
+          {
+            "livesportPlayerId": "tp6VY6vA",
+            "name": "Sojka",
+            "listName": "Sojka A.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "sojka-alexandr"
+          },
+          {
+            "livesportPlayerId": "Mcjm4kMm",
+            "name": "Višinský",
+            "listName": "Višinský D.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "visinsky-denis"
+          },
+          {
+            "livesportPlayerId": "6VbrtIXS",
+            "name": "Souaré",
+            "listName": "Souaré C.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "souare-cheick-oumar"
+          },
+          {
+            "livesportPlayerId": "8Ewuow5i",
+            "name": "Vydra",
+            "listName": "Vydra M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "vydra-matej"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "4S959aaD",
+            "name": "Wiegele",
+            "listName": "Wiegele F.",
+            "number": "44",
+            "position": "GK",
+            "profileSlug": "wiegele-florian"
+          },
+          {
+            "livesportPlayerId": "O85x3xJ8",
+            "name": "Memič",
+            "listName": "Memič A.",
+            "number": "99",
+            "position": null,
+            "profileSlug": "memic-amar"
+          },
+          {
+            "livesportPlayerId": "OIOKsnyg",
+            "name": "Krčík",
+            "listName": "Krčík D.",
+            "number": "37",
+            "position": null,
+            "profileSlug": "krcik-david"
+          },
+          {
+            "livesportPlayerId": "AP8bcoJS",
+            "name": "Dweh",
+            "listName": "Dweh S.",
+            "number": "40",
+            "position": null,
+            "profileSlug": "dweh-sampson"
+          },
+          {
+            "livesportPlayerId": "GxzhtVCs",
+            "name": "Doski",
+            "listName": "Doski M.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "doski-merchas"
+          },
+          {
+            "livesportPlayerId": "EofXzaaM",
+            "name": "Hrošovský",
+            "listName": "Hrošovský P.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "hrosovsky-patrik"
+          },
+          {
+            "livesportPlayerId": "IiOYBdC3",
+            "name": "Červ",
+            "listName": "Červ L.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "cerv-lukas"
+          },
+          {
+            "livesportPlayerId": "tp6VY6vA",
+            "name": "Sojka",
+            "listName": "Sojka A.",
+            "number": "12",
+            "position": null,
+            "profileSlug": "sojka-alexandr"
+          },
+          {
+            "livesportPlayerId": "Mcjm4kMm",
+            "name": "Višinský",
+            "listName": "Višinský D.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "visinsky-denis"
+          },
+          {
+            "livesportPlayerId": "6VbrtIXS",
+            "name": "Souaré",
+            "listName": "Souaré C.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "souare-cheick-oumar"
+          },
+          {
+            "livesportPlayerId": "8Ewuow5i",
+            "name": "Vydra",
+            "listName": "Vydra M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "vydra-matej"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "dldY3lBa",
+            "name": "Jemelka V.",
+            "listName": "Jemelka V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jemelka-vaclav",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "MLkHMXk6",
+            "name": "Paluska J.",
+            "listName": "Paluska J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "paluska-jan",
+            "reason": "Operační zákrok"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "2cPPSTMd",
+            "name": "Valenta M.",
+            "listName": "Valenta M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "valenta-matej",
+            "reason": "Jednání o přestupu"
+          }
+        ]
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "bTsofiwb",
+            "name": "Hrdina",
+            "listName": "Hrdina A.",
+            "number": "1",
+            "position": "GK",
+            "profileSlug": "hrdina-adam"
+          },
+          {
+            "livesportPlayerId": "YaCByFyA",
+            "name": "Klíma",
+            "listName": "Klíma J.",
+            "number": "39",
+            "position": null,
+            "profileSlug": "klima-jakub"
+          },
+          {
+            "livesportPlayerId": "bJHXVubI",
+            "name": "Vedral",
+            "listName": "Vedral F.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "vedral-filip"
+          },
+          {
+            "livesportPlayerId": "Ye5kQX55",
+            "name": "Kaká",
+            "listName": "Kaká",
+            "number": "3",
+            "position": null,
+            "profileSlug": "kaka"
+          },
+          {
+            "livesportPlayerId": "42DX3rqU",
+            "name": "Dante",
+            "listName": "Dante A.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "dante-amadou"
+          },
+          {
+            "livesportPlayerId": "0MPFLV6f",
+            "name": "Penxa",
+            "listName": "Penxa L.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "penxa-lukas"
+          },
+          {
+            "livesportPlayerId": "6ifYz7AS",
+            "name": "Saal",
+            "listName": "Saal L.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "saal-lukas"
+          },
+          {
+            "livesportPlayerId": "z5IckbPH",
+            "name": "Čavoš",
+            "listName": "Čavoš P.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "cavos-patrik"
+          },
+          {
+            "livesportPlayerId": "M9e4XYMa",
+            "name": "Vachoušek",
+            "listName": "Vachoušek T.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "vachousek-tadeas"
+          },
+          {
+            "livesportPlayerId": "YiQqvWIA",
+            "name": "Vašulín",
+            "listName": "Vašulín D.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "vasulin-daniel"
+          },
+          {
+            "livesportPlayerId": "tjKCWv1A",
+            "name": "Ezeh",
+            "listName": "Ezeh L.",
+            "number": "77",
+            "position": null,
+            "profileSlug": "ezeh-lucky"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "bTsofiwb",
+            "name": "Hrdina",
+            "listName": "Hrdina A.",
+            "number": "1",
+            "position": "GK",
+            "profileSlug": "hrdina-adam"
+          },
+          {
+            "livesportPlayerId": "YaCByFyA",
+            "name": "Klíma",
+            "listName": "Klíma J.",
+            "number": "39",
+            "position": null,
+            "profileSlug": "klima-jakub"
+          },
+          {
+            "livesportPlayerId": "bJHXVubI",
+            "name": "Vedral",
+            "listName": "Vedral F.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "vedral-filip"
+          },
+          {
+            "livesportPlayerId": "Ye5kQX55",
+            "name": "Kaká",
+            "listName": "Kaká",
+            "number": "3",
+            "position": null,
+            "profileSlug": "kaka"
+          },
+          {
+            "livesportPlayerId": "42DX3rqU",
+            "name": "Dante",
+            "listName": "Dante A.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "dante-amadou"
+          },
+          {
+            "livesportPlayerId": "0MPFLV6f",
+            "name": "Penxa",
+            "listName": "Penxa L.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "penxa-lukas"
+          },
+          {
+            "livesportPlayerId": "6ifYz7AS",
+            "name": "Saal",
+            "listName": "Saal L.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "saal-lukas"
+          },
+          {
+            "livesportPlayerId": "z5IckbPH",
+            "name": "Čavoš",
+            "listName": "Čavoš P.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "cavos-patrik"
+          },
+          {
+            "livesportPlayerId": "M9e4XYMa",
+            "name": "Vachoušek",
+            "listName": "Vachoušek T.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "vachousek-tadeas"
+          },
+          {
+            "livesportPlayerId": "YiQqvWIA",
+            "name": "Vašulín",
+            "listName": "Vašulín D.",
+            "number": "15",
+            "position": null,
+            "profileSlug": "vasulin-daniel"
+          },
+          {
+            "livesportPlayerId": "tjKCWv1A",
+            "name": "Ezeh",
+            "listName": "Ezeh L.",
+            "number": "77",
+            "position": null,
+            "profileSlug": "ezeh-lucky"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "6RI7Fo2a",
+            "name": "Andrew C.",
+            "listName": "Andrew C.",
+            "number": null,
+            "position": null,
+            "profileSlug": "andrew-colin",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "lQTs6K4T",
+            "name": "Juroška J.",
+            "listName": "Juroška J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "juroska-jan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "l0E2pVmb",
+            "name": "Langer Š.",
+            "listName": "Langer Š.",
+            "number": null,
+            "position": null,
+            "profileSlug": "langer-stepan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "CAbTLbhE",
+            "name": "Večeřa F.",
+            "listName": "Večeřa F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "vecera-filip",
+            "reason": "Poranění kotníku"
+          }
+        ],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8342",
+      "round": 2,
+      "date": "2026-08-02",
+      "time": "15:00",
+      "home": "Sigma Olomouc",
+      "away": "Mladá Boleslav",
+      "livesportMatchId": "08ccB3PH",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/mlada-boleslav-0f7GpAMu/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "AsxyI2H9",
+            "name": "Koutný",
+            "listName": "Koutný J.",
+            "number": "91",
+            "position": "GK",
+            "profileSlug": "koutny-jan"
+          },
+          {
+            "livesportPlayerId": "Q5fsEDd8",
+            "name": "Sylla",
+            "listName": "Sylla A.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "sylla-abdoulaye"
+          },
+          {
+            "livesportPlayerId": "ELMMPj4J",
+            "name": "Král",
+            "listName": "Král J.",
+            "number": "21",
+            "position": null,
+            "profileSlug": "kral-jan"
+          },
+          {
+            "livesportPlayerId": "YNGdqw08",
+            "name": "Lurvink",
+            "listName": "Lurvink L.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "lurvink-louis"
+          },
+          {
+            "livesportPlayerId": "fweggBbN",
+            "name": "Spáčil",
+            "listName": "Spáčil J.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "spacil-jiri"
+          },
+          {
+            "livesportPlayerId": "rcUDEgho",
+            "name": "Baráth",
+            "listName": "Baráth P.",
+            "number": "88",
+            "position": null,
+            "profileSlug": "barath-peter"
+          },
+          {
+            "livesportPlayerId": "ET28Z8Fd",
+            "name": "Beran",
+            "listName": "Beran M.",
+            "number": "47",
+            "position": null,
+            "profileSlug": "beran-michal"
+          },
+          {
+            "livesportPlayerId": "vwyxkgGq",
+            "name": "Ghali",
+            "listName": "Ghali A.",
+            "number": "70",
+            "position": null,
+            "profileSlug": "ghali-abubakar"
+          },
+          {
+            "livesportPlayerId": "QBmz9gC9",
+            "name": "Krivak",
+            "listName": "Krivak F.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "krivak-fabijan"
+          },
+          {
+            "livesportPlayerId": "x26ZWCZ6",
+            "name": "Sejk",
+            "listName": "Sejk V.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "sejk-vaclav"
+          },
+          {
+            "livesportPlayerId": "86xhtkkq",
+            "name": "Šíp",
+            "listName": "Šíp J.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "sip-jachym"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "AsxyI2H9",
+            "name": "Koutný",
+            "listName": "Koutný J.",
+            "number": "91",
+            "position": "GK",
+            "profileSlug": "koutny-jan"
+          },
+          {
+            "livesportPlayerId": "Q5fsEDd8",
+            "name": "Sylla",
+            "listName": "Sylla A.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "sylla-abdoulaye"
+          },
+          {
+            "livesportPlayerId": "ELMMPj4J",
+            "name": "Král",
+            "listName": "Král J.",
+            "number": "21",
+            "position": null,
+            "profileSlug": "kral-jan"
+          },
+          {
+            "livesportPlayerId": "YNGdqw08",
+            "name": "Lurvink",
+            "listName": "Lurvink L.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "lurvink-louis"
+          },
+          {
+            "livesportPlayerId": "fweggBbN",
+            "name": "Spáčil",
+            "listName": "Spáčil J.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "spacil-jiri"
+          },
+          {
+            "livesportPlayerId": "rcUDEgho",
+            "name": "Baráth",
+            "listName": "Baráth P.",
+            "number": "88",
+            "position": null,
+            "profileSlug": "barath-peter"
+          },
+          {
+            "livesportPlayerId": "ET28Z8Fd",
+            "name": "Beran",
+            "listName": "Beran M.",
+            "number": "47",
+            "position": null,
+            "profileSlug": "beran-michal"
+          },
+          {
+            "livesportPlayerId": "vwyxkgGq",
+            "name": "Ghali",
+            "listName": "Ghali A.",
+            "number": "70",
+            "position": null,
+            "profileSlug": "ghali-abubakar"
+          },
+          {
+            "livesportPlayerId": "QBmz9gC9",
+            "name": "Krivak",
+            "listName": "Krivak F.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "krivak-fabijan"
+          },
+          {
+            "livesportPlayerId": "x26ZWCZ6",
+            "name": "Sejk",
+            "listName": "Sejk V.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "sejk-vaclav"
+          },
+          {
+            "livesportPlayerId": "86xhtkkq",
+            "name": "Šíp",
+            "listName": "Šíp J.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "sip-jachym"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "SAkqYnSf",
+            "name": "Uriča F.",
+            "listName": "Uriča F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "urica-filip",
+            "reason": "Poranění kolena"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "CxFyNcHg",
+            "name": "Dembe J.",
+            "listName": "Dembe J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "dembe-john",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "vZ0r5V6s",
+            "name": "Hadaš M.",
+            "listName": "Hadaš M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "hadas-matej",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "8hRwt7Me",
+            "name": "Kliment J.",
+            "listName": "Kliment J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kliment-jan",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "M1xs6e26",
+            "name": "Slavíček F.",
+            "listName": "Slavíček F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "slavicek-filip",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "lIW9J0ca",
+            "name": "Yasser M.",
+            "listName": "Yasser M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "yasser-nour-mohamed",
+            "reason": "Zdravotní problémy"
+          }
+        ]
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "tdKRVL5O",
+            "name": "Floder",
+            "listName": "Floder J.",
+            "number": "59",
+            "position": "GK",
+            "profileSlug": "floder-jiri"
+          },
+          {
+            "livesportPlayerId": "OhSV9aka",
+            "name": "Matoušek",
+            "listName": "Matoušek F.",
+            "number": "32",
+            "position": null,
+            "profileSlug": "matousek-filip"
+          },
+          {
+            "livesportPlayerId": "xxMuA1lC",
+            "name": "Karafiát",
+            "listName": "Karafiát O.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "karafiat-ondrej"
+          },
+          {
+            "livesportPlayerId": "dGEdXUK6",
+            "name": "Králik",
+            "listName": "Králik M.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "kralik-martin"
+          },
+          {
+            "livesportPlayerId": "CGZtxz4S",
+            "name": "Hybš",
+            "listName": "Hybš M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "hybs-matej"
+          },
+          {
+            "livesportPlayerId": "Gbd2qxk0",
+            "name": "Kozel",
+            "listName": "Kozel D.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kozel-david"
+          },
+          {
+            "livesportPlayerId": "QHllTwTi",
+            "name": "Zika",
+            "listName": "Zíka J.",
+            "number": "76",
+            "position": null,
+            "profileSlug": "zika-jan"
+          },
+          {
+            "livesportPlayerId": "K8QBwEb6",
+            "name": "John",
+            "listName": "John S.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "solomon-john"
+          },
+          {
+            "livesportPlayerId": "I5H0YQJ5",
+            "name": "Langhamer",
+            "listName": "Langhamer D.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "langhamer-daniel"
+          },
+          {
+            "livesportPlayerId": "YstTA4q5",
+            "name": "Kolářík",
+            "listName": "Kolářík J.",
+            "number": "49",
+            "position": null,
+            "profileSlug": "kolarik-josef"
+          },
+          {
+            "livesportPlayerId": "QBW0x29C",
+            "name": "Klíma",
+            "listName": "Klíma J.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "klima-jiri"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "tdKRVL5O",
+            "name": "Floder",
+            "listName": "Floder J.",
+            "number": "59",
+            "position": "GK",
+            "profileSlug": "floder-jiri"
+          },
+          {
+            "livesportPlayerId": "OhSV9aka",
+            "name": "Matoušek",
+            "listName": "Matoušek F.",
+            "number": "32",
+            "position": null,
+            "profileSlug": "matousek-filip"
+          },
+          {
+            "livesportPlayerId": "xxMuA1lC",
+            "name": "Karafiát",
+            "listName": "Karafiát O.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "karafiat-ondrej"
+          },
+          {
+            "livesportPlayerId": "dGEdXUK6",
+            "name": "Králik",
+            "listName": "Králik M.",
+            "number": "3",
+            "position": null,
+            "profileSlug": "kralik-martin"
+          },
+          {
+            "livesportPlayerId": "CGZtxz4S",
+            "name": "Hybš",
+            "listName": "Hybš M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "hybs-matej"
+          },
+          {
+            "livesportPlayerId": "Gbd2qxk0",
+            "name": "Kozel",
+            "listName": "Kozel D.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kozel-david"
+          },
+          {
+            "livesportPlayerId": "QHllTwTi",
+            "name": "Zika",
+            "listName": "Zíka J.",
+            "number": "76",
+            "position": null,
+            "profileSlug": "zika-jan"
+          },
+          {
+            "livesportPlayerId": "K8QBwEb6",
+            "name": "John",
+            "listName": "John S.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "solomon-john"
+          },
+          {
+            "livesportPlayerId": "I5H0YQJ5",
+            "name": "Langhamer",
+            "listName": "Langhamer D.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "langhamer-daniel"
+          },
+          {
+            "livesportPlayerId": "YstTA4q5",
+            "name": "Kolářík",
+            "listName": "Kolářík J.",
+            "number": "49",
+            "position": null,
+            "profileSlug": "kolarik-josef"
+          },
+          {
+            "livesportPlayerId": "QBW0x29C",
+            "name": "Klíma",
+            "listName": "Klíma J.",
+            "number": "23",
+            "position": null,
+            "profileSlug": "klima-jiri"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "b76iEKRu",
+            "name": "Hora V.",
+            "listName": "Hora V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "hora-vojtech",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "bJ5XINtI",
+            "name": "Lehký F.",
+            "listName": "Lehký F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "lehky-filip",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "ppnlbF1r",
+            "name": "Mareš D.",
+            "listName": "Mareš D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mares-dominik",
+            "reason": "Poranění stehna"
+          },
+          {
+            "livesportPlayerId": "b9VAv9gA",
+            "name": "Ogungbayi B.",
+            "listName": "Ogungbayi B.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogungbayi-boluwatife",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "6wbyLLUG",
+            "name": "Pech Da.",
+            "listName": "Pech Da.",
+            "number": null,
+            "position": null,
+            "profileSlug": "pech-david",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "4p4Z2cBP",
+            "name": "Macek R.",
+            "listName": "Macek R.",
+            "number": null,
+            "position": null,
+            "profileSlug": "macek-roman",
+            "reason": "Jednání o přestupu"
+          }
+        ]
+      }
+    },
+    {
+      "officialMatchId": "8338",
+      "round": 2,
+      "date": "2026-08-02",
+      "time": "17:30",
+      "home": "Bohemians 1905",
+      "away": "Hradec Králové",
+      "livesportMatchId": "ryFbt1Vr",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/bohemians-1905-fuXqHnxa/hradec-kralove-vFXjbHms/",
+      "homeContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "CU5OUEPM",
+            "name": "Frühwald",
+            "listName": "Frühwald T.",
+            "number": "23",
+            "position": "GK",
+            "profileSlug": "fruhwald-tomas"
+          },
+          {
+            "livesportPlayerId": "l0Cy8gzp",
+            "name": "Havel",
+            "listName": "Havel M.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "havel-milan"
+          },
+          {
+            "livesportPlayerId": "hnbB72tn",
+            "name": "Heidenreich",
+            "listName": "Heidenreich D.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "heidenreich-david"
+          },
+          {
+            "livesportPlayerId": "QXTyNUIj",
+            "name": "Lischka",
+            "listName": "Lischka D.",
+            "number": "27",
+            "position": null,
+            "profileSlug": "lischka-david"
+          },
+          {
+            "livesportPlayerId": "jqzTIkIH",
+            "name": "Kovařík",
+            "listName": "Kovařík J.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kovarik-jan"
+          },
+          {
+            "livesportPlayerId": "Qk8WS2Jn",
+            "name": "Čermák",
+            "listName": "Čermák A.",
+            "number": "47",
+            "position": null,
+            "profileSlug": "cermak-ales"
+          },
+          {
+            "livesportPlayerId": "EwlYbdEo",
+            "name": "Sakala",
+            "listName": "Sakala B.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "sakala-benson"
+          },
+          {
+            "livesportPlayerId": "j9vo0mDT",
+            "name": "Smrž",
+            "listName": "Smrž V.",
+            "number": "42",
+            "position": null,
+            "profileSlug": "smrz-vojtech"
+          },
+          {
+            "livesportPlayerId": "G4aptRh3",
+            "name": "Matoušek",
+            "listName": "Matoušek J.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "matousek-jan"
+          },
+          {
+            "livesportPlayerId": "E35O7sAa",
+            "name": "Almási",
+            "listName": "Almási L.",
+            "number": "99",
+            "position": null,
+            "profileSlug": "almasi-ladislav"
+          },
+          {
+            "livesportPlayerId": "lCVTGyAS",
+            "name": "Pilař",
+            "listName": "Pilař V.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "pilar-vaclav"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "CU5OUEPM",
+            "name": "Frühwald",
+            "listName": "Frühwald T.",
+            "number": "23",
+            "position": "GK",
+            "profileSlug": "fruhwald-tomas"
+          },
+          {
+            "livesportPlayerId": "l0Cy8gzp",
+            "name": "Havel",
+            "listName": "Havel M.",
+            "number": "24",
+            "position": null,
+            "profileSlug": "havel-milan"
+          },
+          {
+            "livesportPlayerId": "hnbB72tn",
+            "name": "Heidenreich",
+            "listName": "Heidenreich D.",
+            "number": "8",
+            "position": null,
+            "profileSlug": "heidenreich-david"
+          },
+          {
+            "livesportPlayerId": "QXTyNUIj",
+            "name": "Lischka",
+            "listName": "Lischka D.",
+            "number": "27",
+            "position": null,
+            "profileSlug": "lischka-david"
+          },
+          {
+            "livesportPlayerId": "jqzTIkIH",
+            "name": "Kovařík",
+            "listName": "Kovařík J.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "kovarik-jan"
+          },
+          {
+            "livesportPlayerId": "Qk8WS2Jn",
+            "name": "Čermák",
+            "listName": "Čermák A.",
+            "number": "47",
+            "position": null,
+            "profileSlug": "cermak-ales"
+          },
+          {
+            "livesportPlayerId": "EwlYbdEo",
+            "name": "Sakala",
+            "listName": "Sakala B.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "sakala-benson"
+          },
+          {
+            "livesportPlayerId": "j9vo0mDT",
+            "name": "Smrž",
+            "listName": "Smrž V.",
+            "number": "42",
+            "position": null,
+            "profileSlug": "smrz-vojtech"
+          },
+          {
+            "livesportPlayerId": "G4aptRh3",
+            "name": "Matoušek",
+            "listName": "Matoušek J.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "matousek-jan"
+          },
+          {
+            "livesportPlayerId": "E35O7sAa",
+            "name": "Almási",
+            "listName": "Almási L.",
+            "number": "99",
+            "position": null,
+            "profileSlug": "almasi-ladislav"
+          },
+          {
+            "livesportPlayerId": "lCVTGyAS",
+            "name": "Pilař",
+            "listName": "Pilař V.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "pilar-vaclav"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "W40SODyI",
+            "name": "Kareem P.",
+            "listName": "Kareem P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kareem-peter",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "Ugjx29rH",
+            "name": "Pleštil D.",
+            "listName": "Pleštil D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "plestil-dominik",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "AyWIpa9s",
+            "name": "Javorček D.",
+            "listName": "Javorček D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "javorcek-dominik",
+            "reason": "Není k dispozici"
+          }
+        ]
+      },
+      "awayContext": {
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "IuM1qbTm",
+            "name": "Zadražil",
+            "listName": "Zadražil A.",
+            "number": "12",
+            "position": "GK",
+            "profileSlug": "zadrazil-adam"
+          },
+          {
+            "livesportPlayerId": "nVesEAqH",
+            "name": "Uhrinčať",
+            "listName": "Uhrinčať J.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "uhrincat-jakub"
+          },
+          {
+            "livesportPlayerId": "lWYpiT1K",
+            "name": "Čihák",
+            "listName": "Čihák F.",
+            "number": "5",
+            "position": null,
+            "profileSlug": "cihak-filip"
+          },
+          {
+            "livesportPlayerId": "jXIRfKBH",
+            "name": "Čech",
+            "listName": "Čech F.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "cech-frantisek"
+          },
+          {
+            "livesportPlayerId": "KCMexHL4",
+            "name": "Kučera",
+            "listName": "Kučera J.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "kucera-jakub"
+          },
+          {
+            "livesportPlayerId": "nkKnsgtI",
+            "name": "Darida",
+            "listName": "Darida V.",
+            "number": "16",
+            "position": null,
+            "profileSlug": "darida-vladimir"
+          },
+          {
+            "livesportPlayerId": "2o9CMupn",
+            "name": "Dancák",
+            "listName": "Dancák S.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "dancak-samuel"
+          },
+          {
+            "livesportPlayerId": "MmoRMWJI",
+            "name": "Horák",
+            "listName": "Horák D.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "horak-daniel"
+          },
+          {
+            "livesportPlayerId": "6HrDuX1f",
+            "name": "van Buren",
+            "listName": "van Buren M.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "van-buren-mick"
+          },
+          {
+            "livesportPlayerId": "h8AD5SRf",
+            "name": "Slončík",
+            "listName": "Slončík T.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "sloncik-tom"
+          },
+          {
+            "livesportPlayerId": "W0u9rmGG",
+            "name": "Mihálik",
+            "listName": "Mihálik O.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "mihalik-ondrej"
+          }
+        ],
+        "officialPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "IuM1qbTm",
+            "name": "Zadražil",
+            "listName": "Zadražil A.",
+            "number": "12",
+            "position": "GK",
+            "profileSlug": "zadrazil-adam"
+          },
+          {
+            "livesportPlayerId": "nVesEAqH",
+            "name": "Uhrinčať",
+            "listName": "Uhrinčať J.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "uhrincat-jakub"
+          },
+          {
+            "livesportPlayerId": "lWYpiT1K",
+            "name": "Čihák",
+            "listName": "Čihák F.",
+            "number": "5",
+            "position": null,
+            "profileSlug": "cihak-filip"
+          },
+          {
+            "livesportPlayerId": "jXIRfKBH",
+            "name": "Čech",
+            "listName": "Čech F.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "cech-frantisek"
+          },
+          {
+            "livesportPlayerId": "KCMexHL4",
+            "name": "Kučera",
+            "listName": "Kučera J.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "kucera-jakub"
+          },
+          {
+            "livesportPlayerId": "nkKnsgtI",
+            "name": "Darida",
+            "listName": "Darida V.",
+            "number": "16",
+            "position": null,
+            "profileSlug": "darida-vladimir"
+          },
+          {
+            "livesportPlayerId": "2o9CMupn",
+            "name": "Dancák",
+            "listName": "Dancák S.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "dancak-samuel"
+          },
+          {
+            "livesportPlayerId": "MmoRMWJI",
+            "name": "Horák",
+            "listName": "Horák D.",
+            "number": "26",
+            "position": null,
+            "profileSlug": "horak-daniel"
+          },
+          {
+            "livesportPlayerId": "6HrDuX1f",
+            "name": "van Buren",
+            "listName": "van Buren M.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "van-buren-mick"
+          },
+          {
+            "livesportPlayerId": "h8AD5SRf",
+            "name": "Slončík",
+            "listName": "Slončík T.",
+            "number": "19",
+            "position": null,
+            "profileSlug": "sloncik-tom"
+          },
+          {
+            "livesportPlayerId": "W0u9rmGG",
+            "name": "Mihálik",
+            "listName": "Mihálik O.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "mihalik-ondrej"
+          }
+        ],
+        "missing": [
+          {
+            "livesportPlayerId": "Q9ooWQ1C",
+            "name": "Chvátal J.",
+            "listName": "Chvátal J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "chvatal-juraj",
+            "reason": "Rekonvalescence"
+          },
+          {
+            "livesportPlayerId": "MB9ze6pG",
+            "name": "Wiesner T.",
+            "listName": "Wiesner T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "wiesner-tomas",
+            "reason": "Poranění kolena"
+          }
+        ],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8340",
+      "round": 2,
+      "date": "2026-08-02",
+      "time": "20:00",
+      "home": "Pardubice",
+      "away": "Jablonec",
+      "livesportMatchId": "SMwzH7et",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/pardubice-Ys4YYBPn/jablonec-CM8ySpMH/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [
+          {
+            "livesportPlayerId": "KjR9NAo5",
+            "name": "Kharatishvili L.",
+            "listName": "Kharatishvili L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kharatishvili-luka",
+            "reason": "Zranění lokte"
+          }
+        ],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [
+          {
+            "livesportPlayerId": "MN0iqQSj",
+            "name": "Milla K.",
+            "listName": "Milla K.",
+            "number": null,
+            "position": null,
+            "profileSlug": "prince-milla",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8350",
+      "round": 3,
+      "date": "2026-08-07",
+      "time": "19:00",
+      "home": "Zbrojovka Brno",
+      "away": "Slovan Liberec",
+      "livesportMatchId": "WzAlVcGj",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/slovan-liberec-4bp6yRjU/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8348",
+      "round": 3,
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Zlín",
+      "away": "Bohemians 1905",
+      "livesportMatchId": "SvLAxtOG",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/bohemians-1905-fuXqHnxa/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8349",
+      "round": 3,
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Teplice",
+      "away": "Viktoria Plzeň",
+      "livesportMatchId": "0hJIzKhT",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/teplice-r9XWmtLq/viktoria-plzen-2LA0e86b/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8343",
+      "round": 3,
+      "date": "2026-08-08",
+      "time": "20:00",
+      "home": "Mladá Boleslav",
+      "away": "Sparta Prague",
+      "livesportMatchId": "YLe59sfU",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/sparta-praha-6qA358jH/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8346",
+      "round": 3,
+      "date": "2026-08-09",
+      "time": "15:00",
+      "home": "Slavia Prague",
+      "away": "Pardubice",
+      "livesportMatchId": "juywOt9N",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/pardubice-Ys4YYBPn/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8345",
+      "round": 3,
+      "date": "2026-08-09",
+      "time": "17:00",
+      "home": "Jablonec",
+      "away": "Slovácko",
+      "livesportMatchId": "WAvNRO9b",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/slovacko-MNEDyOlF/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8347",
+      "round": 3,
+      "date": "2026-08-09",
+      "time": "17:00",
+      "home": "Hradec Králové",
+      "away": "Baník Ostrava",
+      "livesportMatchId": "MsI2v2g4",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/banik-ostrava-lI6ddlih/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8344",
+      "round": 3,
+      "date": "2026-08-09",
+      "time": "20:00",
+      "home": "Artis Brno",
+      "away": "Sigma Olomouc",
+      "livesportMatchId": "IocCXMvp",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/artis-brno-zHLktbZ1/sigma-olomouc-drA4fSL4/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    }
+  ],
+  "updatedAt": "2026-07-31T14:14:09Z"
+}
