@@ -32,9 +32,12 @@ from update_rosters import (
 
 
 GRAPHQL_ROOT = "https://1.ds.lsapp.eu/pq_graphql"
-IMPORT_VERSION = "2026-08-01-livesport-match-stats-v2"
+IMPORT_VERSION = "2026-08-01-livesport-match-stats-v3"
 PRAGUE = ZoneInfo("Europe/Prague")
-RECENT_REFRESH_HOURS = 72
+# Livesport occasionally corrects ratings after the first post-match import.
+# Keep re-reading a rolling two-week window; the import version forces one
+# complete refresh whenever the parser or validation rules change.
+RECENT_REFRESH_HOURS = 24 * 14
 
 SCHEDULE_TEAM_ALIASES = {
     "1.FC Slovácko": "Slovácko",
@@ -393,6 +396,7 @@ def load_match_performances(fixture: dict) -> list[dict]:
             "livesportPosition": (player.get("position") or {}).get("name") or "",
             "mins": int_if_whole(minutes),
             "form": ratings.get(player_id),
+            "ratingSource": "Livesport player ratings",
             "goals": int_if_whole(values.get("GOALS")),
             "ownGoals": int_if_whole(values.get("GOALS_OWN")),
             "assists": int_if_whole(values.get("ASSISTS_GOAL")),
@@ -635,6 +639,10 @@ def validate_match_details(players: list[dict], fixtures: list[dict]) -> dict:
                 errors.append(f"{event_id} {player['name']}: invalid minutes {minutes}")
             if rating not in (None, "") and not 1 <= number(rating) <= 10:
                 errors.append(f"{event_id} {player['name']}: invalid rating {rating}")
+            if rating in (None, "") and minutes > 10:
+                errors.append(
+                    f"{event_id} {player['name']}: missing rating after {minutes:g} minutes"
+                )
             for field, maximum in (
                 ("goals", 10),
                 ("ownGoals", 5),
