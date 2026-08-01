@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T12:34:44.059794Z",
+  "generatedAt": "2026-08-01T14:08:31.794848Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -220,7 +220,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 511,
+    "sourceRows": 510,
     "attached": [
       {
         "team": "Artis Brno",
@@ -515,15 +515,6 @@
         "name": "Vukadinović Vukadin",
         "livesportName": "Vukadinovič Vukadin",
         "livesportPlayerId": "zDXKj3aD",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Artis Brno",
-        "name": "Švancara Daniel",
-        "livesportName": "Švancara Daniel",
-        "livesportPlayerId": "0x4fPoUG",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -4825,7 +4816,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 511
+    "publishedLivesportIds": 510
   },
   "careerEnriched": [
     {
@@ -4844,7 +4835,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 511,
+    "livesportRows": 510,
     "seedRows": 558
   },
   "livesportMatchStats": {
@@ -4976,6 +4967,6 @@
       "ratedPerformances": 259,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-01T12:34:44.059794Z"
+    "checkedAt": "2026-08-01T14:08:31.794848Z"
   }
 }
