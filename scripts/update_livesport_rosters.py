@@ -10,6 +10,7 @@ import os
 import tempfile
 from pathlib import Path
 
+from update_livesport_match_stats import apply_match_performances, discover_livesport_events
 from update_rosters import (
     LIVESPORT_TEAM_CONFIG,
     TEAM_ORDER,
@@ -56,6 +57,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=Path("rosters-live.json"))
     parser.add_argument("--audit-output", type=Path, default=Path("roster-audit-live.json"))
+    parser.add_argument("--schedule", type=Path, default=Path("schedule-live.json"))
+    parser.add_argument(
+        "--refresh-all-matches",
+        action="store_true",
+        help="Re-download every completed match instead of only new/recent matches.",
+    )
     args = parser.parse_args()
     if not args.output.exists():
         raise RuntimeError(f"{args.output}: live roster file does not exist")
@@ -73,7 +80,15 @@ def main() -> None:
     players, reconciliation = attach_livesport(
         copy.deepcopy(baseline), livesport_clubs, baseline, checked_at
     )
+    if not args.schedule.exists():
+        raise RuntimeError(f"{args.schedule}: live schedule file does not exist")
+    schedule = json.loads(args.schedule.read_text(encoding="utf-8"))
+    fixtures = discover_livesport_events(schedule)
+    players, match_stats = apply_match_performances(
+        players, fixtures, refresh_all=args.refresh_all_matches
+    )
     validation = validate(players)
+    validation["matchDetails"] = match_stats["validation"]
 
     if roster_projection(players) == roster_projection(baseline):
         print("Livesport rosters and season totals have not changed.")
@@ -112,6 +127,7 @@ def main() -> None:
             "players": players,
             "changes": changes,
             "validation": validation,
+            "livesportMatchStats": {**match_stats, "checkedAt": checked_at},
         }
     )
     payload.setdefault("sources", {})["livesportClubs"] = {
@@ -129,6 +145,7 @@ def main() -> None:
             "changes": changes,
             "validation": validation,
             "livesportReconciliation": reconciliation,
+            "livesportMatchStats": {**match_stats, "checkedAt": checked_at},
         }
     )
     source_counts = audit.setdefault("sourceCounts", {})
@@ -146,6 +163,12 @@ def main() -> None:
                 "livesportRows": source_counts["livesportRows"],
                 "activePlayers": validation["activeLivesportPlayers"],
                 "activeScorers": validation["activeLivesportScorers"],
+                "completedMatches": match_stats["completedMatches"],
+                "playerPerformances": match_stats["playerPerformances"],
+                "ratedPerformances": match_stats["ratedPerformances"],
+                "matchReconciliationIssues": len(
+                    match_stats["validation"]["reconciliationIssues"]
+                ),
                 "added": len(changes["added"]),
                 "moved": len(changes["moved"]),
             },
