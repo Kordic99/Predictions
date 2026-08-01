@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T09:30:39.481235Z",
+  "generatedAt": "2026-08-01T10:32:03.320901Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -220,7 +220,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 512,
+    "sourceRows": 511,
     "attached": [
       {
         "team": "Artis Brno",
@@ -4310,15 +4310,6 @@
       },
       {
         "team": "Zbrojovka Brno",
-        "name": "Mareš Petr",
-        "livesportName": "Mareš Petr",
-        "livesportPlayerId": "8z7tX9Zn",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Zbrojovka Brno",
         "name": "Markovič Alex",
         "livesportName": "Markovič Alex",
         "livesportPlayerId": "OYmcSeKb",
@@ -4834,7 +4825,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 512
+    "publishedLivesportIds": 511
   },
   "careerEnriched": [
     {
@@ -4853,13 +4844,13 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 512,
+    "livesportRows": 511,
     "seedRows": 558
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
-    "importVersion": "2026-08-01-livesport-match-stats-v2",
+    "importVersion": "2026-08-01-livesport-match-stats-v3",
     "completedMatches": 9,
     "playerPerformances": 287,
     "ratedPerformances": 259,
@@ -4985,6 +4976,6 @@
       "ratedPerformances": 259,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-01T09:30:39.481235Z"
+    "checkedAt": "2026-08-01T10:32:03.320901Z"
   }
 }

@@ -5368,7 +5368,7 @@ function formatPlayerStat(summary,column){
   if(column.format==='text')return lsEsc(value);
   if(column.format==='money')return summary.marketValueLabel?lsEsc(summary.marketValueLabel):'<span class="stat-na">—</span>';
   if(column.format==='rating'){
-    const rounded=Number(value).toFixed(2);
+    const rounded=Number(value).toFixed(1);
     return`<span class="rating ${ratingClass(Number(value))}">${rounded}</span>`;
   }
   if(column.format==='percent')return Math.round(Number(value))+'%';
@@ -7365,7 +7365,7 @@ const LIVESPORT_TEAM_SEGMENTS = {
   "Mladá Boleslav": "mlada-boleslav-0f7GpAMu"
 };
 const LIVESPORT_FINAL_STAGES = new Set([3, 9, 10, 11, 54]);
-const LIVESPORT_CHECK_IMPORT_VERSION = '2026-08-01-live-check-stable-id-v2';
+const LIVESPORT_CHECK_IMPORT_VERSION = '2026-08-01-live-check-stable-id-v3';
 const LIVESPORT_AUTO_CHECK_INTERVAL_MS = 5 * 60 * 1000;
 const LIVESPORT_AUTO_CHECK_INITIAL_DELAY_MS = 5000;
 let livesportAutoCheckTimer = null;
@@ -7979,6 +7979,7 @@ async function lsLoadPlayerPerformances(matchInfo, fixture) {
         livesportPosition: player.position?.name || '',
         mins: minutes,
         form: ratings.has(player.participant?.id) ? ratings.get(player.participant.id) : null,
+        ratingSource: 'Livesport player ratings',
         goals: lsEntryValue(playerEntries, 'GOALS'),
         ownGoals: lsEntryValue(playerEntries, 'GOALS_OWN'),
         assists: lsEntryValue(playerEntries, 'ASSISTS_GOAL'),
@@ -8488,6 +8489,8 @@ function validatePublishedRosterData(raw){
       if(match.form!=null){
         const rating=Number(match.form);
         if(!Number.isFinite(rating)||rating<1||rating>10)throw new Error(`nesmyslný rating ${row.team}: ${row.name}`);
+      }else if(minutes>10){
+        throw new Error(`chybějící rating po ${minutes} minutách ${row.team}: ${row.name}`);
       }
       ['goals','ownGoals','assists','yellowCards','redCards'].forEach(field=>{
         const value=Number(match[field]||0);
@@ -8504,6 +8507,20 @@ function validatePublishedRosterData(raw){
   if(teams.size!==TEAMS.length)throw new Error(`neúplný počet klubů (${teams.size}/${TEAMS.length})`);
   if(raw.players.length<400 || raw.players.length>800)throw new Error(`nesmyslný počet hráčů (${raw.players.length})`);
   return raw;
+}
+
+function assertPublishedRowsPreserved(mergedRows,publishedRows,keyFn,label){
+  const mergedByKey=new Map((mergedRows||[]).map(row=>[keyFn(row),row]));
+  const authoritative=mergeStoredRows([],publishedRows,keyFn);
+  authoritative.forEach(published=>{
+    const actual=mergedByKey.get(keyFn(published));
+    const changed=Object.keys(published).some(key=>
+      JSON.stringify(actual?.[key])!==JSON.stringify(published[key])
+    );
+    if(!actual||changed){
+      throw new Error(`authoritative ${label} was overwritten: ${keyFn(published)}`);
+    }
+  });
 }
 
 function applyPublishedRosterData(raw,shouldRender=true){
@@ -8548,20 +8565,37 @@ function applyPublishedRosterData(raw,shouldRender=true){
       compatibleDonor(row,sameName.find(player=>player.team===row.team))||
       compatibleDonor(row,sameName.length===1?sameName[0]:null)||
       {};
-    const matchesByKey=new Map();
     const rowLivesportIds=new Set(storedLivesportPlayerIds(row));
     const donorMatches=(Array.isArray(donor.matches)?donor.matches:[]).filter(match=>{
       const matchId=String(match?.livesportPlayerId||'').trim();
       return !matchId||!rowLivesportIds.size||rowLivesportIds.has(matchId);
     });
-    [...(Array.isArray(row.matches)?row.matches:[]),...donorMatches].forEach(match=>{
-      const key=storagePlayerMatchKey(match);
-      matchesByKey.set(key,{...(matchesByKey.get(key)||{}),...match});
-    });
-    const matches=[...matchesByKey.values()];
+    // Browser/imported rows may be older than the published Livesport feed.
+    // Preserve user-only fixtures, but let the authoritative published row
+    // win every field for the same match identity.
+    const matches=mergeStoredRows(
+      donorMatches,
+      Array.isArray(row.matches)?row.matches:[],
+      storagePlayerMatchKey
+    );
     const rowCareer=Array.isArray(row.career)?row.career:[];
     const donorCareer=Array.isArray(donor.career)?donor.career:[];
-    const career=donorCareer.length>=rowCareer.length?donorCareer:rowCareer;
+    const career=mergeStoredRows(
+      donorCareer,
+      rowCareer,
+      item=>[
+        item?.season||'',storageTextKey(item?.team),storageTextKey(item?.competition)
+      ].join('|')
+    );
+    assertPublishedRowsPreserved(matches,row.matches,storagePlayerMatchKey,'match');
+    assertPublishedRowsPreserved(
+      career,
+      rowCareer,
+      item=>[
+        item?.season||'',storageTextKey(item?.team),storageTextKey(item?.competition)
+      ].join('|'),
+      'career row'
+    );
     return {...donor,...row,matches,career:career.map(item=>({...item}))};
   });
   players.length=0;
