@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T17:35:14.719706Z",
+  "generatedAt": "2026-08-02T18:35:25.323023Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -33,7 +33,7 @@
     "withoutCareerRows": 30,
     "withLivesportIdentity": 514,
     "withLivesportSeasonStats": 513,
-    "activeLivesportPlayers": 294,
+    "activeLivesportPlayers": 296,
     "activeLivesportScorers": 39,
     "warnings": [
       "Slovácko Slončík Šimon: missing Transfermarkt identity",
@@ -68,8 +68,8 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
-      "eventCount": 14,
+      "status": "ok",
+      "eventCount": 15,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "48MjBAwH": 32,
@@ -84,6 +84,7 @@
         "lIZHEqp9": 32,
         "lbqOh2Nk": 32,
         "n36twqHM": 29,
+        "ryFbt1Vr": 30,
         "xbbQd4AO": 32
       },
       "eventRatedCounts": {
@@ -100,87 +101,12 @@
         "lIZHEqp9": 28,
         "lbqOh2Nk": 30,
         "n36twqHM": 27,
+        "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 442,
-      "ratedPerformances": 404,
-      "reconciliationIssues": [
-        {
-          "team": "Bohemians 1905",
-          "name": "Javorček Dominik",
-          "livesportPlayerId": "AyWIpa9s",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Kadlec Matěj",
-          "livesportPlayerId": "tAbkwElp",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Mirvald Petr",
-          "livesportPlayerId": "EL1qmX5m",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 89,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Kvet Roman",
-          "livesportPlayerId": "EkhMetv5",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 82,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Hradec Králové",
-          "name": "Umar Abdullahi",
-          "livesportPlayerId": "SvpGeePj",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 26,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 472,
+      "ratedPerformances": 430,
+      "reconciliationIssues": []
     }
   },
   "ignoredSourceRows": [
@@ -1187,7 +1113,7 @@
         "livesportName": "Zadražil Adam",
         "livesportPlayerId": "IuM1qbTm",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1205,7 +1131,7 @@
         "livesportName": "Horák Daniel",
         "livesportPlayerId": "MmoRMWJI",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1232,7 +1158,7 @@
         "livesportName": "Petrášek Tomáš",
         "livesportPlayerId": "n7UyCE4k",
         "method": "livesport-id",
-        "apps": 0,
+        "apps": 1,
         "goals": 0
       },
       {
@@ -1259,7 +1185,7 @@
         "livesportName": "Čech František",
         "livesportPlayerId": "jXIRfKBH",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 1
       },
       {
@@ -1286,7 +1212,7 @@
         "livesportName": "Dancák Samuel",
         "livesportPlayerId": "2o9CMupn",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1295,7 +1221,7 @@
         "livesportName": "Darida Vladimír",
         "livesportPlayerId": "nkKnsgtI",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1304,7 +1230,7 @@
         "livesportName": "Kučera Jakub",
         "livesportPlayerId": "KCMexHL4",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1331,7 +1257,7 @@
         "livesportName": "Slončík Tom",
         "livesportPlayerId": "h8AD5SRf",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1349,7 +1275,7 @@
         "livesportName": "Valenta Matěj",
         "livesportPlayerId": "2cPPSTMd",
         "method": "livesport-id",
-        "apps": 0,
+        "apps": 1,
         "goals": 0
       },
       {
@@ -4937,9 +4863,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 14,
-    "playerPerformances": 442,
-    "ratedPerformances": 404,
+    "completedMatches": 15,
+    "playerPerformances": 472,
+    "ratedPerformances": 430,
     "processed": [
       {
         "livesportMatchId": "dOnWjth2",
@@ -5080,12 +5006,22 @@
         "playerPerformances": 30,
         "ratedPerformances": 28,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/mlada-boleslav-0f7GpAMu/08ccB3PH/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "ryFbt1Vr",
+        "round": 2,
+        "home": "Bohemians 1905",
+        "away": "Hradec Králové",
+        "score": "0:0",
+        "playerPerformances": 30,
+        "ratedPerformances": 26,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/bohemians-1905-fuXqHnxa/hradec-kralove-vFXjbHms/ryFbt1Vr/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [],
     "validation": {
-      "status": "needs-review",
-      "eventCount": 14,
+      "status": "ok",
+      "eventCount": 15,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "48MjBAwH": 32,
@@ -5100,6 +5036,7 @@
         "lIZHEqp9": 32,
         "lbqOh2Nk": 32,
         "n36twqHM": 29,
+        "ryFbt1Vr": 30,
         "xbbQd4AO": 32
       },
       "eventRatedCounts": {
@@ -5116,88 +5053,13 @@
         "lIZHEqp9": 28,
         "lbqOh2Nk": 30,
         "n36twqHM": 27,
+        "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 442,
-      "ratedPerformances": 404,
-      "reconciliationIssues": [
-        {
-          "team": "Bohemians 1905",
-          "name": "Javorček Dominik",
-          "livesportPlayerId": "AyWIpa9s",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Kadlec Matěj",
-          "livesportPlayerId": "tAbkwElp",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Mirvald Petr",
-          "livesportPlayerId": "EL1qmX5m",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 89,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Kvet Roman",
-          "livesportPlayerId": "EkhMetv5",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 82,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Hradec Králové",
-          "name": "Umar Abdullahi",
-          "livesportPlayerId": "SvpGeePj",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 26,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 472,
+      "ratedPerformances": 430,
+      "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-02T17:35:14.719706Z"
+    "checkedAt": "2026-08-02T18:35:25.323023Z"
   }
 }
