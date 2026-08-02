@@ -1,16 +1,9 @@
 {
-  "generatedAt": "2026-08-02T10:16:15.411403Z",
+  "generatedAt": "2026-08-02T14:10:18.151687Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [
-      {
-        "name": "Barát Daniel",
-        "from": "Slovácko",
-        "to": "Sigma Olomouc",
-        "transfermarktPlayerId": "1045159"
-      }
-    ],
+    "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
@@ -38,8 +31,8 @@
     "withoutPublishedMarketValue": 61,
     "withCareer": 528,
     "withoutCareerRows": 30,
-    "withLivesportIdentity": 513,
-    "withLivesportSeasonStats": 512,
+    "withLivesportIdentity": 514,
+    "withLivesportSeasonStats": 513,
     "activeLivesportPlayers": 287,
     "activeLivesportScorers": 35,
     "warnings": [
@@ -235,7 +228,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 510,
+    "sourceRows": 511,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2322,6 +2315,15 @@
         "livesportName": "Barát Daniel",
         "livesportPlayerId": "MRYMhvxB",
         "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Dembe John",
+        "livesportName": "Dembe John",
+        "livesportPlayerId": "CxFyNcHg",
+        "method": "same-team-name",
         "apps": 0,
         "goals": 0
       },
@@ -4829,16 +4831,9 @@
       }
     ],
     "added": [],
-    "moved": [
-      {
-        "name": "Barát Daniel",
-        "from": "Slovácko",
-        "to": "Sigma Olomouc",
-        "livesportPlayerId": "MRYMhvxB"
-      }
-    ],
+    "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 510
+    "publishedLivesportIds": 511
   },
   "careerEnriched": [
     {
@@ -4857,7 +4852,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 510,
+    "livesportRows": 511,
     "seedRows": 558
   },
   "livesportMatchStats": {
@@ -5037,6 +5032,6 @@
       "ratedPerformances": 376,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-02T10:16:15.411403Z"
+    "checkedAt": "2026-08-02T14:10:18.151687Z"
   }
 }
