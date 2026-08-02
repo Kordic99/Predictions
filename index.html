@@ -427,8 +427,7 @@
   <button class="tab active" data-tab="main" onclick="sw('main')">Main Table</button>
   <button class="tab" data-tab="results" onclick="sw('results')">Results</button>
   <button class="tab" data-tab="schedule" onclick="sw('schedule');renderSchedule()">Schedule</button>
-  <button class="tab" data-tab="pred" onclick="sw('pred')">Prediction</button>
-  <button class="tab" data-tab="pred2" onclick="sw('pred2');renderPred2()">Prediction 2</button>
+  <button class="tab" data-tab="pred2" onclick="sw('pred2');renderPred2()">Predictions</button>
   <button class="tab" data-tab="players" onclick="sw('players');renderPlayers()">Players</button>
   <button class="tab" data-tab="prev" onclick="sw('prev');renderPrevYears()">Prev. years</button>
   <button class="tab" data-tab="accuracy" onclick="sw('accuracy');renderAccuracy()">Accuracy</button>
@@ -568,41 +567,7 @@
   <div class="schedule-list" id="schedule-list"></div>
 </div>
 
-<!-- PREDICTION -->
-<div class="sec" id="sec-pred">
-  <div class="toolbar">
-    <div class="schedule-import">
-      <button class="btn red" onclick="togglePredForm()">+ Add match</button>
-      <select class="si" id="pred-import-round" aria-label="Round to import"></select>
-      <button class="btn" type="button" onclick="importScheduleRoundToPredictions(document.getElementById('pred-import-round').value,'P1')">Import round</button>
-    </div>
-    <span class="cnt" id="pred-cnt"></span>
-    <div style="display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap">
-      <select class="si" id="pf-season" onchange="renderPred()" style="font-size:11px">
-        <option value="">All seasons</option>
-        <option value="2026/27" selected>2026/27</option>
-      </select>
-      <select class="si" id="pf-round" onchange="renderPred()" style="font-size:11px">
-        <option value="">All rounds</option>
-      </select>
-    </div>
-  </div>
-  <div class="add-form" id="pred-form">
-    <div class="fg">
-      <div class="field"><label>Home team</label><select id="pm-home"><option value="">Select...</option></select></div>
-      <div class="field"><label>Away team</label><select id="pm-away"><option value="">Select...</option></select></div>
-      <div class="field"><label>Season</label><select id="pm-season" onchange="rebuildPredRoundSelects()"><option value="2026/27">2026/27</option></select></div>
-      <div class="field"><label>Round</label><select id="pm-round"><option value="">Select round...</option></select></div>
-    </div>
-    <div class="fa">
-      <button class="btn red" onclick="addPred()">Add &amp; predict</button>
-      <button class="btn" onclick="togglePredForm()">Cancel</button>
-    </div>
-  </div>
-  <div class="pred-list-wrap"><div id="pred-list"></div></div>
-</div>
-
-<!-- PREDICTION 2 -->
+<!-- PREDICTIONS -->
 <div class="sec" id="sec-pred2">
   <div class="toolbar">
     <div class="schedule-import">
@@ -1400,7 +1365,11 @@ function dedupeRuntimeData(){
     return oldTime<=newTime?oldLock:newLock;
   };
   mergeLock.kind='locked';
-  lockedPredictions=dedupe(lockedPredictions.map(normalizeLockedPrediction),m=>healthPredictionKey(m,true),mergeLock);
+  lockedPredictions=dedupe(
+    lockedPredictions.filter(isActivePredictionLock).map(normalizeLockedPrediction),
+    m=>healthPredictionKey(m,true),
+    mergeLock
+  );
   return counts;
 }
 
@@ -2030,7 +1999,7 @@ function rebuildRoundSel(){
 }
 
 function rebuildPredRoundSelects(){
-  const ids=['pm-round','p2m-round'];
+  const ids=['p2m-round'];
   const allCombined=[...getCombinedResults(),...predMatches];
   const specialRounds=[...new Set(allCombined.map(m=>m.r!=null?m.r:m.round).filter(r=>r!=null&&r!==''&&Number.isNaN(parseInt(r,10))).map(String))].sort();
 
@@ -2532,6 +2501,7 @@ function addResult(){
 
 function fillSel(id){
   const el=document.getElementById(id);
+  if(!el)return;
   TEAMS.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;el.appendChild(o);});
 }
 
@@ -2622,6 +2592,12 @@ const SIGMA_COMPLETE_LEAGUE_DATA = [{"name":"Hruška Matúš","pos":"GK","career
 
 let predMatches=[];
 let lockedPredictions=[]; // hard-locked prediction snapshots sent to Accuracy tab
+const ACTIVE_PREDICTION_SYSTEM='P2';
+
+function isActivePredictionLock(lock){
+  return String(lock?.predSystem||'P1')===ACTIVE_PREDICTION_SYSTEM;
+}
+
 const SCHEDULE_LIVE_FILE='schedule-live.json';
 const SCHEDULE_AUTO_CHECK_INTERVAL_MS=5*60*1000;
 const SCHEDULE_AUTO_CHECK_INITIAL_DELAY_MS=3000;
@@ -2971,6 +2947,10 @@ function getP1MatchPrediction(match){
 }
 
 function lockPredictionSystem(match,system,reason='saved_to_accuracy',notify=true){
+  if(system!==ACTIVE_PREDICTION_SYSTEM){
+    if(notify)alert('This prediction model is no longer active.');
+    return false;
+  }
   if(findLockedPrediction(match,system)){
     if(notify)alert('This prediction is already locked in Accuracy.');
     return false;
@@ -2996,7 +2976,7 @@ function autoLockDuePredictions(){
   let locked=0;
   predMatches.forEach(match=>{
     if((match.season||CURRENT_SEASON)!==CURRENT_SEASON||!predictionDueForKickoff(match))return;
-    ['P1','P2'].forEach(system=>{
+    [ACTIVE_PREDICTION_SYSTEM].forEach(system=>{
       if(!findLockedPrediction(match,system)){
         const p=system==='P2'?getPred3MatchPrediction(match):getP1MatchPrediction(match);
         lockedPredictions.unshift(createLockedPrediction(match,system,p,'kickoff_auto_lock'));
@@ -3328,7 +3308,7 @@ function rebuildScheduleControls(){
     ).join('');
     if(TEAMS.includes(current))scheduleTeam.value=current;
   }
-  ['pred-import-round','pred2-import-round'].forEach(id=>{
+  ['pred2-import-round'].forEach(id=>{
     const select=document.getElementById(id);
     if(!select)return;
     const current=Number(select.value)||nextRound;
@@ -3383,13 +3363,11 @@ function renderSchedule(){
 }
 
 function focusPredictionRound(round){
-  renderPred();
   renderPred2();
-  ['pf-round','p2f-round'].forEach(id=>{
+  ['p2f-round'].forEach(id=>{
     const select=document.getElementById(id);
     if(select&&[...select.options].some(option=>option.value===String(round)))select.value=String(round);
   });
-  renderPred();
   renderPred2();
 }
 
@@ -3423,7 +3401,7 @@ function importScheduleRoundToPredictions(rawRound,source='schedule'){
   focusPredictionRound(round);
   autoSave();
   renderSchedule();
-  const summary=`Round ${round}: imported ${imported} match${imported===1?'':'es'}${duplicates?`, ${duplicates} already present`:''}${played?`, ${played} already played`:''}. Probabilities are calculated automatically in both Prediction tabs.`;
+  const summary=`Round ${round}: imported ${imported} match${imported===1?'':'es'}${duplicates?`, ${duplicates} already present`:''}${played?`, ${played} already played`:''}. Probabilities are calculated automatically in Predictions.`;
   setStatus(summary,imported?'ok':'warn');
   alert(summary);
   return {imported,duplicates,played};
@@ -3899,6 +3877,9 @@ function buildXIPicker(matchIdx, side, team, selectedXI){
 }
 
 function renderPred(){
+  // Legacy Prediction 1 renderer is intentionally dormant after the app was
+  // consolidated onto the former Prediction 2 model.
+  if(!document.getElementById('pred-list'))return;
   // Rebuild round filter options from predMatches
   const pfRound=document.getElementById('pf-round');
   const pfSeason=document.getElementById('pf-season');
@@ -4063,7 +4044,7 @@ function findPlayer(nameFromJson, team){
 }
 
 
-// ─── PREDICTION 2: PREDICTION 3 SEQUENTIAL GOAL MODEL ────────────────────────
+// ─── PREDICTIONS: SEQUENTIAL GOAL MODEL ──────────────────────────────────────
 const P3_CFG={
   initialHomeGoals:1.36,
   initialAwayGoals:1.13,
@@ -4482,7 +4463,7 @@ function lockPred2(i){
   const p=getPred3MatchPrediction(m);
   const sc=p.scoreModel;
   const already=lockedPredictions.find(l=>l.home===m.home&&l.away===m.away&&l.season===m.season&&l.round===m.round&&l.predSystem==='P2');
-  if(already){alert('This Prediction 2 match is already saved to Accuracy.');return;}
+  if(already){alert('This prediction is already saved to Accuracy.');return;}
   lockedPredictions.unshift({
     id: Date.now()+'_'+Math.random().toString(36).slice(2,5),
     predSystem:'P2',
@@ -4501,7 +4482,7 @@ function lockPred2(i){
   });
   autoSave();
   renderAccuracy();
-  alert('Prediction 2 locked! Go to Accuracy tab to track the result.');
+  alert('Prediction locked! Go to Accuracy tab to track the result.');
 }
 function delPred2(i){predMatches.splice(i,1);renderPred2();renderPred();autoSave();}
 function togglePred2Details(i){predMatches[i]._details2Open=predMatches[i]._details2Open===true?false:true;renderPred2();}
@@ -5689,7 +5670,7 @@ function renderPrevYears(){
 
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function sw(tab){
-  ['main','results','schedule','pred','pred2','players','prev','accuracy'].forEach(t=>{
+  ['main','results','schedule','pred2','players','prev','accuracy'].forEach(t=>{
     const tabBtn=document.querySelector(`.tab[data-tab="${t}"]`);
     if(tabBtn)tabBtn.classList.toggle('active',t===tab);
     const sec=document.getElementById('sec-'+t);
@@ -5750,7 +5731,7 @@ applyTransfermarktMarketValues();
 // replace the application code, but browser storage on the same origin remains.
 const STORAGE_KEY = 'chanceliga_v4_2026_27_clean_players';
 const STORAGE_BACKUP_KEY = 'chanceliga_v4_2026_27_clean_players_backup';
-const STORAGE_SCHEMA_VERSION = 5;
+const STORAGE_SCHEMA_VERSION = 6;
 const PUBLISHED_DATA_FILE = 'chanceliga-data.json';
 const PUBLISHED_ROSTER_FILE = 'rosters-live.json';
 let publishedRosterData = null;
@@ -5773,7 +5754,7 @@ function getStorableData(){
     results_extra: results.filter(m => (m.season||CURRENT_SEASON) !== CURRENT_SEASON),
     players: players,
     predMatches: predMatches.map(m => ({...m, _detailsOpen: undefined, _details2Open: undefined, _p3CacheKey: undefined, _p3Cache: undefined})),
-    lockedPredictions: lockedPredictions.map(normalizeLockedPrediction)
+    lockedPredictions: lockedPredictions.filter(isActivePredictionLock).map(normalizeLockedPrediction)
   };
 }
 
@@ -5902,7 +5883,9 @@ function normalizeStoredData(raw){
     predMatches:Array.isArray(source.predMatches) ? source.predMatches :
       (Array.isArray(source.predictions) ? source.predictions : []),
     lockedPredictions:(Array.isArray(source.lockedPredictions) ? source.lockedPredictions :
-      (Array.isArray(source.locked) ? source.locked : [])).map(normalizeLockedPrediction),
+      (Array.isArray(source.locked) ? source.locked : []))
+        .filter(isActivePredictionLock)
+        .map(normalizeLockedPrediction),
     _hasPredMatches:typeof source._hasPredMatches==='boolean'
       ? source._hasPredMatches
       : ['predMatches','predictions']
@@ -6038,10 +6021,11 @@ function applyStoredData(data){
       });
     }
     if(data._hasLockedPredictions){
-      const existingLocks=lockedPredictions.map(normalizeLockedPrediction);
+      const existingLocks=lockedPredictions.filter(isActivePredictionLock).map(normalizeLockedPrediction);
       lockedPredictions.length=0;
       lockedPredictions.push(...existingLocks);
       data.lockedPredictions.forEach(raw=>{
+        if(!isActivePredictionLock(raw))return;
         let l={...raw};
         const season=l.season||CURRENT_SEASON;
         l.predSystem=l.predSystem||'P1';
@@ -6275,7 +6259,7 @@ function autoSave(options={}){
 })();
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
-['rf-home','rf-away','pm-home','pm-away','p2m-home','p2m-away'].forEach(fillSel);
+['rf-home','rf-away','p2m-home','p2m-away'].forEach(fillSel);
 populatePlayerTeamFilter();
 populateModalTeamSel();
 populateTeamFilter();
@@ -6357,13 +6341,14 @@ function renderAccuracy(){
   const el=document.getElementById('acc-list');
   const sumEl=document.getElementById('acc-summary');
   if(!el)return;
+  const accuracyLocks=lockedPredictions.filter(isActivePredictionLock);
 
   const afRound=document.getElementById('af-round');
   const afSeason=document.getElementById('af-season');
   const afStatus=document.getElementById('af-status');
   if(afRound){
     const curRound=afRound.value;
-    const rounds=[...new Set(lockedPredictions.map(l=>l.round).filter(Boolean))].sort((a,b)=>parseInt(a)-parseInt(b));
+    const rounds=[...new Set(accuracyLocks.map(l=>l.round).filter(Boolean))].sort((a,b)=>parseInt(a)-parseInt(b));
     afRound.innerHTML='<option value="">All rounds</option>'+rounds.map(r=>`<option value="${r}"${r==curRound?' selected':''}>R${r}</option>`).join('');
   }
   const fASeason=afSeason?afSeason.value:'';
@@ -6389,7 +6374,7 @@ function renderAccuracy(){
   };
   const logLossFor=(l,outcome)=>-Math.log(Math.max(0.001,probForOutcome(l,outcome)));
 
-  const allRows=lockedPredictions.map(l=>{
+  const allRows=accuracyLocks.map(l=>{
     const r=results.find(r=>{
       if(parseInt(r.r)!==parseInt(l.round)) return false;
       if(r.season && r.season!==l.season) return false;
@@ -6428,8 +6413,8 @@ function renderAccuracy(){
   const pending=rows.filter(x=>!x.ev).length;
 
   if(!rows.length){
-    if(!lockedPredictions.length){
-      el.innerHTML='<div style="text-align:center;padding:40px;color:var(--text3);font-size:13px">No saved predictions yet.<br>Go to Prediction tab, set up a match and click Save to Accuracy.</div>';
+    if(!accuracyLocks.length){
+      el.innerHTML='<div style="text-align:center;padding:40px;color:var(--text3);font-size:13px">No saved predictions yet.<br>Go to Predictions, set up a match and click Save to Accuracy.</div>';
     } else {
       el.innerHTML='<div style="text-align:center;padding:40px;color:var(--text3);font-size:13px">No predictions match this filter.</div>';
     }
@@ -6509,7 +6494,7 @@ function renderAccuracy(){
         <span style="color:#fff;font-weight:600;font-size:10px">${lsEsc(l.home)}</span>
         <span style="color:#fff9;font-size:9px">vs</span>
         <span style="color:#fff;font-weight:600;font-size:10px">${lsEsc(l.away)}</span>
-        <span style="color:#fff9;font-size:9px;margin-left:2px">${lsEsc(l.season)} R${lsEsc(l.round)}${isP2(l)?' · Prediction 2':''}</span>
+        <span style="color:#fff9;font-size:9px;margin-left:2px">${lsEsc(l.season)} R${lsEsc(l.round)}</span>
         <span style="margin-left:auto;display:flex;align-items:center;gap:6px">
           ${statusDot}
           <span style="font-size:8px;color:#fff9">🔒 ${lockedDate}</span>
