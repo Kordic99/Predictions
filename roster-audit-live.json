@@ -1,9 +1,16 @@
 {
-  "generatedAt": "2026-08-01T23:31:49.969700Z",
+  "generatedAt": "2026-08-02T10:16:15.411403Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Barát Daniel",
+        "from": "Slovácko",
+        "to": "Sigma Olomouc",
+        "transfermarktPlayerId": "1045159"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
@@ -17,10 +24,10 @@
       "Jablonec": 31,
       "Mladá Boleslav": 31,
       "Pardubice": 32,
-      "Sigma Olomouc": 37,
+      "Sigma Olomouc": 38,
       "Slavia Prague": 45,
       "Slovan Liberec": 33,
-      "Slovácko": 36,
+      "Slovácko": 35,
       "Sparta Prague": 44,
       "Teplice": 33,
       "Viktoria Plzeň": 32,
@@ -2311,6 +2318,15 @@
       },
       {
         "team": "Sigma Olomouc",
+        "name": "Barát Daniel",
+        "livesportName": "Barát Daniel",
+        "livesportPlayerId": "MRYMhvxB",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
         "name": "Ghali Ahmad",
         "livesportName": "Ghali Ahmad",
         "livesportPlayerId": "vwyxkgGq",
@@ -3027,15 +3043,6 @@
         "livesportPlayerId": "8SBQ2uIP",
         "method": "livesport-id",
         "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Slovácko",
-        "name": "Barát Daniel",
-        "livesportName": "Barát Daniel",
-        "livesportPlayerId": "MRYMhvxB",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4822,7 +4829,14 @@
       }
     ],
     "added": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Barát Daniel",
+        "from": "Slovácko",
+        "to": "Sigma Olomouc",
+        "livesportPlayerId": "MRYMhvxB"
+      }
+    ],
     "unresolved": [],
     "publishedLivesportIds": 510
   },
@@ -5023,6 +5037,6 @@
       "ratedPerformances": 376,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-01T23:31:49.969700Z"
+    "checkedAt": "2026-08-02T10:16:15.411403Z"
   }
 }
