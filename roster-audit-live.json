@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T10:13:39.554145Z",
+  "generatedAt": "2026-08-04T12:27:24.324276Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -234,7 +234,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 511,
+    "sourceRows": 510,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1483,15 +1483,6 @@
         "name": "Horák Roman",
         "livesportName": "Horák Roman",
         "livesportPlayerId": "KxZzOMUr",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Jablonec",
-        "name": "Lavrinčík Samuel",
-        "livesportName": "Lavrinčík Samuel",
-        "livesportPlayerId": "QsePKrcs",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -4839,7 +4830,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 511
+    "publishedLivesportIds": 510
   },
   "careerEnriched": [
     {
@@ -4858,7 +4849,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 511,
+    "livesportRows": 510,
     "seedRows": 558
   },
   "livesportMatchStats": {
@@ -5074,6 +5065,6 @@
       "ratedPerformances": 460,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-04T10:13:39.554145Z"
+    "checkedAt": "2026-08-04T12:27:24.324276Z"
   }
 }
