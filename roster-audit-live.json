@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-08-05T08:04:07.662308Z",
+  "generatedAt": "2026-08-05T18:07:31.981886Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Pardubice",
+        "name": "Kahuan Vinícius",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 558,
+    "playerCount": 559,
     "teamCounts": {
       "Artis Brno": 36,
       "Baník Ostrava": 37,
@@ -16,7 +22,7 @@
       "Hradec Králové": 30,
       "Jablonec": 31,
       "Mladá Boleslav": 31,
-      "Pardubice": 32,
+      "Pardubice": 33,
       "Sigma Olomouc": 38,
       "Slavia Prague": 45,
       "Slovan Liberec": 33,
@@ -28,11 +34,11 @@
       "Zlín": 35
     },
     "withMarketValue": 497,
-    "withoutPublishedMarketValue": 61,
+    "withoutPublishedMarketValue": 62,
     "withCareer": 528,
-    "withoutCareerRows": 30,
-    "withLivesportIdentity": 514,
-    "withLivesportSeasonStats": 513,
+    "withoutCareerRows": 31,
+    "withLivesportIdentity": 515,
+    "withLivesportSeasonStats": 514,
     "activeLivesportPlayers": 301,
     "activeLivesportScorers": 40,
     "warnings": [
@@ -65,7 +71,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Pardubice Kahuan Vinícius: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -819,15 +826,6 @@
         "livesportPlayerId": "65rQfHCo",
         "method": "livesport-id",
         "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Laine Lauri",
-        "livesportName": "Laine Lauri",
-        "livesportPlayerId": "jsZr40DD",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -2043,6 +2041,15 @@
         "livesportPlayerId": "YDRJHked",
         "method": "livesport-id",
         "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Kahuan Vinícius",
+        "livesportName": "Kahuan Vinícius",
+        "livesportPlayerId": "zmGcA0E8",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4827,7 +4834,13 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Pardubice",
+        "name": "Kahuan Vinícius",
+        "livesportPlayerId": "zmGcA0E8"
+      }
+    ],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 510
@@ -5065,6 +5078,6 @@
       "ratedPerformances": 460,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-05T08:04:07.662308Z"
+    "checkedAt": "2026-08-05T18:07:31.981886Z"
   }
 }
