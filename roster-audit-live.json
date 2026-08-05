@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T12:27:24.324276Z",
+  "generatedAt": "2026-08-05T08:04:07.662308Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -3514,6 +3514,15 @@
       },
       {
         "team": "Sparta Prague",
+        "name": "Haraslín Lukáš",
+        "livesportName": "Haraslín Lukáš",
+        "livesportPlayerId": "Asqi9KYR",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
         "name": "Hollý Dominik",
         "livesportName": "Hollý Dominik",
         "livesportPlayerId": "8AwbHvuN",
@@ -3565,6 +3574,15 @@
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Mercado John",
+        "livesportName": "Mercado John",
+        "livesportPlayerId": "tSlWfuTh",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 1
       },
       {
         "team": "Sparta Prague",
@@ -3622,15 +3640,6 @@
       },
       {
         "team": "Sparta Prague",
-        "name": "Haraslín Lukáš",
-        "livesportName": "Haraslín Lukáš",
-        "livesportPlayerId": "Asqi9KYR",
-        "method": "livesport-id",
-        "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
         "name": "Kuchta Jan",
         "livesportName": "Kuchta Jan",
         "livesportPlayerId": "IPLNGwMg",
@@ -3646,15 +3655,6 @@
         "method": "livesport-id",
         "apps": 2,
         "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
-        "name": "Mercado John",
-        "livesportName": "Mercado John",
-        "livesportPlayerId": "tSlWfuTh",
-        "method": "livesport-id",
-        "apps": 2,
-        "goals": 1
       },
       {
         "team": "Sparta Prague",
@@ -5065,6 +5065,6 @@
       "ratedPerformances": 460,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-04T12:27:24.324276Z"
+    "checkedAt": "2026-08-05T08:04:07.662308Z"
   }
 }
