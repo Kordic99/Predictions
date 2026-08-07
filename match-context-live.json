@@ -3224,6 +3224,24 @@
             "reason": "Poranění třísel"
           },
           {
+            "livesportPlayerId": "Asqi9KYR",
+            "name": "Haraslín L.",
+            "listName": "Haraslín L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "haraslin-lukas",
+            "reason": "Jednání o přestupu"
+          },
+          {
+            "livesportPlayerId": "IPLNGwMg",
+            "name": "Kuchta J.",
+            "listName": "Kuchta J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kuchta-jan",
+            "reason": "Jednání o přestupu"
+          },
+          {
             "livesportPlayerId": "McdmkUE4",
             "name": "Mannsverk S.",
             "listName": "Mannsverk S.",
@@ -3287,17 +3305,7 @@
             "reason": "Poranění kotníku"
           }
         ],
-        "uncertain": [
-          {
-            "livesportPlayerId": "Asqi9KYR",
-            "name": "Haraslín L.",
-            "listName": "Haraslín L.",
-            "number": null,
-            "position": null,
-            "profileSlug": "haraslin-lukas",
-            "reason": "Jednání o přestupu"
-          }
-        ]
+        "uncertain": []
       }
     },
     {
@@ -3922,13 +3930,13 @@
         "predictedPlayers": [],
         "missing": [
           {
-            "livesportPlayerId": "ULDSyRlg",
-            "name": "Dyachuk M.",
-            "listName": "Dyachuk M.",
+            "livesportPlayerId": "2XEqTT51",
+            "name": "Grygar S.",
+            "listName": "Grygar S.",
             "number": null,
             "position": null,
-            "profileSlug": "dyachuk-maksym",
-            "reason": "Poranění kolena"
+            "profileSlug": "grygar-samuel",
+            "reason": "Poranění kotníku"
           },
           {
             "livesportPlayerId": "IsrGPFwg",
@@ -3951,13 +3959,13 @@
             "reason": "Zranění"
           },
           {
-            "livesportPlayerId": "2XEqTT51",
-            "name": "Grygar S.",
-            "listName": "Grygar S.",
+            "livesportPlayerId": "ULDSyRlg",
+            "name": "Dyachuk M.",
+            "listName": "Dyachuk M.",
             "number": null,
             "position": null,
-            "profileSlug": "grygar-samuel",
-            "reason": "Poranění kotníku"
+            "profileSlug": "dyachuk-maksym",
+            "reason": "Poranění kolena"
           }
         ]
       }
@@ -4290,5 +4298,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-07T10:14:38Z"
+  "updatedAt": "2026-08-07T11:09:08Z"
 }
