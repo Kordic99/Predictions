@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T19:32:51.957463Z",
+  "generatedAt": "2026-08-07T20:08:22.233093Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -71,8 +71,8 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
-      "eventCount": 16,
+      "status": "ok",
+      "eventCount": 17,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "48MjBAwH": 32,
@@ -82,6 +82,7 @@
         "QcTe71xq": 32,
         "SMwzH7et": 32,
         "WfOrDW84": 32,
+        "WzAlVcGj": 32,
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
@@ -100,6 +101,7 @@
         "QcTe71xq": 29,
         "SMwzH7et": 30,
         "WfOrDW84": 28,
+        "WzAlVcGj": 30,
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
@@ -109,55 +111,9 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 504,
-      "ratedPerformances": 460,
-      "reconciliationIssues": [
-        {
-          "team": "Slovan Liberec",
-          "name": "Bořil Jan",
-          "livesportPlayerId": "6XRulOAF",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 36,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Zbrojovka Brno",
-          "name": "Langer Štěpán",
-          "livesportPlayerId": "l0E2pVmb",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 21,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Zbrojovka Brno",
-          "name": "Kanakimana Bienvenue",
-          "livesportPlayerId": "IVSXIAgO",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 21,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 536,
+      "ratedPerformances": 490,
+      "reconciliationIssues": []
     }
   },
   "ignoredSourceRows": [
@@ -4896,9 +4852,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 16,
-    "playerPerformances": 504,
-    "ratedPerformances": 460,
+    "completedMatches": 17,
+    "playerPerformances": 536,
+    "ratedPerformances": 490,
     "processed": [
       {
         "livesportMatchId": "dOnWjth2",
@@ -5059,12 +5015,22 @@
         "playerPerformances": 32,
         "ratedPerformances": 30,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/pardubice-Ys4YYBPn/jablonec-CM8ySpMH/SMwzH7et/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "WzAlVcGj",
+        "round": 3,
+        "home": "Zbrojovka Brno",
+        "away": "Slovan Liberec",
+        "score": "0:1",
+        "playerPerformances": 32,
+        "ratedPerformances": 30,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/slovan-liberec-4bp6yRjU/WzAlVcGj/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [],
     "validation": {
-      "status": "needs-review",
-      "eventCount": 16,
+      "status": "ok",
+      "eventCount": 17,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "48MjBAwH": 32,
@@ -5074,6 +5040,7 @@
         "QcTe71xq": 32,
         "SMwzH7et": 32,
         "WfOrDW84": 32,
+        "WzAlVcGj": 32,
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
@@ -5092,6 +5059,7 @@
         "QcTe71xq": 29,
         "SMwzH7et": 30,
         "WfOrDW84": 28,
+        "WzAlVcGj": 30,
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
@@ -5101,56 +5069,10 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 504,
-      "ratedPerformances": 460,
-      "reconciliationIssues": [
-        {
-          "team": "Slovan Liberec",
-          "name": "Bořil Jan",
-          "livesportPlayerId": "6XRulOAF",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 36,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Zbrojovka Brno",
-          "name": "Langer Štěpán",
-          "livesportPlayerId": "l0E2pVmb",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 21,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Zbrojovka Brno",
-          "name": "Kanakimana Bienvenue",
-          "livesportPlayerId": "IVSXIAgO",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 21,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 536,
+      "ratedPerformances": 490,
+      "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-07T19:32:51.957463Z"
+    "checkedAt": "2026-08-07T20:08:22.233093Z"
   }
 }
