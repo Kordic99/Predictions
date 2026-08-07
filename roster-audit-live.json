@@ -1,10 +1,15 @@
 {
-  "generatedAt": "2026-08-05T18:07:31.981886Z",
+  "generatedAt": "2026-08-07T00:25:56.109977Z",
   "changes": {
     "added": [
       {
         "team": "Pardubice",
-        "name": "Kahuan Vinícius",
+        "name": "Neuman Vladimír",
+        "transfermarktPlayerId": null
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Ekeroth Anton",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,7 +19,7 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 559,
+    "playerCount": 561,
     "teamCounts": {
       "Artis Brno": 36,
       "Baník Ostrava": 37,
@@ -22,8 +27,8 @@
       "Hradec Králové": 30,
       "Jablonec": 31,
       "Mladá Boleslav": 31,
-      "Pardubice": 33,
-      "Sigma Olomouc": 38,
+      "Pardubice": 34,
+      "Sigma Olomouc": 39,
       "Slavia Prague": 45,
       "Slovan Liberec": 33,
       "Slovácko": 35,
@@ -34,11 +39,11 @@
       "Zlín": 35
     },
     "withMarketValue": 497,
-    "withoutPublishedMarketValue": 62,
+    "withoutPublishedMarketValue": 64,
     "withCareer": 528,
-    "withoutCareerRows": 31,
-    "withLivesportIdentity": 515,
-    "withLivesportSeasonStats": 514,
+    "withoutCareerRows": 33,
+    "withLivesportIdentity": 517,
+    "withLivesportSeasonStats": 516,
     "activeLivesportPlayers": 301,
     "activeLivesportScorers": 40,
     "warnings": [
@@ -63,6 +68,7 @@
       "Zlín Hönig Petr: missing Transfermarkt identity",
       "Jablonec Malý Evžen: missing Transfermarkt identity",
       "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity",
+      "Pardubice Kahuan Vinícius: missing Transfermarkt identity",
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
@@ -72,7 +78,8 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Pardubice Kahuan Vinícius: missing Transfermarkt identity"
+      "Pardubice Neuman Vladimír: missing Transfermarkt identity",
+      "Sigma Olomouc Ekeroth Anton: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -241,7 +248,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 510,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -476,15 +483,6 @@
         "method": "livesport-id",
         "apps": 2,
         "goals": 2
-      },
-      {
-        "team": "Artis Brno",
-        "name": "Beauguel Jean-David",
-        "livesportName": "Beauguel Jean-David",
-        "livesportPlayerId": "lpCAixec",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
       },
       {
         "team": "Artis Brno",
@@ -1856,6 +1854,15 @@
       },
       {
         "team": "Pardubice",
+        "name": "Neuman Vladimír",
+        "livesportName": "Neuman Vladimír",
+        "livesportPlayerId": "z3ZdK4zR",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
         "name": "Stejskal Jan",
         "livesportName": "Stejskal Jan",
         "livesportPlayerId": "ObKmy58j",
@@ -1897,15 +1904,6 @@
         "livesportPlayerId": "hEDCJy2L",
         "method": "livesport-id",
         "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Pardubice",
-        "name": "Hamza Jiří",
-        "livesportName": "Hamza Jiří",
-        "livesportPlayerId": "SvSqSRN8",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -1991,15 +1989,6 @@
       },
       {
         "team": "Pardubice",
-        "name": "Míšek Štěpán",
-        "livesportName": "Míšek Štěpán",
-        "livesportPlayerId": "ptbeWHR1",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Pardubice",
         "name": "Saarma Robi",
         "livesportName": "Saarma Robi",
         "livesportPlayerId": "A3CMQ0mb",
@@ -2048,7 +2037,7 @@
         "name": "Kahuan Vinícius",
         "livesportName": "Kahuan Vinícius",
         "livesportPlayerId": "zmGcA0E8",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2121,6 +2110,15 @@
         "livesportName": "Pavlesic Anthony",
         "livesportPlayerId": "t0L07aVK",
         "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Ekeroth Anton",
+        "livesportName": "Ekeroth Anton",
+        "livesportPlayerId": "rX3NmZj9",
+        "method": "livesport-new",
         "apps": 0,
         "goals": 0
       },
@@ -4837,13 +4835,18 @@
     "added": [
       {
         "team": "Pardubice",
-        "name": "Kahuan Vinícius",
-        "livesportPlayerId": "zmGcA0E8"
+        "name": "Neuman Vladimír",
+        "livesportPlayerId": "z3ZdK4zR"
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Ekeroth Anton",
+        "livesportPlayerId": "rX3NmZj9"
       }
     ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 510
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4862,8 +4865,8 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 510,
-    "seedRows": 558
+    "livesportRows": 509,
+    "seedRows": 559
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5078,6 +5081,6 @@
       "ratedPerformances": 460,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-05T18:07:31.981886Z"
+    "checkedAt": "2026-08-07T00:25:56.109977Z"
   }
 }
