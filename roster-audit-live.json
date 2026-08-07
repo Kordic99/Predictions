@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-08-07T00:25:56.109977Z",
+  "generatedAt": "2026-08-07T15:27:56.203383Z",
   "changes": {
-    "added": [
-      {
-        "team": "Pardubice",
-        "name": "Neuman Vladimír",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Sigma Olomouc",
-        "name": "Ekeroth Anton",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -68,8 +57,10 @@
       "Zlín Hönig Petr: missing Transfermarkt identity",
       "Jablonec Malý Evžen: missing Transfermarkt identity",
       "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity",
+      "Pardubice Neuman Vladimír: missing Transfermarkt identity",
       "Pardubice Kahuan Vinícius: missing Transfermarkt identity",
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
+      "Sigma Olomouc Ekeroth Anton: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
@@ -77,9 +68,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Pardubice Neuman Vladimír: missing Transfermarkt identity",
-      "Sigma Olomouc Ekeroth Anton: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -1857,7 +1846,7 @@
         "name": "Neuman Vladimír",
         "livesportName": "Neuman Vladimír",
         "livesportPlayerId": "z3ZdK4zR",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2118,7 +2107,7 @@
         "name": "Ekeroth Anton",
         "livesportName": "Ekeroth Anton",
         "livesportPlayerId": "rX3NmZj9",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4832,18 +4821,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Pardubice",
-        "name": "Neuman Vladimír",
-        "livesportPlayerId": "z3ZdK4zR"
-      },
-      {
-        "team": "Sigma Olomouc",
-        "name": "Ekeroth Anton",
-        "livesportPlayerId": "rX3NmZj9"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 509
@@ -4866,7 +4844,7 @@
     "officialRows": 499,
     "transfermarktRows": 507,
     "livesportRows": 509,
-    "seedRows": 559
+    "seedRows": 561
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5081,6 +5059,6 @@
       "ratedPerformances": 460,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-07T00:25:56.109977Z"
+    "checkedAt": "2026-08-07T15:27:56.203383Z"
   }
 }
