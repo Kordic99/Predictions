@@ -3484,6 +3484,15 @@
             "reason": "Rekonvalescence"
           },
           {
+            "livesportPlayerId": "KCMexHL4",
+            "name": "Kučera J.",
+            "listName": "Kučera J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kucera-jakub",
+            "reason": "Poranění kotníku"
+          },
+          {
             "livesportPlayerId": "n7UyCE4k",
             "name": "Petrášek T.",
             "listName": "Petrášek T.",
@@ -3511,17 +3520,7 @@
             "reason": "Poranění kolena"
           }
         ],
-        "uncertain": [
-          {
-            "livesportPlayerId": "KCMexHL4",
-            "name": "Kučera J.",
-            "listName": "Kučera J.",
-            "number": null,
-            "position": null,
-            "profileSlug": "kucera-jakub",
-            "reason": "Zranění"
-          }
-        ]
+        "uncertain": []
       },
       "awayContext": {
         "source": "proxy",
@@ -3925,5 +3924,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-07T00:17:22Z"
+  "updatedAt": "2026-08-07T07:42:44Z"
 }
