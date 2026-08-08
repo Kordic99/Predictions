@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T08:07:51.412722Z",
+  "generatedAt": "2026-08-08T09:12:27.088864Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -239,7 +239,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 509,
+    "sourceRows": 508,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1760,15 +1760,6 @@
         "livesportPlayerId": "8jmOPyto",
         "method": "livesport-id",
         "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Mladá Boleslav",
-        "name": "Hora Vojtěch",
-        "livesportName": "Hora Vojtěch",
-        "livesportPlayerId": "b76iEKRu",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4826,7 +4817,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 509
+    "publishedLivesportIds": 508
   },
   "careerEnriched": [
     {
@@ -4845,7 +4836,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 509,
+    "livesportRows": 508,
     "seedRows": 561
   },
   "livesportMatchStats": {
@@ -5073,6 +5064,6 @@
       "ratedPerformances": 490,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-08T08:07:51.412722Z"
+    "checkedAt": "2026-08-08T09:12:27.088864Z"
   }
 }
