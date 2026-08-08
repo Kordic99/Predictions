@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T17:03:55.973792Z",
+  "generatedAt": "2026-08-08T17:59:47.883731Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 517,
     "withLivesportSeasonStats": 516,
     "activeLivesportPlayers": 310,
-    "activeLivesportScorers": 40,
+    "activeLivesportScorers": 49,
     "warnings": [
       "Slovácko Slončík Šimon: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -71,16 +71,18 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
-      "eventCount": 17,
+      "status": "ok",
+      "eventCount": 19,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
+        "0hJIzKhT": 32,
         "48MjBAwH": 32,
         "ClhRb9oA": 32,
         "Ek8Yv5nA": 31,
         "IT1A0nBa": 32,
         "QcTe71xq": 32,
         "SMwzH7et": 32,
+        "SvLAxtOG": 32,
         "WfOrDW84": 32,
         "WzAlVcGj": 32,
         "dOnWjth2": 32,
@@ -94,12 +96,14 @@
       },
       "eventRatedCounts": {
         "08ccB3PH": 28,
+        "0hJIzKhT": 31,
         "48MjBAwH": 30,
         "ClhRb9oA": 31,
         "Ek8Yv5nA": 28,
         "IT1A0nBa": 27,
         "QcTe71xq": 29,
         "SMwzH7et": 30,
+        "SvLAxtOG": 29,
         "WfOrDW84": 28,
         "WzAlVcGj": 30,
         "dOnWjth2": 28,
@@ -111,104 +115,9 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 536,
-      "ratedPerformances": 490,
-      "reconciliationIssues": [
-        {
-          "team": "Bohemians 1905",
-          "name": "Kareem Peter",
-          "livesportPlayerId": "W40SODyI",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 23,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Krobot Ladislav",
-          "livesportPlayerId": "r1GzhTYJ",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Adu Prince",
-          "livesportPlayerId": "QTKIZWgb",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 26,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Zlín",
-          "name": "Kolář Jakub",
-          "livesportPlayerId": "KAmWy6g0",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Kozák Matyáš",
-          "livesportPlayerId": "ERcXQVW9",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 23,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Zlatohlávek Tomáš",
-          "livesportPlayerId": "KhrlVUWQ",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 30,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 600,
+      "ratedPerformances": 550,
+      "reconciliationIssues": []
     }
   },
   "ignoredSourceRows": [
@@ -4938,20 +4847,10 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 17,
-    "playerPerformances": 536,
-    "ratedPerformances": 490,
+    "completedMatches": 19,
+    "playerPerformances": 600,
+    "ratedPerformances": 550,
     "processed": [
-      {
-        "livesportMatchId": "lIZHEqp9",
-        "round": 1,
-        "home": "Zbrojovka Brno",
-        "away": "Sparta Prague",
-        "score": "3:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/sparta-praha-6qA358jH/lIZHEqp9/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "48MjBAwH",
         "round": 1,
@@ -5081,24 +4980,47 @@
         "playerPerformances": 32,
         "ratedPerformances": 30,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/slovan-liberec-4bp6yRjU/WzAlVcGj/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "0hJIzKhT",
+        "round": 3,
+        "home": "Teplice",
+        "away": "Viktoria Plzeň",
+        "score": "5:5",
+        "playerPerformances": 32,
+        "ratedPerformances": 31,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/teplice-r9XWmtLq/viktoria-plzen-2LA0e86b/0hJIzKhT/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "SvLAxtOG",
+        "round": 3,
+        "home": "Zlín",
+        "away": "Bohemians 1905",
+        "score": "0:2",
+        "playerPerformances": 32,
+        "ratedPerformances": 29,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/bohemians-1905-fuXqHnxa/SvLAxtOG/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
       "dOnWjth2",
       "drwQCNEL",
-      "lbqOh2Nk"
+      "lbqOh2Nk",
+      "lIZHEqp9"
     ],
     "validation": {
-      "status": "needs-review",
-      "eventCount": 17,
+      "status": "ok",
+      "eventCount": 19,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
+        "0hJIzKhT": 32,
         "48MjBAwH": 32,
         "ClhRb9oA": 32,
         "Ek8Yv5nA": 31,
         "IT1A0nBa": 32,
         "QcTe71xq": 32,
         "SMwzH7et": 32,
+        "SvLAxtOG": 32,
         "WfOrDW84": 32,
         "WzAlVcGj": 32,
         "dOnWjth2": 32,
@@ -5112,12 +5034,14 @@
       },
       "eventRatedCounts": {
         "08ccB3PH": 28,
+        "0hJIzKhT": 31,
         "48MjBAwH": 30,
         "ClhRb9oA": 31,
         "Ek8Yv5nA": 28,
         "IT1A0nBa": 27,
         "QcTe71xq": 29,
         "SMwzH7et": 30,
+        "SvLAxtOG": 29,
         "WfOrDW84": 28,
         "WzAlVcGj": 30,
         "dOnWjth2": 28,
@@ -5129,105 +5053,10 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 536,
-      "ratedPerformances": 490,
-      "reconciliationIssues": [
-        {
-          "team": "Bohemians 1905",
-          "name": "Kareem Peter",
-          "livesportPlayerId": "W40SODyI",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 23,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Bohemians 1905",
-          "name": "Krobot Ladislav",
-          "livesportPlayerId": "r1GzhTYJ",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Adu Prince",
-          "livesportPlayerId": "QTKIZWgb",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 26,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Zlín",
-          "name": "Kolář Jakub",
-          "livesportPlayerId": "KAmWy6g0",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Kozák Matyáš",
-          "livesportPlayerId": "ERcXQVW9",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 23,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Teplice",
-          "name": "Zlatohlávek Tomáš",
-          "livesportPlayerId": "KhrlVUWQ",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 30,
-              "detailed": 0
-            },
-            "yellowCards": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 600,
+      "ratedPerformances": 550,
+      "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-08T17:03:55.973792Z"
+    "checkedAt": "2026-08-08T17:59:47.883731Z"
   }
 }
