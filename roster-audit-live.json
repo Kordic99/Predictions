@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T17:59:47.883731Z",
+  "generatedAt": "2026-08-08T21:00:59.463654Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -33,7 +33,7 @@
     "withoutCareerRows": 33,
     "withLivesportIdentity": 517,
     "withLivesportSeasonStats": 516,
-    "activeLivesportPlayers": 310,
+    "activeLivesportPlayers": 312,
     "activeLivesportScorers": 49,
     "warnings": [
       "Slovácko Slončík Šimon: missing Transfermarkt identity",
@@ -72,7 +72,7 @@
     ],
     "matchDetails": {
       "status": "ok",
-      "eventCount": 19,
+      "eventCount": 20,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -85,6 +85,7 @@
         "SvLAxtOG": 32,
         "WfOrDW84": 32,
         "WzAlVcGj": 32,
+        "YLe59sfU": 32,
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
@@ -106,6 +107,7 @@
         "SvLAxtOG": 29,
         "WfOrDW84": 28,
         "WzAlVcGj": 30,
+        "YLe59sfU": 29,
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
@@ -115,8 +117,8 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 600,
-      "ratedPerformances": 550,
+      "playerPerformances": 632,
+      "ratedPerformances": 579,
       "reconciliationIssues": []
     }
   },
@@ -1601,7 +1603,7 @@
         "livesportName": "Floder Jiří",
         "livesportPlayerId": "tdKRVL5O",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1619,7 +1621,7 @@
         "livesportName": "Donát Denis",
         "livesportPlayerId": "GSafzztc",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1637,7 +1639,7 @@
         "livesportName": "Hybš Matěj",
         "livesportPlayerId": "CGZtxz4S",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1646,7 +1648,7 @@
         "livesportName": "Kadlec Adam",
         "livesportPlayerId": "0hdyRc6o",
         "method": "livesport-id",
-        "apps": 0,
+        "apps": 1,
         "goals": 0
       },
       {
@@ -1655,7 +1657,7 @@
         "livesportName": "Karafiát Ondřej",
         "livesportPlayerId": "xxMuA1lC",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1664,7 +1666,7 @@
         "livesportName": "Králik Martin",
         "livesportPlayerId": "dGEdXUK6",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1691,7 +1693,7 @@
         "livesportName": "Kolářík Josef",
         "livesportPlayerId": "YstTA4q5",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1700,7 +1702,7 @@
         "livesportName": "Kozel David",
         "livesportPlayerId": "Gbd2qxk0",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 1
       },
       {
@@ -1709,7 +1711,7 @@
         "livesportName": "Langhamer Daniel",
         "livesportPlayerId": "I5H0YQJ5",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 1
       },
       {
@@ -1745,7 +1747,7 @@
         "livesportName": "Zika Jan",
         "livesportPlayerId": "QHllTwTi",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1754,8 +1756,8 @@
         "livesportName": "Šubert Martin",
         "livesportPlayerId": "AXHhcDm9",
         "method": "livesport-id",
-        "apps": 2,
-        "goals": 1
+        "apps": 3,
+        "goals": 2
       },
       {
         "team": "Mladá Boleslav",
@@ -1763,7 +1765,7 @@
         "livesportName": "Buryán Jan",
         "livesportPlayerId": "8jmOPyto",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -1772,7 +1774,7 @@
         "livesportName": "John Solomon",
         "livesportPlayerId": "K8QBwEb6",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 1
       },
       {
@@ -1781,8 +1783,8 @@
         "livesportName": "Klíma Jiří",
         "livesportPlayerId": "QBW0x29C",
         "method": "livesport-id",
-        "apps": 2,
-        "goals": 2
+        "apps": 3,
+        "goals": 3
       },
       {
         "team": "Mladá Boleslav",
@@ -1799,7 +1801,7 @@
         "livesportName": "Letenay Lukáš",
         "livesportPlayerId": "dSzeKEUT",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -1817,7 +1819,7 @@
         "livesportName": "Špatenka Filip",
         "livesportPlayerId": "YmR6UQwS",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3365,7 +3367,7 @@
         "livesportName": "Surovčík Jakub",
         "livesportPlayerId": "fwXhJa0F",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3392,7 +3394,7 @@
         "livesportName": "Guddal Tobias",
         "livesportPlayerId": "YZaauoS5",
         "method": "livesport-id",
-        "apps": 0,
+        "apps": 1,
         "goals": 0
       },
       {
@@ -3401,7 +3403,7 @@
         "livesportName": "Kadeřábek Pavel",
         "livesportPlayerId": "MwBrqRha",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -3464,7 +3466,7 @@
         "livesportName": "Zelený Jaroslav",
         "livesportPlayerId": "QXMeCeIq",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -3473,7 +3475,7 @@
         "livesportName": "Ševínský Adam",
         "livesportPlayerId": "8nTNJ9y7",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3482,7 +3484,7 @@
         "livesportName": "Alcócer Josimar",
         "livesportPlayerId": "GtvcpX7m",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3491,7 +3493,7 @@
         "livesportName": "Eneme Santiago",
         "livesportPlayerId": "2Z49Cgqn",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 0
       },
       {
@@ -3518,7 +3520,7 @@
         "livesportName": "Hollý Dominik",
         "livesportPlayerId": "8AwbHvuN",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3536,7 +3538,7 @@
         "livesportName": "Karabec Adam",
         "livesportPlayerId": "SClyr2eG",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 1
       },
       {
@@ -3554,7 +3556,7 @@
         "livesportName": "Macek Roman",
         "livesportPlayerId": "4p4Z2cBP",
         "method": "livesport-id",
-        "apps": 0,
+        "apps": 1,
         "goals": 0
       },
       {
@@ -3572,7 +3574,7 @@
         "livesportName": "Mercado John",
         "livesportPlayerId": "tSlWfuTh",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 1
       },
       {
@@ -3581,7 +3583,7 @@
         "livesportName": "Ryneš Matěj",
         "livesportPlayerId": "Gh5wWWlD",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3590,7 +3592,7 @@
         "livesportName": "Sochůrek Hugo",
         "livesportPlayerId": "ddoXctfi",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3617,7 +3619,7 @@
         "livesportName": "Brunes Jonatan Braut",
         "livesportPlayerId": "t02ZMlBB",
         "method": "livesport-id",
-        "apps": 1,
+        "apps": 2,
         "goals": 1
       },
       {
@@ -3644,7 +3646,7 @@
         "livesportName": "Kuol Garang",
         "livesportPlayerId": "YXf9YWSF",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -3662,7 +3664,7 @@
         "livesportName": "Vojta Matyáš",
         "livesportPlayerId": "dK1AFaRf",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 0
       },
       {
@@ -4847,9 +4849,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 19,
-    "playerPerformances": 600,
-    "ratedPerformances": 550,
+    "completedMatches": 20,
+    "playerPerformances": 632,
+    "ratedPerformances": 579,
     "processed": [
       {
         "livesportMatchId": "48MjBAwH",
@@ -5000,6 +5002,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 29,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/bohemians-1905-fuXqHnxa/SvLAxtOG/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "YLe59sfU",
+        "round": 3,
+        "home": "Mladá Boleslav",
+        "away": "Sparta Prague",
+        "score": "2:0",
+        "playerPerformances": 32,
+        "ratedPerformances": 29,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/sparta-praha-6qA358jH/YLe59sfU/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5010,7 +5022,7 @@
     ],
     "validation": {
       "status": "ok",
-      "eventCount": 19,
+      "eventCount": 20,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -5023,6 +5035,7 @@
         "SvLAxtOG": 32,
         "WfOrDW84": 32,
         "WzAlVcGj": 32,
+        "YLe59sfU": 32,
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
@@ -5044,6 +5057,7 @@
         "SvLAxtOG": 29,
         "WfOrDW84": 28,
         "WzAlVcGj": 30,
+        "YLe59sfU": 29,
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
@@ -5053,10 +5067,10 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 600,
-      "ratedPerformances": 550,
+      "playerPerformances": 632,
+      "ratedPerformances": 579,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-08T17:59:47.883731Z"
+    "checkedAt": "2026-08-08T21:00:59.463654Z"
   }
 }
