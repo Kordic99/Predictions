@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T14:07:58.034245Z",
+  "generatedAt": "2026-08-08T14:59:59.883543Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -4848,36 +4848,6 @@
     "ratedPerformances": 490,
     "processed": [
       {
-        "livesportMatchId": "dOnWjth2",
-        "round": 1,
-        "home": "Teplice",
-        "away": "Bohemians 1905",
-        "score": "3:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/teplice-r9XWmtLq/bohemians-1905-fuXqHnxa/dOnWjth2/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "drwQCNEL",
-        "round": 1,
-        "home": "Viktoria Plzeň",
-        "away": "Slovan Liberec",
-        "score": "1:3",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/slovan-liberec-4bp6yRjU/drwQCNEL/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "lbqOh2Nk",
-        "round": 1,
-        "home": "Zlín",
-        "away": "Baník Ostrava",
-        "score": "0:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/banik-ostrava-lI6ddlih/lbqOh2Nk/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "lIZHEqp9",
         "round": 1,
         "home": "Zbrojovka Brno",
@@ -5018,7 +4988,11 @@
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/slovan-liberec-4bp6yRjU/WzAlVcGj/prehled/hracske-stats/obecne/"
       }
     ],
-    "skippedStableEventIds": [],
+    "skippedStableEventIds": [
+      "dOnWjth2",
+      "drwQCNEL",
+      "lbqOh2Nk"
+    ],
     "validation": {
       "status": "ok",
       "eventCount": 17,
@@ -5064,6 +5038,6 @@
       "ratedPerformances": 490,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-08T14:07:58.034245Z"
+    "checkedAt": "2026-08-08T14:59:59.883543Z"
   }
 }
