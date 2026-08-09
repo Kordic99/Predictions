@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T15:02:55.039014Z",
+  "generatedAt": "2026-08-09T15:59:52.273764Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -71,8 +71,8 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
-      "eventCount": 20,
+      "status": "ok",
+      "eventCount": 21,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -89,6 +89,7 @@
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
+        "juywOt9N": 32,
         "lIZHEqp9": 32,
         "lbqOh2Nk": 32,
         "n36twqHM": 29,
@@ -111,80 +112,16 @@
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
+        "juywOt9N": 30,
         "lIZHEqp9": 28,
         "lbqOh2Nk": 30,
         "n36twqHM": 27,
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 632,
-      "ratedPerformances": 579,
-      "reconciliationIssues": [
-        {
-          "team": "Pardubice",
-          "name": "Neuman Vladimír",
-          "livesportPlayerId": "z3ZdK4zR",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Pardubice",
-          "name": "Solil Tomáš",
-          "livesportPlayerId": "4tnjrDKJ",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 73,
-              "detailed": 0
-            },
-            "goals": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Pardubice",
-          "name": "Kahuan Vinícius",
-          "livesportPlayerId": "zmGcA0E8",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 9,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Moses David",
-          "livesportPlayerId": "vkbT7lsC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 22,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 664,
+      "ratedPerformances": 609,
+      "reconciliationIssues": []
     }
   },
   "ignoredSourceRows": [
@@ -4932,20 +4869,10 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 20,
-    "playerPerformances": 632,
-    "ratedPerformances": 579,
+    "completedMatches": 21,
+    "playerPerformances": 664,
+    "ratedPerformances": 609,
     "processed": [
-      {
-        "livesportMatchId": "WfOrDW84",
-        "round": 1,
-        "home": "Jablonec",
-        "away": "Sigma Olomouc",
-        "score": "2:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/sigma-olomouc-drA4fSL4/WfOrDW84/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "QcTe71xq",
         "round": 1,
@@ -5085,6 +5012,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 29,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/sparta-praha-6qA358jH/YLe59sfU/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "juywOt9N",
+        "round": 3,
+        "home": "Slavia Prague",
+        "away": "Pardubice",
+        "score": "2:1",
+        "playerPerformances": 32,
+        "ratedPerformances": 30,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/pardubice-Ys4YYBPn/juywOt9N/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5092,11 +5029,12 @@
       "drwQCNEL",
       "lbqOh2Nk",
       "lIZHEqp9",
-      "48MjBAwH"
+      "48MjBAwH",
+      "WfOrDW84"
     ],
     "validation": {
-      "status": "needs-review",
-      "eventCount": 20,
+      "status": "ok",
+      "eventCount": 21,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -5113,6 +5051,7 @@
         "dOnWjth2": 32,
         "drwQCNEL": 32,
         "js0IbQuC": 32,
+        "juywOt9N": 32,
         "lIZHEqp9": 32,
         "lbqOh2Nk": 32,
         "n36twqHM": 29,
@@ -5135,81 +5074,17 @@
         "dOnWjth2": 28,
         "drwQCNEL": 30,
         "js0IbQuC": 28,
+        "juywOt9N": 30,
         "lIZHEqp9": 28,
         "lbqOh2Nk": 30,
         "n36twqHM": 27,
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 632,
-      "ratedPerformances": 579,
-      "reconciliationIssues": [
-        {
-          "team": "Pardubice",
-          "name": "Neuman Vladimír",
-          "livesportPlayerId": "z3ZdK4zR",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Pardubice",
-          "name": "Solil Tomáš",
-          "livesportPlayerId": "4tnjrDKJ",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 73,
-              "detailed": 0
-            },
-            "goals": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Pardubice",
-          "name": "Kahuan Vinícius",
-          "livesportPlayerId": "zmGcA0E8",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 9,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Slavia Prague",
-          "name": "Moses David",
-          "livesportPlayerId": "vkbT7lsC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 22,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 664,
+      "ratedPerformances": 609,
+      "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-09T15:02:55.039014Z"
+    "checkedAt": "2026-08-09T15:59:52.273764Z"
   }
 }
