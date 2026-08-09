@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T11:57:25.727767Z",
+  "generatedAt": "2026-08-09T13:32:09.168496Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -31,8 +31,8 @@
     "withoutPublishedMarketValue": 64,
     "withCareer": 528,
     "withoutCareerRows": 33,
-    "withLivesportIdentity": 517,
-    "withLivesportSeasonStats": 516,
+    "withLivesportIdentity": 519,
+    "withLivesportSeasonStats": 518,
     "activeLivesportPlayers": 312,
     "activeLivesportScorers": 49,
     "warnings": [
@@ -245,7 +245,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 510,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1977,10 +1977,28 @@
       },
       {
         "team": "Pardubice",
+        "name": "Reil Martin",
+        "livesportName": "Reil Martin",
+        "livesportPlayerId": "jJd2n5mc",
+        "method": "same-team-name",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
         "name": "Saarma Robi",
         "livesportName": "Saarma Robi",
         "livesportPlayerId": "A3CMQ0mb",
         "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Simon Dominique",
+        "livesportName": "Simon Dominique",
+        "livesportPlayerId": "K4kIpYsN",
+        "method": "same-team-name",
         "apps": 0,
         "goals": 0
       },
@@ -4823,7 +4841,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 510
   },
   "careerEnriched": [
     {
@@ -4842,7 +4860,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 508,
+    "livesportRows": 510,
     "seedRows": 561
   },
   "livesportMatchStats": {
@@ -4853,16 +4871,6 @@
     "playerPerformances": 632,
     "ratedPerformances": 579,
     "processed": [
-      {
-        "livesportMatchId": "48MjBAwH",
-        "round": 1,
-        "home": "Slavia Prague",
-        "away": "Slovácko",
-        "score": "5:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/slovacko-MNEDyOlF/48MjBAwH/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "WfOrDW84",
         "round": 1,
@@ -5018,7 +5026,8 @@
       "dOnWjth2",
       "drwQCNEL",
       "lbqOh2Nk",
-      "lIZHEqp9"
+      "lIZHEqp9",
+      "48MjBAwH"
     ],
     "validation": {
       "status": "ok",
@@ -5071,6 +5080,6 @@
       "ratedPerformances": 579,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-09T11:57:25.727767Z"
+    "checkedAt": "2026-08-09T13:32:09.168496Z"
   }
 }
