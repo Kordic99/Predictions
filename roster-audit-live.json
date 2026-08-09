@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T13:32:09.168496Z",
+  "generatedAt": "2026-08-09T14:08:56.913835Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -1980,7 +1980,7 @@
         "name": "Reil Martin",
         "livesportName": "Reil Martin",
         "livesportPlayerId": "jJd2n5mc",
-        "method": "same-team-name",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -1998,7 +1998,7 @@
         "name": "Simon Dominique",
         "livesportName": "Simon Dominique",
         "livesportPlayerId": "K4kIpYsN",
-        "method": "same-team-name",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -5080,6 +5080,6 @@
       "ratedPerformances": 579,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-09T13:32:09.168496Z"
+    "checkedAt": "2026-08-09T14:08:56.913835Z"
   }
 }
