@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T19:59:42.283296Z",
+  "generatedAt": "2026-08-09T21:04:06.612862Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 519,
     "withLivesportSeasonStats": 518,
     "activeLivesportPlayers": 327,
-    "activeLivesportScorers": 52,
+    "activeLivesportScorers": 55,
     "warnings": [
       "Slovácko Slončík Šimon: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -71,8 +71,8 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
-      "eventCount": 23,
+      "status": "ok",
+      "eventCount": 24,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -80,6 +80,7 @@
         "ClhRb9oA": 32,
         "Ek8Yv5nA": 31,
         "IT1A0nBa": 32,
+        "IocCXMvp": 32,
         "MsI2v2g4": 31,
         "QcTe71xq": 32,
         "SMwzH7et": 32,
@@ -105,6 +106,7 @@
         "ClhRb9oA": 31,
         "Ek8Yv5nA": 28,
         "IT1A0nBa": 27,
+        "IocCXMvp": 27,
         "MsI2v2g4": 27,
         "QcTe71xq": 29,
         "SMwzH7et": 30,
@@ -123,89 +125,9 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 727,
-      "ratedPerformances": 664,
-      "reconciliationIssues": [
-        {
-          "team": "Artis Brno",
-          "name": "Kašík Richard",
-          "livesportPlayerId": "Yyo9TRLU",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Vukadinović Vukadin",
-          "livesportPlayerId": "zDXKj3aD",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 10,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Sigma Olomouc",
-          "name": "Ekeroth Anton",
-          "livesportPlayerId": "rX3NmZj9",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 80,
-              "detailed": 0
-            },
-            "assists": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Sigma Olomouc",
-          "name": "Malý Matúš",
-          "livesportPlayerId": "K6m7PXZr",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 80,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Sigma Olomouc",
-          "name": "Kliment Jan",
-          "livesportPlayerId": "8hRwt7Me",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 28,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 759,
+      "ratedPerformances": 691,
+      "reconciliationIssues": []
     }
   },
   "ignoredSourceRows": [
@@ -4953,9 +4875,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 23,
-    "playerPerformances": 727,
-    "ratedPerformances": 664,
+    "completedMatches": 24,
+    "playerPerformances": 759,
+    "ratedPerformances": 691,
     "processed": [
       {
         "livesportMatchId": "Ek8Yv5nA",
@@ -5116,6 +5038,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 28,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/slovacko-MNEDyOlF/WAvNRO9b/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "IocCXMvp",
+        "round": 3,
+        "home": "Artis Brno",
+        "away": "Sigma Olomouc",
+        "score": "1:2",
+        "playerPerformances": 32,
+        "ratedPerformances": 27,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/artis-brno-zHLktbZ1/sigma-olomouc-drA4fSL4/IocCXMvp/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5128,8 +5060,8 @@
       "QcTe71xq"
     ],
     "validation": {
-      "status": "needs-review",
-      "eventCount": 23,
+      "status": "ok",
+      "eventCount": 24,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -5137,6 +5069,7 @@
         "ClhRb9oA": 32,
         "Ek8Yv5nA": 31,
         "IT1A0nBa": 32,
+        "IocCXMvp": 32,
         "MsI2v2g4": 31,
         "QcTe71xq": 32,
         "SMwzH7et": 32,
@@ -5162,6 +5095,7 @@
         "ClhRb9oA": 31,
         "Ek8Yv5nA": 28,
         "IT1A0nBa": 27,
+        "IocCXMvp": 27,
         "MsI2v2g4": 27,
         "QcTe71xq": 29,
         "SMwzH7et": 30,
@@ -5180,90 +5114,10 @@
         "ryFbt1Vr": 26,
         "xbbQd4AO": 32
       },
-      "playerPerformances": 727,
-      "ratedPerformances": 664,
-      "reconciliationIssues": [
-        {
-          "team": "Artis Brno",
-          "name": "Kašík Richard",
-          "livesportPlayerId": "Yyo9TRLU",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 90,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Vukadinović Vukadin",
-          "livesportPlayerId": "zDXKj3aD",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 10,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Sigma Olomouc",
-          "name": "Ekeroth Anton",
-          "livesportPlayerId": "rX3NmZj9",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 80,
-              "detailed": 0
-            },
-            "assists": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Sigma Olomouc",
-          "name": "Malý Matúš",
-          "livesportPlayerId": "K6m7PXZr",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 80,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Sigma Olomouc",
-          "name": "Kliment Jan",
-          "livesportPlayerId": "8hRwt7Me",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 28,
-              "detailed": 0
-            }
-          }
-        }
-      ]
+      "playerPerformances": 759,
+      "ratedPerformances": 691,
+      "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-09T19:59:42.283296Z"
+    "checkedAt": "2026-08-09T21:04:06.612862Z"
   }
 }
