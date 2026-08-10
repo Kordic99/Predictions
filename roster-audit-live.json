@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T21:04:06.612862Z",
+  "generatedAt": "2026-08-10T08:58:44.301322Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -1175,6 +1175,15 @@
       },
       {
         "team": "Hradec Králové",
+        "name": "Wiesner Tomáš",
+        "livesportName": "Wiesner Tomáš",
+        "livesportPlayerId": "MB9ze6pG",
+        "method": "livesport-id",
+        "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
         "name": "Zentrich Viktor",
         "livesportName": "Zentrich Viktor",
         "livesportPlayerId": "IRn6kj7f",
@@ -1286,15 +1295,6 @@
         "name": "Vlkanova Adam",
         "livesportName": "Vlkanova Adam",
         "livesportPlayerId": "8bbcnwTe",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Hradec Králové",
-        "name": "Wiesner Tomáš",
-        "livesportName": "Wiesner Tomáš",
-        "livesportPlayerId": "MB9ze6pG",
         "method": "livesport-id",
         "apps": 1,
         "goals": 0
@@ -5118,6 +5118,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-09T21:04:06.612862Z"
+    "checkedAt": "2026-08-10T08:58:44.301322Z"
   }
 }
