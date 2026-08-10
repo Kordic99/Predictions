@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T08:58:44.301322Z",
+  "generatedAt": "2026-08-10T12:10:54.850033Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -4091,6 +4091,15 @@
       },
       {
         "team": "Viktoria Plzeň",
+        "name": "Memić Amar",
+        "livesportName": "Memič Amar",
+        "livesportPlayerId": "O85x3xJ8",
+        "method": "livesport-id",
+        "apps": 3,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
         "name": "Panoš Jiří",
         "livesportName": "Panoš Jiří",
         "livesportPlayerId": "bRbUIq7p",
@@ -4133,6 +4142,15 @@
         "method": "livesport-id",
         "apps": 2,
         "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
+        "name": "Višinský Denis",
+        "livesportName": "Višinský Denis",
+        "livesportPlayerId": "Mcjm4kMm",
+        "method": "livesport-id",
+        "apps": 3,
+        "goals": 1
       },
       {
         "team": "Viktoria Plzeň",
@@ -4181,15 +4199,6 @@
       },
       {
         "team": "Viktoria Plzeň",
-        "name": "Memić Amar",
-        "livesportName": "Memič Amar",
-        "livesportPlayerId": "O85x3xJ8",
-        "method": "livesport-id",
-        "apps": 3,
-        "goals": 0
-      },
-      {
-        "team": "Viktoria Plzeň",
         "name": "Novák Adam",
         "livesportName": "Novák Adam",
         "livesportPlayerId": "fuZZ6RiJ",
@@ -4205,15 +4214,6 @@
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
-      },
-      {
-        "team": "Viktoria Plzeň",
-        "name": "Višinský Denis",
-        "livesportName": "Višinský Denis",
-        "livesportPlayerId": "Mcjm4kMm",
-        "method": "livesport-id",
-        "apps": 3,
-        "goals": 1
       },
       {
         "team": "Viktoria Plzeň",
@@ -5118,6 +5118,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-10T08:58:44.301322Z"
+    "checkedAt": "2026-08-10T12:10:54.850033Z"
   }
 }
