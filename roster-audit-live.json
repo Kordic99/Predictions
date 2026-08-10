@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T15:32:02.904239Z",
+  "generatedAt": "2026-08-10T23:08:25.933840Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -253,7 +253,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 510,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3659,15 +3659,6 @@
       },
       {
         "team": "Sparta Prague",
-        "name": "Kuchta Jan",
-        "livesportName": "Kuchta Jan",
-        "livesportPlayerId": "IPLNGwMg",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
         "name": "Kuol Garang",
         "livesportName": "Kuol Garang",
         "livesportPlayerId": "YXf9YWSF",
@@ -4849,7 +4840,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 510
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4868,7 +4859,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 510,
+    "livesportRows": 509,
     "seedRows": 561
   },
   "livesportMatchStats": {
@@ -4879,16 +4870,6 @@
     "playerPerformances": 759,
     "ratedPerformances": 691,
     "processed": [
-      {
-        "livesportMatchId": "Ek8Yv5nA",
-        "round": 1,
-        "home": "Artis Brno",
-        "away": "Mladá Boleslav",
-        "score": "2:4",
-        "playerPerformances": 31,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/artis-brno-zHLktbZ1/mlada-boleslav-0f7GpAMu/Ek8Yv5nA/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "js0IbQuC",
         "round": 2,
@@ -5057,7 +5038,8 @@
       "lIZHEqp9",
       "48MjBAwH",
       "WfOrDW84",
-      "QcTe71xq"
+      "QcTe71xq",
+      "Ek8Yv5nA"
     ],
     "validation": {
       "status": "ok",
@@ -5118,6 +5100,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-10T15:32:02.904239Z"
+    "checkedAt": "2026-08-10T23:08:25.933840Z"
   }
 }
