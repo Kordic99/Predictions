@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-08-11T12:24:28.227589Z",
+  "generatedAt": "2026-08-11T18:27:08.824193Z",
   "changes": {
-    "added": [
-      {
-        "team": "Jablonec",
-        "name": "Tubic Salem",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -62,6 +56,7 @@
       "Zbrojovka Brno Strnad Damián: missing Transfermarkt identity",
       "Zlín Hönig Petr: missing Transfermarkt identity",
       "Jablonec Malý Evžen: missing Transfermarkt identity",
+      "Jablonec Tubic Salem: missing Transfermarkt identity",
       "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity",
       "Pardubice Neuman Vladimír: missing Transfermarkt identity",
       "Pardubice Kahuan Vinícius: missing Transfermarkt identity",
@@ -74,8 +69,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Jablonec Tubic Salem: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -1473,7 +1467,7 @@
         "name": "Tubic Salem",
         "livesportName": "Tubic Salem",
         "livesportPlayerId": "rTLkdCv0",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4844,13 +4838,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Jablonec",
-        "name": "Tubic Salem",
-        "livesportPlayerId": "rTLkdCv0"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 509
@@ -4873,7 +4861,7 @@
     "officialRows": 499,
     "transfermarktRows": 507,
     "livesportRows": 509,
-    "seedRows": 561
+    "seedRows": 562
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5113,6 +5101,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-11T12:24:28.227589Z"
+    "checkedAt": "2026-08-11T18:27:08.824193Z"
   }
 }
