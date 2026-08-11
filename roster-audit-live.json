@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T18:27:08.824193Z",
+  "generatedAt": "2026-08-11T19:37:32.848337Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -254,7 +254,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 509,
+    "sourceRows": 508,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3156,15 +3156,6 @@
       },
       {
         "team": "Slovan Liberec",
-        "name": "Sutr Jan",
-        "livesportName": "Sutr Jan",
-        "livesportPlayerId": "MX5vtBZI",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slovan Liberec",
         "name": "Bořil Jan",
         "livesportName": "Bořil Jan",
         "livesportPlayerId": "6XRulOAF",
@@ -4841,7 +4832,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 509
+    "publishedLivesportIds": 508
   },
   "careerEnriched": [
     {
@@ -4860,7 +4851,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 509,
+    "livesportRows": 508,
     "seedRows": 562
   },
   "livesportMatchStats": {
@@ -5101,6 +5092,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-11T18:27:08.824193Z"
+    "checkedAt": "2026-08-11T19:37:32.848337Z"
   }
 }
