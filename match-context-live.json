@@ -1781,16 +1781,119 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "WtKmyeN1",
+            "name": "Baier V.",
+            "listName": "Baier V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "baier-viktor",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "dldY3lBa",
+            "name": "Jemelka V.",
+            "listName": "Jemelka V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jemelka-vaclav",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "OIOKsnyg",
+            "name": "Krčík D.",
+            "listName": "Krčík D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "krcik-david",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "MLkHMXk6",
+            "name": "Paluska J.",
+            "listName": "Paluska J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "paluska-jan",
+            "reason": "Operační zákrok"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "4Okjd8wA",
+            "name": "Prebsl F.",
+            "listName": "Prebsl F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "prebsl-filip",
+            "reason": "Zranění"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "Me5ssbfF",
+            "name": "Didiba J.",
+            "listName": "Didiba J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "didiba-joss",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "jgP0qxGd",
+            "name": "Emmanuel P.",
+            "listName": "Emmanuel P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "emmanuel-prince",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "ObNeP9MU",
+            "name": "Jugas J.",
+            "listName": "Jugas J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jugas-jakub",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "nBq7a5WK",
+            "name": "Katalinič Z.",
+            "listName": "Katalinič Z.",
+            "number": null,
+            "position": null,
+            "profileSlug": "katalinic-zvonimir",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "OKq1hhme",
+            "name": "Machalík D.",
+            "listName": "Machalík D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "machalik-david",
+            "reason": "Zdravotní problémy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "vBdD6R6h",
+            "name": "Fukala M.",
+            "listName": "Fukala M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "fukala-michal",
+            "reason": "Zranění"
+          }
+        ]
       }
     },
     {
@@ -1983,5 +2086,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-12T17:13:52Z"
+  "updatedAt": "2026-08-12T19:21:50Z"
 }
