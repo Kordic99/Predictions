@@ -968,6 +968,47 @@ function storedLivesportPlayerIds(player){
   return [...ids];
 }
 
+function resultCandidateFromPlayerMatch(player,match){
+  if(
+    !match?.livesportMatchId ||
+    (match.season||CURRENT_SEASON)!==CURRENT_SEASON ||
+    healthTextKey(match.competition)!==healthTextKey('Chance Liga') ||
+    !/^\d{1,2}:\d{1,2}$/.test(String(match.score||'')) ||
+    !Number.isFinite(Number(match.round??match.r))
+  )return null;
+  const team=nm(match.team||player?.team);
+  const opponent=nm(match.opponent||match.vs);
+  if(!TEAMS.includes(team)||!TEAMS.includes(opponent)||team===opponent)return null;
+  const venue=String(match.homeAway||'').trim().toUpperCase();
+  if(!['H','A'].includes(venue))return null;
+  const home=venue==='H'?team:opponent;
+  const away=venue==='H'?opponent:team;
+  let livesportUrl=null;
+  if(match.sourceUrl){
+    try{
+      const source=new URL(match.sourceUrl);
+      const marker=source.pathname.indexOf('/prehled');
+      if(marker>=0)source.pathname=source.pathname.slice(0,marker);
+      source.search='';
+      source.hash='';
+      livesportUrl=source.href.replace(/\/$/,'');
+    }catch(_){ }
+  }
+  return {
+    season:match.season||CURRENT_SEASON,
+    r:Number(match.round??match.r),
+    h:home,
+    a:away,
+    score:String(match.score),
+    livesportMatchId:String(match.livesportMatchId),
+    source:match.source||'Livesport',
+    sourceUrl:match.sourceUrl||null,
+    livesportUrl,
+    date:match.date||null,
+    kickoff:match.kickoff||null
+  };
+}
+
 function inspectDataSnapshot(raw){
   const data=raw||{};
   const hasSplitResults=Array.isArray(data.results_current)||Array.isArray(data.results_extra);
@@ -1122,7 +1163,10 @@ function inspectDataSnapshot(raw){
           if(expectedTeam&&healthTeamKey(expectedTeam)!==healthTeamKey(match.team||player.team)){
             warnings.push(`${label}: tým hráče neodpovídá jeho Livesport zápasu; záznam je potřeba sloučit nebo opravit.`);
           }
-        }else if(resultSeasons.has(match?.season||CURRENT_SEASON)){
+        }else if(
+          resultSeasons.has(match?.season||CURRENT_SEASON) &&
+          !resultCandidateFromPlayerMatch(player,match)
+        ){
           warnings.push(`${label} / zápas ${index+1}: chybí odpovídající výsledek se stejným Livesport ID.`);
         }
       }else if(
@@ -1238,6 +1282,32 @@ function mergePlayerRecords(target,source){
 
 function enrichResultsFromPlayerMatches(){
   let enriched=0;
+  const eventCandidates=new Map();
+  players.forEach(player=>{
+    (Array.isArray(player?.matches)?player.matches:[]).forEach(match=>{
+      const candidate=resultCandidateFromPlayerMatch(player,match);
+      if(!candidate)return;
+      const eventId=candidate.livesportMatchId;
+      const fingerprint=JSON.stringify([
+        candidate.season,candidate.r,healthTeamKey(candidate.h),
+        healthTeamKey(candidate.a),candidate.score
+      ]);
+      const prior=eventCandidates.get(eventId);
+      if(!prior)eventCandidates.set(eventId,{candidate,fingerprint,consistent:true});
+      else if(prior.fingerprint!==fingerprint)prior.consistent=false;
+    });
+  });
+  eventCandidates.forEach(({candidate,consistent},eventId)=>{
+    if(!consistent)return;
+    const exists=results.some(result=>
+      result?.livesportMatchId===eventId ||
+      healthFixtureKey(result)===healthFixtureKey(candidate)
+    );
+    if(!exists){
+      results.push(candidate);
+      enriched++;
+    }
+  });
   results.forEach(result=>{
     const candidate=players.flatMap(player=>
       (player.matches||[]).map(match=>({player,match}))
@@ -5731,7 +5801,9 @@ applyTransfermarktMarketValues();
 // replace the application code, but browser storage on the same origin remains.
 const STORAGE_KEY = 'chanceliga_v4_2026_27_clean_players';
 const STORAGE_BACKUP_KEY = 'chanceliga_v4_2026_27_clean_players_backup';
-const STORAGE_SCHEMA_VERSION = 6;
+const STORAGE_SCHEMA_VERSION = 7;
+const STORAGE_CODEC_PREFIX = 'CLZ1:';
+const STORAGE_CODEC_CLEAR = 32767;
 const PUBLISHED_DATA_FILE = 'chanceliga-data.json';
 const PUBLISHED_ROSTER_FILE = 'rosters-live.json';
 let publishedRosterData = null;
@@ -5739,6 +5811,86 @@ let restoredStorageSavedAt = 0;
 let restoredFromBrowserStorage = false;
 let restoredStorageSnapshot = null;
 let storageBootstrapping = true;
+
+function storageCodeString(codes){
+  let output='';
+  for(let offset=0;offset<codes.length;offset+=16384){
+    output+=String.fromCharCode(...codes.slice(offset,offset+16384));
+  }
+  return output;
+}
+
+function compressStorageText(text){
+  const bytes=new TextEncoder().encode(String(text||''));
+  if(!bytes.length)return STORAGE_CODEC_PREFIX;
+  const dictionary=new Map();
+  const output=[];
+  let nextCode=256;
+  let phrase=String.fromCharCode(bytes[0]);
+  for(let index=1;index<bytes.length;index++){
+    const literal=String.fromCharCode(bytes[index]);
+    const combined=phrase+literal;
+    if(dictionary.has(combined)){
+      phrase=combined;
+      continue;
+    }
+    output.push(phrase.length===1?phrase.charCodeAt(0):dictionary.get(phrase));
+    if(nextCode<STORAGE_CODEC_CLEAR){
+      dictionary.set(combined,nextCode++);
+    }else{
+      output.push(STORAGE_CODEC_CLEAR);
+      dictionary.clear();
+      nextCode=256;
+    }
+    phrase=literal;
+  }
+  output.push(phrase.length===1?phrase.charCodeAt(0):dictionary.get(phrase));
+  return STORAGE_CODEC_PREFIX+storageCodeString(output);
+}
+
+function decompressStorageText(value){
+  const input=String(value||'');
+  if(!input.startsWith(STORAGE_CODEC_PREFIX))return input;
+  const payload=input.slice(STORAGE_CODEC_PREFIX.length);
+  if(!payload)return '';
+  let dictionary=[];
+  let nextCode=256;
+  let previous=null;
+  const output=[];
+  for(let index=0;index<payload.length;index++){
+    const code=payload.charCodeAt(index);
+    if(code===STORAGE_CODEC_CLEAR){
+      dictionary=[];
+      nextCode=256;
+      previous=null;
+      continue;
+    }
+    let entry;
+    if(previous===null){
+      if(code>255)throw new Error('Poškozený komprimovaný snapshot.');
+      entry=String.fromCharCode(code);
+      output.push(entry);
+      previous=entry;
+      continue;
+    }
+    if(code<256)entry=String.fromCharCode(code);
+    else if(dictionary[code]!=null)entry=dictionary[code];
+    else if(code===nextCode)entry=previous+previous[0];
+    else throw new Error('Poškozený komprimovaný snapshot.');
+    output.push(entry);
+    if(nextCode<STORAGE_CODEC_CLEAR)dictionary[nextCode++]=previous+entry[0];
+    previous=entry;
+  }
+  const binary=output.join('');
+  const bytes=new Uint8Array(binary.length);
+  for(let index=0;index<binary.length;index++)bytes[index]=binary.charCodeAt(index);
+  return new TextDecoder().decode(bytes);
+}
+
+function encodeStorageSnapshot(serialized){
+  const compressed=compressStorageText(serialized);
+  return compressed.length<String(serialized).length?compressed:String(serialized);
+}
 
 function getStorableData(){
   // Export every mutable record. This intentionally includes non-current
@@ -6059,9 +6211,13 @@ function setStatus(msg, type=''){
 
 function persistSnapshot(data=getStorableData()){
   const serialized=JSON.stringify(data);
+  const encoded=encodeStorageSnapshot(serialized);
   const previous=localStorage.getItem(STORAGE_KEY);
-  if(!storageBootstrapping && previous && previous!==serialized){
-    try{localStorage.setItem(STORAGE_BACKUP_KEY,previous);}
+  if(!storageBootstrapping && previous && previous!==encoded){
+    try{
+      const compactPrevious=encodeStorageSnapshot(decompressStorageText(previous));
+      localStorage.setItem(STORAGE_BACKUP_KEY,compactPrevious);
+    }
     catch(error){
       // The current snapshot is more important than a second copy when the
       // browser storage quota is tight.
@@ -6069,7 +6225,14 @@ function persistSnapshot(data=getStorableData()){
       console.warn('Could not update backup snapshot:',error);
     }
   }
-  localStorage.setItem(STORAGE_KEY,serialized);
+  try{
+    localStorage.setItem(STORAGE_KEY,encoded);
+  }catch(error){
+    // A legacy uncompressed backup can consume most of the quota. It is safe
+    // to remove only that secondary copy and retry the canonical snapshot.
+    try{localStorage.removeItem(STORAGE_BACKUP_KEY);}catch(_){ }
+    localStorage.setItem(STORAGE_KEY,encoded);
+  }
   return data;
 }
 
@@ -6086,7 +6249,7 @@ function readBestStorageSnapshot(){
     try{
       const raw=localStorage.getItem(key);
       if(!raw) return;
-      const data=normalizeStoredData(JSON.parse(raw));
+      const data=normalizeStoredData(JSON.parse(decompressStorageText(raw)));
       if(!data) return;
       candidates.push({
         key,data,order,raw,
@@ -6121,7 +6284,13 @@ function loadFromStorage(){
       restoredStorageSnapshot=data;
       // Freeze the pre-update snapshot before any release-time migrations run.
       // If initialization fails halfway through, the prior data is still intact.
-      localStorage.setItem(STORAGE_BACKUP_KEY,candidate.raw);
+      try{
+        const compactBackup=encodeStorageSnapshot(decompressStorageText(candidate.raw));
+        localStorage.setItem(STORAGE_BACKUP_KEY,compactBackup);
+      }catch(error){
+        try{localStorage.removeItem(STORAGE_BACKUP_KEY);}catch(_){ }
+        console.warn('Could not preserve the secondary browser snapshot:',error);
+      }
       // Migrate legacy keys/formats into the stable canonical key.
       if(candidate.key!==STORAGE_KEY || data.version!==STORAGE_SCHEMA_VERSION){
         persistSnapshot();
@@ -6570,7 +6739,9 @@ const PARDUBICE_CAREER_RAW = {"Kharatishvili Luka":[["2025/26","Pardubice","Chan
   const key=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'');
   Object.entries(PARDUBICE_CAREER_RAW).forEach(([name,rows])=>{
     const p=players.find(x=>x.team==='Pardubice' && key(x.name)===key(name));
-    if(!p){ console.warn('Pardubice player not found:',name); return; }
+    // Career archive can contain players who have since left the live roster.
+    // Skipping those rows is expected and should not look like a startup error.
+    if(!p)return;
     p.career=rows.map(r=>{
       const base={season:r[0],team:r[1],competition:r[2],rating:r[3],matches:r[4],goals:r[5],assists:r[6]};
       if(p.pos==='GK'){base.savePct=r[7];base.cleanSheets=r[8];}
@@ -8659,10 +8830,13 @@ async function loadPublishedDataSnapshot(){
 // Validate the final initialized state. Waiting for the optional published
 // snapshot prevents a transient warning from embedded/browser data that is
 // immediately superseded by a newer GitHub Pages JSON snapshot.
-void loadPublishedDataSnapshot().then(async loaded=>{
+void loadPublishedDataSnapshot().then(async()=>{
   const contextPromise=loadMatchContextData();
-  const rosterLoaded=await loadPublishedRosterData();
-  if(!loaded && !rosterLoaded)runAutomaticDataHealthCheck();
+  await loadPublishedRosterData();
+  // Always validate the final merged state. Both optional server snapshots may
+  // have changed it, so validating only when neither loaded left the badge in
+  // an indeterminate state and could miss post-merge inconsistencies.
+  runAutomaticDataHealthCheck();
   await contextPromise;
   startAutomaticScheduleCheck();
   startAutomaticResultsCheck();
