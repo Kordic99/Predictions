@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T19:37:32.848337Z",
+  "generatedAt": "2026-08-12T10:37:52.099149Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -31,8 +31,8 @@
     "withoutPublishedMarketValue": 65,
     "withCareer": 532,
     "withoutCareerRows": 30,
-    "withLivesportIdentity": 520,
-    "withLivesportSeasonStats": 519,
+    "withLivesportIdentity": 521,
+    "withLivesportSeasonStats": 520,
     "activeLivesportPlayers": 327,
     "activeLivesportScorers": 55,
     "warnings": [
@@ -254,7 +254,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1622,6 +1622,15 @@
         "livesportPlayerId": "tdKRVL5O",
         "method": "livesport-id",
         "apps": 3,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Obdržálek Marek",
+        "livesportName": "Obdržálek Marek",
+        "livesportPlayerId": "pQL3Gjon",
+        "method": "same-team-name",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4832,7 +4841,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4851,7 +4860,7 @@
   "sourceCounts": {
     "officialRows": 499,
     "transfermarktRows": 507,
-    "livesportRows": 508,
+    "livesportRows": 509,
     "seedRows": 562
   },
   "livesportMatchStats": {
@@ -5092,6 +5101,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-11T19:37:32.848337Z"
+    "checkedAt": "2026-08-12T10:37:52.099149Z"
   }
 }
