@@ -2979,7 +2979,35 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "2XEqTT51",
+            "name": "Grygar S.",
+            "listName": "Grygar S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "grygar-samuel",
+            "reason": "Poranění kotníku"
+          },
+          {
+            "livesportPlayerId": "IsrGPFwg",
+            "name": "Látal D.",
+            "listName": "Látal D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "latal-david",
+            "reason": "Trest"
+          },
+          {
+            "livesportPlayerId": "tOV6amnR",
+            "name": "Skyba Y.",
+            "listName": "Skyba Y.",
+            "number": null,
+            "position": null,
+            "profileSlug": "skyba-yevgeniy",
+            "reason": "Červená karta"
+          }
+        ],
         "uncertain": []
       },
       "awayContext": {
@@ -2987,8 +3015,46 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "dGcCYEw7",
+            "name": "Čoudek O.",
+            "listName": "Čoudek O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "coudek-ondrej",
+            "reason": "Zlomená noha"
+          },
+          {
+            "livesportPlayerId": "pjqM6KHu",
+            "name": "Navrátil J.",
+            "listName": "Navrátil J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "navratil-jan",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "ANkwk3iH",
+            "name": "Adediran Q.",
+            "listName": "Adediran Q.",
+            "number": null,
+            "position": null,
+            "profileSlug": "adediran-quadri-adebayo",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "lpCAixec",
+            "name": "Beauguel J.",
+            "listName": "Beauguel J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "beauguel-jean-david",
+            "reason": "Nedostatek herní kondice"
+          }
+        ]
       }
     },
     {
@@ -3262,5 +3328,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-13T10:29:27Z"
+  "updatedAt": "2026-08-13T13:49:12Z"
 }
