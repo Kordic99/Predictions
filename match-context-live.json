@@ -3414,71 +3414,6 @@
       }
     },
     {
-      "officialMatchId": "8354",
-      "round": 4,
-      "date": "2026-08-16",
-      "time": "17:00",
-      "home": "Bohemians 1905",
-      "away": "Jablonec",
-      "livesportMatchId": "ALuNWAie",
-      "source": "Livesport",
-      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/bohemians-1905-fuXqHnxa/jablonec-CM8ySpMH/",
-      "homeContext": {
-        "source": "proxy",
-        "players": [],
-        "officialPlayers": [],
-        "predictedPlayers": [],
-        "missing": [
-          {
-            "livesportPlayerId": "QXTyNUIj",
-            "name": "Lischka D.",
-            "listName": "Lischka D.",
-            "number": null,
-            "position": null,
-            "profileSlug": "lischka-david",
-            "reason": "Zranění"
-          },
-          {
-            "livesportPlayerId": "lCVTGyAS",
-            "name": "Pilař V.",
-            "listName": "Pilař V.",
-            "number": null,
-            "position": null,
-            "profileSlug": "pilar-vaclav",
-            "reason": "Zranění"
-          },
-          {
-            "livesportPlayerId": "Ugjx29rH",
-            "name": "Pleštil D.",
-            "listName": "Pleštil D.",
-            "number": null,
-            "position": null,
-            "profileSlug": "plestil-dominik",
-            "reason": "Svalové zranění"
-          }
-        ],
-        "uncertain": []
-      },
-      "awayContext": {
-        "source": "proxy",
-        "players": [],
-        "officialPlayers": [],
-        "predictedPlayers": [],
-        "missing": [
-          {
-            "livesportPlayerId": "rywLehZ7",
-            "name": "Polidar M.",
-            "listName": "Polidar M.",
-            "number": null,
-            "position": null,
-            "profileSlug": "polidar-matej",
-            "reason": "Červená karta"
-          }
-        ],
-        "uncertain": []
-      }
-    },
-    {
       "officialMatchId": "8352",
       "round": 4,
       "date": "2026-08-16",
@@ -3493,16 +3428,128 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "WAaL43mg",
+            "name": "Berbič H.",
+            "listName": "Berbič H.",
+            "number": null,
+            "position": null,
+            "profileSlug": "berbic-haris",
+            "reason": "Poranění kotníku"
+          },
+          {
+            "livesportPlayerId": "EcnwDC2A",
+            "name": "Gabriel Š.",
+            "listName": "Gabriel Š.",
+            "number": null,
+            "position": null,
+            "profileSlug": "gabriel-simon",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "lUHgcR8U",
+            "name": "Knapík J.",
+            "listName": "Knapík J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "knapik-jan",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "jonRrqeA",
+            "name": "Kušej V.",
+            "listName": "Kušej V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kusej-vasil",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "lbdiuVzP",
+            "name": "Mahmič E.",
+            "listName": "Mahmič E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mahmic-ermin",
+            "reason": "Nedostatek herní kondice"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "6XRulOAF",
+            "name": "Bořil J.",
+            "listName": "Bořil J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "boril-jan",
+            "reason": "Zranění"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "AF2Br9IA",
+            "name": "Jurásek D.",
+            "listName": "Jurásek D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jurasek-david",
+            "reason": "Poranění stehna"
+          },
+          {
+            "livesportPlayerId": "dSZBOc9N",
+            "name": "Kubiak O.",
+            "listName": "Kubiak O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ubiak-oskar",
+            "reason": "Svalové zranění"
+          },
+          {
+            "livesportPlayerId": "QkyQ3g8t",
+            "name": "Ogbu I.",
+            "listName": "Ogbu I.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogbu-igoh",
+            "reason": "Zranění achill. šlachy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "pr09Lnhk",
+            "name": "Douděra D.",
+            "listName": "Douděra D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "doudera-david",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "vFaA2SCd",
+            "name": "Halinský D.",
+            "listName": "Halinský D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "halinsky-denis",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "IBoly1YC",
+            "name": "Ouanda A.",
+            "listName": "Ouanda A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ouanda-adonija",
+            "reason": "Zranění"
+          }
+        ]
       }
     },
     {
@@ -3722,5 +3769,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-13T17:13:48Z"
+  "updatedAt": "2026-08-13T19:21:18Z"
 }
