@@ -3072,7 +3072,35 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "QXTyNUIj",
+            "name": "Lischka D.",
+            "listName": "Lischka D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "lischka-david",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "lCVTGyAS",
+            "name": "Pilař V.",
+            "listName": "Pilař V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "pilar-vaclav",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "Ugjx29rH",
+            "name": "Pleštil D.",
+            "listName": "Pleštil D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "plestil-dominik",
+            "reason": "Svalové zranění"
+          }
+        ],
         "uncertain": []
       },
       "awayContext": {
@@ -3328,5 +3356,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-13T13:49:12Z"
+  "updatedAt": "2026-08-13T15:16:36Z"
 }
