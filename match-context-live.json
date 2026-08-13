@@ -3108,7 +3108,17 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "rywLehZ7",
+            "name": "Polidar M.",
+            "listName": "Polidar M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "polidar-matej",
+            "reason": "Červená karta"
+          }
+        ],
         "uncertain": []
       }
     },
@@ -3356,5 +3366,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-13T15:16:36Z"
+  "updatedAt": "2026-08-13T16:12:56Z"
 }
