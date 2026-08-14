@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T17:30:43.864565Z",
+  "generatedAt": "2026-08-14T21:51:59.451878Z",
   "changes": {
     "added": [
       {
-        "team": "Sparta Prague",
-        "name": "Jurásek Matěj",
+        "team": "Jablonec",
+        "name": "Alioum Saidou",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,13 +14,13 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 555,
+    "playerCount": 556,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 36,
       "Bohemians 1905": 28,
       "Hradec Králové": 28,
-      "Jablonec": 32,
+      "Jablonec": 33,
       "Mladá Boleslav": 31,
       "Pardubice": 34,
       "Sigma Olomouc": 39,
@@ -34,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 494,
-    "withoutPublishedMarketValue": 61,
+    "withoutPublishedMarketValue": 62,
     "withCareer": 525,
-    "withoutCareerRows": 30,
-    "withLivesportIdentity": 518,
-    "withLivesportSeasonStats": 517,
+    "withoutCareerRows": 31,
+    "withLivesportIdentity": 519,
+    "withLivesportSeasonStats": 518,
     "activeLivesportPlayers": 327,
     "activeLivesportScorers": 55,
     "warnings": [
@@ -46,6 +46,7 @@
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
       "Sparta Prague Franc Lukáš: missing Transfermarkt identity",
       "Sparta Prague Feit Jan: missing Transfermarkt identity",
+      "Sparta Prague Jurásek Matěj: missing Transfermarkt identity",
       "Sparta Prague Kotíšek Maxim: missing Transfermarkt identity",
       "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
       "Baník Ostrava Moučka Matyáš: missing Transfermarkt identity",
@@ -71,7 +72,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Sparta Prague Jurásek Matěj: missing Transfermarkt identity"
+      "Jablonec Alioum Saidou: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -268,7 +269,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 507,
+    "sourceRows": 508,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1564,6 +1565,15 @@
         "livesportPlayerId": "CdEaJIfK",
         "method": "livesport-id",
         "apps": 3,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Alioum Saidou",
+        "livesportName": "Alioum Saidou",
+        "livesportPlayerId": "Eo8UVuoQ",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -3551,7 +3561,7 @@
         "name": "Jurásek Matěj",
         "livesportName": "Jurásek Matěj",
         "livesportPlayerId": "0p9v7d9P",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4836,21 +4846,21 @@
     ],
     "added": [
       {
-        "team": "Sparta Prague",
-        "name": "Jurásek Matěj",
-        "livesportPlayerId": "0p9v7d9P"
+        "team": "Jablonec",
+        "name": "Alioum Saidou",
+        "livesportPlayerId": "Eo8UVuoQ"
       }
     ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 507
+    "publishedLivesportIds": 508
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 507,
-    "seedRows": 554
+    "livesportRows": 508,
+    "seedRows": 555
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5081,6 +5091,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-14T17:30:43.864565Z"
+    "checkedAt": "2026-08-14T21:51:59.451878Z"
   }
 }
