@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from update_rosters import resolve_official_registrations
+from update_rosters import TEAM_ORDER, resolve_official_registrations
 
 
 def official(team, player_id="9000", name="Roman Example"):
@@ -28,6 +28,18 @@ def source(*memberships):
 
 
 class OfficialDuplicateResolutionTests(unittest.TestCase):
+    def test_czech_team_names_keep_their_utf8_diacritics(self):
+        expected = {
+            "Ban\u00edk Ostrava",
+            "Hradec Kr\u00e1lov\u00e9",
+            "Mlad\u00e1 Boleslav",
+            "Slov\u00e1cko",
+            "Viktoria Plze\u0148",
+            "Zl\u00edn",
+        }
+
+        self.assertTrue(expected.issubset(set(TEAM_ORDER)))
+
     def test_independent_sources_select_same_current_team(self):
         rows = [official("Old Club"), official("Current Club")]
         resolved, ignored = resolve_official_registrations(
@@ -60,4 +72,3 @@ class OfficialDuplicateResolutionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
