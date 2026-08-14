@@ -20,15 +20,18 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - name: Install parser
         run: python -m pip install --disable-pip-version-check lxml==5.4.0
+
+      - name: Test roster reconciliation
+        run: python -m unittest discover -s tests -p "test_*.py"
 
       - name: Audit official rosters and Transfermarkt values
         run: >-
@@ -60,3 +63,4 @@ jobs:
           git add rosters-live.json roster-audit-live.json
           git commit -m "Update Chance Liga rosters and values"
           git push
+
