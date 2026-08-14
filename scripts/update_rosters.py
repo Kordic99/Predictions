@@ -41,17 +41,17 @@ USER_AGENT = (
     "AppleWebKit/537.36 Chrome/138 Safari/537.36"
 )
 TEAM_CONFIG = [
-    ("SlovĂˇcko", "/klub/16-1-fc-slovacko", 5544, "1-fc-slovacko"),
+    ("Slovácko", "/klub/16-1-fc-slovacko", 5544, "1-fc-slovacko"),
     ("Sparta Prague", "/klub/2-ac-sparta-praha", 197, "ac-sparta-prag"),
     ("Bohemians 1905", "/klub/20-bohemians-praha-1905", 715, "fc-bohemians-prag-1905"),
-    ("BanĂ­k Ostrava", "/klub/14-fc-banik-ostrava", 377, "fc-banik-ostrau"),
-    ("Hradec KrĂˇlovĂ©", "/klub/11-fc-hradec-kralove", 1897, "fc-hradec-kralove"),
+    ("Baník Ostrava", "/klub/14-fc-banik-ostrava", 377, "fc-banik-ostrau"),
+    ("Hradec Králové", "/klub/11-fc-hradec-kralove", 1897, "fc-hradec-kralove"),
     ("Slovan Liberec", "/klub/7-fc-slovan-liberec", 697, "fc-slovan-liberec"),
-    ("Viktoria PlzeĹ", "/klub/6-fc-viktoria-plzen", 941, "fc-viktoria-pilsen"),
+    ("Viktoria Plzeň", "/klub/6-fc-viktoria-plzen", 941, "fc-viktoria-pilsen"),
     ("Zbrojovka Brno", "/klub/9-fc-zbrojovka-brno", 5225, "fc-zbrojovka-brunn"),
-    ("ZlĂ­n", "/klub/33-fc-zlin", 5545, "fc-fastav-zlin"),
+    ("Zlín", "/klub/33-fc-zlin", 5545, "fc-fastav-zlin"),
     ("Jablonec", "/klub/4-fk-jablonec", 1322, "fk-jablonec"),
-    ("MladĂˇ Boleslav", "/klub/8-fk-mlada-boleslav", 5546, "fk-mlada-boleslav"),
+    ("Mladá Boleslav", "/klub/8-fk-mlada-boleslav", 5546, "fk-mlada-boleslav"),
     ("Pardubice", "/klub/39-fk-pardubice", 1496, "fk-pardubice"),
     ("Teplice", "/klub/17-fk-teplice", 814, "fk-teplice"),
     ("Artis Brno", "/klub/41-sk-artis-brno", 24325, "sk-lisen"),
@@ -62,21 +62,21 @@ TEAM_ORDER = [row[0] for row in TEAM_CONFIG]
 OFFICIAL_POSITION = {"B": "GK", "O": "D", "Z": "M", "U": "A"}
 LIVESPORT_TEAM_CONFIG = {
     "Artis Brno": ("artis-brno", "zHLktbZ1"),
-    "BanĂ­k Ostrava": ("banik-ostrava", "lI6ddlih"),
+    "Baník Ostrava": ("banik-ostrava", "lI6ddlih"),
     "Bohemians 1905": ("bohemians-1905", "fuXqHnxa"),
-    "Hradec KrĂˇlovĂ©": ("hradec-kralove", "vFXjbHms"),
+    "Hradec Králové": ("hradec-kralove", "vFXjbHms"),
     "Jablonec": ("jablonec", "CM8ySpMH"),
-    "MladĂˇ Boleslav": ("mlada-boleslav", "0f7GpAMu"),
+    "Mladá Boleslav": ("mlada-boleslav", "0f7GpAMu"),
     "Pardubice": ("pardubice", "Ys4YYBPn"),
     "Sigma Olomouc": ("sigma-olomouc", "drA4fSL4"),
     "Slavia Prague": ("slavia-praha", "viXGgnyB"),
-    "SlovĂˇcko": ("slovacko", "MNEDyOlF"),
+    "Slovácko": ("slovacko", "MNEDyOlF"),
     "Slovan Liberec": ("slovan-liberec", "4bp6yRjU"),
     "Sparta Prague": ("sparta-praha", "6qA358jH"),
     "Teplice": ("teplice", "r9XWmtLq"),
-    "Viktoria PlzeĹ": ("viktoria-plzen", "2LA0e86b"),
+    "Viktoria Plzeň": ("viktoria-plzen", "2LA0e86b"),
     "Zbrojovka Brno": ("zbrojovka-brno", "4d5TT6i5"),
-    "ZlĂ­n": ("zlin", "C09N1Ikd"),
+    "Zlín": ("zlin", "C09N1Ikd"),
 }
 LIVESPORT_POSITION = {
     "brankari": "GK",
@@ -89,9 +89,9 @@ LIVESPORT_POSITION = {
 # current-roster sources temporarily omits the player.  When Transfermarkt and
 # Livesport are both available, their agreement always takes precedence.
 OFFICIAL_DUPLICATE_TEAM = {
-    "3142": "SlovĂˇcko",        # David Ĺ tÄ›pĂˇnek
-    "4674": "MladĂˇ Boleslav",  # Filip Ĺ patenka
-    "4444": "Artis Brno",      # Alexis AlĂ©guĂ©
+    "3142": "Slovácko",        # David Štěpánek
+    "4674": "Mladá Boleslav",  # Filip Špatenka
+    "4444": "Artis Brno",      # Alexis Alégué
 }
 # A different, older player with the same name is incorrectly present on the
 # Artis page; his current Transfermarkt club is outside Chance Liga.
@@ -99,11 +99,11 @@ IGNORED_OFFICIAL_PLAYER_IDS = {"2693"}
 # Name variants that cannot safely be paired by general fuzzy matching.
 OFFICIAL_TO_TM_ID = {
     "4084": "261010",   # Vlasij Sinjavskij / Vlasiy Sinyavskiy
-    "5181": "1109889",  # Kauan Carneiro Da Silva KakĂˇ / KakĂˇ
-    "2970": "303440",   # Ladislav TakĂˇcs / Laco Takacs
-    "5149": "558467",   # Michal JeĹ™Ăˇbek (born 1995)
+    "5181": "1109889",  # Kauan Carneiro Da Silva Kaká / Kaká
+    "2970": "303440",   # Ladislav Takács / Laco Takacs
+    "5149": "558467",   # Michal Jeřábek (born 1995)
     "3558": "401475",   # Murphy Dorley Oscar / Oscar
-    "4455": "723415",   # HĂ©lio ... Papalele / PapalelĂ©
+    "4455": "723415",   # Hélio ... Papalele / Papalelé
     "5067": "1052374",  # Jevgenij Skyba / Yevgeniy Skyba
     "4519": "1048442",  # Ogungbayi Boluwatife / Bolu Ogungbayi
     "5024": "717199",   # Bohdan Sliubyk / Bogdan Slyubyk
@@ -122,19 +122,19 @@ def normalize(value: str) -> str:
     text = unicodedata.normalize("NFD", value or "")
     text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
     text = (
-        text.replace("Ă¸", "o")
-        .replace("Ă", "o")
-        .replace("Ĺ‚", "l")
-        .replace("Ĺ", "l")
-        .replace("Ä‘", "d")
-        .replace("Ä", "d")
-        .replace("Ă°", "d")
-        .replace("Ă", "d")
-        .replace("Ă¦", "ae")
-        .replace("Ă†", "ae")
-        .replace("Ĺ“", "oe")
-        .replace("Ĺ’", "oe")
-        .replace("Ăź", "ss")
+        text.replace("ø", "o")
+        .replace("Ø", "o")
+        .replace("ł", "l")
+        .replace("Ł", "l")
+        .replace("đ", "d")
+        .replace("Đ", "d")
+        .replace("ð", "d")
+        .replace("Ð", "d")
+        .replace("æ", "ae")
+        .replace("Æ", "ae")
+        .replace("œ", "oe")
+        .replace("Œ", "oe")
+        .replace("ß", "ss")
         .lower()
     )
     return " ".join(re.findall(r"[a-z0-9]+", text))
@@ -272,7 +272,7 @@ def parse_int(value: str) -> int | None:
 
 
 def parse_value(value: str) -> int | None:
-    text = clean(value).replace("â‚¬", "").replace(",", ".").lower()
+    text = clean(value).replace("€", "").replace(",", ".").lower()
     match = re.fullmatch(r"([\d.]+)([mk])?", text)
     if not match:
         return None
@@ -285,8 +285,8 @@ def format_value(value: int | None) -> str | None:
     if not value:
         return None
     if value >= 1_000_000:
-        return f"â‚¬{value / 1_000_000:g}m"
-    return f"â‚¬{round(value / 1000)}k"
+        return f"€{value / 1_000_000:g}m"
+    return f"€{round(value / 1000)}k"
 
 
 def tm_position(value: str) -> str:
@@ -1887,4 +1887,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
