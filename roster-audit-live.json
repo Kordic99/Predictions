@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-08-14T15:23:16.804102Z",
+  "generatedAt": "2026-08-14T17:30:43.864565Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Sparta Prague",
+        "name": "Jurásek Matěj",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 554,
+    "playerCount": 555,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 36,
@@ -21,18 +27,18 @@
       "Slavia Prague": 44,
       "Slovan Liberec": 32,
       "Slovácko": 35,
-      "Sparta Prague": 43,
+      "Sparta Prague": 44,
       "Teplice": 33,
       "Viktoria Plzeň": 32,
       "Zbrojovka Brno": 38,
       "Zlín": 34
     },
     "withMarketValue": 494,
-    "withoutPublishedMarketValue": 60,
+    "withoutPublishedMarketValue": 61,
     "withCareer": 525,
-    "withoutCareerRows": 29,
-    "withLivesportIdentity": 517,
-    "withLivesportSeasonStats": 516,
+    "withoutCareerRows": 30,
+    "withLivesportIdentity": 518,
+    "withLivesportSeasonStats": 517,
     "activeLivesportPlayers": 327,
     "activeLivesportScorers": 55,
     "warnings": [
@@ -64,7 +70,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Sparta Prague Jurásek Matěj: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -261,7 +268,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 506,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3541,6 +3548,15 @@
       },
       {
         "team": "Sparta Prague",
+        "name": "Jurásek Matěj",
+        "livesportName": "Jurásek Matěj",
+        "livesportPlayerId": "0p9v7d9P",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
         "name": "Karabec Adam",
         "livesportName": "Karabec Adam",
         "livesportPlayerId": "SClyr2eG",
@@ -4818,16 +4834,22 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Sparta Prague",
+        "name": "Jurásek Matěj",
+        "livesportPlayerId": "0p9v7d9P"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 506
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 506,
+    "livesportRows": 507,
     "seedRows": 554
   },
   "livesportMatchStats": {
@@ -4838,16 +4860,6 @@
     "playerPerformances": 759,
     "ratedPerformances": 691,
     "processed": [
-      {
-        "livesportMatchId": "js0IbQuC",
-        "round": 2,
-        "home": "Sparta Prague",
-        "away": "Zlín",
-        "score": "3:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sparta-praha-6qA358jH/zlin-C09N1Ikd/js0IbQuC/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "IT1A0nBa",
         "round": 2,
@@ -5007,7 +5019,8 @@
       "48MjBAwH",
       "WfOrDW84",
       "QcTe71xq",
-      "Ek8Yv5nA"
+      "Ek8Yv5nA",
+      "js0IbQuC"
     ],
     "validation": {
       "status": "ok",
@@ -5068,6 +5081,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-14T15:23:16.804102Z"
+    "checkedAt": "2026-08-14T17:30:43.864565Z"
   }
 }
