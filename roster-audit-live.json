@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T17:49:16.592765Z",
+  "generatedAt": "2026-08-15T18:58:20.145527Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -1776,6 +1776,15 @@
       },
       {
         "team": "Mladá Boleslav",
+        "name": "Teterja Roman",
+        "livesportName": "Teterja Roman",
+        "livesportPlayerId": "8pjXjey1",
+        "method": "same-team-name",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
         "name": "Zika Jan",
         "livesportName": "Zika Jan",
         "livesportPlayerId": "QHllTwTi",
@@ -1835,15 +1844,6 @@
         "livesportPlayerId": "dSzeKEUT",
         "method": "livesport-id",
         "apps": 3,
-        "goals": 0
-      },
-      {
-        "team": "Mladá Boleslav",
-        "name": "Teterja Roman",
-        "livesportName": "Teterja Roman",
-        "livesportPlayerId": "8pveMEE8",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4678,7 +4678,7 @@
         "livesportName": "Appiah Frank",
         "livesportPlayerId": "6XTdthhj",
         "method": "livesport-id",
-        "apps": 3,
+        "apps": 4,
         "goals": 0
       },
       {
@@ -4856,16 +4856,6 @@
     "ratedPerformances": 782,
     "processed": [
       {
-        "livesportMatchId": "ClhRb9oA",
-        "round": 2,
-        "home": "Viktoria Plzeň",
-        "away": "Zbrojovka Brno",
-        "score": "1:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 31,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/zbrojovka-brno-4d5TT6i5/ClhRb9oA/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "08ccB3PH",
         "round": 2,
         "home": "Sigma Olomouc",
@@ -5018,7 +5008,8 @@
       "js0IbQuC",
       "IT1A0nBa",
       "n36twqHM",
-      "xbbQd4AO"
+      "xbbQd4AO",
+      "ClhRb9oA"
     ],
     "validation": {
       "status": "ok",
@@ -5085,6 +5076,6 @@
       "ratedPerformances": 782,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-15T17:49:16.592765Z"
+    "checkedAt": "2026-08-15T18:58:20.145527Z"
   }
 }
