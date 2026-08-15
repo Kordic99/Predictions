@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T14:51:18.342210Z",
+  "generatedAt": "2026-08-15T15:48:51.613054Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -4850,36 +4850,6 @@
     "ratedPerformances": 691,
     "processed": [
       {
-        "livesportMatchId": "IT1A0nBa",
-        "round": 2,
-        "home": "Slovan Liberec",
-        "away": "Teplice",
-        "score": "0:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 27,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovan-liberec-4bp6yRjU/teplice-r9XWmtLq/IT1A0nBa/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "n36twqHM",
-        "round": 2,
-        "home": "Slovácko",
-        "away": "Artis Brno",
-        "score": "1:1",
-        "playerPerformances": 29,
-        "ratedPerformances": 27,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/artis-brno-zHLktbZ1/n36twqHM/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "xbbQd4AO",
-        "round": 2,
-        "home": "Baník Ostrava",
-        "away": "Slavia Prague",
-        "score": "0:4",
-        "playerPerformances": 32,
-        "ratedPerformances": 32,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/banik-ostrava-lI6ddlih/slavia-praha-viXGgnyB/xbbQd4AO/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "ClhRb9oA",
         "round": 2,
         "home": "Viktoria Plzeň",
@@ -5009,7 +4979,10 @@
       "WfOrDW84",
       "QcTe71xq",
       "Ek8Yv5nA",
-      "js0IbQuC"
+      "js0IbQuC",
+      "IT1A0nBa",
+      "n36twqHM",
+      "xbbQd4AO"
     ],
     "validation": {
       "status": "ok",
@@ -5070,6 +5043,6 @@
       "ratedPerformances": 691,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-15T14:51:18.342210Z"
+    "checkedAt": "2026-08-15T15:48:51.613054Z"
   }
 }
