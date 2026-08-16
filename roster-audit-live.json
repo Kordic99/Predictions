@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T20:50:14.101012Z",
+  "generatedAt": "2026-08-16T07:55:06.893141Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -271,7 +271,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 507,
+    "sourceRows": 506,
     "attached": [
       {
         "team": "Artis Brno",
@@ -811,15 +811,6 @@
         "livesportPlayerId": "0AD529OA",
         "method": "livesport-id",
         "apps": 3,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Jaroň Petr",
-        "livesportName": "Jaroň Petr",
-        "livesportPlayerId": "ABCIcoZO",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4840,13 +4831,13 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 507
+    "publishedLivesportIds": 506
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 507,
+    "livesportRows": 506,
     "seedRows": 556
   },
   "livesportMatchStats": {
@@ -5090,6 +5081,6 @@
       "ratedPerformances": 812,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-15T20:50:14.101012Z"
+    "checkedAt": "2026-08-16T07:55:06.893141Z"
   }
 }
