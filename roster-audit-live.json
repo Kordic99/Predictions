@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T15:49:15.356547Z",
+  "generatedAt": "2026-08-16T17:48:36.242657Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -31,8 +31,8 @@
     "withoutPublishedMarketValue": 62,
     "withCareer": 526,
     "withoutCareerRows": 30,
-    "withLivesportIdentity": 519,
-    "withLivesportSeasonStats": 518,
+    "withLivesportIdentity": 520,
+    "withLivesportSeasonStats": 519,
     "activeLivesportPlayers": 340,
     "activeLivesportScorers": 64,
     "warnings": [
@@ -273,7 +273,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 505,
+    "sourceRows": 506,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3301,6 +3301,15 @@
       },
       {
         "team": "Slovan Liberec",
+        "name": "Zyba Qëndrim",
+        "livesportName": "Zyba Qëndrim",
+        "livesportPlayerId": "bB3G9F84",
+        "method": "same-team-name",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
         "name": "Baboula Venuste",
         "livesportName": "Baboula Venuste",
         "livesportPlayerId": "MipK1tKa",
@@ -4824,13 +4833,13 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 505
+    "publishedLivesportIds": 506
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 505,
+    "livesportRows": 506,
     "seedRows": 556
   },
   "livesportMatchStats": {
@@ -5068,6 +5077,6 @@
       "ratedPerformances": 841,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-16T15:49:15.356547Z"
+    "checkedAt": "2026-08-16T17:48:36.242657Z"
   }
 }
