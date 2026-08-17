@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T13:22:21.449496Z",
+  "generatedAt": "2026-08-17T14:03:03.435320Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -276,7 +276,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 506,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -904,6 +904,15 @@
         "name": "Javorček Dominik",
         "livesportName": "Javorček Dominik",
         "livesportPlayerId": "AyWIpa9s",
+        "method": "livesport-id",
+        "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
+        "name": "Kadlec Matěj",
+        "livesportName": "Kadlec Matěj",
+        "livesportPlayerId": "tAbkwElp",
         "method": "livesport-id",
         "apps": 2,
         "goals": 0
@@ -4836,13 +4845,13 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 506
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 506,
+    "livesportRows": 507,
     "seedRows": 557
   },
   "livesportMatchStats": {
@@ -5083,6 +5092,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-17T13:22:21.449496Z"
+    "checkedAt": "2026-08-17T14:03:03.435320Z"
   }
 }
