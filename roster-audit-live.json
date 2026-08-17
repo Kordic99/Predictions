@@ -1,19 +1,25 @@
 {
-  "generatedAt": "2026-08-17T14:03:03.435320Z",
+  "generatedAt": "2026-08-17T14:55:24.491358Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Hradec Králové",
+        "name": "Mielke Filip",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 557,
+    "playerCount": 558,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 36,
       "Bohemians 1905": 28,
-      "Hradec Králové": 28,
+      "Hradec Králové": 29,
       "Jablonec": 33,
       "Mladá Boleslav": 31,
       "Pardubice": 34,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 494,
-    "withoutPublishedMarketValue": 63,
+    "withoutPublishedMarketValue": 64,
     "withCareer": 526,
-    "withoutCareerRows": 31,
-    "withLivesportIdentity": 521,
-    "withLivesportSeasonStats": 520,
+    "withoutCareerRows": 32,
+    "withLivesportIdentity": 522,
+    "withLivesportSeasonStats": 521,
     "activeLivesportPlayers": 341,
     "activeLivesportScorers": 66,
     "warnings": [
@@ -67,7 +73,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Hradec Králové Mielke Filip: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -276,7 +283,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 507,
+    "sourceRows": 508,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1158,6 +1165,15 @@
         "livesportPlayerId": "jysT10na",
         "method": "livesport-id",
         "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Mielke Filip",
+        "livesportName": "Mielke Filip",
+        "livesportPlayerId": "zazyT646",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4842,16 +4858,22 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Hradec Králové",
+        "name": "Mielke Filip",
+        "livesportPlayerId": "zazyT646"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 507
+    "publishedLivesportIds": 508
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 507,
+    "livesportRows": 508,
     "seedRows": 557
   },
   "livesportMatchStats": {
@@ -5092,6 +5114,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-17T14:03:03.435320Z"
+    "checkedAt": "2026-08-17T14:55:24.491358Z"
   }
 }
