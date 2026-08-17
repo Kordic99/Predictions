@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-08-17T10:58:35.951848Z",
+  "generatedAt": "2026-08-17T11:52:34.217937Z",
   "changes": {
-    "added": [
-      {
-        "team": "Slovan Liberec",
-        "name": "Dobeš Dominik",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -53,6 +47,7 @@
       "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Baník Ostrava Jaroň Petr: missing Transfermarkt identity",
+      "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
       "Viktoria Plzeň Buchner Radek: missing Transfermarkt identity",
       "Viktoria Plzeň Kubín Petr: missing Transfermarkt identity",
       "Viktoria Plzeň Paidar Zbyněk: missing Transfermarkt identity",
@@ -72,8 +67,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -3133,7 +3127,7 @@
         "name": "Dobeš Dominik",
         "livesportName": "Dobeš Dominik",
         "livesportPlayerId": "UFAi1GU9",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4848,13 +4842,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Slovan Liberec",
-        "name": "Dobeš Dominik",
-        "livesportPlayerId": "UFAi1GU9"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 507
@@ -4864,7 +4852,7 @@
     "officialRows": 517,
     "transfermarktRows": 494,
     "livesportRows": 507,
-    "seedRows": 556
+    "seedRows": 557
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5104,6 +5092,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-17T10:58:35.951848Z"
+    "checkedAt": "2026-08-17T11:52:34.217937Z"
   }
 }
