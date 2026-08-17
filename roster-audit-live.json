@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T11:52:34.217937Z",
+  "generatedAt": "2026-08-17T13:22:21.449496Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -276,7 +276,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 507,
+    "sourceRows": 506,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2575,15 +2575,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Mbodji Youssoupha",
-        "livesportName": "Mbodji Youssoupha",
-        "livesportPlayerId": "tCDJqaVP",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "N'Guessan Ange",
         "livesportName": "N'Guessan Ange",
         "livesportPlayerId": "lU0M9sZL",
@@ -4845,13 +4836,13 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 507
+    "publishedLivesportIds": 506
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 507,
+    "livesportRows": 506,
     "seedRows": 557
   },
   "livesportMatchStats": {
@@ -5092,6 +5083,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-17T11:52:34.217937Z"
+    "checkedAt": "2026-08-17T13:22:21.449496Z"
   }
 }
