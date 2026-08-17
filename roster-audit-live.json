@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-08-17T10:06:25.244593Z",
+  "generatedAt": "2026-08-17T10:58:35.951848Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Slovan Liberec",
+        "name": "Dobeš Dominik",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 556,
+    "playerCount": 557,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 36,
@@ -19,7 +25,7 @@
       "Pardubice": 34,
       "Sigma Olomouc": 39,
       "Slavia Prague": 44,
-      "Slovan Liberec": 32,
+      "Slovan Liberec": 33,
       "Slovácko": 35,
       "Sparta Prague": 44,
       "Teplice": 33,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 494,
-    "withoutPublishedMarketValue": 62,
+    "withoutPublishedMarketValue": 63,
     "withCareer": 526,
-    "withoutCareerRows": 30,
-    "withLivesportIdentity": 520,
-    "withLivesportSeasonStats": 519,
+    "withoutCareerRows": 31,
+    "withLivesportIdentity": 521,
+    "withLivesportSeasonStats": 520,
     "activeLivesportPlayers": 341,
     "activeLivesportScorers": 66,
     "warnings": [
@@ -66,7 +72,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -275,7 +282,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 506,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3123,6 +3130,15 @@
       },
       {
         "team": "Slovan Liberec",
+        "name": "Dobeš Dominik",
+        "livesportName": "Dobeš Dominik",
+        "livesportPlayerId": "UFAi1GU9",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
         "name": "Koubek Tomáš",
         "livesportName": "Koubek Tomáš",
         "livesportPlayerId": "fglrE6w7",
@@ -4832,16 +4848,22 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Slovan Liberec",
+        "name": "Dobeš Dominik",
+        "livesportPlayerId": "UFAi1GU9"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 506
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 506,
+    "livesportRows": 507,
     "seedRows": 556
   },
   "livesportMatchStats": {
@@ -5082,6 +5104,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-17T10:06:25.244593Z"
+    "checkedAt": "2026-08-17T10:58:35.951848Z"
   }
 }
