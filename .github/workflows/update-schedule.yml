@@ -11,18 +11,31 @@ permissions:
 
 concurrency:
   group: chance-liga-schedule
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      - name: Run schedule parser regression tests
+        run: python -m unittest discover -s tests -p "test_update_schedule.py"
       - name: Read official schedule
         run: python scripts/update_schedule.py
+      - name: Validate changed-file scope
+        shell: bash
+        run: |
+          unexpected="$(git status --short | awk '{print $2}' | grep -Ev '^schedule-live\.json$' || true)"
+          if [[ -n "$unexpected" ]]; then
+            echo "Unexpected changed files:"
+            echo "$unexpected"
+            exit 1
+          fi
       - name: Commit a changed schedule
         shell: bash
         run: |
@@ -34,4 +47,17 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add schedule-live.json
           git commit -m "Update official Chance Liga schedule"
-          git push
+          branch="${GITHUB_REF_NAME:-main}"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${branch}"; then
+              exit 0
+            fi
+            if [[ "$attempt" == "3" ]]; then
+              echo "Push failed after ${attempt} attempts."
+              exit 1
+            fi
+            echo "Remote changed during this run; rebasing before retry ${attempt}/3."
+            git fetch origin "$branch"
+            git rebase "origin/${branch}"
+            sleep $((attempt * 2))
+          done
