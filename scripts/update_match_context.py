@@ -223,7 +223,10 @@ def friendly_summary(matches: list[dict[str, Any]], participant_id: str) -> dict
 
 
 def build_preseason(schedule: dict[str, Any], previous: dict[str, Any]) -> dict[str, Any]:
-    first_date = min(datetime.fromisoformat(row["date"]) for row in schedule["matches"])
+    dated_matches = [row for row in schedule["matches"] if row.get("date")]
+    if not dated_matches:
+        raise RuntimeError("The official schedule does not contain any dated fixtures.")
+    first_date = min(datetime.fromisoformat(row["date"]) for row in dated_matches)
     window_start = datetime(first_date.year, 6, 1)
     old_teams = ((previous.get("preseason") or {}).get("teams") or {})
     teams: dict[str, Any] = {}
@@ -437,7 +440,8 @@ def build_fixtures(schedule: dict[str, Any], previous: dict[str, Any], horizon_d
     selected = [
         row
         for row in schedule["matches"]
-        if start <= datetime.fromisoformat(row["date"]).date() <= end
+        if row.get("date")
+        and start <= datetime.fromisoformat(row["date"]).date() <= end
         and not row.get("score")
     ]
     fixtures: list[dict[str, Any]] = []
@@ -484,6 +488,17 @@ def validate_schedule(schedule: dict[str, Any]) -> None:
     ids = {str(row.get("officialMatchId") or "") for row in matches}
     if len(ids) != 240 or "" in ids:
         raise RuntimeError("schedule-live.json official match IDs are incomplete or duplicated.")
+    invalid_undated = [
+        str(row.get("officialMatchId") or "unknown")
+        for row in matches
+        if not row.get("date")
+        and row.get("status") not in {"postponed", "date_tba"}
+    ]
+    if invalid_undated:
+        raise RuntimeError(
+            "Undated schedule fixtures need a postponed or date_tba status: "
+            + ", ".join(invalid_undated)
+        )
     if set(TEAM_SEGMENTS) != {row[side] for row in matches for side in ("home", "away")}:
         raise RuntimeError("Livesport team mapping does not match the schedule's 16 clubs.")
 
