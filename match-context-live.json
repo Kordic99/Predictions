@@ -1540,8 +1540,91 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "hpae2jw4",
+            "name": "Andersen M.",
+            "listName": "Andersen M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "andersen-magnus-kofod",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "b50EKJ3n",
+            "name": "Cobbaut E.",
+            "listName": "Cobbaut E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "cobbaut-elias",
+            "reason": "Poranění třísel"
+          },
+          {
+            "livesportPlayerId": "MwBrqRha",
+            "name": "Kadeřábek P.",
+            "listName": "Kadeřábek P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kaderabek-pavel",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "McdmkUE4",
+            "name": "Mannsverk S.",
+            "listName": "Mannsverk S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mannsverk-heggheim-sivert",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "jBu3wPkB",
+            "name": "Martinec J.",
+            "listName": "Martinec J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "martinec-jakub",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "4jKi5Qxo",
+            "name": "Penxa O.",
+            "listName": "Penxa O.",
+            "number": null,
+            "position": null,
+            "profileSlug": "penxa-ondrej",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "UqjN9bSC",
+            "name": "Uchenna E.",
+            "listName": "Uchenna E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "aririerisim-uchenna",
+            "reason": "Poranění třísel"
+          },
+          {
+            "livesportPlayerId": "pId9BXTD",
+            "name": "Vydra P.",
+            "listName": "Vydra P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "vydra-patrik",
+            "reason": "Poranění kotníku"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "S2L0pCiU",
+            "name": "Suchomel M.",
+            "listName": "Suchomel M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "suchomel-martin",
+            "reason": "Zranění"
+          }
+        ]
       }
     },
     {
@@ -1844,5 +1927,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-19T15:47:24Z"
+  "updatedAt": "2026-08-19T16:47:56Z"
 }
