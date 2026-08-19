@@ -1,19 +1,25 @@
 {
-  "generatedAt": "2026-08-18T22:53:11.360749Z",
+  "generatedAt": "2026-08-19T19:51:52.666020Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Hradec Králové",
+        "name": "Barkovskiy German",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 558,
+    "playerCount": 559,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 36,
       "Bohemians 1905": 28,
-      "Hradec Králové": 29,
+      "Hradec Králové": 30,
       "Jablonec": 33,
       "Mladá Boleslav": 31,
       "Pardubice": 34,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 494,
-    "withoutPublishedMarketValue": 64,
+    "withoutPublishedMarketValue": 65,
     "withCareer": 526,
-    "withoutCareerRows": 32,
-    "withLivesportIdentity": 522,
-    "withLivesportSeasonStats": 521,
+    "withoutCareerRows": 33,
+    "withLivesportIdentity": 523,
+    "withLivesportSeasonStats": 522,
     "activeLivesportPlayers": 341,
     "activeLivesportScorers": 66,
     "warnings": [
@@ -68,7 +74,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Hradec Králové Barkovskiy German: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -277,7 +284,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1312,6 +1319,15 @@
         "livesportPlayerId": "8bbcnwTe",
         "method": "livesport-id",
         "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
+        "name": "Barkovskiy German",
+        "livesportName": "Barkovskiy German",
+        "livesportPlayerId": "vcGeK9x5",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4852,16 +4868,22 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Hradec Králové",
+        "name": "Barkovskiy German",
+        "livesportPlayerId": "vcGeK9x5"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 508,
+    "livesportRows": 509,
     "seedRows": 558
   },
   "livesportMatchStats": {
@@ -5102,6 +5124,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-18T22:53:11.360749Z"
+    "checkedAt": "2026-08-19T19:51:52.666020Z"
   }
 }
