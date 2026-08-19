@@ -1752,15 +1752,108 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "AF2Br9IA",
+            "name": "Jurásek D.",
+            "listName": "Jurásek D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jurasek-david",
+            "reason": "Poranění stehna"
+          },
+          {
+            "livesportPlayerId": "QkyQ3g8t",
+            "name": "Ogbu I.",
+            "listName": "Ogbu I.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogbu-igoh",
+            "reason": "Zranění achill. šlachy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "pr09Lnhk",
+            "name": "Douděra D.",
+            "listName": "Douděra D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "doudera-david",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "vFaA2SCd",
+            "name": "Halinský D.",
+            "listName": "Halinský D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "halinsky-denis",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "bk9GfZKI",
+            "name": "Labík A.",
+            "listName": "Labík A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "labik-albert",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "IBoly1YC",
+            "name": "Ouanda A.",
+            "listName": "Ouanda A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ouanda-adonija",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "xjKD0WQe",
+            "name": "Staněk J.",
+            "listName": "Staněk J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "stanek-jindrich",
+            "reason": "Není k dispozici"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "QXTyNUIj",
+            "name": "Lischka D.",
+            "listName": "Lischka D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "lischka-david",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "lCVTGyAS",
+            "name": "Pilař V.",
+            "listName": "Pilař V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "pilar-vaclav",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "Ugjx29rH",
+            "name": "Pleštil D.",
+            "listName": "Pleštil D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "plestil-dominik",
+            "reason": "Svalové zranění"
+          }
+        ],
         "uncertain": []
       }
     },
@@ -1927,5 +2020,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-19T16:47:56Z"
+  "updatedAt": "2026-08-19T19:40:50Z"
 }
