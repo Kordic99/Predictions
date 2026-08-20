@@ -2787,8 +2787,82 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "nL5vEv4t",
+            "name": "Botos G.",
+            "listName": "Botos G.",
+            "number": null,
+            "position": null,
+            "profileSlug": "botos-giannis-fivos",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "KjR9NAo5",
+            "name": "Kharatishvili L.",
+            "listName": "Kharatishvili L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kharatishvili-luka",
+            "reason": "Zranění lokte"
+          },
+          {
+            "livesportPlayerId": "xEC7nAJB",
+            "name": "Patrák V.",
+            "listName": "Patrák V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "patrak-vojtech",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "A3CMQ0mb",
+            "name": "Saarma R.",
+            "listName": "Saarma R.",
+            "number": null,
+            "position": null,
+            "profileSlug": "saarma-robi",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "fTgLFKWG",
+            "name": "Tanko A.",
+            "listName": "Tanko A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "tanko-abdoullahi",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "6ubFU8ML",
+            "name": "Traore M.",
+            "listName": "Traore M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "traore-mouhamed-tidjane",
+            "reason": "Osobní důvody"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "pf9ysQF9",
+            "name": "Jelínek T.",
+            "listName": "Jelínek T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jelinek-tomas",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "4tnjrDKJ",
+            "name": "Solil T.",
+            "listName": "Solil T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "solil-tomas",
+            "reason": "Zranění nohy"
+          }
+        ]
       }
     },
     {
@@ -3008,5 +3082,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-20T19:00:34Z"
+  "updatedAt": "2026-08-20T19:47:06Z"
 }
