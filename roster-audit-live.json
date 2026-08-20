@@ -1,16 +1,9 @@
 {
-  "generatedAt": "2026-08-20T10:59:15.467130Z",
+  "generatedAt": "2026-08-20T17:58:00.903099Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [
-      {
-        "name": "Grygar Samuel",
-        "from": "Baník Ostrava",
-        "to": "Mladá Boleslav",
-        "transfermarktPlayerId": "671547"
-      }
-    ],
+    "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
@@ -1769,7 +1762,7 @@
         "name": "Grygar Samuel",
         "livesportName": "Grygar Samuel",
         "livesportPlayerId": "2XEqTT51",
-        "method": "cross-team-name",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4889,14 +4882,7 @@
       }
     ],
     "added": [],
-    "moved": [
-      {
-        "name": "Grygar Samuel",
-        "from": "Baník Ostrava",
-        "to": "Mladá Boleslav",
-        "livesportPlayerId": "2XEqTT51"
-      }
-    ],
+    "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 511
   },
@@ -5145,6 +5131,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-20T10:59:15.467130Z"
+    "checkedAt": "2026-08-20T17:58:00.903099Z"
   }
 }
