@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-19T19:51:52.666020Z",
+  "generatedAt": "2026-08-20T08:07:19.424436Z",
   "changes": {
     "added": [
       {
         "team": "Hradec Králové",
-        "name": "Barkovskiy German",
+        "name": "Abajas Rodrigo",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,12 +14,12 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 559,
+    "playerCount": 560,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 36,
       "Bohemians 1905": 28,
-      "Hradec Králové": 30,
+      "Hradec Králové": 31,
       "Jablonec": 33,
       "Mladá Boleslav": 31,
       "Pardubice": 34,
@@ -34,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 494,
-    "withoutPublishedMarketValue": 65,
+    "withoutPublishedMarketValue": 66,
     "withCareer": 526,
-    "withoutCareerRows": 33,
-    "withLivesportIdentity": 523,
-    "withLivesportSeasonStats": 522,
+    "withoutCareerRows": 34,
+    "withLivesportIdentity": 524,
+    "withLivesportSeasonStats": 523,
     "activeLivesportPlayers": 341,
     "activeLivesportScorers": 66,
     "warnings": [
@@ -54,6 +54,7 @@
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Baník Ostrava Jaroň Petr: missing Transfermarkt identity",
       "Hradec Králové Mielke Filip: missing Transfermarkt identity",
+      "Hradec Králové Barkovskiy German: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
       "Viktoria Plzeň Buchner Radek: missing Transfermarkt identity",
       "Viktoria Plzeň Kubín Petr: missing Transfermarkt identity",
@@ -75,7 +76,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Hradec Králové Barkovskiy German: missing Transfermarkt identity"
+      "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -284,7 +285,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 509,
+    "sourceRows": 510,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1134,6 +1135,15 @@
       },
       {
         "team": "Hradec Králové",
+        "name": "Abajas Rodrigo",
+        "livesportName": "Abajas Rodrigo",
+        "livesportPlayerId": "p0AiQXJi",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Hradec Králové",
         "name": "Chvátal Juraj",
         "livesportName": "Chvátal Juraj",
         "livesportPlayerId": "Q9ooWQ1C",
@@ -1326,7 +1336,7 @@
         "name": "Barkovskiy German",
         "livesportName": "Barkovskiy German",
         "livesportPlayerId": "vcGeK9x5",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4871,20 +4881,20 @@
     "added": [
       {
         "team": "Hradec Králové",
-        "name": "Barkovskiy German",
-        "livesportPlayerId": "vcGeK9x5"
+        "name": "Abajas Rodrigo",
+        "livesportPlayerId": "p0AiQXJi"
       }
     ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 509
+    "publishedLivesportIds": 510
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 509,
-    "seedRows": 558
+    "livesportRows": 510,
+    "seedRows": 559
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5124,6 +5134,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-19T19:51:52.666020Z"
+    "checkedAt": "2026-08-20T08:07:19.424436Z"
   }
 }
