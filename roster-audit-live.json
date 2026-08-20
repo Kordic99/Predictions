@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-08-20T08:07:19.424436Z",
+  "generatedAt": "2026-08-20T10:59:15.467130Z",
   "changes": {
-    "added": [
+    "added": [],
+    "removed": [],
+    "moved": [
       {
-        "team": "Hradec Králové",
-        "name": "Abajas Rodrigo",
-        "transfermarktPlayerId": null
+        "name": "Grygar Samuel",
+        "from": "Baník Ostrava",
+        "to": "Mladá Boleslav",
+        "transfermarktPlayerId": "671547"
       }
     ],
-    "removed": [],
-    "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
@@ -17,11 +18,11 @@
     "playerCount": 560,
     "teamCounts": {
       "Artis Brno": 35,
-      "Baník Ostrava": 36,
+      "Baník Ostrava": 35,
       "Bohemians 1905": 28,
       "Hradec Králové": 31,
       "Jablonec": 33,
-      "Mladá Boleslav": 31,
+      "Mladá Boleslav": 32,
       "Pardubice": 34,
       "Sigma Olomouc": 39,
       "Slavia Prague": 44,
@@ -37,8 +38,8 @@
     "withoutPublishedMarketValue": 66,
     "withCareer": 526,
     "withoutCareerRows": 34,
-    "withLivesportIdentity": 524,
-    "withLivesportSeasonStats": 523,
+    "withLivesportIdentity": 525,
+    "withLivesportSeasonStats": 524,
     "activeLivesportPlayers": 341,
     "activeLivesportScorers": 66,
     "warnings": [
@@ -53,6 +54,7 @@
       "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Baník Ostrava Jaroň Petr: missing Transfermarkt identity",
+      "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity",
       "Hradec Králové Mielke Filip: missing Transfermarkt identity",
       "Hradec Králové Barkovskiy German: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
@@ -75,8 +77,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -285,7 +286,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 510,
+    "sourceRows": 511,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1138,7 +1139,7 @@
         "name": "Abajas Rodrigo",
         "livesportName": "Abajas Rodrigo",
         "livesportPlayerId": "p0AiQXJi",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -1760,6 +1761,15 @@
         "livesportName": "Zachoval Matěj",
         "livesportPlayerId": "W21ykymM",
         "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Grygar Samuel",
+        "livesportName": "Grygar Samuel",
+        "livesportPlayerId": "2XEqTT51",
+        "method": "cross-team-name",
         "apps": 0,
         "goals": 0
       },
@@ -4878,23 +4888,24 @@
         "goals": 1
       }
     ],
-    "added": [
+    "added": [],
+    "moved": [
       {
-        "team": "Hradec Králové",
-        "name": "Abajas Rodrigo",
-        "livesportPlayerId": "p0AiQXJi"
+        "name": "Grygar Samuel",
+        "from": "Baník Ostrava",
+        "to": "Mladá Boleslav",
+        "livesportPlayerId": "2XEqTT51"
       }
     ],
-    "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 510
+    "publishedLivesportIds": 511
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 517,
     "transfermarktRows": 494,
-    "livesportRows": 510,
-    "seedRows": 559
+    "livesportRows": 511,
+    "seedRows": 560
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5134,6 +5145,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-20T08:07:19.424436Z"
+    "checkedAt": "2026-08-20T10:59:15.467130Z"
   }
 }
