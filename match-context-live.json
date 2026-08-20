@@ -2714,8 +2714,73 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "hlg7jiCp",
+            "name": "Elbel J.",
+            "listName": "Elbel J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "elbel-jakub",
+            "reason": "Trest"
+          },
+          {
+            "livesportPlayerId": "pGKig1PD",
+            "name": "Fiala J.",
+            "listName": "Fiala J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "fiala-jan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "ELMMPj4J",
+            "name": "Král J.",
+            "listName": "Král J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kral-jan",
+            "reason": "Poranění ramena"
+          },
+          {
+            "livesportPlayerId": "EutPE0dn",
+            "name": "Mikaelsson H.",
+            "listName": "Mikaelsson H.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mikaelsson-hilmir",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "SAkqYnSf",
+            "name": "Uriča F.",
+            "listName": "Uriča F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "urica-filip",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "lIW9J0ca",
+            "name": "Yasser M.",
+            "listName": "Yasser M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "yasser-nour-mohamed",
+            "reason": "Zdravotní problémy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "GMAWmeQm",
+            "name": "Huk T.",
+            "listName": "Huk T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "huk-tomas",
+            "reason": "Zdravotní problémy"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
@@ -2943,5 +3008,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-20T15:50:33Z"
+  "updatedAt": "2026-08-20T19:00:34Z"
 }
