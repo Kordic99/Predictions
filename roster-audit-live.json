@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-21T11:54:38.533828Z",
+  "generatedAt": "2026-08-21T19:07:34.165106Z",
   "changes": {
     "added": [],
     "removed": [],
     "moved": [
       {
-        "name": "Labík Albert",
-        "from": "Slavia Prague",
-        "to": "Artis Brno",
-        "transfermarktPlayerId": "671518"
+        "name": "Obinaya Samuel",
+        "from": "Jablonec",
+        "to": "Bohemians 1905",
+        "transfermarktPlayerId": "1237999"
       }
     ],
     "marketValueUpdated": []
@@ -19,9 +19,9 @@
     "teamCounts": {
       "Artis Brno": 36,
       "Baník Ostrava": 34,
-      "Bohemians 1905": 28,
+      "Bohemians 1905": 29,
       "Hradec Králové": 32,
-      "Jablonec": 33,
+      "Jablonec": 32,
       "Mladá Boleslav": 32,
       "Pardubice": 34,
       "Sigma Olomouc": 39,
@@ -293,7 +293,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 511,
+    "sourceRows": 508,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1035,6 +1035,15 @@
       },
       {
         "team": "Bohemians 1905",
+        "name": "Obinaya Samuel",
+        "livesportName": "Obinaya Samuel",
+        "livesportPlayerId": "zHgOo00h",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Bohemians 1905",
         "name": "Pilař Václav",
         "livesportName": "Pilař Václav",
         "livesportPlayerId": "lCVTGyAS",
@@ -1256,15 +1265,6 @@
         "livesportPlayerId": "lWYpiT1K",
         "method": "livesport-id",
         "apps": 3,
-        "goals": 0
-      },
-      {
-        "team": "Hradec Králové",
-        "name": "Binar Adam",
-        "livesportName": "Binar Adam",
-        "livesportPlayerId": "fmDCuVec",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -1562,15 +1562,6 @@
         "livesportPlayerId": "vw9HXUxE",
         "method": "livesport-id",
         "apps": 3,
-        "goals": 0
-      },
-      {
-        "team": "Jablonec",
-        "name": "Obinaya Samuel",
-        "livesportName": "Obinaya Samuel",
-        "livesportPlayerId": "zHgOo00h",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -2580,15 +2571,6 @@
         "method": "livesport-id",
         "apps": 4,
         "goals": 1
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Isaiah Chinedu",
-        "livesportName": "Isaiah Chinedu",
-        "livesportPlayerId": "CnKKbzKi",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
       },
       {
         "team": "Slavia Prague",
@@ -4392,15 +4374,6 @@
       },
       {
         "team": "Zbrojovka Brno",
-        "name": "Markovič Alex",
-        "livesportName": "Markovič Alex",
-        "livesportPlayerId": "OYmcSeKb",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Zbrojovka Brno",
         "name": "Strnad Damián",
         "livesportName": "Strnad Damián",
         "livesportPlayerId": "QqguoG3n",
@@ -4898,14 +4871,14 @@
     "added": [],
     "moved": [
       {
-        "name": "Labík Albert",
-        "from": "Slavia Prague",
-        "to": "Artis Brno",
-        "livesportPlayerId": "bk9GfZKI"
+        "name": "Obinaya Samuel",
+        "from": "Jablonec",
+        "to": "Bohemians 1905",
+        "livesportPlayerId": "zHgOo00h"
       }
     ],
     "unresolved": [],
-    "publishedLivesportIds": 511
+    "publishedLivesportIds": 508
   },
   "careerEnriched": [
     {
@@ -4936,7 +4909,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 511,
+    "livesportRows": 508,
     "seedRows": 559
   },
   "livesportMatchStats": {
@@ -4947,16 +4920,6 @@
     "playerPerformances": 947,
     "ratedPerformances": 870,
     "processed": [
-      {
-        "livesportMatchId": "WzAlVcGj",
-        "round": 3,
-        "home": "Zbrojovka Brno",
-        "away": "Slovan Liberec",
-        "score": "0:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/slovan-liberec-4bp6yRjU/WzAlVcGj/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "0hJIzKhT",
         "round": 3,
@@ -5104,7 +5067,8 @@
       "ClhRb9oA",
       "08ccB3PH",
       "ryFbt1Vr",
-      "SMwzH7et"
+      "SMwzH7et",
+      "WzAlVcGj"
     ],
     "validation": {
       "status": "ok",
@@ -5177,6 +5141,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-21T11:54:38.533828Z"
+    "checkedAt": "2026-08-21T19:07:34.165106Z"
   }
 }
