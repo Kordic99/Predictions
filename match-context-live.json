@@ -2039,6 +2039,15 @@
             "reason": "Zlomená noha"
           },
           {
+            "livesportPlayerId": "C03f1AqN",
+            "name": "Glossoa N.",
+            "listName": "Glossoa N.",
+            "number": null,
+            "position": null,
+            "profileSlug": "glossoa-neil",
+            "reason": "Zranění"
+          },
+          {
             "livesportPlayerId": "pjqM6KHu",
             "name": "Navrátil J.",
             "listName": "Navrátil J.",
@@ -2057,24 +2066,6 @@
             "position": null,
             "profileSlug": "adediran-quadri-adebayo",
             "reason": "Poranění kolena"
-          },
-          {
-            "livesportPlayerId": "C03f1AqN",
-            "name": "Glossoa N.",
-            "listName": "Glossoa N.",
-            "number": null,
-            "position": null,
-            "profileSlug": "glossoa-neil",
-            "reason": "Zranění"
-          },
-          {
-            "livesportPlayerId": "zDXKj3aD",
-            "name": "Vukadinovič V.",
-            "listName": "Vukadinovič V.",
-            "number": null,
-            "position": null,
-            "profileSlug": "vukadinovic-vukadin",
-            "reason": "Nemoc"
           }
         ]
       },
@@ -2639,12 +2630,12 @@
             "profileSlug": "kayondo-aziz-abdu"
           },
           {
-            "livesportPlayerId": "xQwGnjFi",
-            "name": "Soliu",
-            "listName": "Soliu A.",
-            "number": "7",
+            "livesportPlayerId": "KhHS9bJc",
+            "name": "Dulay",
+            "listName": "Dulay P.",
+            "number": "24",
             "position": null,
-            "profileSlug": "soliu-afolabi"
+            "profileSlug": "dulay-patrik"
           },
           {
             "livesportPlayerId": "Au1Jp3rC",
@@ -2730,12 +2721,12 @@
             "profileSlug": "kayondo-aziz-abdu"
           },
           {
-            "livesportPlayerId": "xQwGnjFi",
-            "name": "Soliu",
-            "listName": "Soliu A.",
-            "number": "7",
+            "livesportPlayerId": "KhHS9bJc",
+            "name": "Dulay",
+            "listName": "Dulay P.",
+            "number": "24",
             "position": null,
-            "profileSlug": "soliu-afolabi"
+            "profileSlug": "dulay-patrik"
           },
           {
             "livesportPlayerId": "Au1Jp3rC",
@@ -2774,15 +2765,6 @@
             "reason": "Zranění"
           },
           {
-            "livesportPlayerId": "KhHS9bJc",
-            "name": "Dulay P.",
-            "listName": "Dulay P.",
-            "number": null,
-            "position": null,
-            "profileSlug": "dulay-patrik",
-            "reason": "Nemoc"
-          },
-          {
             "livesportPlayerId": "EcnwDC2A",
             "name": "Gabriel Š.",
             "listName": "Gabriel Š.",
@@ -2801,6 +2783,17 @@
             "reason": "Poranění kolena"
           },
           {
+            "livesportPlayerId": "bB3G9F84",
+            "name": "Zyba Q.",
+            "listName": "Zyba Q.",
+            "number": null,
+            "position": null,
+            "profileSlug": "zyba-qendrim",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
             "livesportPlayerId": "lbdiuVzP",
             "name": "Mahmič E.",
             "listName": "Mahmič E.",
@@ -2809,8 +2802,7 @@
             "profileSlug": "mahmic-ermin",
             "reason": "Jednání o přestupu"
           }
-        ],
-        "uncertain": []
+        ]
       }
     },
     {
@@ -3134,12 +3126,12 @@
             "profileSlug": "smrz-vojtech"
           },
           {
-            "livesportPlayerId": "AyWIpa9s",
-            "name": "Javorček",
-            "listName": "Javorček D.",
-            "number": "37",
+            "livesportPlayerId": "jqzTIkIH",
+            "name": "Kovařík",
+            "listName": "Kovařík J.",
+            "number": "19",
             "position": null,
-            "profileSlug": "javorcek-dominik"
+            "profileSlug": "kovarik-jan"
           },
           {
             "livesportPlayerId": "EkhMetv5",
@@ -3225,12 +3217,12 @@
             "profileSlug": "smrz-vojtech"
           },
           {
-            "livesportPlayerId": "AyWIpa9s",
-            "name": "Javorček",
-            "listName": "Javorček D.",
-            "number": "37",
+            "livesportPlayerId": "jqzTIkIH",
+            "name": "Kovařík",
+            "listName": "Kovařík J.",
+            "number": "19",
             "position": null,
-            "profileSlug": "javorcek-dominik"
+            "profileSlug": "kovarik-jan"
           },
           {
             "livesportPlayerId": "EkhMetv5",
@@ -3784,5 +3776,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-20T22:46:23Z"
+  "updatedAt": "2026-08-21T08:59:47Z"
 }
