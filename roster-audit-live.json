@@ -1,16 +1,23 @@
 {
-  "generatedAt": "2026-08-21T08:08:05.572632Z",
+  "generatedAt": "2026-08-21T11:54:38.533828Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Labík Albert",
+        "from": "Slavia Prague",
+        "to": "Artis Brno",
+        "transfermarktPlayerId": "671518"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
     "playerCount": 559,
     "teamCounts": {
-      "Artis Brno": 35,
+      "Artis Brno": 36,
       "Baník Ostrava": 34,
       "Bohemians 1905": 28,
       "Hradec Králové": 32,
@@ -18,7 +25,7 @@
       "Mladá Boleslav": 32,
       "Pardubice": 34,
       "Sigma Olomouc": 39,
-      "Slavia Prague": 44,
+      "Slavia Prague": 43,
       "Slovan Liberec": 33,
       "Slovácko": 34,
       "Sparta Prague": 44,
@@ -356,6 +363,15 @@
         "name": "Kolarić Danijel",
         "livesportName": "Kolaric Danijel",
         "livesportPlayerId": "Qgn3SRrd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Labík Albert",
+        "livesportName": "Labík Albert",
+        "livesportPlayerId": "bk9GfZKI",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -2621,15 +2637,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Labík Albert",
-        "livesportName": "Labík Albert",
-        "livesportPlayerId": "bk9GfZKI",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "N'Guessan Ange",
         "livesportName": "N'Guessan Ange",
         "livesportPlayerId": "lU0M9sZL",
@@ -4889,7 +4896,14 @@
       }
     ],
     "added": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Labík Albert",
+        "from": "Slavia Prague",
+        "to": "Artis Brno",
+        "livesportPlayerId": "bk9GfZKI"
+      }
+    ],
     "unresolved": [],
     "publishedLivesportIds": 511
   },
@@ -5163,6 +5177,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-21T08:08:05.572632Z"
+    "checkedAt": "2026-08-21T11:54:38.533828Z"
   }
 }
