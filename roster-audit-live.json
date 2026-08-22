@@ -1,16 +1,9 @@
 {
-  "generatedAt": "2026-08-21T19:07:34.165106Z",
+  "generatedAt": "2026-08-22T07:56:31.969270Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [
-      {
-        "name": "Obinaya Samuel",
-        "from": "Jablonec",
-        "to": "Bohemians 1905",
-        "transfermarktPlayerId": "1237999"
-      }
-    ],
+    "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
@@ -293,7 +286,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2682,15 +2675,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Dorley Oscar",
-        "livesportName": "Dorley Oscar",
-        "livesportPlayerId": "jBZtJ5Rl",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "Douděra David",
         "livesportName": "Douděra David",
         "livesportPlayerId": "pr09Lnhk",
@@ -4869,16 +4853,9 @@
       }
     ],
     "added": [],
-    "moved": [
-      {
-        "name": "Obinaya Samuel",
-        "from": "Jablonec",
-        "to": "Bohemians 1905",
-        "livesportPlayerId": "zHgOo00h"
-      }
-    ],
+    "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [
     {
@@ -4909,7 +4886,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 508,
+    "livesportRows": 507,
     "seedRows": 559
   },
   "livesportMatchStats": {
@@ -5141,6 +5118,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-21T19:07:34.165106Z"
+    "checkedAt": "2026-08-22T07:56:31.969270Z"
   }
 }
