@@ -1572,15 +1572,6 @@
             "reason": "Zranění"
           },
           {
-            "livesportPlayerId": "6wbyLLUG",
-            "name": "Pech Da.",
-            "listName": "Pech Da.",
-            "number": null,
-            "position": null,
-            "profileSlug": "pech-david",
-            "reason": "Zranění"
-          },
-          {
             "livesportPlayerId": "YmR6UQwS",
             "name": "Špatenka F.",
             "listName": "Špatenka F.",
@@ -1590,7 +1581,17 @@
             "reason": "Zranění"
           }
         ],
-        "uncertain": []
+        "uncertain": [
+          {
+            "livesportPlayerId": "6wbyLLUG",
+            "name": "Pech Da.",
+            "listName": "Pech Da.",
+            "number": null,
+            "position": null,
+            "profileSlug": "pech-david",
+            "reason": "Zranění"
+          }
+        ]
       },
       "awayContext": {
         "source": "predicted",
@@ -2290,15 +2291,6 @@
             "reason": "Poranění kolena"
           },
           {
-            "livesportPlayerId": "KngkYwbE",
-            "name": "Sørensen A.",
-            "listName": "Sørensen A.",
-            "number": null,
-            "position": null,
-            "profileSlug": "sorensen-asger",
-            "reason": "Jednání o přestupu"
-          },
-          {
             "livesportPlayerId": "UqjN9bSC",
             "name": "Uchenna E.",
             "listName": "Uchenna E.",
@@ -2559,7 +2551,9 @@
             "position": null,
             "profileSlug": "machalik-david",
             "reason": "Zdravotní problémy"
-          },
+          }
+        ],
+        "uncertain": [
           {
             "livesportPlayerId": "QZAG9jkl",
             "name": "Penkevics K.",
@@ -2569,8 +2563,7 @@
             "profileSlug": "penkevics-kristers",
             "reason": "Zranění"
           }
-        ],
-        "uncertain": []
+        ]
       },
       "awayContext": {
         "source": "predicted",
@@ -2766,15 +2759,6 @@
             "reason": "Poranění kotníku"
           },
           {
-            "livesportPlayerId": "6XRulOAF",
-            "name": "Bořil J.",
-            "listName": "Bořil J.",
-            "number": null,
-            "position": null,
-            "profileSlug": "boril-jan",
-            "reason": "Zranění"
-          },
-          {
             "livesportPlayerId": "EcnwDC2A",
             "name": "Gabriel Š.",
             "listName": "Gabriel Š.",
@@ -2803,6 +2787,15 @@
           }
         ],
         "uncertain": [
+          {
+            "livesportPlayerId": "6XRulOAF",
+            "name": "Bořil J.",
+            "listName": "Bořil J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "boril-jan",
+            "reason": "Zranění"
+          },
           {
             "livesportPlayerId": "lbdiuVzP",
             "name": "Mahmič E.",
@@ -4506,5 +4499,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-21T23:40:00Z"
+  "updatedAt": "2026-08-22T08:49:32Z"
 }
