@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T07:56:31.969270Z",
+  "generatedAt": "2026-08-22T14:50:41.257184Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -286,7 +286,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 507,
+    "sourceRows": 506,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3485,15 +3485,6 @@
       },
       {
         "team": "Sparta Prague",
-        "name": "Sørensen Asger",
-        "livesportName": "Sørensen Asger",
-        "livesportPlayerId": "KngkYwbE",
-        "method": "livesport-id",
-        "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
         "name": "Uchenna Emmanuel",
         "livesportName": "Uchenna Emmanuel",
         "livesportPlayerId": "UqjN9bSC",
@@ -4855,7 +4846,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 507
+    "publishedLivesportIds": 506
   },
   "careerEnriched": [
     {
@@ -4886,7 +4877,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 507,
+    "livesportRows": 506,
     "seedRows": 559
   },
   "livesportMatchStats": {
@@ -5118,6 +5109,6 @@
       "ratedPerformances": 870,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-22T07:56:31.969270Z"
+    "checkedAt": "2026-08-22T14:50:41.257184Z"
   }
 }
