@@ -1545,15 +1545,6 @@
             "reason": "Poranění kolena"
           },
           {
-            "livesportPlayerId": "r5quXUAg",
-            "name": "Danihel D.",
-            "listName": "Danihel D.",
-            "number": null,
-            "position": null,
-            "profileSlug": "danihel-daniel",
-            "reason": "Zranění"
-          },
-          {
             "livesportPlayerId": "YmqJMH8d",
             "name": "Svatek P.",
             "listName": "Svatek P.",
@@ -1573,6 +1564,15 @@
           }
         ],
         "uncertain": [
+          {
+            "livesportPlayerId": "r5quXUAg",
+            "name": "Danihel D.",
+            "listName": "Danihel D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "danihel-daniel",
+            "reason": "Zranění"
+          },
           {
             "livesportPlayerId": "04ItvWYj",
             "name": "Hopi I.",
@@ -2030,15 +2030,6 @@
             "reason": "Trest"
           },
           {
-            "livesportPlayerId": "pGKig1PD",
-            "name": "Fiala J.",
-            "listName": "Fiala J.",
-            "number": null,
-            "position": null,
-            "profileSlug": "fiala-jan",
-            "reason": "Zranění"
-          },
-          {
             "livesportPlayerId": "ELMMPj4J",
             "name": "Král J.",
             "listName": "Král J.",
@@ -2057,15 +2048,6 @@
             "reason": "Zranění"
           },
           {
-            "livesportPlayerId": "SAkqYnSf",
-            "name": "Uriča F.",
-            "listName": "Uriča F.",
-            "number": null,
-            "position": null,
-            "profileSlug": "urica-filip",
-            "reason": "Poranění kolena"
-          },
-          {
             "livesportPlayerId": "lIW9J0ca",
             "name": "Yasser M.",
             "listName": "Yasser M.",
@@ -2077,6 +2059,15 @@
         ],
         "uncertain": [
           {
+            "livesportPlayerId": "pGKig1PD",
+            "name": "Fiala J.",
+            "listName": "Fiala J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "fiala-jan",
+            "reason": "Zranění"
+          },
+          {
             "livesportPlayerId": "GMAWmeQm",
             "name": "Huk T.",
             "listName": "Huk T.",
@@ -2084,6 +2075,15 @@
             "position": null,
             "profileSlug": "huk-tomas",
             "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "SAkqYnSf",
+            "name": "Uriča F.",
+            "listName": "Uriča F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "urica-filip",
+            "reason": "Poranění kolena"
           }
         ]
       },
@@ -2272,15 +2272,6 @@
         ],
         "missing": [
           {
-            "livesportPlayerId": "nL5vEv4t",
-            "name": "Botos G.",
-            "listName": "Botos G.",
-            "number": null,
-            "position": null,
-            "profileSlug": "botos-giannis-fivos",
-            "reason": "Zdravotní problémy"
-          },
-          {
             "livesportPlayerId": "KjR9NAo5",
             "name": "Kharatishvili L.",
             "listName": "Kharatishvili L.",
@@ -2315,6 +2306,17 @@
             "position": null,
             "profileSlug": "solil-tomas",
             "reason": "Zranění nohy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "nL5vEv4t",
+            "name": "Botos G.",
+            "listName": "Botos G.",
+            "number": null,
+            "position": null,
+            "profileSlug": "botos-giannis-fivos",
+            "reason": "Zdravotní problémy"
           },
           {
             "livesportPlayerId": "fTgLFKWG",
@@ -2325,8 +2327,7 @@
             "profileSlug": "tanko-abdoullahi",
             "reason": "Zranění"
           }
-        ],
-        "uncertain": []
+        ]
       }
     },
     {
@@ -2600,5 +2601,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-23T02:00:57Z"
+  "updatedAt": "2026-08-23T09:44:37Z"
 }
