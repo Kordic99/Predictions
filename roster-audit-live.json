@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-08-23T07:57:53.250129Z",
+  "generatedAt": "2026-08-23T08:59:13.246845Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Sparta Prague",
+        "name": "Topič Jonáš",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 559,
+    "playerCount": 560,
     "teamCounts": {
       "Artis Brno": 36,
       "Baník Ostrava": 34,
@@ -21,18 +27,18 @@
       "Slavia Prague": 43,
       "Slovan Liberec": 33,
       "Slovácko": 34,
-      "Sparta Prague": 44,
+      "Sparta Prague": 45,
       "Teplice": 33,
       "Viktoria Plzeň": 32,
       "Zbrojovka Brno": 38,
       "Zlín": 34
     },
     "withMarketValue": 498,
-    "withoutPublishedMarketValue": 61,
+    "withoutPublishedMarketValue": 62,
     "withCareer": 529,
-    "withoutCareerRows": 30,
-    "withLivesportIdentity": 523,
-    "withLivesportSeasonStats": 522,
+    "withoutCareerRows": 31,
+    "withLivesportIdentity": 524,
+    "withLivesportSeasonStats": 523,
     "activeLivesportPlayers": 346,
     "activeLivesportScorers": 73,
     "warnings": [
@@ -65,7 +71,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Sparta Prague Topič Jonáš: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -294,7 +301,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 506,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3700,6 +3707,15 @@
       },
       {
         "team": "Sparta Prague",
+        "name": "Topič Jonáš",
+        "livesportName": "Topič Jonáš",
+        "livesportPlayerId": "tArVYsJ0",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
         "name": "Vojta Matyáš",
         "livesportName": "Vojta Matyáš",
         "livesportPlayerId": "dK1AFaRf",
@@ -4851,10 +4867,16 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Sparta Prague",
+        "name": "Topič Jonáš",
+        "livesportPlayerId": "tArVYsJ0"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 506
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [
     {
@@ -4885,7 +4907,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 506,
+    "livesportRows": 507,
     "seedRows": 559
   },
   "livesportMatchStats": {
@@ -5138,6 +5160,6 @@
       "ratedPerformances": 987,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-23T07:57:53.250129Z"
+    "checkedAt": "2026-08-23T08:59:13.246845Z"
   }
 }
