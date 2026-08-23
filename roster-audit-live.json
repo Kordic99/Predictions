@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-08-23T08:59:13.246845Z",
+  "generatedAt": "2026-08-23T14:51:55.416467Z",
   "changes": {
-    "added": [
-      {
-        "team": "Sparta Prague",
-        "name": "Topič Jonáš",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -48,6 +42,7 @@
       "Sparta Prague Feit Jan: missing Transfermarkt identity",
       "Sparta Prague Kotíšek Maxim: missing Transfermarkt identity",
       "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
+      "Sparta Prague Topič Jonáš: missing Transfermarkt identity",
       "Baník Ostrava Moučka Matyáš: missing Transfermarkt identity",
       "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
@@ -71,8 +66,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Sparta Prague Topič Jonáš: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -3710,7 +3704,7 @@
         "name": "Topič Jonáš",
         "livesportName": "Topič Jonáš",
         "livesportPlayerId": "tArVYsJ0",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4867,13 +4861,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Sparta Prague",
-        "name": "Topič Jonáš",
-        "livesportPlayerId": "tArVYsJ0"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 507
@@ -4908,7 +4896,7 @@
     "officialRows": 522,
     "transfermarktRows": 494,
     "livesportRows": 507,
-    "seedRows": 559
+    "seedRows": 560
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -4918,16 +4906,6 @@
     "playerPerformances": 1076,
     "ratedPerformances": 987,
     "processed": [
-      {
-        "livesportMatchId": "juywOt9N",
-        "round": 3,
-        "home": "Slavia Prague",
-        "away": "Pardubice",
-        "score": "2:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/pardubice-Ys4YYBPn/juywOt9N/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "MsI2v2g4",
         "round": 3,
@@ -5079,7 +5057,8 @@
       "WzAlVcGj",
       "0hJIzKhT",
       "SvLAxtOG",
-      "YLe59sfU"
+      "YLe59sfU",
+      "juywOt9N"
     ],
     "validation": {
       "status": "ok",
@@ -5160,6 +5139,6 @@
       "ratedPerformances": 987,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-23T08:59:13.246845Z"
+    "checkedAt": "2026-08-23T14:51:55.416467Z"
   }
 }
