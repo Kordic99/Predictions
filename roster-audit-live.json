@@ -1,17 +1,30 @@
 {
-  "generatedAt": "2026-08-25T17:59:15.808520Z",
+  "generatedAt": "2026-08-25T22:57:15.333297Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Sparta Prague",
+        "name": "Hoever Ki-Jana",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Pojezný Karel",
+        "from": "Baník Ostrava",
+        "to": "Artis Brno",
+        "transfermarktPlayerId": "702317"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 561,
+    "playerCount": 562,
     "teamCounts": {
-      "Artis Brno": 36,
-      "Baník Ostrava": 34,
+      "Artis Brno": 37,
+      "Baník Ostrava": 33,
       "Bohemians 1905": 29,
       "Hradec Králové": 32,
       "Jablonec": 32,
@@ -21,18 +34,18 @@
       "Slavia Prague": 43,
       "Slovan Liberec": 33,
       "Slovácko": 34,
-      "Sparta Prague": 46,
+      "Sparta Prague": 47,
       "Teplice": 33,
       "Viktoria Plzeň": 32,
       "Zbrojovka Brno": 38,
       "Zlín": 34
     },
     "withMarketValue": 498,
-    "withoutPublishedMarketValue": 63,
+    "withoutPublishedMarketValue": 64,
     "withCareer": 529,
-    "withoutCareerRows": 32,
-    "withLivesportIdentity": 525,
-    "withLivesportSeasonStats": 524,
+    "withoutCareerRows": 33,
+    "withLivesportIdentity": 526,
+    "withLivesportSeasonStats": 525,
     "activeLivesportPlayers": 351,
     "activeLivesportScorers": 76,
     "warnings": [
@@ -67,7 +80,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Sparta Prague Hoever Ki-Jana: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -300,7 +314,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -399,6 +413,15 @@
         "livesportPlayerId": "phuyPzMB",
         "method": "livesport-id",
         "apps": 5,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Pojezný Karel",
+        "livesportName": "Pojezný Karel",
+        "livesportPlayerId": "roSVzv6J",
+        "method": "livesport-id",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -669,15 +692,6 @@
         "livesportPlayerId": "hjPBEUFb",
         "method": "livesport-id",
         "apps": 4,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Pojezný Karel",
-        "livesportName": "Pojezný Karel",
-        "livesportPlayerId": "roSVzv6J",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -3463,6 +3477,15 @@
       },
       {
         "team": "Sparta Prague",
+        "name": "Hoever Ki-Jana",
+        "livesportName": "Hoever Ki-Jana",
+        "livesportPlayerId": "IaxyOwfg",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
         "name": "Kadeřábek Pavel",
         "livesportName": "Kadeřábek Pavel",
         "livesportPlayerId": "MwBrqRha",
@@ -4875,10 +4898,23 @@
         "goals": 1
       }
     ],
-    "added": [],
-    "moved": [],
+    "added": [
+      {
+        "team": "Sparta Prague",
+        "name": "Hoever Ki-Jana",
+        "livesportPlayerId": "IaxyOwfg"
+      }
+    ],
+    "moved": [
+      {
+        "name": "Pojezný Karel",
+        "from": "Baník Ostrava",
+        "to": "Artis Brno",
+        "livesportPlayerId": "roSVzv6J"
+      }
+    ],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4909,7 +4945,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 508,
+    "livesportRows": 509,
     "seedRows": 561
   },
   "livesportMatchStats": {
@@ -5150,6 +5186,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-25T17:59:15.808520Z"
+    "checkedAt": "2026-08-25T22:57:15.333297Z"
   }
 }
