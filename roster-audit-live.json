@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-08-25T07:26:48.352947Z",
+  "generatedAt": "2026-08-25T08:10:28.559336Z",
   "changes": {
-    "added": [
-      {
-        "team": "Sparta Prague",
-        "name": "Mbe Soh Loïc",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -45,6 +39,7 @@
       "Slovácko Beran Štěpán: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
       "Sparta Prague Franc Lukáš: missing Transfermarkt identity",
+      "Sparta Prague Mbe Soh Loïc: missing Transfermarkt identity",
       "Sparta Prague Feit Jan: missing Transfermarkt identity",
       "Sparta Prague Kotíšek Maxim: missing Transfermarkt identity",
       "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
@@ -72,8 +67,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Sparta Prague Mbe Soh Loïc: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -3490,7 +3484,7 @@
         "name": "Mbe Soh Loïc",
         "livesportName": "Mbe Soh Loïc",
         "livesportPlayerId": "0KsclLqh",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4881,13 +4875,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Sparta Prague",
-        "name": "Mbe Soh Loïc",
-        "livesportPlayerId": "0KsclLqh"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 508
@@ -4922,7 +4910,7 @@
     "officialRows": 522,
     "transfermarktRows": 494,
     "livesportRows": 508,
-    "seedRows": 560
+    "seedRows": 561
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5162,6 +5150,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-25T07:26:48.352947Z"
+    "checkedAt": "2026-08-25T08:10:28.559336Z"
   }
 }
