@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-08-26T08:10:03.020388Z",
+  "generatedAt": "2026-08-26T11:58:51.959398Z",
   "changes": {
-    "added": [
-      {
-        "team": "Zbrojovka Brno",
-        "name": "Pokorný Jakub",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -61,6 +55,7 @@
       "Viktoria Plzeň Paidar Zbyněk: missing Transfermarkt identity",
       "Viktoria Plzeň Novák Adam: missing Transfermarkt identity",
       "Zbrojovka Brno Kostelný Kryštof: missing Transfermarkt identity",
+      "Zbrojovka Brno Pokorný Jakub: missing Transfermarkt identity",
       "Zbrojovka Brno Šmíd Vojtěch: missing Transfermarkt identity",
       "Zbrojovka Brno Strnad Damián: missing Transfermarkt identity",
       "Zlín Bránecký Lukáš: missing Transfermarkt identity",
@@ -74,8 +69,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Zbrojovka Brno Pokorný Jakub: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -3489,6 +3483,15 @@
       },
       {
         "team": "Sparta Prague",
+        "name": "Kotíšek Maxim",
+        "livesportName": "Kotíšek Maxim",
+        "livesportPlayerId": "j1yUhnwq",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
         "name": "Martinec Jakub",
         "livesportName": "Martinec Jakub",
         "livesportPlayerId": "jBu3wPkB",
@@ -3521,6 +3524,15 @@
         "livesportPlayerId": "S2L0pCiU",
         "method": "livesport-id",
         "apps": 4,
+        "goals": 0
+      },
+      {
+        "team": "Sparta Prague",
+        "name": "Topič Jonáš",
+        "livesportName": "Topič Jonáš",
+        "livesportPlayerId": "tArVYsJ0",
+        "method": "livesport-id",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -3624,15 +3636,6 @@
       },
       {
         "team": "Sparta Prague",
-        "name": "Kotíšek Maxim",
-        "livesportName": "Kotíšek Maxim",
-        "livesportPlayerId": "j1yUhnwq",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
         "name": "Macek Roman",
         "livesportName": "Macek Roman",
         "livesportPlayerId": "4p4Z2cBP",
@@ -3728,15 +3731,6 @@
         "livesportPlayerId": "6wDvjsCE",
         "method": "livesport-id",
         "apps": 2,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
-        "name": "Topič Jonáš",
-        "livesportName": "Topič Jonáš",
-        "livesportPlayerId": "tArVYsJ0",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4401,7 +4395,7 @@
         "name": "Pokorný Jakub",
         "livesportName": "Pokorný Jakub",
         "livesportPlayerId": "YBOq37o0",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4901,13 +4895,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Zbrojovka Brno",
-        "name": "Pokorný Jakub",
-        "livesportPlayerId": "YBOq37o0"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 510
@@ -4942,7 +4930,7 @@
     "officialRows": 522,
     "transfermarktRows": 494,
     "livesportRows": 510,
-    "seedRows": 562
+    "seedRows": 563
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5182,6 +5170,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-26T08:10:03.020388Z"
+    "checkedAt": "2026-08-26T11:58:51.959398Z"
   }
 }
