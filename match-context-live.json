@@ -1709,16 +1709,101 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "IsrGPFwg",
+            "name": "Látal D.",
+            "listName": "Látal D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "latal-david",
+            "reason": "Trest"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "6q0h0slh",
+            "name": "Frydrych M.",
+            "listName": "Frydrych M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "frydrych-michal",
+            "reason": "Poranění hrudníku"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "ELMMPj4J",
+            "name": "Král J.",
+            "listName": "Král J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kral-jan",
+            "reason": "Poranění ramena"
+          },
+          {
+            "livesportPlayerId": "QBmz9gC9",
+            "name": "Krivak F.",
+            "listName": "Krivak F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "krivak-fabijan",
+            "reason": "Poranění hamstringů"
+          },
+          {
+            "livesportPlayerId": "EutPE0dn",
+            "name": "Mikaelsson H.",
+            "listName": "Mikaelsson H.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mikaelsson-hilmir",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "lIW9J0ca",
+            "name": "Yasser M.",
+            "listName": "Yasser M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "yasser-nour-mohamed",
+            "reason": "Zdravotní problémy"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "pGKig1PD",
+            "name": "Fiala J.",
+            "listName": "Fiala J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "fiala-jan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "GMAWmeQm",
+            "name": "Huk T.",
+            "listName": "Huk T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "huk-tomas",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "SAkqYnSf",
+            "name": "Uriča F.",
+            "listName": "Uriča F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "urica-filip",
+            "reason": "Poranění kolena"
+          }
+        ]
       }
     },
     {
@@ -1992,5 +2077,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-26T17:00:19Z"
+  "updatedAt": "2026-08-26T19:21:14Z"
 }
