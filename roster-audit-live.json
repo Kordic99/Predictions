@@ -1,21 +1,20 @@
 {
-  "generatedAt": "2026-08-27T01:00:07.757124Z",
+  "generatedAt": "2026-08-27T11:56:59.573521Z",
   "changes": {
-    "added": [],
-    "removed": [],
-    "moved": [
+    "added": [
       {
-        "name": "Havran Marek",
-        "from": "Baník Ostrava",
-        "to": "Mladá Boleslav",
-        "transfermarktPlayerId": "765077"
+        "team": "Zbrojovka Brno",
+        "name": "Pragr Oldřich",
+        "transfermarktPlayerId": null
       }
     ],
+    "removed": [],
+    "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 565,
+    "playerCount": 566,
     "teamCounts": {
       "Artis Brno": 37,
       "Baník Ostrava": 32,
@@ -31,15 +30,15 @@
       "Sparta Prague": 47,
       "Teplice": 33,
       "Viktoria Plzeň": 32,
-      "Zbrojovka Brno": 40,
+      "Zbrojovka Brno": 41,
       "Zlín": 34
     },
     "withMarketValue": 498,
-    "withoutPublishedMarketValue": 67,
+    "withoutPublishedMarketValue": 68,
     "withCareer": 529,
-    "withoutCareerRows": 36,
-    "withLivesportIdentity": 529,
-    "withLivesportSeasonStats": 528,
+    "withoutCareerRows": 37,
+    "withLivesportIdentity": 530,
+    "withLivesportSeasonStats": 529,
     "activeLivesportPlayers": 351,
     "activeLivesportScorers": 76,
     "warnings": [
@@ -78,7 +77,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Zbrojovka Brno Pragr Oldřich: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -311,7 +311,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 511,
+    "sourceRows": 512,
     "attached": [
       {
         "team": "Artis Brno",
@@ -4581,6 +4581,15 @@
       },
       {
         "team": "Zbrojovka Brno",
+        "name": "Pragr Oldřich",
+        "livesportName": "Pragr Oldřich",
+        "livesportPlayerId": "OtS3zku5",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
         "name": "Vachoušek Tadeáš",
         "livesportName": "Vachoušek Tadeáš",
         "livesportPlayerId": "M9e4XYMa",
@@ -4913,17 +4922,16 @@
         "goals": 1
       }
     ],
-    "added": [],
-    "moved": [
+    "added": [
       {
-        "name": "Havran Marek",
-        "from": "Baník Ostrava",
-        "to": "Mladá Boleslav",
-        "livesportPlayerId": "f7HXa1WD"
+        "team": "Zbrojovka Brno",
+        "name": "Pragr Oldřich",
+        "livesportPlayerId": "OtS3zku5"
       }
     ],
+    "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 511
+    "publishedLivesportIds": 512
   },
   "careerEnriched": [
     {
@@ -4954,7 +4962,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 511,
+    "livesportRows": 512,
     "seedRows": 565
   },
   "livesportMatchStats": {
@@ -5195,6 +5203,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-27T01:00:07.757124Z"
+    "checkedAt": "2026-08-27T11:56:59.573521Z"
   }
 }
