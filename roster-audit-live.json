@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-27T11:56:59.573521Z",
+  "generatedAt": "2026-08-27T22:31:10.349528Z",
   "changes": {
     "added": [
       {
-        "team": "Zbrojovka Brno",
-        "name": "Pragr Oldřich",
+        "team": "Pardubice",
+        "name": "Nedvěd Patrik",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,7 +14,7 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 566,
+    "playerCount": 567,
     "teamCounts": {
       "Artis Brno": 37,
       "Baník Ostrava": 32,
@@ -22,7 +22,7 @@
       "Hradec Králové": 32,
       "Jablonec": 32,
       "Mladá Boleslav": 33,
-      "Pardubice": 35,
+      "Pardubice": 36,
       "Sigma Olomouc": 39,
       "Slavia Prague": 43,
       "Slovan Liberec": 33,
@@ -34,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 498,
-    "withoutPublishedMarketValue": 68,
+    "withoutPublishedMarketValue": 69,
     "withCareer": 529,
-    "withoutCareerRows": 37,
-    "withLivesportIdentity": 530,
-    "withLivesportSeasonStats": 529,
+    "withoutCareerRows": 38,
+    "withLivesportIdentity": 531,
+    "withLivesportSeasonStats": 530,
     "activeLivesportPlayers": 351,
     "activeLivesportScorers": 76,
     "warnings": [
@@ -65,6 +65,7 @@
       "Zbrojovka Brno Pokorný Jakub: missing Transfermarkt identity",
       "Zbrojovka Brno Šmíd Vojtěch: missing Transfermarkt identity",
       "Zbrojovka Brno Strnad Damián: missing Transfermarkt identity",
+      "Zbrojovka Brno Pragr Oldřich: missing Transfermarkt identity",
       "Zlín Bránecký Lukáš: missing Transfermarkt identity",
       "Jablonec Malý Evžen: missing Transfermarkt identity",
       "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity",
@@ -78,7 +79,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Zbrojovka Brno Pragr Oldřich: missing Transfermarkt identity"
+      "Pardubice Nedvěd Patrik: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -2160,6 +2161,15 @@
       },
       {
         "team": "Pardubice",
+        "name": "Nedvěd Patrik",
+        "livesportName": "Nedvěd Patrik",
+        "livesportPlayerId": "EVfrL3NH",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
         "name": "Patrák Vojtěch",
         "livesportName": "Patrák Vojtěch",
         "livesportPlayerId": "xEC7nAJB",
@@ -2712,15 +2722,6 @@
         "name": "Kante Hamidou",
         "livesportName": "Kante Hamidou",
         "livesportPlayerId": "0bNiT0Nc",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Michez Simion",
-        "livesportName": "Michez Simion",
-        "livesportPlayerId": "KGxtsdTs",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -4584,7 +4585,7 @@
         "name": "Pragr Oldřich",
         "livesportName": "Pragr Oldřich",
         "livesportPlayerId": "OtS3zku5",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4924,9 +4925,9 @@
     ],
     "added": [
       {
-        "team": "Zbrojovka Brno",
-        "name": "Pragr Oldřich",
-        "livesportPlayerId": "OtS3zku5"
+        "team": "Pardubice",
+        "name": "Nedvěd Patrik",
+        "livesportPlayerId": "EVfrL3NH"
       }
     ],
     "moved": [],
@@ -4963,7 +4964,7 @@
     "officialRows": 522,
     "transfermarktRows": 494,
     "livesportRows": 512,
-    "seedRows": 565
+    "seedRows": 566
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5203,6 +5204,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-27T11:56:59.573521Z"
+    "checkedAt": "2026-08-27T22:31:10.349528Z"
   }
 }
