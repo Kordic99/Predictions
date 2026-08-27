@@ -1517,15 +1517,6 @@
         ],
         "uncertain": [
           {
-            "livesportPlayerId": "tzacoYEl",
-            "name": "Bammens S.",
-            "listName": "Bammens S.",
-            "number": null,
-            "position": null,
-            "profileSlug": "bammens-simon",
-            "reason": "Zranění"
-          },
-          {
             "livesportPlayerId": "fTgLFKWG",
             "name": "Tanko A.",
             "listName": "Tanko A.",
@@ -2075,7 +2066,115 @@
         "missing": [],
         "uncertain": []
       }
+    },
+    {
+      "officialMatchId": "8377",
+      "round": 7,
+      "date": "2026-09-06",
+      "time": "13:00",
+      "home": "Mladá Boleslav",
+      "away": "Baník Ostrava",
+      "livesportMatchId": "z3aUOGfA",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/banik-ostrava-lI6ddlih/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8379",
+      "round": 7,
+      "date": "2026-09-06",
+      "time": "15:00",
+      "home": "Jablonec",
+      "away": "Slovan Liberec",
+      "livesportMatchId": "val8HYnp",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/slovan-liberec-4bp6yRjU/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8381",
+      "round": 7,
+      "date": "2026-09-06",
+      "time": "15:00",
+      "home": "Zlín",
+      "away": "Teplice",
+      "livesportMatchId": "t0taNOz3",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/teplice-r9XWmtLq/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    },
+    {
+      "officialMatchId": "8380",
+      "round": 7,
+      "date": "2026-09-06",
+      "time": "18:00",
+      "home": "Hradec Králové",
+      "away": "Sparta Prague",
+      "livesportMatchId": "CQ1FFCHd",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/sparta-praha-6qA358jH/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
     }
   ],
-  "updatedAt": "2026-08-26T19:21:14Z"
+  "updatedAt": "2026-08-27T09:50:36Z"
 }
