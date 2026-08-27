@@ -1,9 +1,16 @@
 {
-  "generatedAt": "2026-08-26T18:18:46.285931Z",
+  "generatedAt": "2026-08-27T01:00:07.757124Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Havran Marek",
+        "from": "Baník Ostrava",
+        "to": "Mladá Boleslav",
+        "transfermarktPlayerId": "765077"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
@@ -11,11 +18,11 @@
     "playerCount": 565,
     "teamCounts": {
       "Artis Brno": 37,
-      "Baník Ostrava": 33,
+      "Baník Ostrava": 32,
       "Bohemians 1905": 29,
       "Hradec Králové": 32,
       "Jablonec": 32,
-      "Mladá Boleslav": 32,
+      "Mladá Boleslav": 33,
       "Pardubice": 35,
       "Sigma Olomouc": 39,
       "Slavia Prague": 43,
@@ -304,7 +311,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 512,
+    "sourceRows": 511,
     "attached": [
       {
         "team": "Artis Brno",
@@ -704,15 +711,6 @@
       },
       {
         "team": "Baník Ostrava",
-        "name": "Buchta David",
-        "livesportName": "Buchta David",
-        "livesportPlayerId": "OvUDHSBa",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
         "name": "Fiala Adrián",
         "livesportName": "Fiala Adrián",
         "livesportPlayerId": "tQChNI2F",
@@ -736,15 +734,6 @@
         "livesportPlayerId": "4CBR1jXk",
         "method": "livesport-id",
         "apps": 4,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Havran Marek",
-        "livesportName": "Havran Marek",
-        "livesportPlayerId": "f7HXa1WD",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -1789,6 +1778,15 @@
         "livesportPlayerId": "2XEqTT51",
         "method": "livesport-id",
         "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Havran Marek",
+        "livesportName": "Havran Marek",
+        "livesportPlayerId": "f7HXa1WD",
+        "method": "livesport-id",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4916,9 +4914,16 @@
       }
     ],
     "added": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Havran Marek",
+        "from": "Baník Ostrava",
+        "to": "Mladá Boleslav",
+        "livesportPlayerId": "f7HXa1WD"
+      }
+    ],
     "unresolved": [],
-    "publishedLivesportIds": 512
+    "publishedLivesportIds": 511
   },
   "careerEnriched": [
     {
@@ -4949,7 +4954,7 @@
   "sourceCounts": {
     "officialRows": 522,
     "transfermarktRows": 494,
-    "livesportRows": 512,
+    "livesportRows": 511,
     "seedRows": 565
   },
   "livesportMatchStats": {
@@ -5190,6 +5195,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-26T18:18:46.285931Z"
+    "checkedAt": "2026-08-27T01:00:07.757124Z"
   }
 }
