@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-27T22:31:10.349528Z",
+  "generatedAt": "2026-08-28T18:57:30.508424Z",
   "changes": {
     "added": [
       {
-        "team": "Pardubice",
-        "name": "Nedvěd Patrik",
+        "team": "Viktoria Plzeň",
+        "name": "Gabriel Adam",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,7 +14,7 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 567,
+    "playerCount": 568,
     "teamCounts": {
       "Artis Brno": 37,
       "Baník Ostrava": 32,
@@ -29,16 +29,16 @@
       "Slovácko": 34,
       "Sparta Prague": 47,
       "Teplice": 33,
-      "Viktoria Plzeň": 32,
+      "Viktoria Plzeň": 33,
       "Zbrojovka Brno": 41,
       "Zlín": 34
     },
     "withMarketValue": 498,
-    "withoutPublishedMarketValue": 69,
+    "withoutPublishedMarketValue": 70,
     "withCareer": 529,
-    "withoutCareerRows": 38,
-    "withLivesportIdentity": 531,
-    "withLivesportSeasonStats": 530,
+    "withoutCareerRows": 39,
+    "withLivesportIdentity": 532,
+    "withLivesportSeasonStats": 531,
     "activeLivesportPlayers": 351,
     "activeLivesportScorers": 76,
     "warnings": [
@@ -70,6 +70,7 @@
       "Jablonec Malý Evžen: missing Transfermarkt identity",
       "Mladá Boleslav Zouhar Adam: missing Transfermarkt identity",
       "Pardubice Řezníček Jan: missing Transfermarkt identity",
+      "Pardubice Nedvěd Patrik: missing Transfermarkt identity",
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
@@ -79,7 +80,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Pardubice Nedvěd Patrik: missing Transfermarkt identity"
+      "Viktoria Plzeň Gabriel Adam: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "ok",
@@ -1378,15 +1379,6 @@
       },
       {
         "team": "Hradec Králové",
-        "name": "Regža Marko",
-        "livesportName": "Regža Marko",
-        "livesportPlayerId": "WfS5kzgJ",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Hradec Králové",
         "name": "Umar Abdullahi",
         "livesportName": "Umar Abdullahi",
         "livesportPlayerId": "SvpGeePj",
@@ -2164,7 +2156,7 @@
         "name": "Nedvěd Patrik",
         "livesportName": "Nedvěd Patrik",
         "livesportPlayerId": "EVfrL3NH",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4087,6 +4079,15 @@
       },
       {
         "team": "Viktoria Plzeň",
+        "name": "Gabriel Adam",
+        "livesportName": "Gabriel Adam",
+        "livesportPlayerId": "QBI8WKRb",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Viktoria Plzeň",
         "name": "Jemelka Václav",
         "livesportName": "Jemelka Václav",
         "livesportPlayerId": "dldY3lBa",
@@ -4925,9 +4926,9 @@
     ],
     "added": [
       {
-        "team": "Pardubice",
-        "name": "Nedvěd Patrik",
-        "livesportPlayerId": "EVfrL3NH"
+        "team": "Viktoria Plzeň",
+        "name": "Gabriel Adam",
+        "livesportPlayerId": "QBI8WKRb"
       }
     ],
     "moved": [],
@@ -4964,7 +4965,7 @@
     "officialRows": 522,
     "transfermarktRows": 494,
     "livesportRows": 512,
-    "seedRows": 566
+    "seedRows": 567
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5204,6 +5205,6 @@
       "ratedPerformances": 1046,
       "reconciliationIssues": []
     },
-    "checkedAt": "2026-08-27T22:31:10.349528Z"
+    "checkedAt": "2026-08-28T18:57:30.508424Z"
   }
 }
