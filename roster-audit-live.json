@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-09-02T11:39:20.841414Z",
+  "generatedAt": "2026-09-02T16:49:00.308493Z",
   "changes": {
-    "added": [
-      {
-        "team": "Artis Brno",
-        "name": "Sarapata Dominik",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Slovan Liberec",
-        "name": "Marsetič Enej",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -60,6 +49,7 @@
       "Hradec Králové Barkouski Herman: missing Transfermarkt identity",
       "Slovan Liberec Barcal Matyáš: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
+      "Slovan Liberec Marsetič Enej: missing Transfermarkt identity",
       "Viktoria Plzeň Buchner Radek: missing Transfermarkt identity",
       "Viktoria Plzeň Kubín Petr: missing Transfermarkt identity",
       "Viktoria Plzeň Paidar Zbyněk: missing Transfermarkt identity",
@@ -76,6 +66,7 @@
       "Pardubice Řezníček Jan: missing Transfermarkt identity",
       "Pardubice Nedvěd Patrik: missing Transfermarkt identity",
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
+      "Artis Brno Sarapata Dominik: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
@@ -83,9 +74,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Artis Brno Sarapata Dominik: missing Transfermarkt identity",
-      "Slovan Liberec Marsetič Enej: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -427,7 +416,7 @@
         "name": "Sarapata Dominik",
         "livesportName": "Sarapata Dominik",
         "livesportPlayerId": "2RTNwLSC",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3307,7 +3296,7 @@
         "name": "Marsetič Enej",
         "livesportName": "Marsetič Enej",
         "livesportPlayerId": "xAAVba0d",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4833,18 +4822,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Artis Brno",
-        "name": "Sarapata Dominik",
-        "livesportPlayerId": "2RTNwLSC"
-      },
-      {
-        "team": "Slovan Liberec",
-        "name": "Marsetič Enej",
-        "livesportPlayerId": "xAAVba0d"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 514
@@ -4879,7 +4857,7 @@
     "officialRows": 491,
     "transfermarktRows": 490,
     "livesportRows": 514,
-    "seedRows": 545
+    "seedRows": 547
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5166,6 +5144,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-02T11:39:20.841414Z"
+    "checkedAt": "2026-09-02T16:49:00.308493Z"
   }
 }
