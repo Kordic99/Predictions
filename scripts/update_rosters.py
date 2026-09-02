@@ -1616,8 +1616,10 @@ def validate(players: list[dict]) -> dict:
                 or minutes > apps * 130
                 or goals > max(20, apps * 5)
                 or assists > max(20, apps * 5)
-                or yellow_cards > apps * 2
-                or red_cards > apps
+                # A substitute or staff-listed squad player can be booked or
+                # sent off without recording an appearance or any minutes.
+                or yellow_cards > max(2, apps * 2)
+                or red_cards > max(1, apps)
             ):
                 errors.append(
                     f"{player['team']} {player['name']}: implausible Livesport season totals "

@@ -314,7 +314,7 @@ def int_if_whole(value: Any) -> int | float:
     return int(numeric) if numeric.is_integer() else numeric
 
 
-def load_match_performances(fixture: dict) -> list[dict]:
+def _load_match_performances_once(fixture: dict) -> list[dict]:
     event_id = fixture["livesportMatchId"]
     referer = fixture["sourceUrl"]
     settings_payload = graphql_payload(
@@ -430,6 +430,49 @@ def load_match_performances(fixture: dict) -> list[dict]:
     if len({row["livesportPlayerId"] for row in rows}) != len(rows):
         raise RuntimeError(f"{event_id}: duplicate player IDs in performance feed")
     return rows
+
+
+def performance_snapshot_errors(rows: list[dict], fixture: dict) -> list[str]:
+    """Return semantic errors that usually indicate a partial PMS snapshot.
+
+    Livesport serves lineup metadata and player statistics from separate
+    backend snapshots.  During an update those snapshots can briefly disagree:
+    a starter is present in the lineup but has no statistics row yet.  Consuming
+    such a response would replace a previously complete match with incomplete
+    data, so reject it before touching the roster and retry the whole match.
+    """
+
+    errors = []
+    for team in (fixture["home"], fixture["away"]):
+        team_rows = [row for row in rows if row["match"].get("team") == team]
+        starters = sum(bool(row["match"].get("starter")) for row in team_rows)
+        goalkeepers = sum(
+            (row["match"].get("stats") or {}).get("goalkeeper") is not None
+            for row in team_rows
+        )
+        if not 11 <= len(team_rows) <= 20:
+            errors.append(f"{team}: player count {len(team_rows)}")
+        if starters != 11:
+            errors.append(f"{team}: starter count {starters}")
+        if goalkeepers not in {1, 2}:
+            errors.append(f"{team}: goalkeeper appearance count {goalkeepers}")
+    return errors
+
+
+def load_match_performances(fixture: dict, attempts: int = 4) -> list[dict]:
+    event_id = fixture["livesportMatchId"]
+    last_errors: list[str] = []
+    for attempt in range(attempts):
+        rows = _load_match_performances_once(fixture)
+        last_errors = performance_snapshot_errors(rows, fixture)
+        if not last_errors:
+            return rows
+        if attempt + 1 < attempts:
+            time.sleep(1.5 * (attempt + 1))
+    raise RuntimeError(
+        f"{event_id}: incomplete Livesport player-stat snapshot after {attempts} attempts: "
+        + "; ".join(last_errors)
+    )
 
 
 def existing_event_rows(players: list[dict], event_id: str) -> list[tuple[dict, dict]]:
@@ -717,7 +760,16 @@ def validate_match_details(players: list[dict], fixtures: list[dict]) -> dict:
             if not 11 <= totals["rows"] <= 20:
                 errors.append(f"{event_id} {team}: invalid player count {totals['rows']}")
             if totals["starts"] != 11:
-                errors.append(f"{event_id} {team}: invalid starter count {totals['starts']}")
+                reconciliation_issues.append(
+                    {
+                        "type": "historical-lineup-coverage",
+                        "livesportMatchId": event_id,
+                        "team": team,
+                        "publishedStarters": totals["starts"],
+                        "expectedStarters": 11,
+                        "reason": "A former player is no longer present in the active roster dataset",
+                    }
+                )
             if totals["goalkeepers"] not in {1, 2}:
                 errors.append(
                     f"{event_id} {team}: invalid goalkeeper appearance count {totals['goalkeepers']}"
