@@ -32,6 +32,22 @@ def complete_rows() -> list[dict]:
 class PerformanceSnapshotTests(unittest.TestCase):
     fixture = {"livesportMatchId": "event", "home": "Home", "away": "Away"}
 
+    def test_second_yellow_is_not_counted_as_two_red_cards(self):
+        self.assertEqual(
+            stats.red_card_total(
+                {"CARDS_RED": "1", "CARDS_YELLOW_SECOND": "1"}
+            ),
+            1,
+        )
+
+    def test_straight_red_is_preserved(self):
+        self.assertEqual(
+            stats.red_card_total(
+                {"CARDS_RED": "1", "CARDS_YELLOW_SECOND": "0"}
+            ),
+            1,
+        )
+
     def test_complete_snapshot_is_accepted(self):
         self.assertEqual(
             stats.performance_snapshot_errors(complete_rows(), self.fixture), []
@@ -82,6 +98,29 @@ class PerformanceSnapshotTests(unittest.TestCase):
             "timestamp": 1,
         }
         self.assertFalse(stats.should_refresh_fixture(players, fixture, False))
+
+    def test_stored_double_counted_red_card_is_forced_to_refresh(self):
+        players = []
+        for index, performance in enumerate(complete_rows()):
+            match = dict(performance["match"])
+            match.update(
+                {
+                    "livesportMatchId": "event",
+                    "livesportPlayerId": f"player-{index}",
+                    "importVersion": stats.IMPORT_VERSION,
+                    "redCards": 0,
+                }
+            )
+            players.append(
+                {
+                    "name": f"Player {index}",
+                    "livesportPlayerId": f"player-{index}",
+                    "matches": [match],
+                }
+            )
+        players[0]["matches"][0]["redCards"] = 2
+        fixture = {**self.fixture, "timestamp": 1}
+        self.assertTrue(stats.should_refresh_fixture(players, fixture, False))
 
 
 if __name__ == "__main__":

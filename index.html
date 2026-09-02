@@ -873,12 +873,15 @@ function inspectCareerRow(row,label){
   if(!String(row?.season||'').trim()) errors.push(`${label}: chybí sezona.`);
   if(!String(row?.team||'').trim()) errors.push(`${label}: chybí tým.`);
   if(Number.isFinite(Number(row?.matches))){
-    ['redCards','cleanSheets'].forEach(field=>{
+    ['cleanSheets'].forEach(field=>{
       if(Number.isFinite(Number(row?.[field]))&&Number(row[field])>Number(row.matches)){
         errors.push(`${label}: ${field} (${row[field]}) je vyšší než počet zápasů (${row.matches}).`);
       }
     });
-    if(Number.isFinite(Number(row?.yellowCards))&&Number(row.yellowCards)>Number(row.matches)*2){
+    if(Number.isFinite(Number(row?.redCards))&&Number(row.redCards)>Math.max(1,Number(row.matches))){
+      errors.push(`${label}: redCards (${row.redCards}) je nepravděpodobně vysoké vůči počtu zápasů (${row.matches}).`);
+    }
+    if(Number.isFinite(Number(row?.yellowCards))&&Number(row.yellowCards)>Math.max(2,Number(row.matches)*2)){
       errors.push(`${label}: yellowCards (${row.yellowCards}) je nepravděpodobně vysoké vůči počtu zápasů (${row.matches}).`);
     }
   }
@@ -1120,8 +1123,8 @@ function inspectDataSnapshot(raw){
           errors.push(`${label}: Livesport ${field} (${seasonStats[field]}) je nepravděpodobné vůči ${apps} zápasům.`);
         }
       });
-      if(Number.isFinite(apps)&&Number(seasonStats.yellowCards)>apps*2)errors.push(`${label}: Livesport žluté karty jsou nepravděpodobně vysoké.`);
-      if(Number.isFinite(apps)&&Number(seasonStats.redCards)>apps)errors.push(`${label}: Livesport červené karty jsou vyšší než počet zápasů.`);
+      if(Number.isFinite(apps)&&Number(seasonStats.yellowCards)>Math.max(2,apps*2))errors.push(`${label}: Livesport žluté karty jsou nepravděpodobně vysoké.`);
+      if(Number.isFinite(apps)&&Number(seasonStats.redCards)>Math.max(1,apps))errors.push(`${label}: Livesport červené karty jsou vyšší než počet zápasů.`);
       const sourceError=healthHttpsError(seasonStats.sourceUrl,`${label} / livesportSeasonStats.sourceUrl`);
       if(sourceError)errors.push(sourceError);
     }

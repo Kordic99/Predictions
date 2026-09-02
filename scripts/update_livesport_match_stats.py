@@ -314,6 +314,21 @@ def int_if_whole(value: Any) -> int | float:
     return int(numeric) if numeric.is_integer() else numeric
 
 
+def red_card_total(values: dict[str, Any]) -> float:
+    """Return one dismissal when feeds expose both red-card indicators.
+
+    Livesport's CARDS_RED already includes a dismissal caused by a second
+    yellow card.  CARDS_YELLOW_SECOND/CARDS_YELLOW_RED describe the reason;
+    adding them would turn one dismissal into two red cards.
+    """
+
+    return max(
+        number(values.get("CARDS_RED")),
+        number(values.get("CARDS_YELLOW_SECOND")),
+        number(values.get("CARDS_YELLOW_RED")),
+    )
+
+
 def _load_match_performances_once(fixture: dict) -> list[dict]:
     event_id = fixture["livesportMatchId"]
     referer = fixture["sourceUrl"]
@@ -362,12 +377,7 @@ def _load_match_performances_once(fixture: dict) -> list[dict]:
         opponent = fixture["away"] if is_home else fixture["home"]
         is_goalkeeper = bool((player.get("position") or {}).get("isGoalkeeper"))
         rich_stats = build_rich_stats(values, is_goalkeeper)
-        straight_red = number(values.get("CARDS_RED"))
-        second_yellow = max(
-            number(values.get("CARDS_YELLOW_SECOND")),
-            number(values.get("CARDS_YELLOW_RED")),
-        )
-        red_cards = straight_red + second_yellow
+        red_cards = red_card_total(values)
         saves = rich_stats["goalkeeper"]["saves"] if is_goalkeeper else None
         goals_conceded = (
             rich_stats["goalkeeper"]["goalsConceded"] if is_goalkeeper else 0
@@ -492,6 +502,7 @@ def should_refresh_fixture(players: list[dict], fixture: dict, refresh_all: bool
         len(rows) >= 22
         and all(match.get("importVersion") == IMPORT_VERSION for _, match in rows)
         and len({str(match.get("livesportPlayerId") or "") for _, match in rows}) == len(rows)
+        and all(number(match.get("redCards")) <= 1 for _, match in rows)
     )
     cutoff = datetime.now(timezone.utc) - timedelta(hours=RECENT_REFRESH_HOURS)
     event_time = datetime.fromtimestamp(fixture["timestamp"], timezone.utc)
