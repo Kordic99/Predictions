@@ -1,16 +1,27 @@
 {
-  "generatedAt": "2026-09-02T08:39:43.333434Z",
+  "generatedAt": "2026-09-02T11:39:20.841414Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Artis Brno",
+        "name": "Sarapata Dominik",
+        "transfermarktPlayerId": null
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Marsetič Enej",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 545,
+    "playerCount": 547,
     "teamCounts": {
-      "Artis Brno": 34,
+      "Artis Brno": 35,
       "Baník Ostrava": 30,
       "Bohemians 1905": 30,
       "Hradec Králové": 33,
@@ -19,7 +30,7 @@
       "Pardubice": 33,
       "Sigma Olomouc": 37,
       "Slavia Prague": 39,
-      "Slovan Liberec": 33,
+      "Slovan Liberec": 34,
       "Slovácko": 33,
       "Sparta Prague": 39,
       "Teplice": 32,
@@ -28,11 +39,11 @@
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 66,
+    "withoutPublishedMarketValue": 68,
     "withCareer": 509,
-    "withoutCareerRows": 36,
-    "withLivesportIdentity": 520,
-    "withLivesportSeasonStats": 520,
+    "withoutCareerRows": 38,
+    "withLivesportIdentity": 522,
+    "withLivesportSeasonStats": 522,
     "activeLivesportPlayers": 357,
     "activeLivesportScorers": 85,
     "warnings": [
@@ -72,7 +83,9 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Artis Brno Sarapata Dominik: missing Transfermarkt identity",
+      "Slovan Liberec Marsetič Enej: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -191,7 +204,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 513,
+    "sourceRows": 514,
     "attached": [
       {
         "team": "Artis Brno",
@@ -407,6 +420,15 @@
         "livesportPlayerId": "zqnVQCW1",
         "method": "livesport-id",
         "apps": 1,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Sarapata Dominik",
+        "livesportName": "Sarapata Dominik",
+        "livesportPlayerId": "2RTNwLSC",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -2805,15 +2827,6 @@
       },
       {
         "team": "Slovácko",
-        "name": "Mulder Jonathan",
-        "livesportName": "Mulder Jonathan",
-        "livesportPlayerId": "zVCDi9Jt",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slovácko",
         "name": "Ndefe Gigli",
         "livesportName": "Ndefe Gigli",
         "livesportPlayerId": "23zt94fH",
@@ -3287,6 +3300,15 @@
         "livesportPlayerId": "jonRrqeA",
         "method": "livesport-id",
         "apps": 4,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Marsetič Enej",
+        "livesportName": "Marsetič Enej",
+        "livesportPlayerId": "xAAVba0d",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4811,10 +4833,21 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Artis Brno",
+        "name": "Sarapata Dominik",
+        "livesportPlayerId": "2RTNwLSC"
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Marsetič Enej",
+        "livesportPlayerId": "xAAVba0d"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 513
+    "publishedLivesportIds": 514
   },
   "careerEnriched": [
     {
@@ -4845,7 +4878,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 513,
+    "livesportRows": 514,
     "seedRows": 545
   },
   "livesportMatchStats": {
@@ -5133,6 +5166,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-02T08:39:43.333434Z"
+    "checkedAt": "2026-09-02T11:39:20.841414Z"
   }
 }
