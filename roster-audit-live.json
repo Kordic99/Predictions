@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-09-03T11:37:36.821532Z",
+  "generatedAt": "2026-09-03T16:38:19.499993Z",
   "changes": {
-    "added": [
-      {
-        "team": "Hradec Králové",
-        "name": "Čvančara Tomáš",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -53,6 +47,7 @@
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity",
       "Hradec Králové Barkouski Herman: missing Transfermarkt identity",
+      "Hradec Králové Čvančara Tomáš: missing Transfermarkt identity",
       "Slovan Liberec Barcal Matyáš: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
       "Slovan Liberec Marsetič Enej: missing Transfermarkt identity",
@@ -80,8 +75,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Hradec Králové Čvančara Tomáš: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -1309,7 +1303,7 @@
         "name": "Čvančara Tomáš",
         "livesportName": "Čvančara Tomáš",
         "livesportPlayerId": "zgMpZZSc",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4824,13 +4818,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Hradec Králové",
-        "name": "Čvančara Tomáš",
-        "livesportPlayerId": "zgMpZZSc"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 513
@@ -4865,7 +4853,7 @@
     "officialRows": 491,
     "transfermarktRows": 490,
     "livesportRows": 513,
-    "seedRows": 547
+    "seedRows": 548
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5176,6 +5164,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-03T11:37:36.821532Z"
+    "checkedAt": "2026-09-03T16:38:19.499993Z"
   }
 }
