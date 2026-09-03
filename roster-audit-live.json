@@ -1,19 +1,25 @@
 {
-  "generatedAt": "2026-09-02T22:47:54.311225Z",
+  "generatedAt": "2026-09-03T11:37:36.821532Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Hradec Králové",
+        "name": "Čvančara Tomáš",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 547,
+    "playerCount": 548,
     "teamCounts": {
       "Artis Brno": 35,
       "Baník Ostrava": 30,
       "Bohemians 1905": 30,
-      "Hradec Králové": 33,
+      "Hradec Králové": 34,
       "Jablonec": 33,
       "Mladá Boleslav": 32,
       "Pardubice": 33,
@@ -28,11 +34,11 @@
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 68,
+    "withoutPublishedMarketValue": 69,
     "withCareer": 509,
-    "withoutCareerRows": 38,
-    "withLivesportIdentity": 522,
-    "withLivesportSeasonStats": 522,
+    "withoutCareerRows": 39,
+    "withLivesportIdentity": 523,
+    "withLivesportSeasonStats": 523,
     "activeLivesportPlayers": 359,
     "activeLivesportScorers": 85,
     "warnings": [
@@ -74,7 +80,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Hradec Králové Čvančara Tomáš: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -1298,6 +1305,15 @@
         "goals": 1
       },
       {
+        "team": "Hradec Králové",
+        "name": "Čvančara Tomáš",
+        "livesportName": "Čvančara Tomáš",
+        "livesportPlayerId": "zgMpZZSc",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
         "team": "Jablonec",
         "name": "Hanuš Jan",
         "livesportName": "Hanuš Jan",
@@ -2463,15 +2479,6 @@
         "name": "Staněk Jindřich",
         "livesportName": "Staněk Jindřich",
         "livesportPlayerId": "xjKD0WQe",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Camara Sahmkou",
-        "livesportName": "Camara Sahmkou",
-        "livesportPlayerId": "8UoWc3zo",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -4817,7 +4824,13 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Hradec Králové",
+        "name": "Čvančara Tomáš",
+        "livesportPlayerId": "zgMpZZSc"
+      }
+    ],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 513
@@ -5163,6 +5176,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-02T22:47:54.311225Z"
+    "checkedAt": "2026-09-03T11:37:36.821532Z"
   }
 }
