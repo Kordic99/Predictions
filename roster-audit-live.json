@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-04T16:33:15.496191Z",
+  "generatedAt": "2026-09-04T19:05:04.710010Z",
   "changes": {
     "added": [],
     "removed": [],
     "moved": [
       {
-        "name": "Halinský Denis",
-        "from": "Slavia Prague",
+        "name": "Krčík Dávid",
+        "from": "Viktoria Plzeň",
         "to": "Pardubice",
-        "transfermarktPlayerId": "816875"
+        "transfermarktPlayerId": "671499"
       }
     ],
     "marketValueUpdated": []
@@ -23,14 +23,14 @@
       "Hradec Králové": 34,
       "Jablonec": 33,
       "Mladá Boleslav": 32,
-      "Pardubice": 34,
+      "Pardubice": 35,
       "Sigma Olomouc": 37,
       "Slavia Prague": 38,
       "Slovan Liberec": 34,
       "Slovácko": 33,
       "Sparta Prague": 39,
       "Teplice": 32,
-      "Viktoria Plzeň": 35,
+      "Viktoria Plzeň": 34,
       "Zbrojovka Brno": 39,
       "Zlín": 33
     },
@@ -141,7 +141,7 @@
         "48MjBAwH": 30,
         "ALuNWAie": 28,
         "AuWGhhEE": 31,
-        "C8KfoA6l": 28,
+        "C8KfoA6l": 29,
         "ClhRb9oA": 31,
         "Ek8Yv5nA": 28,
         "GxZOjWrR": 30,
@@ -182,7 +182,7 @@
         "xh3zbmjf": 29
       },
       "playerPerformances": 1421,
-      "ratedPerformances": 1304,
+      "ratedPerformances": 1305,
       "reconciliationIssues": [
         {
           "type": "historical-lineup-coverage",
@@ -205,7 +205,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 510,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1568,15 +1568,6 @@
       },
       {
         "team": "Jablonec",
-        "name": "Malensek Matěj",
-        "livesportName": "Malensek Matěj",
-        "livesportPlayerId": "IkbARp3s",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Jablonec",
         "name": "Milla Kevin-Prince",
         "livesportName": "Milla Kevin-Prince",
         "livesportPlayerId": "MN0iqQSj",
@@ -1931,6 +1922,15 @@
         "name": "Halinský Denis",
         "livesportName": "Halinský Denis",
         "livesportPlayerId": "vFaA2SCd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
+        "name": "Krčík Dávid",
+        "livesportName": "Krčík Dávid",
+        "livesportPlayerId": "OIOKsnyg",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -3953,15 +3953,6 @@
       },
       {
         "team": "Viktoria Plzeň",
-        "name": "Krčík Dávid",
-        "livesportName": "Krčík Dávid",
-        "livesportPlayerId": "OIOKsnyg",
-        "method": "livesport-id",
-        "apps": 3,
-        "goals": 1
-      },
-      {
-        "team": "Viktoria Plzeň",
         "name": "Kubín Petr",
         "livesportName": "Kubín Petr",
         "livesportPlayerId": "tYOWuami",
@@ -4801,14 +4792,14 @@
     "added": [],
     "moved": [
       {
-        "name": "Halinský Denis",
-        "from": "Slavia Prague",
+        "name": "Krčík Dávid",
+        "from": "Viktoria Plzeň",
         "to": "Pardubice",
-        "livesportPlayerId": "vFaA2SCd"
+        "livesportPlayerId": "OIOKsnyg"
       }
     ],
     "unresolved": [],
-    "publishedLivesportIds": 510
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4839,7 +4830,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 510,
+    "livesportRows": 509,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -4848,7 +4839,7 @@
     "importVersion": "2026-08-01-livesport-match-stats-v3",
     "completedMatches": 45,
     "playerPerformances": 1421,
-    "ratedPerformances": 1304,
+    "ratedPerformances": 1305,
     "processed": [
       {
         "livesportMatchId": "Gxm6g413",
@@ -4987,7 +4978,7 @@
         "away": "Hradec Králové",
         "score": "1:0",
         "playerPerformances": 31,
-        "ratedPerformances": 28,
+        "ratedPerformances": 29,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/hradec-kralove-vFXjbHms/C8KfoA6l/prehled/hracske-stats/obecne/"
       },
       {
@@ -5090,7 +5081,7 @@
         "48MjBAwH": 30,
         "ALuNWAie": 28,
         "AuWGhhEE": 31,
-        "C8KfoA6l": 28,
+        "C8KfoA6l": 29,
         "ClhRb9oA": 31,
         "Ek8Yv5nA": 28,
         "GxZOjWrR": 30,
@@ -5131,7 +5122,7 @@
         "xh3zbmjf": 29
       },
       "playerPerformances": 1421,
-      "ratedPerformances": 1304,
+      "ratedPerformances": 1305,
       "reconciliationIssues": [
         {
           "type": "historical-lineup-coverage",
@@ -5151,6 +5142,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-04T16:33:15.496191Z"
+    "checkedAt": "2026-09-04T19:05:04.710010Z"
   }
 }
