@@ -1,9 +1,16 @@
 {
-  "generatedAt": "2026-09-03T16:38:19.499993Z",
+  "generatedAt": "2026-09-04T16:33:15.496191Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Halinský Denis",
+        "from": "Slavia Prague",
+        "to": "Pardubice",
+        "transfermarktPlayerId": "816875"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
@@ -16,9 +23,9 @@
       "Hradec Králové": 34,
       "Jablonec": 33,
       "Mladá Boleslav": 32,
-      "Pardubice": 33,
+      "Pardubice": 34,
       "Sigma Olomouc": 37,
-      "Slavia Prague": 39,
+      "Slavia Prague": 38,
       "Slovan Liberec": 34,
       "Slovácko": 33,
       "Sparta Prague": 39,
@@ -198,7 +205,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 513,
+    "sourceRows": 510,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1921,6 +1928,15 @@
       },
       {
         "team": "Pardubice",
+        "name": "Halinský Denis",
+        "livesportName": "Halinský Denis",
+        "livesportPlayerId": "vFaA2SCd",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Pardubice",
         "name": "Mahuta Ryan",
         "livesportName": "Mahuta Ryan",
         "livesportPlayerId": "ATKx4Zpf",
@@ -1935,15 +1951,6 @@
         "livesportPlayerId": "6R498nRp",
         "method": "livesport-id",
         "apps": 6,
-        "goals": 0
-      },
-      {
-        "team": "Pardubice",
-        "name": "Slyubyk Bogdan",
-        "livesportName": "Slyubyk Bogdan",
-        "livesportPlayerId": "Is0LfAEA",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -2488,15 +2495,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Halinský Denis",
-        "livesportName": "Halinský Denis",
-        "livesportPlayerId": "vFaA2SCd",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "Holeš Tomáš",
         "livesportName": "Holeš Tomáš",
         "livesportPlayerId": "GU2BC13A",
@@ -2641,15 +2639,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Okonkwo Izuchukwu",
-        "livesportName": "Okonkwo Izuchukwu",
-        "livesportPlayerId": "880f5XCQ",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "Provod Lukáš",
         "livesportName": "Provod Lukáš",
         "livesportPlayerId": "82A7cLmi",
@@ -2683,15 +2672,6 @@
         "method": "livesport-id",
         "apps": 4,
         "goals": 1
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Teah Divine",
-        "livesportName": "Teah Divine",
-        "livesportPlayerId": "A7u2ln9H",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
       },
       {
         "team": "Slavia Prague",
@@ -4819,9 +4799,16 @@
       }
     ],
     "added": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Halinský Denis",
+        "from": "Slavia Prague",
+        "to": "Pardubice",
+        "livesportPlayerId": "vFaA2SCd"
+      }
+    ],
     "unresolved": [],
-    "publishedLivesportIds": 513
+    "publishedLivesportIds": 510
   },
   "careerEnriched": [
     {
@@ -4852,7 +4839,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 513,
+    "livesportRows": 510,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5164,6 +5151,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-03T16:38:19.499993Z"
+    "checkedAt": "2026-09-04T16:33:15.496191Z"
   }
 }
