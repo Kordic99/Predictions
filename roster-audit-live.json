@@ -1,9 +1,16 @@
 {
-  "generatedAt": "2026-09-04T21:43:43.864416Z",
+  "generatedAt": "2026-09-05T09:15:50.295749Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Pech Sebastian",
+        "from": "Sparta Prague",
+        "to": "Teplice",
+        "transfermarktPlayerId": "1078665"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
@@ -21,8 +28,8 @@
       "Slavia Prague": 38,
       "Slovan Liberec": 34,
       "Slovácko": 33,
-      "Sparta Prague": 39,
-      "Teplice": 32,
+      "Sparta Prague": 38,
+      "Teplice": 33,
       "Viktoria Plzeň": 34,
       "Zbrojovka Brno": 39,
       "Zlín": 33
@@ -3379,15 +3386,6 @@
       },
       {
         "team": "Sparta Prague",
-        "name": "Pech Sebastian",
-        "livesportName": "Pech Sebastian",
-        "livesportPlayerId": "vc05kchF",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
         "name": "Suchomel Martin",
         "livesportName": "Suchomel Martin",
         "livesportPlayerId": "S2L0pCiU",
@@ -3661,6 +3659,15 @@
         "name": "Klimpl Oliver",
         "livesportName": "Klimpl Oliver",
         "livesportPlayerId": "jTkxvgRl",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
+        "name": "Pech Sebastian",
+        "livesportName": "Pech Sebastian",
+        "livesportPlayerId": "vc05kchF",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -4783,7 +4790,14 @@
       }
     ],
     "added": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Pech Sebastian",
+        "from": "Sparta Prague",
+        "to": "Teplice",
+        "livesportPlayerId": "vc05kchF"
+      }
+    ],
     "unresolved": [],
     "publishedLivesportIds": 509
   },
@@ -5128,6 +5142,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-04T21:43:43.864416Z"
+    "checkedAt": "2026-09-05T09:15:50.295749Z"
   }
 }
