@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T18:31:55.090636Z",
+  "generatedAt": "2026-09-05T20:39:29.272430Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 523,
     "withLivesportSeasonStats": 523,
     "activeLivesportPlayers": 365,
-    "activeLivesportScorers": 87,
+    "activeLivesportScorers": 90,
     "warnings": [
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
       "Sparta Prague Franc Lukáš: missing Transfermarkt identity",
@@ -79,7 +79,7 @@
     ],
     "matchDetails": {
       "status": "needs-review",
-      "eventCount": 48,
+      "eventCount": 49,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -110,6 +110,7 @@
         "UJByI8sQ": 31,
         "WAvNRO9b": 32,
         "WCs3LslI": 32,
+        "WSgMkM0S": 32,
         "Wf0riuwA": 31,
         "WfOrDW84": 32,
         "WzAlVcGj": 32,
@@ -160,6 +161,7 @@
         "UJByI8sQ": 30,
         "WAvNRO9b": 28,
         "WCs3LslI": 28,
+        "WSgMkM0S": 32,
         "Wf0riuwA": 29,
         "WfOrDW84": 28,
         "WzAlVcGj": 30,
@@ -180,54 +182,9 @@
         "xh3zbmjf": 29,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 1517,
-      "ratedPerformances": 1393,
+      "playerPerformances": 1549,
+      "ratedPerformances": 1425,
       "reconciliationIssues": [
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Pališčák Tobiáš",
-          "livesportPlayerId": "dtaTWX2n",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 30,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Vavro Denis",
-          "livesportPlayerId": "0QxPEivg",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 60,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Sarapata Dominik",
-          "livesportPlayerId": "2RTNwLSC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 24,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -4865,9 +4822,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 48,
-    "playerPerformances": 1517,
-    "ratedPerformances": 1393,
+    "completedMatches": 49,
+    "playerPerformances": 1549,
+    "ratedPerformances": 1425,
     "processed": [
       {
         "livesportMatchId": "UJByI8sQ",
@@ -5008,6 +4965,16 @@
         "playerPerformances": 30,
         "ratedPerformances": 28,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/pardubice-Ys4YYBPn/zq9z3ZXj/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "WSgMkM0S",
+        "round": 7,
+        "home": "Artis Brno",
+        "away": "Viktoria Plzeň",
+        "score": "0:3",
+        "playerPerformances": 32,
+        "ratedPerformances": 32,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/artis-brno-zHLktbZ1/viktoria-plzen-2LA0e86b/WSgMkM0S/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5048,7 +5015,7 @@
     ],
     "validation": {
       "status": "needs-review",
-      "eventCount": 48,
+      "eventCount": 49,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
@@ -5079,6 +5046,7 @@
         "UJByI8sQ": 31,
         "WAvNRO9b": 32,
         "WCs3LslI": 32,
+        "WSgMkM0S": 32,
         "Wf0riuwA": 31,
         "WfOrDW84": 32,
         "WzAlVcGj": 32,
@@ -5129,6 +5097,7 @@
         "UJByI8sQ": 30,
         "WAvNRO9b": 28,
         "WCs3LslI": 28,
+        "WSgMkM0S": 32,
         "Wf0riuwA": 29,
         "WfOrDW84": 28,
         "WzAlVcGj": 30,
@@ -5149,54 +5118,9 @@
         "xh3zbmjf": 29,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 1517,
-      "ratedPerformances": 1393,
+      "playerPerformances": 1549,
+      "ratedPerformances": 1425,
       "reconciliationIssues": [
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Pališčák Tobiáš",
-          "livesportPlayerId": "dtaTWX2n",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 30,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Vavro Denis",
-          "livesportPlayerId": "0QxPEivg",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 60,
-              "detailed": 0
-            }
-          }
-        },
-        {
-          "team": "Artis Brno",
-          "name": "Sarapata Dominik",
-          "livesportPlayerId": "2RTNwLSC",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 24,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -5215,6 +5139,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-05T18:31:55.090636Z"
+    "checkedAt": "2026-09-05T20:39:29.272430Z"
   }
 }
