@@ -1,38 +1,51 @@
 {
-  "generatedAt": "2026-09-05T20:39:29.272430Z",
+  "generatedAt": "2026-09-06T11:16:46.554532Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Sigma Olomouc",
+        "name": "Leo Borges",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Boháč Sebastian",
+        "from": "Viktoria Plzeň",
+        "to": "Artis Brno",
+        "transfermarktPlayerId": "580154"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 548,
+    "playerCount": 549,
     "teamCounts": {
-      "Artis Brno": 35,
+      "Artis Brno": 36,
       "Baník Ostrava": 30,
       "Bohemians 1905": 30,
       "Hradec Králové": 34,
       "Jablonec": 33,
       "Mladá Boleslav": 32,
       "Pardubice": 35,
-      "Sigma Olomouc": 37,
+      "Sigma Olomouc": 38,
       "Slavia Prague": 38,
       "Slovan Liberec": 34,
       "Slovácko": 33,
       "Sparta Prague": 38,
       "Teplice": 33,
-      "Viktoria Plzeň": 34,
+      "Viktoria Plzeň": 33,
       "Zbrojovka Brno": 39,
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 69,
+    "withoutPublishedMarketValue": 70,
     "withCareer": 512,
-    "withoutCareerRows": 36,
-    "withLivesportIdentity": 523,
-    "withLivesportSeasonStats": 523,
+    "withoutCareerRows": 37,
+    "withLivesportIdentity": 524,
+    "withLivesportSeasonStats": 524,
     "activeLivesportPlayers": 365,
     "activeLivesportScorers": 90,
     "warnings": [
@@ -75,7 +88,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Sigma Olomouc Leo Borges: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -206,7 +220,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -351,6 +365,15 @@
         "method": "livesport-id",
         "apps": 7,
         "goals": 1
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Boháč Sebastian",
+        "livesportName": "Boháč Sebastian",
+        "livesportPlayerId": "QZrY7HXg",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
       },
       {
         "team": "Artis Brno",
@@ -1101,15 +1124,6 @@
       },
       {
         "team": "Hradec Králové",
-        "name": "Kubr Lucas",
-        "livesportName": "Kubr Lucas",
-        "livesportPlayerId": "2NJ1vcad",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Hradec Králové",
         "name": "Ludvíček David",
         "livesportName": "Ludvíček David",
         "livesportPlayerId": "jysT10na",
@@ -1266,15 +1280,6 @@
         "name": "Barkovskiy German",
         "livesportName": "Barkovskiy German",
         "livesportPlayerId": "vcGeK9x5",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Hradec Králové",
-        "name": "Hodek Jakub",
-        "livesportName": "Hodek Jakub",
-        "livesportPlayerId": "Qu4sWYWp",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -2195,6 +2200,15 @@
         "livesportPlayerId": "ELMMPj4J",
         "method": "livesport-id",
         "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Leo Borges",
+        "livesportName": "Leo Borges",
+        "livesportPlayerId": "0YfXKxJJ",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -3990,15 +4004,6 @@
       },
       {
         "team": "Viktoria Plzeň",
-        "name": "Boháč Sebastian",
-        "livesportName": "Boháč Sebastian",
-        "livesportPlayerId": "QZrY7HXg",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Viktoria Plzeň",
         "name": "Hrošovský Patrik",
         "livesportName": "Hrošovský Patrik",
         "livesportPlayerId": "EofXzaaM",
@@ -4781,10 +4786,23 @@
         "goals": 1
       }
     ],
-    "added": [],
-    "moved": [],
+    "added": [
+      {
+        "team": "Sigma Olomouc",
+        "name": "Leo Borges",
+        "livesportPlayerId": "0YfXKxJJ"
+      }
+    ],
+    "moved": [
+      {
+        "name": "Boháč Sebastian",
+        "from": "Viktoria Plzeň",
+        "to": "Artis Brno",
+        "livesportPlayerId": "QZrY7HXg"
+      }
+    ],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [
     {
@@ -4815,7 +4833,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 508,
+    "livesportRows": 507,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5139,6 +5157,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-05T20:39:29.272430Z"
+    "checkedAt": "2026-09-06T11:16:46.554532Z"
   }
 }
