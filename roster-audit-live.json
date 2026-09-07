@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T21:36:29.433453Z",
+  "generatedAt": "2026-09-07T18:21:23.953283Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -215,7 +215,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 507,
+    "sourceRows": 506,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2472,15 +2472,6 @@
         "name": "Rezek Adam",
         "livesportName": "Rezek Adam",
         "livesportPlayerId": "Q5jtiynf",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Staněk Jindřich",
-        "livesportName": "Staněk Jindřich",
-        "livesportPlayerId": "xjKD0WQe",
         "method": "livesport-id",
         "apps": 0,
         "goals": 0
@@ -4784,7 +4775,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 507
+    "publishedLivesportIds": 506
   },
   "careerEnriched": [
     {
@@ -4815,7 +4806,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 507,
+    "livesportRows": 506,
     "seedRows": 549
   },
   "livesportMatchStats": {
@@ -5169,6 +5160,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-06T21:36:29.433453Z"
+    "checkedAt": "2026-09-07T18:21:23.953283Z"
   }
 }
