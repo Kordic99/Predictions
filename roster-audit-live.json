@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-09-08T16:48:49.189661Z",
+  "generatedAt": "2026-09-08T20:09:56.304693Z",
   "changes": {
-    "added": [
-      {
-        "team": "Sigma Olomouc",
-        "name": "Brzyski Igor",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Teplice",
-        "name": "Badamosi Abdourahman",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -78,18 +67,18 @@
       "Pardubice Řezníček Jan: missing Transfermarkt identity",
       "Pardubice Nedvěd Patrik: missing Transfermarkt identity",
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
+      "Teplice Badamosi Abdourahman: missing Transfermarkt identity",
       "Artis Brno Sarapata Dominik: missing Transfermarkt identity",
       "Sigma Olomouc Leo Borges: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
+      "Sigma Olomouc Brzyski Igor: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
       "Slavia Prague Rezek Adam: missing Transfermarkt identity",
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Sigma Olomouc Brzyski Igor: missing Transfermarkt identity",
-      "Teplice Badamosi Abdourahman: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -2260,7 +2249,7 @@
         "name": "Brzyski Igor",
         "livesportName": "Brzyski Igor",
         "livesportPlayerId": "IuHpz6hB",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3808,7 +3797,7 @@
         "name": "Badamosi Abdourahman",
         "livesportName": "Badamosi Abdourahman",
         "livesportPlayerId": "IiZTg99N",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4776,18 +4765,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Sigma Olomouc",
-        "name": "Brzyski Igor",
-        "livesportPlayerId": "IuHpz6hB"
-      },
-      {
-        "team": "Teplice",
-        "name": "Badamosi Abdourahman",
-        "livesportPlayerId": "IiZTg99N"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 505
@@ -4822,7 +4800,7 @@
     "officialRows": 491,
     "transfermarktRows": 490,
     "livesportRows": 505,
-    "seedRows": 549
+    "seedRows": 551
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5175,6 +5153,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-08T16:48:49.189661Z"
+    "checkedAt": "2026-09-08T20:09:56.304693Z"
   }
 }
