@@ -1,14 +1,25 @@
 {
-  "generatedAt": "2026-09-07T21:44:05.243844Z",
+  "generatedAt": "2026-09-08T16:48:49.189661Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Sigma Olomouc",
+        "name": "Brzyski Igor",
+        "transfermarktPlayerId": null
+      },
+      {
+        "team": "Teplice",
+        "name": "Badamosi Abdourahman",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 549,
+    "playerCount": 551,
     "teamCounts": {
       "Artis Brno": 36,
       "Baník Ostrava": 30,
@@ -17,22 +28,22 @@
       "Jablonec": 33,
       "Mladá Boleslav": 32,
       "Pardubice": 35,
-      "Sigma Olomouc": 38,
+      "Sigma Olomouc": 39,
       "Slavia Prague": 38,
       "Slovan Liberec": 34,
       "Slovácko": 33,
       "Sparta Prague": 38,
-      "Teplice": 33,
+      "Teplice": 34,
       "Viktoria Plzeň": 33,
       "Zbrojovka Brno": 39,
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 70,
+    "withoutPublishedMarketValue": 72,
     "withCareer": 513,
-    "withoutCareerRows": 36,
-    "withLivesportIdentity": 524,
-    "withLivesportSeasonStats": 524,
+    "withoutCareerRows": 38,
+    "withLivesportIdentity": 526,
+    "withLivesportSeasonStats": 526,
     "activeLivesportPlayers": 373,
     "activeLivesportScorers": 95,
     "warnings": [
@@ -76,7 +87,9 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Sigma Olomouc Brzyski Igor: missing Transfermarkt identity",
+      "Teplice Badamosi Abdourahman: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -215,7 +228,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 506,
+    "sourceRows": 505,
     "attached": [
       {
         "team": "Artis Brno",
@@ -701,15 +714,6 @@
         "livesportPlayerId": "rVGUB5us",
         "method": "livesport-id",
         "apps": 6,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Owusu Dennis",
-        "livesportName": "Owusu Dennis",
-        "livesportPlayerId": "Y9fDuzVA",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -1268,15 +1272,6 @@
         "livesportPlayerId": "8bbcnwTe",
         "method": "livesport-id",
         "apps": 4,
-        "goals": 0
-      },
-      {
-        "team": "Hradec Králové",
-        "name": "Barkovskiy German",
-        "livesportName": "Barkovskiy German",
-        "livesportPlayerId": "vcGeK9x5",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -2172,15 +2167,6 @@
       },
       {
         "team": "Sigma Olomouc",
-        "name": "Elbel Jakub",
-        "livesportName": "Elbel Jakub",
-        "livesportPlayerId": "hlg7jiCp",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Sigma Olomouc",
         "name": "Hadaš Matěj",
         "livesportName": "Hadaš Matěj",
         "livesportPlayerId": "vZ0r5V6s",
@@ -2267,6 +2253,15 @@
         "livesportPlayerId": "ET28Z8Fd",
         "method": "livesport-id",
         "apps": 7,
+        "goals": 0
+      },
+      {
+        "team": "Sigma Olomouc",
+        "name": "Brzyski Igor",
+        "livesportName": "Brzyski Igor",
+        "livesportPlayerId": "IuHpz6hB",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -3810,6 +3805,15 @@
       },
       {
         "team": "Teplice",
+        "name": "Badamosi Abdourahman",
+        "livesportName": "Badamosi Abdourahman",
+        "livesportPlayerId": "IiZTg99N",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
         "name": "Garzha Artem",
         "livesportName": "Garzha Artem",
         "livesportPlayerId": "hU70rs10",
@@ -4772,10 +4776,21 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Sigma Olomouc",
+        "name": "Brzyski Igor",
+        "livesportPlayerId": "IuHpz6hB"
+      },
+      {
+        "team": "Teplice",
+        "name": "Badamosi Abdourahman",
+        "livesportPlayerId": "IiZTg99N"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 506
+    "publishedLivesportIds": 505
   },
   "careerEnriched": [
     {
@@ -4806,7 +4821,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 506,
+    "livesportRows": 505,
     "seedRows": 549
   },
   "livesportMatchStats": {
@@ -5160,6 +5175,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-07T21:44:05.243844Z"
+    "checkedAt": "2026-09-08T16:48:49.189661Z"
   }
 }
