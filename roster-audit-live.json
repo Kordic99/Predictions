@@ -1,26 +1,39 @@
 {
-  "generatedAt": "2026-09-08T20:09:56.304693Z",
+  "generatedAt": "2026-09-08T22:55:27.936112Z",
   "changes": {
     "added": [],
     "removed": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Fiala Jan",
+        "from": "Sigma Olomouc",
+        "to": "Slovácko",
+        "transfermarktPlayerId": "723528"
+      },
+      {
+        "name": "Sanyang Youssoupha",
+        "from": "Slavia Prague",
+        "to": "Artis Brno",
+        "transfermarktPlayerId": "1238634"
+      }
+    ],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
     "playerCount": 551,
     "teamCounts": {
-      "Artis Brno": 36,
+      "Artis Brno": 37,
       "Baník Ostrava": 30,
       "Bohemians 1905": 30,
       "Hradec Králové": 34,
       "Jablonec": 33,
       "Mladá Boleslav": 32,
       "Pardubice": 35,
-      "Sigma Olomouc": 39,
-      "Slavia Prague": 38,
+      "Sigma Olomouc": 38,
+      "Slavia Prague": 37,
       "Slovan Liberec": 34,
-      "Slovácko": 33,
+      "Slovácko": 34,
       "Sparta Prague": 38,
       "Teplice": 34,
       "Viktoria Plzeň": 33,
@@ -505,6 +518,15 @@
         "livesportPlayerId": "jVYzcZmn",
         "method": "livesport-id",
         "apps": 7,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Sanyang Youssoupha",
+        "livesportName": "Sanyang Youssoupha",
+        "livesportPlayerId": "Ox0lejKQ",
+        "method": "livesport-id",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -2264,15 +2286,6 @@
       },
       {
         "team": "Sigma Olomouc",
-        "name": "Fiala Jan",
-        "livesportName": "Fiala Jan",
-        "livesportPlayerId": "pGKig1PD",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Sigma Olomouc",
         "name": "Grgič Dario",
         "livesportName": "Grgič Dario",
         "livesportPlayerId": "4bBpHgQA",
@@ -2696,15 +2709,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Sanyang Youssoupha",
-        "livesportName": "Sanyang Youssoupha",
-        "livesportPlayerId": "Ox0lejKQ",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "Schranz Ivan",
         "livesportName": "Schranz Ivan",
         "livesportPlayerId": "p0I1WZDo",
@@ -2854,6 +2858,15 @@
         "livesportPlayerId": "OCogLW4t",
         "method": "livesport-id",
         "apps": 4,
+        "goals": 0
+      },
+      {
+        "team": "Slovácko",
+        "name": "Fiala Jan",
+        "livesportName": "Fiala Jan",
+        "livesportPlayerId": "pGKig1PD",
+        "method": "livesport-id",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4766,7 +4779,20 @@
       }
     ],
     "added": [],
-    "moved": [],
+    "moved": [
+      {
+        "name": "Sanyang Youssoupha",
+        "from": "Slavia Prague",
+        "to": "Artis Brno",
+        "livesportPlayerId": "Ox0lejKQ"
+      },
+      {
+        "name": "Fiala Jan",
+        "from": "Sigma Olomouc",
+        "to": "Slovácko",
+        "livesportPlayerId": "pGKig1PD"
+      }
+    ],
     "unresolved": [],
     "publishedLivesportIds": 505
   },
@@ -5153,6 +5179,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-08T20:09:56.304693Z"
+    "checkedAt": "2026-09-08T22:55:27.936112Z"
   }
 }
