@@ -1,51 +1,63 @@
 {
-  "generatedAt": "2026-09-08T22:55:27.936112Z",
+  "generatedAt": "2026-09-09T01:26:52.212472Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Smith Rhodri",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [
       {
-        "name": "Fiala Jan",
+        "name": "Elbel Jakub",
         "from": "Sigma Olomouc",
-        "to": "Slovácko",
-        "transfermarktPlayerId": "723528"
+        "to": "Baník Ostrava",
+        "transfermarktPlayerId": "673450"
       },
       {
-        "name": "Sanyang Youssoupha",
-        "from": "Slavia Prague",
-        "to": "Artis Brno",
-        "transfermarktPlayerId": "1238634"
+        "name": "Mikulenka Matěj",
+        "from": "Sigma Olomouc",
+        "to": "Slovan Liberec",
+        "transfermarktPlayerId": "751681"
+      },
+      {
+        "name": "Soliu Afolabi",
+        "from": "Slovan Liberec",
+        "to": "Zbrojovka Brno",
+        "transfermarktPlayerId": "1200278"
       }
     ],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 551,
+    "playerCount": 552,
     "teamCounts": {
       "Artis Brno": 37,
-      "Baník Ostrava": 30,
+      "Baník Ostrava": 32,
       "Bohemians 1905": 30,
       "Hradec Králové": 34,
       "Jablonec": 33,
       "Mladá Boleslav": 32,
       "Pardubice": 35,
-      "Sigma Olomouc": 38,
+      "Sigma Olomouc": 36,
       "Slavia Prague": 37,
       "Slovan Liberec": 34,
       "Slovácko": 34,
       "Sparta Prague": 38,
       "Teplice": 34,
       "Viktoria Plzeň": 33,
-      "Zbrojovka Brno": 39,
+      "Zbrojovka Brno": 40,
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 72,
+    "withoutPublishedMarketValue": 73,
     "withCareer": 513,
-    "withoutCareerRows": 38,
-    "withLivesportIdentity": 526,
-    "withLivesportSeasonStats": 526,
+    "withoutCareerRows": 39,
+    "withLivesportIdentity": 527,
+    "withLivesportSeasonStats": 527,
     "activeLivesportPlayers": 373,
     "activeLivesportScorers": 95,
     "warnings": [
@@ -91,7 +103,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Baník Ostrava Smith Rhodri: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -230,7 +243,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 505,
+    "sourceRows": 507,
     "attached": [
       {
         "team": "Artis Brno",
@@ -621,6 +634,15 @@
       },
       {
         "team": "Baník Ostrava",
+        "name": "Elbel Jakub",
+        "livesportName": "Elbel Jakub",
+        "livesportPlayerId": "hlg7jiCp",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
         "name": "Frydrych Michal",
         "livesportName": "Frydrych Michal",
         "livesportPlayerId": "6q0h0slh",
@@ -644,6 +666,15 @@
         "livesportPlayerId": "tOV6amnR",
         "method": "livesport-id",
         "apps": 5,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Smith Rhodri",
+        "livesportName": "Smith Rhodri",
+        "livesportPlayerId": "rVGDsGuf",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -2313,15 +2344,6 @@
       },
       {
         "team": "Sigma Olomouc",
-        "name": "Mikulenka Matěj",
-        "livesportName": "Mikulenka Matěj",
-        "livesportPlayerId": "GQgw6l6c",
-        "method": "livesport-id",
-        "apps": 3,
-        "goals": 0
-      },
-      {
-        "team": "Sigma Olomouc",
         "name": "Soldo Marko",
         "livesportName": "Soldo Marko",
         "livesportPlayerId": "xE2r6YMB",
@@ -3177,12 +3199,12 @@
       },
       {
         "team": "Slovan Liberec",
-        "name": "Soliu Afolabi",
-        "livesportName": "Soliu Afolabi",
-        "livesportPlayerId": "xQwGnjFi",
+        "name": "Mikulenka Matěj",
+        "livesportName": "Mikulenka Matěj",
+        "livesportPlayerId": "GQgw6l6c",
         "method": "livesport-id",
-        "apps": 4,
-        "goals": 1
+        "apps": 0,
+        "goals": 0
       },
       {
         "team": "Slovan Liberec",
@@ -4356,6 +4378,15 @@
       },
       {
         "team": "Zbrojovka Brno",
+        "name": "Soliu Afolabi",
+        "livesportName": "Soliu Afolabi",
+        "livesportPlayerId": "xQwGnjFi",
+        "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Zbrojovka Brno",
         "name": "Texl Jiří",
         "livesportName": "Texl Jiří",
         "livesportPlayerId": "Sl4iziZI",
@@ -4778,23 +4809,35 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Smith Rhodri",
+        "livesportPlayerId": "rVGDsGuf"
+      }
+    ],
     "moved": [
       {
-        "name": "Sanyang Youssoupha",
-        "from": "Slavia Prague",
-        "to": "Artis Brno",
-        "livesportPlayerId": "Ox0lejKQ"
+        "name": "Elbel Jakub",
+        "from": "Sigma Olomouc",
+        "to": "Baník Ostrava",
+        "livesportPlayerId": "hlg7jiCp"
       },
       {
-        "name": "Fiala Jan",
+        "name": "Mikulenka Matěj",
         "from": "Sigma Olomouc",
-        "to": "Slovácko",
-        "livesportPlayerId": "pGKig1PD"
+        "to": "Slovan Liberec",
+        "livesportPlayerId": "GQgw6l6c"
+      },
+      {
+        "name": "Soliu Afolabi",
+        "from": "Slovan Liberec",
+        "to": "Zbrojovka Brno",
+        "livesportPlayerId": "xQwGnjFi"
       }
     ],
     "unresolved": [],
-    "publishedLivesportIds": 505
+    "publishedLivesportIds": 507
   },
   "careerEnriched": [
     {
@@ -4825,7 +4868,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 505,
+    "livesportRows": 507,
     "seedRows": 551
   },
   "livesportMatchStats": {
@@ -5179,6 +5222,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-08T22:55:27.936112Z"
+    "checkedAt": "2026-09-09T01:26:52.212472Z"
   }
 }
