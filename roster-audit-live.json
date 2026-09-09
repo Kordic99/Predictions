@@ -1,39 +1,20 @@
 {
-  "generatedAt": "2026-09-09T01:26:52.212472Z",
+  "generatedAt": "2026-09-09T11:46:59.981132Z",
   "changes": {
     "added": [
       {
-        "team": "Baník Ostrava",
-        "name": "Smith Rhodri",
+        "team": "Slovan Liberec",
+        "name": "Hamansenya David",
         "transfermarktPlayerId": null
       }
     ],
     "removed": [],
-    "moved": [
-      {
-        "name": "Elbel Jakub",
-        "from": "Sigma Olomouc",
-        "to": "Baník Ostrava",
-        "transfermarktPlayerId": "673450"
-      },
-      {
-        "name": "Mikulenka Matěj",
-        "from": "Sigma Olomouc",
-        "to": "Slovan Liberec",
-        "transfermarktPlayerId": "751681"
-      },
-      {
-        "name": "Soliu Afolabi",
-        "from": "Slovan Liberec",
-        "to": "Zbrojovka Brno",
-        "transfermarktPlayerId": "1200278"
-      }
-    ],
+    "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 552,
+    "playerCount": 553,
     "teamCounts": {
       "Artis Brno": 37,
       "Baník Ostrava": 32,
@@ -44,7 +25,7 @@
       "Pardubice": 35,
       "Sigma Olomouc": 36,
       "Slavia Prague": 37,
-      "Slovan Liberec": 34,
+      "Slovan Liberec": 35,
       "Slovácko": 34,
       "Sparta Prague": 38,
       "Teplice": 34,
@@ -53,11 +34,11 @@
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 73,
+    "withoutPublishedMarketValue": 74,
     "withCareer": 513,
-    "withoutCareerRows": 39,
-    "withLivesportIdentity": 527,
-    "withLivesportSeasonStats": 527,
+    "withoutCareerRows": 40,
+    "withLivesportIdentity": 528,
+    "withLivesportSeasonStats": 528,
     "activeLivesportPlayers": 373,
     "activeLivesportScorers": 95,
     "warnings": [
@@ -68,6 +49,7 @@
       "Sparta Prague Feit Jan: missing Transfermarkt identity",
       "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
       "Baník Ostrava Moučka Matyáš: missing Transfermarkt identity",
+      "Baník Ostrava Smith Rhodri: missing Transfermarkt identity",
       "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity",
@@ -104,7 +86,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Baník Ostrava Smith Rhodri: missing Transfermarkt identity"
+      "Slovan Liberec Hamansenya David: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -463,15 +445,6 @@
       },
       {
         "team": "Artis Brno",
-        "name": "Samek Daniel",
-        "livesportName": "Samek Daniel",
-        "livesportPlayerId": "zqnVQCW1",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Artis Brno",
         "name": "Sarapata Dominik",
         "livesportName": "Sarapata Dominik",
         "livesportPlayerId": "2RTNwLSC",
@@ -673,7 +646,7 @@
         "name": "Smith Rhodri",
         "livesportName": "Smith Rhodri",
         "livesportPlayerId": "rVGDsGuf",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3109,6 +3082,15 @@
       },
       {
         "team": "Slovan Liberec",
+        "name": "Hamansenya David",
+        "livesportName": "Hamansenya David",
+        "livesportPlayerId": "KMvoZUB6",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
         "name": "Hodouš Petr",
         "livesportName": "Hodouš Petr",
         "livesportPlayerId": "IPWPOt1D",
@@ -4811,31 +4793,12 @@
     ],
     "added": [
       {
-        "team": "Baník Ostrava",
-        "name": "Smith Rhodri",
-        "livesportPlayerId": "rVGDsGuf"
+        "team": "Slovan Liberec",
+        "name": "Hamansenya David",
+        "livesportPlayerId": "KMvoZUB6"
       }
     ],
-    "moved": [
-      {
-        "name": "Elbel Jakub",
-        "from": "Sigma Olomouc",
-        "to": "Baník Ostrava",
-        "livesportPlayerId": "hlg7jiCp"
-      },
-      {
-        "name": "Mikulenka Matěj",
-        "from": "Sigma Olomouc",
-        "to": "Slovan Liberec",
-        "livesportPlayerId": "GQgw6l6c"
-      },
-      {
-        "name": "Soliu Afolabi",
-        "from": "Slovan Liberec",
-        "to": "Zbrojovka Brno",
-        "livesportPlayerId": "xQwGnjFi"
-      }
-    ],
+    "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 507
   },
@@ -4869,7 +4832,7 @@
     "officialRows": 491,
     "transfermarktRows": 490,
     "livesportRows": 507,
-    "seedRows": 551
+    "seedRows": 552
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5222,6 +5185,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-09T01:26:52.212472Z"
+    "checkedAt": "2026-09-09T11:46:59.981132Z"
   }
 }
