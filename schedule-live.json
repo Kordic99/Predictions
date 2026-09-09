@@ -2,7 +2,7 @@
   "season": "2026/27",
   "source": "Chance Liga",
   "sourceUrl": "https://www.chanceliga.cz/rozpis-zapasu",
-  "updatedAt": "2026-09-06T18:43:15Z",
+  "updatedAt": "2026-09-09T14:52:23Z",
   "matches": [
     {
       "round": 1,
@@ -726,8 +726,18 @@
     },
     {
       "round": 10,
+      "date": "2026-10-09",
+      "time": "18:00",
+      "home": "FC Zlín",
+      "away": "SK Slavia Praha",
+      "score": null,
+      "officialMatchId": "8406",
+      "officialUrl": "https://www.chanceliga.cz/zapas/8406-fcz-sks"
+    },
+    {
+      "round": 10,
       "date": "2026-10-10",
-      "time": null,
+      "time": "15:00",
       "home": "FC Viktoria Plzeň",
       "away": "FK Mladá Boleslav",
       "score": null,
@@ -737,17 +747,7 @@
     {
       "round": 10,
       "date": "2026-10-10",
-      "time": null,
-      "home": "FK Teplice",
-      "away": "SK Sigma Olomouc",
-      "score": null,
-      "officialMatchId": "8400",
-      "officialUrl": "https://www.chanceliga.cz/zapas/8400-tep-sig"
-    },
-    {
-      "round": 10,
-      "date": "2026-10-10",
-      "time": null,
+      "time": "15:00",
       "home": "FC Zbrojovka Brno",
       "away": "FK Jablonec",
       "score": null,
@@ -757,37 +757,7 @@
     {
       "round": 10,
       "date": "2026-10-10",
-      "time": null,
-      "home": "FC Slovan Liberec",
-      "away": "1.FC Slovácko",
-      "score": null,
-      "officialMatchId": "8402",
-      "officialUrl": "https://www.chanceliga.cz/zapas/8402-lib-fcs"
-    },
-    {
-      "round": 10,
-      "date": "2026-10-10",
-      "time": null,
-      "home": "Bohemians Praha 1905",
-      "away": "FC Baník Ostrava",
-      "score": null,
-      "officialMatchId": "8403",
-      "officialUrl": "https://www.chanceliga.cz/zapas/8403-boh-fcb"
-    },
-    {
-      "round": 10,
-      "date": "2026-10-10",
-      "time": null,
-      "home": "AC Sparta Praha",
-      "away": "FK Pardubice",
-      "score": null,
-      "officialMatchId": "8404",
-      "officialUrl": "https://www.chanceliga.cz/zapas/8404-acs-fkp"
-    },
-    {
-      "round": 10,
-      "date": "2026-10-10",
-      "time": null,
+      "time": "15:00",
       "home": "FC Hradec Králové",
       "away": "SK Artis Brno",
       "score": null,
@@ -797,12 +767,42 @@
     {
       "round": 10,
       "date": "2026-10-10",
-      "time": null,
-      "home": "FC Zlín",
-      "away": "SK Slavia Praha",
+      "time": "18:00",
+      "home": "Bohemians Praha 1905",
+      "away": "FC Baník Ostrava",
       "score": null,
-      "officialMatchId": "8406",
-      "officialUrl": "https://www.chanceliga.cz/zapas/8406-fcz-sks"
+      "officialMatchId": "8403",
+      "officialUrl": "https://www.chanceliga.cz/zapas/8403-boh-fcb"
+    },
+    {
+      "round": 10,
+      "date": "2026-10-11",
+      "time": "13:00",
+      "home": "FC Slovan Liberec",
+      "away": "1.FC Slovácko",
+      "score": null,
+      "officialMatchId": "8402",
+      "officialUrl": "https://www.chanceliga.cz/zapas/8402-lib-fcs"
+    },
+    {
+      "round": 10,
+      "date": "2026-10-11",
+      "time": "15:00",
+      "home": "FK Teplice",
+      "away": "SK Sigma Olomouc",
+      "score": null,
+      "officialMatchId": "8400",
+      "officialUrl": "https://www.chanceliga.cz/zapas/8400-tep-sig"
+    },
+    {
+      "round": 10,
+      "date": "2026-10-11",
+      "time": "18:00",
+      "home": "AC Sparta Praha",
+      "away": "FK Pardubice",
+      "score": null,
+      "officialMatchId": "8404",
+      "officialUrl": "https://www.chanceliga.cz/zapas/8404-acs-fkp"
     },
     {
       "round": 11,
