@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T19:58:40.357193Z",
+  "generatedAt": "2026-09-09T22:42:18.345272Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -84,12 +84,13 @@
     ],
     "matchDetails": {
       "status": "needs-review",
-      "eventCount": 54,
+      "eventCount": 55,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
         "2exFYWMr": 32,
         "48MjBAwH": 32,
+        "A51rdRK6": 31,
         "ALuNWAie": 32,
         "AuWGhhEE": 32,
         "C8KfoA6l": 31,
@@ -146,6 +147,7 @@
         "0hJIzKhT": 31,
         "2exFYWMr": 30,
         "48MjBAwH": 30,
+        "A51rdRK6": 29,
         "ALuNWAie": 28,
         "AuWGhhEE": 31,
         "C8KfoA6l": 29,
@@ -197,24 +199,9 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 1708,
-      "ratedPerformances": 1574,
+      "playerPerformances": 1739,
+      "ratedPerformances": 1603,
       "reconciliationIssues": [
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Touré Mohamed",
-          "livesportPlayerId": "QkrdV8Pc",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 7,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -4852,9 +4839,9 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 54,
-    "playerPerformances": 1708,
-    "ratedPerformances": 1574,
+    "completedMatches": 55,
+    "playerPerformances": 1739,
+    "ratedPerformances": 1603,
     "processed": [
       {
         "livesportMatchId": "O2jEirWF",
@@ -5035,6 +5022,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 30,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/banik-ostrava-lI6ddlih/URaSa9Ls/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "A51rdRK6",
+        "round": 5,
+        "home": "Hradec Králové",
+        "away": "Viktoria Plzeň",
+        "score": "0:0",
+        "playerPerformances": 31,
+        "ratedPerformances": 29,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/viktoria-plzen-2LA0e86b/A51rdRK6/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5077,12 +5074,13 @@
     ],
     "validation": {
       "status": "needs-review",
-      "eventCount": 54,
+      "eventCount": 55,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0hJIzKhT": 32,
         "2exFYWMr": 32,
         "48MjBAwH": 32,
+        "A51rdRK6": 31,
         "ALuNWAie": 32,
         "AuWGhhEE": 32,
         "C8KfoA6l": 31,
@@ -5139,6 +5137,7 @@
         "0hJIzKhT": 31,
         "2exFYWMr": 30,
         "48MjBAwH": 30,
+        "A51rdRK6": 29,
         "ALuNWAie": 28,
         "AuWGhhEE": 31,
         "C8KfoA6l": 29,
@@ -5190,24 +5189,9 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 1708,
-      "ratedPerformances": 1574,
+      "playerPerformances": 1739,
+      "ratedPerformances": 1603,
       "reconciliationIssues": [
-        {
-          "team": "Viktoria Plzeň",
-          "name": "Touré Mohamed",
-          "livesportPlayerId": "QkrdV8Pc",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 7,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -5226,6 +5210,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-09T19:58:40.357193Z"
+    "checkedAt": "2026-09-09T22:42:18.345272Z"
   }
 }
