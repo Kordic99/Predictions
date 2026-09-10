@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-09-10T01:22:43.267195Z",
+  "generatedAt": "2026-09-10T11:44:21.185787Z",
   "changes": {
-    "added": [
-      {
-        "team": "Artis Brno",
-        "name": "Perišič Vladimir",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -77,6 +71,7 @@
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
       "Teplice Badamosi Abdourahman: missing Transfermarkt identity",
       "Artis Brno Sarapata Dominik: missing Transfermarkt identity",
+      "Artis Brno Perišič Vladimir: missing Transfermarkt identity",
       "Sigma Olomouc Leo Borges: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Brzyski Igor: missing Transfermarkt identity",
@@ -86,8 +81,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Artis Brno Perišič Vladimir: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -516,7 +510,7 @@
         "name": "Perišič Vladimir",
         "livesportName": "Perišič Vladimir",
         "livesportPlayerId": "2qawCzPi",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4814,13 +4808,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Artis Brno",
-        "name": "Perišič Vladimir",
-        "livesportPlayerId": "2qawCzPi"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 509
@@ -4855,7 +4843,7 @@
     "officialRows": 491,
     "transfermarktRows": 490,
     "livesportRows": 509,
-    "seedRows": 553
+    "seedRows": 554
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5232,6 +5220,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-10T01:22:43.267195Z"
+    "checkedAt": "2026-09-10T11:44:21.185787Z"
   }
 }
