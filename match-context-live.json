@@ -2781,10 +2781,188 @@
       "source": "Livesport",
       "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sparta-praha-6qA358jH/jablonec-CM8ySpMH/",
       "homeContext": {
-        "source": "proxy",
-        "players": [],
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "fwXhJa0F",
+            "name": "Surovčík",
+            "listName": "Surovčík J.",
+            "number": "44",
+            "position": "GK",
+            "profileSlug": "surovcik-jakub"
+          },
+          {
+            "livesportPlayerId": "S2L0pCiU",
+            "name": "Suchomel",
+            "listName": "Suchomel M.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "suchomel-martin"
+          },
+          {
+            "livesportPlayerId": "YZaauoS5",
+            "name": "Guddal",
+            "listName": "Guddal T.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "guddal-tobias"
+          },
+          {
+            "livesportPlayerId": "0KsclLqh",
+            "name": "Mbe Soh",
+            "listName": "Mbe Soh L.",
+            "number": "22",
+            "position": null,
+            "profileSlug": "mbe-soh-loic"
+          },
+          {
+            "livesportPlayerId": "Gh5wWWlD",
+            "name": "Ryneš",
+            "listName": "Ryneš M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "rynes-matej"
+          },
+          {
+            "livesportPlayerId": "4p4Z2cBP",
+            "name": "Macek",
+            "listName": "Macek R.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "macek-roman"
+          },
+          {
+            "livesportPlayerId": "SYegq3bT",
+            "name": "Irving",
+            "listName": "Irving A.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "irving-andrew"
+          },
+          {
+            "livesportPlayerId": "tSlWfuTh",
+            "name": "Mercado",
+            "listName": "Mercado J.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "john-mercado"
+          },
+          {
+            "livesportPlayerId": "SClyr2eG",
+            "name": "Karabec",
+            "listName": "Karabec A.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "karabec-adam"
+          },
+          {
+            "livesportPlayerId": "GtvcpX7m",
+            "name": "Alcócer",
+            "listName": "Alcócer J.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "alcocer-josimar"
+          },
+          {
+            "livesportPlayerId": "t02ZMlBB",
+            "name": "Brunes",
+            "listName": "Brunes J.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "brunes-jonatan-braut"
+          }
+        ],
         "officialPlayers": [],
-        "predictedPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "fwXhJa0F",
+            "name": "Surovčík",
+            "listName": "Surovčík J.",
+            "number": "44",
+            "position": "GK",
+            "profileSlug": "surovcik-jakub"
+          },
+          {
+            "livesportPlayerId": "S2L0pCiU",
+            "name": "Suchomel",
+            "listName": "Suchomel M.",
+            "number": "2",
+            "position": null,
+            "profileSlug": "suchomel-martin"
+          },
+          {
+            "livesportPlayerId": "YZaauoS5",
+            "name": "Guddal",
+            "listName": "Guddal T.",
+            "number": "6",
+            "position": null,
+            "profileSlug": "guddal-tobias"
+          },
+          {
+            "livesportPlayerId": "0KsclLqh",
+            "name": "Mbe Soh",
+            "listName": "Mbe Soh L.",
+            "number": "22",
+            "position": null,
+            "profileSlug": "mbe-soh-loic"
+          },
+          {
+            "livesportPlayerId": "Gh5wWWlD",
+            "name": "Ryneš",
+            "listName": "Ryneš M.",
+            "number": "11",
+            "position": null,
+            "profileSlug": "rynes-matej"
+          },
+          {
+            "livesportPlayerId": "4p4Z2cBP",
+            "name": "Macek",
+            "listName": "Macek R.",
+            "number": "28",
+            "position": null,
+            "profileSlug": "macek-roman"
+          },
+          {
+            "livesportPlayerId": "SYegq3bT",
+            "name": "Irving",
+            "listName": "Irving A.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "irving-andrew"
+          },
+          {
+            "livesportPlayerId": "tSlWfuTh",
+            "name": "Mercado",
+            "listName": "Mercado J.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "john-mercado"
+          },
+          {
+            "livesportPlayerId": "SClyr2eG",
+            "name": "Karabec",
+            "listName": "Karabec A.",
+            "number": "10",
+            "position": null,
+            "profileSlug": "karabec-adam"
+          },
+          {
+            "livesportPlayerId": "GtvcpX7m",
+            "name": "Alcócer",
+            "listName": "Alcócer J.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "alcocer-josimar"
+          },
+          {
+            "livesportPlayerId": "t02ZMlBB",
+            "name": "Brunes",
+            "listName": "Brunes J.",
+            "number": "14",
+            "position": null,
+            "profileSlug": "brunes-jonatan-braut"
+          }
+        ],
         "missing": [
           {
             "livesportPlayerId": "hpae2jw4",
@@ -2854,11 +3032,198 @@
         ]
       },
       "awayContext": {
-        "source": "proxy",
-        "players": [],
+        "source": "predicted",
+        "players": [
+          {
+            "livesportPlayerId": "4IS8Wllk",
+            "name": "Hanuš",
+            "listName": "Hanuš J.",
+            "number": "1",
+            "position": "GK",
+            "profileSlug": "hanus-jan"
+          },
+          {
+            "livesportPlayerId": "8U8W18F0",
+            "name": "Cedidla",
+            "listName": "Cedidla M.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "cedidla-martin"
+          },
+          {
+            "livesportPlayerId": "xS3OrhEA",
+            "name": "Tekijaški",
+            "listName": "Tekijaški N.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "tekijaski-nemanja"
+          },
+          {
+            "livesportPlayerId": "IT6JePP2",
+            "name": "Novák",
+            "listName": "Novák F.",
+            "number": "57",
+            "position": null,
+            "profileSlug": "novak-filip"
+          },
+          {
+            "livesportPlayerId": "4Eg2q37c",
+            "name": "Chanturishvili",
+            "listName": "Chanturishvili V.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "chanturishvili-vakhtang"
+          },
+          {
+            "livesportPlayerId": "SGCoKLXc",
+            "name": "Sedláček",
+            "listName": "Sedláček R.",
+            "number": "13",
+            "position": null,
+            "profileSlug": "sedlacek-richard"
+          },
+          {
+            "livesportPlayerId": "vw9HXUxE",
+            "name": "Nebyla",
+            "listName": "Nebyla S.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "nebyla-sebastian"
+          },
+          {
+            "livesportPlayerId": "AH7V3mMB",
+            "name": "Sláma",
+            "listName": "Sláma J.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "slama-jiri"
+          },
+          {
+            "livesportPlayerId": "Eo8UVuoQ",
+            "name": "Alioum",
+            "listName": "Alioum S.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "alioum-saidou"
+          },
+          {
+            "livesportPlayerId": "EisgSZz0",
+            "name": "Růsek",
+            "listName": "Růsek A.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "rusek-antonin"
+          },
+          {
+            "livesportPlayerId": "23rtJRit",
+            "name": "Jawo",
+            "listName": "Jawo L.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "jawo-lamin"
+          }
+        ],
         "officialPlayers": [],
-        "predictedPlayers": [],
+        "predictedPlayers": [
+          {
+            "livesportPlayerId": "4IS8Wllk",
+            "name": "Hanuš",
+            "listName": "Hanuš J.",
+            "number": "1",
+            "position": "GK",
+            "profileSlug": "hanus-jan"
+          },
+          {
+            "livesportPlayerId": "8U8W18F0",
+            "name": "Cedidla",
+            "listName": "Cedidla M.",
+            "number": "18",
+            "position": null,
+            "profileSlug": "cedidla-martin"
+          },
+          {
+            "livesportPlayerId": "xS3OrhEA",
+            "name": "Tekijaški",
+            "listName": "Tekijaški N.",
+            "number": "4",
+            "position": null,
+            "profileSlug": "tekijaski-nemanja"
+          },
+          {
+            "livesportPlayerId": "IT6JePP2",
+            "name": "Novák",
+            "listName": "Novák F.",
+            "number": "57",
+            "position": null,
+            "profileSlug": "novak-filip"
+          },
+          {
+            "livesportPlayerId": "4Eg2q37c",
+            "name": "Chanturishvili",
+            "listName": "Chanturishvili V.",
+            "number": "7",
+            "position": null,
+            "profileSlug": "chanturishvili-vakhtang"
+          },
+          {
+            "livesportPlayerId": "SGCoKLXc",
+            "name": "Sedláček",
+            "listName": "Sedláček R.",
+            "number": "13",
+            "position": null,
+            "profileSlug": "sedlacek-richard"
+          },
+          {
+            "livesportPlayerId": "vw9HXUxE",
+            "name": "Nebyla",
+            "listName": "Nebyla S.",
+            "number": "25",
+            "position": null,
+            "profileSlug": "nebyla-sebastian"
+          },
+          {
+            "livesportPlayerId": "AH7V3mMB",
+            "name": "Sláma",
+            "listName": "Sláma J.",
+            "number": "20",
+            "position": null,
+            "profileSlug": "slama-jiri"
+          },
+          {
+            "livesportPlayerId": "Eo8UVuoQ",
+            "name": "Alioum",
+            "listName": "Alioum S.",
+            "number": "17",
+            "position": null,
+            "profileSlug": "alioum-saidou"
+          },
+          {
+            "livesportPlayerId": "EisgSZz0",
+            "name": "Růsek",
+            "listName": "Růsek A.",
+            "number": "9",
+            "position": null,
+            "profileSlug": "rusek-antonin"
+          },
+          {
+            "livesportPlayerId": "23rtJRit",
+            "name": "Jawo",
+            "listName": "Jawo L.",
+            "number": "44",
+            "position": null,
+            "profileSlug": "jawo-lamin"
+          }
+        ],
         "missing": [
+          {
+            "livesportPlayerId": "hpiQnNSJ",
+            "name": "Mihelak K.",
+            "listName": "Mihelak K.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mihelak-klemen",
+            "reason": "Zranění"
+          },
           {
             "livesportPlayerId": "MN0iqQSj",
             "name": "Milla K.",
@@ -2878,15 +3243,6 @@
             "position": null,
             "profileSlug": "kuol-garang",
             "reason": "Zdravotní problémy"
-          },
-          {
-            "livesportPlayerId": "hpiQnNSJ",
-            "name": "Mihelak K.",
-            "listName": "Mihelak K.",
-            "number": null,
-            "position": null,
-            "profileSlug": "mihelak-klemen",
-            "reason": "Zranění"
           },
           {
             "livesportPlayerId": "Uy7GqapF",
@@ -3277,15 +3633,117 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "IXrYCTTL",
+            "name": "Audinis N.",
+            "listName": "Audinis N.",
+            "number": null,
+            "position": null,
+            "profileSlug": "audinis-nojus",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "r5quXUAg",
+            "name": "Danihel D.",
+            "listName": "Danihel D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "danihel-daniel",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "YmqJMH8d",
+            "name": "Svatek P.",
+            "listName": "Svatek P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "svatek-pavel",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "ng9Xt04A",
+            "name": "Pulkrab M.",
+            "listName": "Pulkrab M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "pulkrab-matej",
+            "reason": "Zlomená ruka"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "GU2BC13A",
+            "name": "Holeš T.",
+            "listName": "Holeš T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "holes-tomas",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "vkbT7lsC",
+            "name": "Moses D.",
+            "listName": "Moses D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "moses-david",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "lU0M9sZL",
+            "name": "N'Guessan A.",
+            "listName": "N'Guessan A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "n-guessan-ange-caumenan",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "QkyQ3g8t",
+            "name": "Ogbu I.",
+            "listName": "Ogbu I.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogbu-igoh",
+            "reason": "Zranění achill. šlachy"
+          },
+          {
+            "livesportPlayerId": "IBoly1YC",
+            "name": "Ouanda A.",
+            "listName": "Ouanda A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ouanda-adonija",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "82A7cLmi",
+            "name": "Provod L.",
+            "listName": "Provod L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "provod-lukas",
+            "reason": "Poranění kotníku"
+          },
+          {
+            "livesportPlayerId": "ltctozq4",
+            "name": "Suleiman M.",
+            "listName": "Suleiman M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "suleiman-mubarak",
+            "reason": "Zdravotní problémy"
+          }
+        ],
         "uncertain": []
       }
     },
@@ -3506,5 +3964,5 @@
       }
     }
   ],
-  "updatedAt": "2026-09-10T14:28:02Z"
+  "updatedAt": "2026-09-10T18:30:16Z"
 }
