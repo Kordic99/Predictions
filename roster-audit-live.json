@@ -1,16 +1,22 @@
 {
-  "generatedAt": "2026-09-09T22:42:18.345272Z",
+  "generatedAt": "2026-09-10T01:22:43.267195Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Artis Brno",
+        "name": "Perišič Vladimir",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 553,
+    "playerCount": 554,
     "teamCounts": {
-      "Artis Brno": 37,
+      "Artis Brno": 38,
       "Baník Ostrava": 32,
       "Bohemians 1905": 30,
       "Hradec Králové": 34,
@@ -28,11 +34,11 @@
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 74,
+    "withoutPublishedMarketValue": 75,
     "withCareer": 513,
-    "withoutCareerRows": 40,
-    "withLivesportIdentity": 529,
-    "withLivesportSeasonStats": 529,
+    "withoutCareerRows": 41,
+    "withLivesportIdentity": 530,
+    "withLivesportSeasonStats": 530,
     "activeLivesportPlayers": 375,
     "activeLivesportScorers": 98,
     "warnings": [
@@ -80,7 +86,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Artis Brno Perišič Vladimir: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -223,7 +230,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 508,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -502,6 +509,15 @@
         "livesportPlayerId": "jVYzcZmn",
         "method": "livesport-id",
         "apps": 7,
+        "goals": 0
+      },
+      {
+        "team": "Artis Brno",
+        "name": "Perišič Vladimir",
+        "livesportName": "Perišič Vladimir",
+        "livesportPlayerId": "2qawCzPi",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4798,10 +4814,16 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Artis Brno",
+        "name": "Perišič Vladimir",
+        "livesportPlayerId": "2qawCzPi"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 508
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4832,7 +4854,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 508,
+    "livesportRows": 509,
     "seedRows": 553
   },
   "livesportMatchStats": {
@@ -5210,6 +5232,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-09T22:42:18.345272Z"
+    "checkedAt": "2026-09-10T01:22:43.267195Z"
   }
 }
