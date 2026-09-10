@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-09-10T11:44:21.185787Z",
+  "generatedAt": "2026-09-10T19:59:39.333448Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Slavia Prague",
+        "name": "Belžík Karel",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 554,
+    "playerCount": 555,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 32,
@@ -18,7 +24,7 @@
       "Mladá Boleslav": 32,
       "Pardubice": 35,
       "Sigma Olomouc": 36,
-      "Slavia Prague": 37,
+      "Slavia Prague": 38,
       "Slovan Liberec": 35,
       "Slovácko": 34,
       "Sparta Prague": 38,
@@ -28,11 +34,11 @@
       "Zlín": 33
     },
     "withMarketValue": 479,
-    "withoutPublishedMarketValue": 75,
+    "withoutPublishedMarketValue": 76,
     "withCareer": 513,
-    "withoutCareerRows": 41,
-    "withLivesportIdentity": 530,
-    "withLivesportSeasonStats": 530,
+    "withoutCareerRows": 42,
+    "withLivesportIdentity": 531,
+    "withLivesportSeasonStats": 531,
     "activeLivesportPlayers": 375,
     "activeLivesportScorers": 98,
     "warnings": [
@@ -81,7 +87,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Slavia Prague Belžík Karel: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -224,7 +231,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 509,
+    "sourceRows": 510,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2667,6 +2674,15 @@
       },
       {
         "team": "Slavia Prague",
+        "name": "Belžík Karel",
+        "livesportName": "Belžík Karel",
+        "livesportPlayerId": "EL1rSmpb",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
         "name": "Chorý Tomáš",
         "livesportName": "Chorý Tomáš",
         "livesportPlayerId": "EgGI8vM6",
@@ -4808,10 +4824,16 @@
         "goals": 1
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Slavia Prague",
+        "name": "Belžík Karel",
+        "livesportPlayerId": "EL1rSmpb"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 509
+    "publishedLivesportIds": 510
   },
   "careerEnriched": [
     {
@@ -4842,7 +4864,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 490,
-    "livesportRows": 509,
+    "livesportRows": 510,
     "seedRows": 554
   },
   "livesportMatchStats": {
@@ -5220,6 +5242,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-10T11:44:21.185787Z"
+    "checkedAt": "2026-09-10T19:59:39.333448Z"
   }
 }
