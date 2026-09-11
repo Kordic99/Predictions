@@ -1022,7 +1022,83 @@ def resolve_official_registrations(
             for registration in registrations
             if registration is not selected[0]
         )
-    return resolved, ignored
+    # The league site can also publish the same current player twice under two
+    # different player IDs at one club.  An ID-only pass above cannot see that
+    # case (for example Saidou Alioum at Jablonec).  Resolve it only when the
+    # biographical identity agrees and the current Livesport shirt number
+    # selects exactly one registration; otherwise keep failing closed.
+    by_team_identity = defaultdict(list)
+    for registration in resolved:
+        by_team_identity[
+            (registration["team"], identity_key(registration["name"]))
+        ].append(registration)
+
+    identity_resolved = []
+    for (team, key), registrations in by_team_identity.items():
+        if len(registrations) == 1:
+            identity_resolved.append(registrations[0])
+            continue
+
+        birth_dates = {
+            str(registration.get("dateOfBirth") or "").strip()
+            for registration in registrations
+            if registration.get("dateOfBirth")
+        }
+        positions = {registration.get("position") for registration in registrations}
+        live_matches = [
+            row
+            for row in (livesport_clubs.get(team) or {}).get("players", [])
+            if identity_key(row.get("name", "")) == key
+        ]
+        live_shirts = {
+            str(row.get("shirtNumber"))
+            for row in live_matches
+            if row.get("shirtNumber") is not None
+        }
+        shirt_matches = [
+            registration
+            for registration in registrations
+            if registration.get("shirtNumber") is not None
+            and str(registration.get("shirtNumber")) in live_shirts
+        ]
+        if len(birth_dates) > 1 or len(positions) > 1 or len(shirt_matches) != 1:
+            labels = [
+                f"{registration.get('chanceLigaPlayerId')} "
+                f"shirt={registration.get('shirtNumber')} "
+                f"dob={registration.get('dateOfBirth')}"
+                for registration in registrations
+            ]
+            raise RuntimeError(
+                f"Cannot resolve duplicate official identity {team} {key}: "
+                f"{labels}; Livesport shirts={sorted(live_shirts)}"
+            )
+
+        selected_original = shirt_matches[0]
+        selected = copy.deepcopy(selected_original)
+        for field in ("dateOfBirth", "heightCm", "weightKg"):
+            if selected.get(field) is not None:
+                continue
+            values = {
+                registration.get(field)
+                for registration in registrations
+                if registration.get(field) is not None
+            }
+            if len(values) == 1:
+                selected[field] = next(iter(values))
+        identity_resolved.append(selected)
+        ignored.extend(
+            {
+                **registration,
+                "reason": (
+                    f"duplicate official identity; current registration is "
+                    f"{selected['chanceLigaPlayerId']} (Livesport shirt-number match)"
+                ),
+            }
+            for registration in registrations
+            if registration is not selected_original
+        )
+
+    return identity_resolved, ignored
 
 
 def reconcile(

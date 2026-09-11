@@ -69,6 +69,49 @@ class OfficialDuplicateResolutionTests(unittest.TestCase):
         self.assertEqual(resolved, [row])
         self.assertEqual(ignored, [])
 
+    def test_same_club_duplicate_identity_uses_livesport_shirt_number(self):
+        old = {
+            **official("Jablonec", "5233", "Saidou Alioum"),
+            "dateOfBirth": "25.07.2003",
+            "heightCm": 175,
+            "shirtNumber": None,
+        }
+        current = {
+            **official("Jablonec", "5238", "Saidou Alioum"),
+            "dateOfBirth": "25.07.2003",
+            "heightCm": None,
+            "shirtNumber": 17,
+        }
+        livesport = {
+            "Jablonec": {
+                "players": [
+                    {
+                        "name": "Alioum Saidou",
+                        "position": "M",
+                        "shirtNumber": 17,
+                    }
+                ]
+            }
+        }
+
+        resolved, ignored = resolve_official_registrations(
+            [old, current], {}, livesport
+        )
+
+        self.assertEqual(len(resolved), 1)
+        self.assertEqual(resolved[0]["chanceLigaPlayerId"], "5238")
+        self.assertEqual(resolved[0]["heightCm"], 175)
+        self.assertEqual([row["chanceLigaPlayerId"] for row in ignored], ["5233"])
+
+    def test_same_club_duplicate_identity_without_current_evidence_fails(self):
+        rows = [
+            official("Jablonec", "5233", "Saidou Alioum"),
+            official("Jablonec", "5238", "Saidou Alioum"),
+        ]
+
+        with self.assertRaisesRegex(RuntimeError, "duplicate official identity"):
+            resolve_official_registrations(rows, {}, {})
+
 
 if __name__ == "__main__":
     unittest.main()
