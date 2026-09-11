@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-09-10T19:59:39.333448Z",
+  "generatedAt": "2026-09-11T11:44:24.779706Z",
   "changes": {
-    "added": [
-      {
-        "team": "Slavia Prague",
-        "name": "Belžík Karel",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -87,8 +81,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Teah Divine: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Belžík Karel: missing Transfermarkt identity"
+      "Slavia Prague Belžík Karel: missing Transfermarkt identity",
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -2677,7 +2671,7 @@
         "name": "Belžík Karel",
         "livesportName": "Belžík Karel",
         "livesportPlayerId": "EL1rSmpb",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4824,13 +4818,7 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Slavia Prague",
-        "name": "Belžík Karel",
-        "livesportPlayerId": "EL1rSmpb"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 510
@@ -4865,7 +4853,7 @@
     "officialRows": 491,
     "transfermarktRows": 490,
     "livesportRows": 510,
-    "seedRows": 554
+    "seedRows": 555
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5242,6 +5230,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-10T19:59:39.333448Z"
+    "checkedAt": "2026-09-11T11:44:24.779706Z"
   }
 }
