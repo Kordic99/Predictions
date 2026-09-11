@@ -1928,6 +1928,75 @@ arH("2023/24",[{"r":"BAR1","h":"MFK Vyškov VYS","a":"Karviná","score":"0:1"},{
 // ─── END OFFICIAL COMPLETE HISTORICAL ARCHIVE ─────────────────────────
 
 // ─── TABLE COMPUTATION ────────────────────────────────────────────────────────
+// FAČR tie-break order while the mutual home-and-away fixtures are incomplete:
+// points, overall goal difference, overall goals scored. Head-to-head criteria
+// become eligible only after every tied team has played every other tied team
+// both home and away. Work with the whole points-tied group so three-way ties
+// cannot produce a non-transitive Array.sort comparator.
+function sortLeagueTableRows(rows,seasonMatches){
+  const validMatches=(Array.isArray(seasonMatches)?seasonMatches:[]).filter(match=>
+    /^\d+:\d+$/.test(String(match?.score||''))
+  );
+  const points=row=>row.s.w*3+row.s.d;
+  const played=row=>row.s.w+row.s.d+row.s.l;
+  const overallGoalDifference=row=>row.s.gf-row.s.ga;
+  const overallGoalsComparator=(a,b,samePlayed)=>{
+    if(samePlayed)return b.s.gf-a.s.gf;
+    const ap=played(a)?a.s.gf/played(a):0;
+    const bp=played(b)?b.s.gf/played(b):0;
+    return bp-ap;
+  };
+  const deterministicFallback=(a,b)=>String(a.t).localeCompare(String(b.t),'cs');
+  const groups=new Map();
+  rows.forEach(row=>{
+    const key=points(row);
+    if(!groups.has(key))groups.set(key,[]);
+    groups.get(key).push(row);
+  });
+  return [...groups.entries()]
+    .sort((a,b)=>b[0]-a[0])
+    .flatMap(([,group])=>{
+      if(group.length<2)return group;
+      const teams=new Set(group.map(row=>row.t));
+      const samePlayed=group.every(row=>played(row)===played(group[0]));
+      const directedPairCounts=new Map();
+      const mini=new Map(group.map(row=>[row.t,{pts:0,gf:0,ga:0}]));
+      validMatches.forEach(match=>{
+        const home=match.h??match.home,away=match.a??match.away;
+        if(!teams.has(home)||!teams.has(away)||home===away)return;
+        const direction=[home,away].join('\u241F');
+        directedPairCounts.set(direction,(directedPairCounts.get(direction)||0)+1);
+        const [hg,ag]=String(match.score).split(':').map(Number);
+        mini.get(home).gf+=hg;mini.get(home).ga+=ag;
+        mini.get(away).gf+=ag;mini.get(away).ga+=hg;
+        if(hg>ag)mini.get(home).pts+=3;
+        else if(ag>hg)mini.get(away).pts+=3;
+        else{mini.get(home).pts++;mini.get(away).pts++;}
+      });
+      const teamList=[...teams];
+      const mutualHomeAndAwayComplete=teamList.every((team,index)=>
+        teamList.slice(index+1).every(other=>
+          (directedPairCounts.get([team,other].join('\u241F'))||0)>=1&&
+          (directedPairCounts.get([other,team].join('\u241F'))||0)>=1
+        )
+      );
+      return group.sort((a,b)=>{
+        if(mutualHomeAndAwayComplete){
+          const am=mini.get(a.t),bm=mini.get(b.t);
+          if(bm.pts!==am.pts)return bm.pts-am.pts;
+          const amGD=am.gf-am.ga,bmGD=bm.gf-bm.ga;
+          if(bmGD!==amGD)return bmGD-amGD;
+          if(bm.gf!==am.gf)return bm.gf-am.gf;
+        }
+        const agd=overallGoalDifference(a),bgd=overallGoalDifference(b);
+        if(bgd!==agd)return bgd-agd;
+        const goalsOrder=overallGoalsComparator(a,b,samePlayed);
+        if(goalsOrder!==0)return goalsOrder;
+        return deterministicFallback(a,b);
+      });
+    });
+}
+
 function computeStats(){
   const s={};
   TEAMS.forEach(t=>s[t]={w:0,d:0,l:0,gf:0,ga:0,h2hPts:{},h2hGD:{},homeW:0,homeD:0,homeL:0,awayW:0,awayD:0,awayL:0});
@@ -1947,15 +2016,10 @@ function computeStats(){
 function sortedTable(){
   const s=computeStats();
   const rows=TEAMS.map(t=>({t,s:s[t]||{w:0,d:0,l:0,gf:0,ga:0,h2hPts:{},h2hGD:{},homeW:0,homeD:0,homeL:0,awayW:0,awayD:0,awayL:0}}));
-  rows.sort((a,b)=>{
-    const ap=a.s.w*3+a.s.d,bp=b.s.w*3+b.s.d;
-    if(bp!==ap)return bp-ap;
-    const h2p=(a.s.h2hPts[b.t]||0)-(b.s.h2hPts[a.t]||0);if(h2p!==0)return -h2p;
-    const h2g=(a.s.h2hGD[b.t]||0)-(b.s.h2hGD[a.t]||0);if(h2g!==0)return -h2g;
-    const ag=a.s.gf-a.s.ga,bg=b.s.gf-b.s.ga;if(bg!==ag)return bg-ag;
-    return b.s.gf-a.s.gf;
-  });
-  return{rows,s};
+  const seasonMatches=results.filter(match=>
+    (match.season||CURRENT_SEASON)===CURRENT_SEASON&&/^\d+:\d+$/.test(String(match.score||''))
+  );
+  return{rows:sortLeagueTableRows(rows,seasonMatches),s};
 }
 
 // Form scoring per match (from one team's perspective):
@@ -5669,15 +5733,7 @@ function computePrevStandings(season){
     s[m.a].h2hGD[m.h]=(s[m.a].h2hGD[m.h]||0)+(ag-hg);
   });
   const rows=Object.entries(s).map(([t,st])=>({t,s:st}));
-  rows.sort((a,b)=>{
-    const ap=a.s.w*3+a.s.d,bp=b.s.w*3+b.s.d;
-    if(bp!==ap)return bp-ap;
-    const h2p=(a.s.h2hPts[b.t]||0)-(b.s.h2hPts[a.t]||0);if(h2p!==0)return -h2p;
-    const h2g=(a.s.h2hGD[b.t]||0)-(b.s.h2hGD[a.t]||0);if(h2g!==0)return -h2g;
-    const ag=a.s.gf-a.s.ga,bg=b.s.gf-b.s.ga;if(bg!==ag)return bg-ag;
-    return b.s.gf-a.s.gf;
-  });
-  return rows;
+  return sortLeagueTableRows(rows,sourceMatches);
 }
 
 function renderPrevYears(){
@@ -8834,7 +8890,11 @@ async function loadPublishedDataSnapshot(){
     // Embedded verified values may be newer than the published snapshot.
     applyVerifiedTransfermarktValues202627(false);
     if(publishedRosterData)applyPublishedRosterData(publishedRosterData,false);
-    const health=runAutomaticDataHealthCheck();
+    // The durable user snapshot can contain an older copy of player match
+    // rows. Validate it silently here; the user-facing automatic check runs
+    // only after the authoritative rosters-live.json has been merged below.
+    // This prevents a false transient scorer-total warning during page boot.
+    const health=checkDataHealth(false,false);
     if(!health.ok)return false;
     persistSnapshot();
     renderAfterDataRestore();
