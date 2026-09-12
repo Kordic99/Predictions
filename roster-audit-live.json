@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T22:44:25.317005Z",
+  "generatedAt": "2026-09-12T11:10:58.334119Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -232,7 +232,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 509,
+    "sourceRows": 508,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1780,15 +1780,6 @@
         "livesportPlayerId": "6wbyLLUG",
         "method": "livesport-id",
         "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Mladá Boleslav",
-        "name": "Penner Nicolas",
-        "livesportName": "Penner Nicolas",
-        "livesportPlayerId": "SYakv3bs",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4819,7 +4810,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 509
+    "publishedLivesportIds": 508
   },
   "careerEnriched": [
     {
@@ -4868,7 +4859,7 @@
   "sourceCounts": {
     "officialRows": 485,
     "transfermarktRows": 485,
-    "livesportRows": 509,
+    "livesportRows": 508,
     "seedRows": 535
   },
   "livesportMatchStats": {
@@ -5254,6 +5245,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-11T22:44:25.317005Z"
+    "checkedAt": "2026-09-12T11:10:58.334119Z"
   }
 }
