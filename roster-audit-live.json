@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-09-15T10:22:11.704261Z",
+  "generatedAt": "2026-09-15T15:13:10.205106Z",
   "changes": {
-    "added": [
-      {
-        "team": "Slavia Prague",
-        "name": "Barčot David",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -72,10 +66,10 @@
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
       "Slavia Prague Rezek Adam: missing Transfermarkt identity",
+      "Slavia Prague Barčot David: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Barčot David: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -255,7 +249,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 510,
+    "sourceRows": 509,
     "attached": [
       {
         "team": "Artis Brno",
@@ -615,15 +609,6 @@
         "livesportPlayerId": "Q1wSa2Rk",
         "method": "livesport-id",
         "apps": 8,
-        "goals": 0
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Moučka Matyáš",
-        "livesportName": "Moučka Matyáš",
-        "livesportPlayerId": "6yEybEfg",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -1765,7 +1750,7 @@
         "name": "Kolář Filip",
         "livesportName": "Kolář Filip",
         "livesportPlayerId": "GEwTKvB8",
-        "method": "same-team-name",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -1846,7 +1831,7 @@
         "name": "Jinoch Jan",
         "livesportName": "Jinoch Jan",
         "livesportPlayerId": "SS9HdQ7M",
-        "method": "same-team-name",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2512,7 +2497,7 @@
         "name": "Barčot David",
         "livesportName": "Barčot David",
         "livesportPlayerId": "dl11mwLl",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4848,16 +4833,10 @@
         "goals": 1
       }
     ],
-    "added": [
-      {
-        "team": "Slavia Prague",
-        "name": "Barčot David",
-        "livesportPlayerId": "dl11mwLl"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 510
+    "publishedLivesportIds": 509
   },
   "careerEnriched": [
     {
@@ -4906,8 +4885,8 @@
   "sourceCounts": {
     "officialRows": 485,
     "transfermarktRows": 485,
-    "livesportRows": 510,
-    "seedRows": 535
+    "livesportRows": 509,
+    "seedRows": 536
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5325,6 +5304,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-15T10:22:11.704261Z"
+    "checkedAt": "2026-09-15T15:13:10.205106Z"
   }
 }
