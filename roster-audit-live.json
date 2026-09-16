@@ -1,25 +1,10 @@
 {
-  "generatedAt": "2026-09-16T17:14:17.445267Z",
+  "generatedAt": "2026-09-16T23:12:04.875284Z",
   "changes": {
     "added": [
       {
         "team": "Slavia Prague",
-        "name": "Okonkwo Izuchukwu",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Solarte Miguel",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Slovácko",
-        "name": "Cicha Martin",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Slovácko",
-        "name": "Uhrovic Martin",
+        "name": "Behenský Pavel",
         "transfermarktPlayerId": null
       }
     ],
@@ -29,7 +14,7 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 540,
+    "playerCount": 541,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 31,
@@ -39,7 +24,7 @@
       "Mladá Boleslav": 32,
       "Pardubice": 34,
       "Sigma Olomouc": 36,
-      "Slavia Prague": 36,
+      "Slavia Prague": 37,
       "Slovan Liberec": 34,
       "Slovácko": 34,
       "Sparta Prague": 36,
@@ -49,15 +34,17 @@
       "Zlín": 33
     },
     "withMarketValue": 472,
-    "withoutPublishedMarketValue": 68,
+    "withoutPublishedMarketValue": 69,
     "withCareer": 503,
-    "withoutCareerRows": 37,
-    "withLivesportIdentity": 520,
-    "withLivesportSeasonStats": 520,
+    "withoutCareerRows": 38,
+    "withLivesportIdentity": 521,
+    "withLivesportSeasonStats": 521,
     "activeLivesportPlayers": 382,
     "activeLivesportScorers": 108,
     "warnings": [
+      "Slovácko Cicha Martin: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
+      "Slovácko Uhrovic Martin: missing Transfermarkt identity",
       "Sparta Prague Franc Lukáš: missing Transfermarkt identity",
       "Sparta Prague Kotíšek Maxim: missing Transfermarkt identity",
       "Sparta Prague Topič Jonáš: missing Transfermarkt identity",
@@ -88,13 +75,12 @@
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
       "Slavia Prague Rezek Adam: missing Transfermarkt identity",
       "Slavia Prague Barčot David: missing Transfermarkt identity",
+      "Slavia Prague Solarte Miguel: missing Transfermarkt identity",
+      "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Solarte Miguel: missing Transfermarkt identity",
-      "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
-      "Slovácko Cicha Martin: missing Transfermarkt identity",
-      "Slovácko Uhrovic Martin: missing Transfermarkt identity"
+      "Slavia Prague Behenský Pavel: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -274,7 +260,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 513,
+    "sourceRows": 514,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2528,6 +2514,15 @@
       },
       {
         "team": "Slavia Prague",
+        "name": "Behenský Pavel",
+        "livesportName": "Behenský Pavel",
+        "livesportPlayerId": "KQAxZDNo",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
         "name": "Chaloupek Štěpán",
         "livesportName": "Chaloupek Štěpán",
         "livesportPlayerId": "W4rJpOaK",
@@ -2621,7 +2616,7 @@
         "name": "Solarte Miguel",
         "livesportName": "Solarte Miguel",
         "livesportPlayerId": "z3WmaVg2",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2693,7 +2688,7 @@
         "name": "Okonkwo Izuchukwu",
         "livesportName": "Okonkwo Izuchukwu",
         "livesportPlayerId": "880f5XCQ",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2936,7 +2931,7 @@
         "name": "Cicha Martin",
         "livesportName": "Cicha Martin",
         "livesportPlayerId": "ppxUMYQs",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3107,7 +3102,7 @@
         "name": "Uhrovic Martin",
         "livesportName": "Uhrovic Martin",
         "livesportPlayerId": "C0sn7pjD",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4897,28 +4892,13 @@
     "added": [
       {
         "team": "Slavia Prague",
-        "name": "Solarte Miguel",
-        "livesportPlayerId": "z3WmaVg2"
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Okonkwo Izuchukwu",
-        "livesportPlayerId": "880f5XCQ"
-      },
-      {
-        "team": "Slovácko",
-        "name": "Cicha Martin",
-        "livesportPlayerId": "ppxUMYQs"
-      },
-      {
-        "team": "Slovácko",
-        "name": "Uhrovic Martin",
-        "livesportPlayerId": "C0sn7pjD"
+        "name": "Behenský Pavel",
+        "livesportPlayerId": "KQAxZDNo"
       }
     ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 513
+    "publishedLivesportIds": 514
   },
   "careerEnriched": [
     {
@@ -4967,8 +4947,8 @@
   "sourceCounts": {
     "officialRows": 485,
     "transfermarktRows": 485,
-    "livesportRows": 513,
-    "seedRows": 536
+    "livesportRows": 514,
+    "seedRows": 540
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -4978,16 +4958,6 @@
     "playerPerformances": 1991,
     "ratedPerformances": 1839,
     "processed": [
-      {
-        "livesportMatchId": "ALuNWAie",
-        "round": 4,
-        "home": "Bohemians 1905",
-        "away": "Jablonec",
-        "score": "1:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/bohemians-1905-fuXqHnxa/jablonec-CM8ySpMH/ALuNWAie/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "EDv7L25F",
         "round": 7,
@@ -5213,7 +5183,8 @@
       "Qkc7Cn5m",
       "WCs3LslI",
       "OnveN3J5",
-      "C8KfoA6l"
+      "C8KfoA6l",
+      "ALuNWAie"
     ],
     "validation": {
       "status": "needs-review",
@@ -5377,6 +5348,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-16T17:14:17.445267Z"
+    "checkedAt": "2026-09-16T23:12:04.875284Z"
   }
 }
