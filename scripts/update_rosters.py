@@ -936,6 +936,98 @@ def roster_membership_teams(name: str, position: str, clubs: dict) -> set[str]:
     return teams
 
 
+def resolve_official_name_aliases(
+    registrations: list[dict], tm_clubs: dict, livesport_clubs: dict
+) -> tuple[list[dict], list[dict]]:
+    """Collapse spelling aliases only with corroborating identity evidence.
+
+    A fuzzy match is a candidate, never proof of identity. Both independent
+    rosters must select the same current name, all official birth dates and
+    shirt numbers must agree, and one official spelling must match both
+    sources exactly. This also makes selection independent of source order.
+    """
+    groups = defaultdict(list)
+    resolved = []
+    ignored = []
+    for registration in registrations:
+        team = registration["team"]
+        matches = [
+            best_identity_match(
+                registration["name"],
+                (clubs.get(team) or {}).get("players", []),
+                position=registration.get("position"),
+            )
+            for clubs in (tm_clubs, livesport_clubs)
+        ]
+        if any(not match or match[0] < 0.90 for match in matches):
+            resolved.append(registration)
+            continue
+        tm, live = [match[1] for match in matches]
+        tm_id = str(tm.get("transfermarktPlayerId") or "")
+        live_id = str(live.get("livesportPlayerId") or "")
+        if (
+            not tm_id or not live_id
+            or identity_key(tm["name"]) != identity_key(live["name"])
+        ):
+            resolved.append(registration)
+            continue
+        groups[(team, tm_id, live_id)].append((registration, tm, live))
+
+    for (team, tm_id, live_id), group in groups.items():
+        if len(group) == 1:
+            resolved.append(group[0][0])
+            continue
+        rows = [item[0] for item in group]
+        tm, live = group[0][1:]
+        birth_dates = {clean(row.get("dateOfBirth")) for row in rows}
+        shirts = {str(row.get("shirtNumber")) for row in rows}
+        positions = {row.get("position") for row in rows}
+        exact = [
+            row for row in rows
+            if identity_key(row["name"]) == identity_key(tm["name"])
+        ]
+        if (
+            len(birth_dates) != 1 or "" in birth_dates
+            or live.get("shirtNumber") is None
+            or shirts != {str(live["shirtNumber"])}
+            or len(positions) != 1 or None in positions
+            or len(exact) != 1
+        ):
+            labels = [
+                f"{row['chanceLigaPlayerId']} {row['name']} "
+                f"dob={row.get('dateOfBirth')} shirt={row.get('shirtNumber')}"
+                for row in rows
+            ]
+            raise RuntimeError(
+                f"Cannot resolve official name aliases at {team}: {labels}; "
+                f"Transfermarkt={tm_id}, Livesport={live_id} "
+                f"shirt={live.get('shirtNumber')}; conflicting or incomplete identity evidence"
+            )
+        selected = copy.deepcopy(exact[0])
+        for field in ("heightCm", "weightKg"):
+            values = {row[field] for row in rows if row.get(field) is not None}
+            if selected.get(field) is None and len(values) == 1:
+                selected[field] = next(iter(values))
+        resolved.append(selected)
+        ignored.extend(
+            {
+                **row,
+                "reason": (
+                    f"duplicate official name alias; current registration is "
+                    f"{selected['chanceLigaPlayerId']} (same birth date and shirt; "
+                    f"Transfermarkt {tm_id} + Livesport {live_id} name consensus)"
+                ),
+            }
+            for row in rows if row is not exact[0]
+        )
+    registration_order = {
+        (row["team"], str(row["chanceLigaPlayerId"])): index
+        for index, row in enumerate(registrations)
+    }
+    resolved.sort(key=lambda row: registration_order[(row["team"], str(row["chanceLigaPlayerId"]))])
+    return resolved, ignored
+
+
 def resolve_official_registrations(
     official_rows: list[dict],
     tm_clubs: dict,
@@ -1098,7 +1190,10 @@ def resolve_official_registrations(
             if registration is not selected_original
         )
 
-    return identity_resolved, ignored
+    identity_resolved, ignored_aliases = resolve_official_name_aliases(
+        identity_resolved, tm_clubs, livesport_clubs
+    )
+    return identity_resolved, ignored + ignored_aliases
 
 
 def reconcile(
