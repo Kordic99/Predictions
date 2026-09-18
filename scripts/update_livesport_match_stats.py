@@ -12,12 +12,15 @@ from __future__ import annotations
 import copy
 import json
 import re
+import sys
 import time
 import urllib.parse
 import urllib.request
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from typing import Any
+from urllib.error import HTTPError, URLError
 from zoneinfo import ZoneInfo
 
 from update_match_context import initial_feed, parse_feed_matches
@@ -38,6 +41,10 @@ PRAGUE = ZoneInfo("Europe/Prague")
 # Keep re-reading a rolling two-week window; the import version forces one
 # complete refresh whenever the parser or validation rules change.
 RECENT_REFRESH_HOURS = 24 * 14
+# A cached 404 can outlive the previous retry window of only 11.25 seconds.
+# Retry just the unavailable request, keeping already fetched matches in memory.
+GRAPHQL_RETRY_DELAYS = (5, 10, 20, 40, 60)
+GRAPHQL_RETRYABLE_STATUSES = {202, 404, 408, 425, 429, 500, 502, 503, 504}
 
 SCHEDULE_TEAM_ALIASES = {
     "1.FC Slovácko": "Slovácko",
@@ -82,10 +89,34 @@ def fetch_text(url: str, *, attempts: int = 4) -> str:
     raise RuntimeError(f"Could not fetch {url}: {error}")
 
 
+def graphql_retry_delay(attempt: int, headers: Any = None) -> float:
+    delay = GRAPHQL_RETRY_DELAYS[min(attempt, len(GRAPHQL_RETRY_DELAYS) - 1)]
+    if headers:
+        retry_after = headers.get("Retry-After")
+        try:
+            if retry_after is not None:
+                try:
+                    server_delay = float(retry_after)
+                except ValueError:
+                    server_delay = (
+                        parsedate_to_datetime(retry_after) - datetime.now(timezone.utc)
+                    ).total_seconds()
+                delay = max(delay, server_delay)
+            elif headers.get("x-retry-after-ms") is not None:
+                delay = max(delay, float(headers["x-retry-after-ms"]) / 1000)
+        except (TypeError, ValueError, OverflowError):
+            pass  # A malformed server hint must not disable the normal backoff.
+    return delay
+
+
 def graphql_payload(params: dict[str, Any], referer: str, attempts: int = 6) -> dict:
+    if attempts < 1:
+        raise ValueError("Livesport request attempts must be positive")
     url = f"{GRAPHQL_ROOT}?{urllib.parse.urlencode(params)}"
+    label = f"{params.get('eventId')} (query {params.get('_hash')})"
     error: Exception | None = None
     for attempt in range(attempts):
+        retry_headers = None
         try:
             request = urllib.request.Request(
                 url,
@@ -98,21 +129,52 @@ def graphql_payload(params: dict[str, Any], referer: str, attempts: int = 6) -> 
                 },
             )
             with urllib.request.urlopen(request, timeout=45) as response:
-                if response.status == 202:
-                    retry_ms = int(response.headers.get("x-retry-after-ms") or 750)
-                    time.sleep(min(5, max(0.25, retry_ms / 1000)))
-                    continue
                 if response.status != 200:
-                    raise RuntimeError(f"HTTP {response.status}")
+                    raise HTTPError(
+                        url, response.status, "player statistics not ready",
+                        response.headers, None,
+                    )
                 payload = json.loads(response.read().decode("utf-8"))
+            if not isinstance(payload, dict):
+                raise RuntimeError("Livesport returned a non-object GraphQL payload")
             if payload.get("errors"):
                 raise RuntimeError(str(payload["errors"][0].get("message") or payload["errors"][0]))
+            if attempt:
+                print(
+                    f"Livesport {label}: recovered on attempt {attempt + 1}/{attempts}.",
+                    flush=True,
+                )
             return payload
-        except Exception as exc:
+        except HTTPError as exc:
             error = exc
-            if attempt + 1 < attempts:
-                time.sleep(0.75 * (attempt + 1))
-    raise RuntimeError(f"Livesport GraphQL failed for {params.get('eventId')}: {error}")
+            retry_headers = exc.headers
+            exc.close()
+            if exc.code not in GRAPHQL_RETRYABLE_STATUSES:
+                raise RuntimeError(
+                    f"Livesport GraphQL failed for {label}: {exc}; "
+                    "this HTTP status is not retryable."
+                ) from exc
+        except (URLError, TimeoutError, ConnectionError, json.JSONDecodeError, RuntimeError) as exc:
+            error = exc
+        if attempt + 1 < attempts:
+            delay = graphql_retry_delay(attempt, retry_headers)
+            # Do not retry earlier than the server asks, or let a bad hint hang
+            # this job indefinitely. A longer outage is left to the next run.
+            if delay > 60:
+                raise RuntimeError(
+                    f"Livesport GraphQL failed for {label}: {error}; "
+                    f"server requests a {delay:g}s wait, exceeding the 60s retry limit."
+                ) from error
+            print(
+                f"Livesport {label}: attempt {attempt + 1}/{attempts} failed "
+                f"({error}); retrying in {delay:g}s.",
+                file=sys.stderr,
+                flush=True,
+            )
+            time.sleep(delay)
+    raise RuntimeError(
+        f"Livesport GraphQL failed for {label} after {attempts} attempts: {error}"
+    ) from error
 
 
 def canonical_team(value: str) -> str:
