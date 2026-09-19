@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T11:24:01.058175Z",
+  "generatedAt": "2026-09-19T14:42:53.832714Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -4903,36 +4903,6 @@
     "ratedPerformances": 1839,
     "processed": [
       {
-        "livesportMatchId": "EDv7L25F",
-        "round": 7,
-        "home": "Slavia Prague",
-        "away": "Zbrojovka Brno",
-        "score": "4:0",
-        "playerPerformances": 34,
-        "ratedPerformances": 29,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/zbrojovka-brno-4d5TT6i5/EDv7L25F/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "SxdMQxQc",
-        "round": 7,
-        "home": "Sigma Olomouc",
-        "away": "Bohemians 1905",
-        "score": "3:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 31,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/bohemians-1905-fuXqHnxa/SxdMQxQc/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "zq9z3ZXj",
-        "round": 7,
-        "home": "Slovácko",
-        "away": "Pardubice",
-        "score": "0:0",
-        "playerPerformances": 30,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/pardubice-Ys4YYBPn/zq9z3ZXj/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "WSgMkM0S",
         "round": 7,
         "home": "Artis Brno",
@@ -5128,7 +5098,10 @@
       "WCs3LslI",
       "OnveN3J5",
       "C8KfoA6l",
-      "ALuNWAie"
+      "ALuNWAie",
+      "EDv7L25F",
+      "SxdMQxQc",
+      "zq9z3ZXj"
     ],
     "validation": {
       "status": "needs-review",
@@ -5292,6 +5265,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-19T11:24:01.058175Z"
+    "checkedAt": "2026-09-19T14:42:53.832714Z"
   }
 }
