@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T18:10:51.472259Z",
+  "generatedAt": "2026-09-20T06:08:51.631768Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 520,
     "withLivesportSeasonStats": 520,
     "activeLivesportPlayers": 382,
-    "activeLivesportScorers": 108,
+    "activeLivesportScorers": 111,
     "warnings": [
       "Slovácko Cicha Martin: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -76,7 +76,10 @@
       "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
-      "status": "needs-review",
+      "status": "partial",
+      "pendingEventIds": [
+        "lA5SpJYQ"
+      ],
       "eventCount": 66,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
@@ -129,6 +132,7 @@
         "jgYpEKck": 32,
         "js0IbQuC": 30,
         "juywOt9N": 32,
+        "lA5SpJYQ": 0,
         "lIZHEqp9": 30,
         "lbqOh2Nk": 32,
         "ljFYOyC7": 32,
@@ -217,6 +221,522 @@
       "playerPerformances": 2087,
       "ratedPerformances": 1925,
       "reconciliationIssues": [
+        {
+          "team": "Slovácko",
+          "name": "Heča Milan",
+          "livesportPlayerId": "G0bnVHxL",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 547,
+              "detailed": 457
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Behiratche Jocelin",
+          "livesportPlayerId": "rcNMLGpU",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 651,
+              "detailed": 561
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Ndefe Gigli",
+          "livesportPlayerId": "23zt94fH",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 751,
+              "detailed": 677
+            },
+            "goals": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Slončík Šimon",
+          "livesportPlayerId": "fHnQMnWC",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 720,
+              "detailed": 630
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Stojcevski Andrej",
+          "livesportPlayerId": "d4bcbXg0",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Alabi Adam",
+          "livesportPlayerId": "G2Ps7nMi",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 31,
+              "detailed": 15
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Blahút Patrik",
+          "livesportPlayerId": "p2YG94Bt",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 466,
+              "detailed": 376
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Fiala Jan",
+          "livesportPlayerId": "pGKig1PD",
+          "differences": {
+            "minutes": {
+              "published": 75,
+              "detailed": 51
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Havlík Marek",
+          "livesportPlayerId": "EF7mXnTD",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 657,
+              "detailed": 574
+            },
+            "assists": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Juroška Pavel",
+          "livesportPlayerId": "0nlG422t",
+          "differences": {
+            "apps": {
+              "published": 6,
+              "detailed": 5
+            },
+            "minutes": {
+              "published": 317,
+              "detailed": 301
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Kostadinov Tihomir",
+          "livesportPlayerId": "A9ouE1BB",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 596,
+              "detailed": 513
+            },
+            "yellowCards": {
+              "published": 3,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Sosseh Gibril",
+          "livesportPlayerId": "Y9n8l6Mo",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 180,
+              "detailed": 173
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Trávník Michal",
+          "livesportPlayerId": "Wd88alXH",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 800,
+              "detailed": 710
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Vorlický Lukáš",
+          "livesportPlayerId": "Khf3B44q",
+          "differences": {
+            "apps": {
+              "published": 6,
+              "detailed": 5
+            },
+            "minutes": {
+              "published": 195,
+              "detailed": 121
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Marinelli Alan",
+          "livesportPlayerId": "jFLWFu3Q",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 110,
+              "detailed": 103
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Puškáč David",
+          "livesportPlayerId": "C8lQRr7M",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 120,
+              "detailed": 60
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Jedlička Martin",
+          "livesportPlayerId": "Q1wSa2Rk",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Dyachuk Maksym",
+          "livesportPlayerId": "ULDSyRlg",
+          "differences": {
+            "apps": {
+              "published": 5,
+              "detailed": 4
+            },
+            "minutes": {
+              "published": 243,
+              "detailed": 182
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Frydrych Michal",
+          "livesportPlayerId": "6q0h0slh",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 153,
+              "detailed": 63
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Skyba Yevgeniy",
+          "livesportPlayerId": "tOV6amnR",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 594,
+              "detailed": 565
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Smith Rhodri",
+          "livesportPlayerId": "rVGDsGuf",
+          "differences": {
+            "apps": {
+              "published": 2,
+              "detailed": 1
+            },
+            "minutes": {
+              "published": 52,
+              "detailed": 18
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Boula Jiří",
+          "livesportPlayerId": "SGpWPG65",
+          "differences": {
+            "apps": {
+              "published": 6,
+              "detailed": 5
+            },
+            "minutes": {
+              "published": 481,
+              "detailed": 391
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Gilbert Dantaye",
+          "livesportPlayerId": "4CBR1jXk",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 390,
+              "detailed": 315
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Kmeť Matúš",
+          "livesportPlayerId": "6ZuwpYo1",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 63,
+              "detailed": 48
+            },
+            "yellowCards": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Musák Artur",
+          "livesportPlayerId": "AVeppu0p",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 303,
+              "detailed": 228
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Nogha Roan",
+          "livesportPlayerId": "rVGUB5us",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 754,
+              "detailed": 664
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Šancl Filip",
+          "livesportPlayerId": "fs2kx74m",
+          "differences": {
+            "apps": {
+              "published": 2,
+              "detailed": 1
+            },
+            "minutes": {
+              "published": 43,
+              "detailed": 28
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Traoré Aboubacar",
+          "livesportPlayerId": "zs96ZOma",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 559,
+              "detailed": 469
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Bewene Abdullahi",
+          "livesportPlayerId": "hnBCvCBG",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 730,
+              "detailed": 674
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Jurečka Václav",
+          "livesportPlayerId": "lIoVF69L",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 462,
+              "detailed": 428
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Kubala Filip",
+          "livesportPlayerId": "65rQfHCo",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 409,
+              "detailed": 353
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Škrkoň Vít",
+          "livesportPlayerId": "lIp2pOdc",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 468,
+              "detailed": 378
+            }
+          }
+        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -1995,7 +2515,7 @@
         "livesportName": "Noslin Jason",
         "livesportPlayerId": "6R498nRp",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 7,
         "goals": 0
       },
       {
@@ -2022,7 +2542,7 @@
         "livesportName": "Botos Giannis-Fivos",
         "livesportPlayerId": "nL5vEv4t",
         "method": "livesport-id",
-        "apps": 4,
+        "apps": 5,
         "goals": 0
       },
       {
@@ -4904,7 +5424,22 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 66,
+    "completedMatches": 67,
+    "availableMatches": 66,
+    "status": "partial",
+    "pendingMatches": [
+      {
+        "livesportMatchId": "lA5SpJYQ",
+        "round": 9,
+        "home": "Slovácko",
+        "away": "Baník Ostrava",
+        "score": "2:2",
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/banik-ostrava-lI6ddlih/lA5SpJYQ/prehled/hracske-stats/obecne/",
+        "reason": "Livesport GraphQL failed for lA5SpJYQ (query epmsse) after 6 attempts: HTTP Error 404: Not Found",
+        "retainedPlayerPerformances": 0,
+        "firstUnavailableAt": "2026-09-20T06:08:51.631768Z"
+      }
+    ],
     "playerPerformances": 2087,
     "ratedPerformances": 1925,
     "processed": [
@@ -5131,7 +5666,10 @@
       "WSgMkM0S"
     ],
     "validation": {
-      "status": "needs-review",
+      "status": "partial",
+      "pendingEventIds": [
+        "lA5SpJYQ"
+      ],
       "eventCount": 66,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
@@ -5184,6 +5722,7 @@
         "jgYpEKck": 32,
         "js0IbQuC": 30,
         "juywOt9N": 32,
+        "lA5SpJYQ": 0,
         "lIZHEqp9": 30,
         "lbqOh2Nk": 32,
         "ljFYOyC7": 32,
@@ -5273,6 +5812,522 @@
       "ratedPerformances": 1925,
       "reconciliationIssues": [
         {
+          "team": "Slovácko",
+          "name": "Heča Milan",
+          "livesportPlayerId": "G0bnVHxL",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 547,
+              "detailed": 457
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Behiratche Jocelin",
+          "livesportPlayerId": "rcNMLGpU",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 651,
+              "detailed": 561
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Ndefe Gigli",
+          "livesportPlayerId": "23zt94fH",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 751,
+              "detailed": 677
+            },
+            "goals": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Slončík Šimon",
+          "livesportPlayerId": "fHnQMnWC",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 720,
+              "detailed": 630
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Stojcevski Andrej",
+          "livesportPlayerId": "d4bcbXg0",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Alabi Adam",
+          "livesportPlayerId": "G2Ps7nMi",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 31,
+              "detailed": 15
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Blahút Patrik",
+          "livesportPlayerId": "p2YG94Bt",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 466,
+              "detailed": 376
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Fiala Jan",
+          "livesportPlayerId": "pGKig1PD",
+          "differences": {
+            "minutes": {
+              "published": 75,
+              "detailed": 51
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Havlík Marek",
+          "livesportPlayerId": "EF7mXnTD",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 657,
+              "detailed": 574
+            },
+            "assists": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Juroška Pavel",
+          "livesportPlayerId": "0nlG422t",
+          "differences": {
+            "apps": {
+              "published": 6,
+              "detailed": 5
+            },
+            "minutes": {
+              "published": 317,
+              "detailed": 301
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Kostadinov Tihomir",
+          "livesportPlayerId": "A9ouE1BB",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 596,
+              "detailed": 513
+            },
+            "yellowCards": {
+              "published": 3,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Sosseh Gibril",
+          "livesportPlayerId": "Y9n8l6Mo",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 180,
+              "detailed": 173
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Trávník Michal",
+          "livesportPlayerId": "Wd88alXH",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 800,
+              "detailed": 710
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Vorlický Lukáš",
+          "livesportPlayerId": "Khf3B44q",
+          "differences": {
+            "apps": {
+              "published": 6,
+              "detailed": 5
+            },
+            "minutes": {
+              "published": 195,
+              "detailed": 121
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Marinelli Alan",
+          "livesportPlayerId": "jFLWFu3Q",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 110,
+              "detailed": 103
+            }
+          }
+        },
+        {
+          "team": "Slovácko",
+          "name": "Puškáč David",
+          "livesportPlayerId": "C8lQRr7M",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 120,
+              "detailed": 60
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Jedlička Martin",
+          "livesportPlayerId": "Q1wSa2Rk",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Dyachuk Maksym",
+          "livesportPlayerId": "ULDSyRlg",
+          "differences": {
+            "apps": {
+              "published": 5,
+              "detailed": 4
+            },
+            "minutes": {
+              "published": 243,
+              "detailed": 182
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Frydrych Michal",
+          "livesportPlayerId": "6q0h0slh",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 153,
+              "detailed": 63
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Skyba Yevgeniy",
+          "livesportPlayerId": "tOV6amnR",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 594,
+              "detailed": 565
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Smith Rhodri",
+          "livesportPlayerId": "rVGDsGuf",
+          "differences": {
+            "apps": {
+              "published": 2,
+              "detailed": 1
+            },
+            "minutes": {
+              "published": 52,
+              "detailed": 18
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Boula Jiří",
+          "livesportPlayerId": "SGpWPG65",
+          "differences": {
+            "apps": {
+              "published": 6,
+              "detailed": 5
+            },
+            "minutes": {
+              "published": 481,
+              "detailed": 391
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Gilbert Dantaye",
+          "livesportPlayerId": "4CBR1jXk",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 390,
+              "detailed": 315
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Kmeť Matúš",
+          "livesportPlayerId": "6ZuwpYo1",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 63,
+              "detailed": 48
+            },
+            "yellowCards": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Musák Artur",
+          "livesportPlayerId": "AVeppu0p",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 303,
+              "detailed": 228
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Nogha Roan",
+          "livesportPlayerId": "rVGUB5us",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 754,
+              "detailed": 664
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Šancl Filip",
+          "livesportPlayerId": "fs2kx74m",
+          "differences": {
+            "apps": {
+              "published": 2,
+              "detailed": 1
+            },
+            "minutes": {
+              "published": 43,
+              "detailed": 28
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Traoré Aboubacar",
+          "livesportPlayerId": "zs96ZOma",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 559,
+              "detailed": 469
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Bewene Abdullahi",
+          "livesportPlayerId": "hnBCvCBG",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 730,
+              "detailed": 674
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Jurečka Václav",
+          "livesportPlayerId": "lIoVF69L",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 462,
+              "detailed": 428
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Kubala Filip",
+          "livesportPlayerId": "65rQfHCo",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 409,
+              "detailed": 353
+            }
+          }
+        },
+        {
+          "team": "Baník Ostrava",
+          "name": "Škrkoň Vít",
+          "livesportPlayerId": "lIp2pOdc",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 468,
+              "detailed": 378
+            }
+          }
+        },
+        {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
           "team": "Sparta Prague",
@@ -5298,6 +6353,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-19T18:10:51.472259Z"
+    "checkedAt": "2026-09-20T06:08:51.631768Z"
   }
 }
