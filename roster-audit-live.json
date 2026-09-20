@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T06:08:51.631768Z",
+  "generatedAt": "2026-09-20T12:34:51.061965Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -779,7 +779,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 514,
+    "sourceRows": 513,
     "attached": [
       {
         "team": "Artis Brno",
@@ -4014,15 +4014,6 @@
       },
       {
         "team": "Sparta Prague",
-        "name": "Uchenna Emmanuel",
-        "livesportName": "Uchenna Emmanuel",
-        "livesportPlayerId": "UqjN9bSC",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Sparta Prague",
         "name": "Vitályos Viktor",
         "livesportName": "Vitályos Viktor",
         "livesportPlayerId": "K4u6qn9o",
@@ -5411,13 +5402,13 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 514
+    "publishedLivesportIds": 513
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 489,
     "transfermarktRows": 483,
-    "livesportRows": 514,
+    "livesportRows": 513,
     "seedRows": 540
   },
   "livesportMatchStats": {
@@ -5443,16 +5434,6 @@
     "playerPerformances": 2087,
     "ratedPerformances": 1925,
     "processed": [
-      {
-        "livesportMatchId": "z3aUOGfA",
-        "round": 7,
-        "home": "Mladá Boleslav",
-        "away": "Baník Ostrava",
-        "score": "4:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/banik-ostrava-lI6ddlih/z3aUOGfA/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "t0taNOz3",
         "round": 7,
@@ -5663,7 +5644,8 @@
       "EDv7L25F",
       "SxdMQxQc",
       "zq9z3ZXj",
-      "WSgMkM0S"
+      "WSgMkM0S",
+      "z3aUOGfA"
     ],
     "validation": {
       "status": "partial",
@@ -6353,6 +6335,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-20T06:08:51.631768Z"
+    "checkedAt": "2026-09-20T12:34:51.061965Z"
   }
 }
