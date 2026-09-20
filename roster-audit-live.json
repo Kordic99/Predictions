@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T16:26:25.759126Z",
+  "generatedAt": "2026-09-20T19:00:12.586257Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 520,
     "withLivesportSeasonStats": 520,
     "activeLivesportPlayers": 383,
-    "activeLivesportScorers": 111,
+    "activeLivesportScorers": 114,
     "warnings": [
       "Slovácko Cicha Martin: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -78,17 +78,20 @@
     "matchDetails": {
       "status": "partial",
       "pendingEventIds": [
+        "AgTOrW2t",
         "lA5SpJYQ"
       ],
-      "eventCount": 66,
+      "eventCount": 68,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Qharvg2": 32,
         "0hJIzKhT": 32,
         "2exFYWMr": 31,
         "48MjBAwH": 32,
+        "4zBcucdl": 32,
         "A51rdRK6": 31,
         "ALuNWAie": 32,
+        "AgTOrW2t": 0,
         "AuWGhhEE": 32,
         "C8KfoA6l": 31,
         "CQ1FFCHd": 31,
@@ -137,6 +140,7 @@
         "lbqOh2Nk": 32,
         "ljFYOyC7": 32,
         "n36twqHM": 29,
+        "r7RWtAXh": 32,
         "r9xuRoKt": 32,
         "ryFbt1Vr": 30,
         "t0taNOz3": 32,
@@ -156,6 +160,7 @@
         "0hJIzKhT": 31,
         "2exFYWMr": 29,
         "48MjBAwH": 30,
+        "4zBcucdl": 30,
         "A51rdRK6": 29,
         "ALuNWAie": 28,
         "AuWGhhEE": 31,
@@ -205,6 +210,7 @@
         "lbqOh2Nk": 30,
         "ljFYOyC7": 30,
         "n36twqHM": 27,
+        "r7RWtAXh": 30,
         "r9xuRoKt": 30,
         "ryFbt1Vr": 26,
         "t0taNOz3": 32,
@@ -218,8 +224,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2087,
-      "ratedPerformances": 1925,
+      "playerPerformances": 2151,
+      "ratedPerformances": 1985,
       "reconciliationIssues": [
         {
           "team": "Slovácko",
@@ -738,17 +744,518 @@
           }
         },
         {
-          "team": "Zlín",
-          "name": "Didiba Joss",
-          "livesportPlayerId": "Me5ssbfF",
+          "team": "Hradec Králové",
+          "name": "Zadražil Adam",
+          "livesportPlayerId": "IuM1qbTm",
           "differences": {
             "apps": {
-              "published": 1,
-              "detailed": 0
+              "published": 9,
+              "detailed": 8
             },
             "minutes": {
-              "published": 2,
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Čech František",
+          "livesportPlayerId": "jXIRfKBH",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 636,
+              "detailed": 546
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Čihák Filip",
+          "livesportPlayerId": "lWYpiT1K",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Mielke Filip",
+          "livesportPlayerId": "zazyT646",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 200,
+              "detailed": 145
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Uhrinčať Jakub",
+          "livesportPlayerId": "nVesEAqH",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 755,
+              "detailed": 665
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Dancák Samuel",
+          "livesportPlayerId": "2o9CMupn",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 510,
+              "detailed": 441
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Darida Vladimír",
+          "livesportPlayerId": "nkKnsgtI",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 727,
+              "detailed": 706
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Neto Elione",
+          "livesportPlayerId": "GxfCo1gb",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 33,
+              "detailed": 12
+            },
+            "yellowCards": {
+              "published": 1,
               "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Slončík Tom",
+          "livesportPlayerId": "h8AD5SRf",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 666,
+              "detailed": 576
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Trubač Daniel",
+          "livesportPlayerId": "ATJSScMo",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 589,
+              "detailed": 499
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Valenta Matěj",
+          "livesportPlayerId": "2cPPSTMd",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 306,
+              "detailed": 237
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Vlkanova Adam",
+          "livesportPlayerId": "8bbcnwTe",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 177,
+              "detailed": 142
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Čvančara Tomáš",
+          "livesportPlayerId": "zgMpZZSc",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 343,
+              "detailed": 253
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Umar Abdullahi",
+          "livesportPlayerId": "SvpGeePj",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 224,
+              "detailed": 203
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "van Buren Mick",
+          "livesportPlayerId": "6HrDuX1f",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 640,
+              "detailed": 571
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Trmal Matouš",
+          "livesportPlayerId": "4WUW4771",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 720,
+              "detailed": 630
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Jakubko Jakub",
+          "livesportPlayerId": "b7OHoK4B",
+          "differences": {
+            "apps": {
+              "published": 5,
+              "detailed": 4
+            },
+            "minutes": {
+              "published": 190,
+              "detailed": 156
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Takács Ladislav",
+          "livesportPlayerId": "tYydKbUR",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 89,
+              "detailed": 33
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Večerka Dalibor",
+          "livesportPlayerId": "OQUo5V79",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 663,
+              "detailed": 573
+            },
+            "yellowCards": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Vientiess Oskars",
+          "livesportPlayerId": "0EOlhNgF",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Bílek Michal",
+          "livesportPlayerId": "UDIhhLBr",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 433,
+              "detailed": 411
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Čermák Marcel",
+          "livesportPlayerId": "Eotm88qk",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 658,
+              "detailed": 580
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Jukl Robert",
+          "livesportPlayerId": "GnIGmR1P",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 144,
+              "detailed": 54
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Mareček Daniel",
+          "livesportPlayerId": "d0GkPFOo",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 182,
+              "detailed": 115
+            },
+            "yellowCards": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Mareček Lukáš",
+          "livesportPlayerId": "pzBlbY6Q",
+          "differences": {
+            "yellowCards": {
+              "published": 1,
+              "detailed": 2
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Radosta Matěj",
+          "livesportPlayerId": "Q5ekF7if",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 775,
+              "detailed": 685
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Riznič Matej",
+          "livesportPlayerId": "6y6Z6wP1",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 717,
+              "detailed": 627
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Švanda Josef",
+          "livesportPlayerId": "E3ozWIVS",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 349,
+              "detailed": 337
+            },
+            "assists": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Auta John",
+          "livesportPlayerId": "23PLKN2n",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 399,
+              "detailed": 364
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Kozák Matyáš",
+          "livesportPlayerId": "ERcXQVW9",
+          "differences": {
+            "apps": {
+              "published": 2,
+              "detailed": 1
+            },
+            "minutes": {
+              "published": 79,
+              "detailed": 23
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Pulkrab Matěj",
+          "livesportPlayerId": "ng9Xt04A",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 619,
+              "detailed": 563
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Zlatohlávek Tomáš",
+          "livesportPlayerId": "KhrlVUWQ",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 207,
+              "detailed": 173
             }
           }
         },
@@ -3025,7 +3532,7 @@
         "livesportName": "Markovič Jakub",
         "livesportPlayerId": "O8gQFEIi",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 0
       },
       {
@@ -3061,8 +3568,8 @@
         "livesportName": "Chaloupek Štěpán",
         "livesportPlayerId": "W4rJpOaK",
         "method": "livesport-id",
-        "apps": 8,
-        "goals": 0
+        "apps": 9,
+        "goals": 1
       },
       {
         "team": "Slavia Prague",
@@ -3070,7 +3577,7 @@
         "livesportName": "Holeš Tomáš",
         "livesportPlayerId": "GU2BC13A",
         "method": "livesport-id",
-        "apps": 5,
+        "apps": 6,
         "goals": 1
       },
       {
@@ -3079,7 +3586,7 @@
         "livesportName": "Isife Samuel",
         "livesportPlayerId": "hE35fb2L",
         "method": "livesport-id",
-        "apps": 5,
+        "apps": 6,
         "goals": 0
       },
       {
@@ -3088,7 +3595,7 @@
         "livesportName": "Jurásek David",
         "livesportPlayerId": "AF2Br9IA",
         "method": "livesport-id",
-        "apps": 2,
+        "apps": 3,
         "goals": 1
       },
       {
@@ -3106,7 +3613,7 @@
         "livesportName": "Konečný Mikuláš",
         "livesportPlayerId": "6k1TE4WB",
         "method": "livesport-id",
-        "apps": 5,
+        "apps": 6,
         "goals": 0
       },
       {
@@ -3160,7 +3667,7 @@
         "livesportName": "Vlček Tomáš",
         "livesportPlayerId": "ADkQ5Ufp",
         "method": "livesport-id",
-        "apps": 5,
+        "apps": 6,
         "goals": 0
       },
       {
@@ -3178,7 +3685,7 @@
         "livesportName": "Ayaosi Emmanuel",
         "livesportPlayerId": "67pmTmsN",
         "method": "livesport-id",
-        "apps": 7,
+        "apps": 8,
         "goals": 3
       },
       {
@@ -3205,7 +3712,7 @@
         "livesportName": "Moses David",
         "livesportPlayerId": "vkbT7lsC",
         "method": "livesport-id",
-        "apps": 3,
+        "apps": 4,
         "goals": 0
       },
       {
@@ -3214,7 +3721,7 @@
         "livesportName": "Nowak Wiktor",
         "livesportPlayerId": "2VeRfUpi",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 5
       },
       {
@@ -3232,7 +3739,7 @@
         "livesportName": "Provod Lukáš",
         "livesportPlayerId": "82A7cLmi",
         "method": "livesport-id",
-        "apps": 7,
+        "apps": 8,
         "goals": 0
       },
       {
@@ -3250,7 +3757,7 @@
         "livesportName": "Sadílek Michal",
         "livesportPlayerId": "zJiFbA7r",
         "method": "livesport-id",
-        "apps": 7,
+        "apps": 8,
         "goals": 1
       },
       {
@@ -3277,8 +3784,8 @@
         "livesportName": "Chorý Tomáš",
         "livesportPlayerId": "EgGI8vM6",
         "method": "livesport-id",
-        "apps": 5,
-        "goals": 3
+        "apps": 6,
+        "goals": 4
       },
       {
         "team": "Slavia Prague",
@@ -3295,7 +3802,7 @@
         "livesportName": "Kačor Pavel",
         "livesportPlayerId": "hOjD2le2",
         "method": "livesport-id",
-        "apps": 5,
+        "apps": 6,
         "goals": 0
       },
       {
@@ -3322,7 +3829,7 @@
         "livesportName": "Schranz Ivan",
         "livesportPlayerId": "p0I1WZDo",
         "method": "livesport-id",
-        "apps": 6,
+        "apps": 7,
         "goals": 0
       },
       {
@@ -3331,7 +3838,7 @@
         "livesportName": "Šturm Danijel",
         "livesportPlayerId": "WS55wx0h",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 1
       },
       {
@@ -4528,7 +5035,7 @@
         "livesportName": "Wiegele Florian",
         "livesportPlayerId": "4S959aaD",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 0
       },
       {
@@ -4555,7 +5062,7 @@
         "livesportName": "Doski Merchas",
         "livesportPlayerId": "GxzhtVCs",
         "method": "livesport-id",
-        "apps": 7,
+        "apps": 8,
         "goals": 0
       },
       {
@@ -4564,7 +5071,7 @@
         "livesportName": "Dweh Sampson",
         "livesportPlayerId": "AP8bcoJS",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 1
       },
       {
@@ -4573,7 +5080,7 @@
         "livesportName": "Gabriel Adam",
         "livesportPlayerId": "QBI8WKRb",
         "method": "livesport-id",
-        "apps": 3,
+        "apps": 4,
         "goals": 0
       },
       {
@@ -4609,7 +5116,7 @@
         "livesportName": "Pališčák Tobiáš",
         "livesportPlayerId": "dtaTWX2n",
         "method": "livesport-id",
-        "apps": 3,
+        "apps": 4,
         "goals": 0
       },
       {
@@ -4618,7 +5125,7 @@
         "livesportName": "Spáčil Karel",
         "livesportPlayerId": "88hkbc1i",
         "method": "livesport-id",
-        "apps": 4,
+        "apps": 5,
         "goals": 0
       },
       {
@@ -4636,7 +5143,7 @@
         "livesportName": "Hrošovský Patrik",
         "livesportPlayerId": "EofXzaaM",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 1
       },
       {
@@ -4645,7 +5152,7 @@
         "livesportName": "Ladra Tomáš",
         "livesportPlayerId": "Wnfs8q19",
         "method": "livesport-id",
-        "apps": 6,
+        "apps": 7,
         "goals": 1
       },
       {
@@ -4654,8 +5161,8 @@
         "livesportName": "Memič Amar",
         "livesportPlayerId": "O85x3xJ8",
         "method": "livesport-id",
-        "apps": 8,
-        "goals": 1
+        "apps": 9,
+        "goals": 2
       },
       {
         "team": "Viktoria Plzeň",
@@ -4672,7 +5179,7 @@
         "livesportName": "Pirgič Stefan",
         "livesportPlayerId": "d2hja8fN",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 0
       },
       {
@@ -4681,7 +5188,7 @@
         "livesportName": "Prebsl Filip",
         "livesportPlayerId": "4Okjd8wA",
         "method": "livesport-id",
-        "apps": 4,
+        "apps": 5,
         "goals": 0
       },
       {
@@ -4690,7 +5197,7 @@
         "livesportName": "Sojka Alexandr",
         "livesportPlayerId": "tp6VY6vA",
         "method": "livesport-id",
-        "apps": 7,
+        "apps": 8,
         "goals": 0
       },
       {
@@ -4717,7 +5224,7 @@
         "livesportName": "Červ Lukáš",
         "livesportPlayerId": "IiOYBdC3",
         "method": "livesport-id",
-        "apps": 8,
+        "apps": 9,
         "goals": 1
       },
       {
@@ -4726,7 +5233,7 @@
         "livesportName": "Adu Prince",
         "livesportPlayerId": "QTKIZWgb",
         "method": "livesport-id",
-        "apps": 6,
+        "apps": 7,
         "goals": 1
       },
       {
@@ -4744,7 +5251,7 @@
         "livesportName": "Kabongo Christophe",
         "livesportPlayerId": "d8P1BRpf",
         "method": "livesport-id",
-        "apps": 7,
+        "apps": 8,
         "goals": 3
       },
       {
@@ -4753,7 +5260,7 @@
         "livesportName": "Lawal Salim",
         "livesportPlayerId": "AcdisFDl",
         "method": "livesport-id",
-        "apps": 5,
+        "apps": 6,
         "goals": 0
       },
       {
@@ -5430,8 +5937,8 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 67,
-    "availableMatches": 66,
+    "completedMatches": 70,
+    "availableMatches": 68,
     "status": "partial",
     "pendingMatches": [
       {
@@ -5444,10 +5951,21 @@
         "reason": "Livesport GraphQL failed for lA5SpJYQ (query epmsse) after 6 attempts: HTTP Error 404: Not Found",
         "retainedPlayerPerformances": 0,
         "firstUnavailableAt": "2026-09-20T06:08:51.631768Z"
+      },
+      {
+        "livesportMatchId": "AgTOrW2t",
+        "round": 9,
+        "home": "Hradec Králové",
+        "away": "Teplice",
+        "score": "0:2",
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/teplice-r9XWmtLq/AgTOrW2t/prehled/hracske-stats/obecne/",
+        "reason": "Livesport GraphQL failed for AgTOrW2t (query epmsse) after 6 attempts: HTTP Error 404: Not Found",
+        "retainedPlayerPerformances": 0,
+        "firstUnavailableAt": "2026-09-20T19:00:12.586257Z"
       }
     ],
-    "playerPerformances": 2087,
-    "ratedPerformances": 1925,
+    "playerPerformances": 2151,
+    "ratedPerformances": 1985,
     "processed": [
       {
         "livesportMatchId": "URaSa9Ls",
@@ -5578,6 +6096,26 @@
         "playerPerformances": 32,
         "ratedPerformances": 29,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/zbrojovka-brno-4d5TT6i5/xl95wyR0/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "4zBcucdl",
+        "round": 9,
+        "home": "Sigma Olomouc",
+        "away": "Sparta Prague",
+        "score": "0:3",
+        "playerPerformances": 32,
+        "ratedPerformances": 30,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/sparta-praha-6qA358jH/4zBcucdl/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "r7RWtAXh",
+        "round": 9,
+        "home": "Jablonec",
+        "away": "Zlín",
+        "score": "1:1",
+        "playerPerformances": 32,
+        "ratedPerformances": 30,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/zlin-C09N1Ikd/r7RWtAXh/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5638,17 +6176,20 @@
     "validation": {
       "status": "partial",
       "pendingEventIds": [
+        "AgTOrW2t",
         "lA5SpJYQ"
       ],
-      "eventCount": 66,
+      "eventCount": 68,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Qharvg2": 32,
         "0hJIzKhT": 32,
         "2exFYWMr": 31,
         "48MjBAwH": 32,
+        "4zBcucdl": 32,
         "A51rdRK6": 31,
         "ALuNWAie": 32,
+        "AgTOrW2t": 0,
         "AuWGhhEE": 32,
         "C8KfoA6l": 31,
         "CQ1FFCHd": 31,
@@ -5697,6 +6238,7 @@
         "lbqOh2Nk": 32,
         "ljFYOyC7": 32,
         "n36twqHM": 29,
+        "r7RWtAXh": 32,
         "r9xuRoKt": 32,
         "ryFbt1Vr": 30,
         "t0taNOz3": 32,
@@ -5716,6 +6258,7 @@
         "0hJIzKhT": 31,
         "2exFYWMr": 29,
         "48MjBAwH": 30,
+        "4zBcucdl": 30,
         "A51rdRK6": 29,
         "ALuNWAie": 28,
         "AuWGhhEE": 31,
@@ -5765,6 +6308,7 @@
         "lbqOh2Nk": 30,
         "ljFYOyC7": 30,
         "n36twqHM": 27,
+        "r7RWtAXh": 30,
         "r9xuRoKt": 30,
         "ryFbt1Vr": 26,
         "t0taNOz3": 32,
@@ -5778,8 +6322,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2087,
-      "ratedPerformances": 1925,
+      "playerPerformances": 2151,
+      "ratedPerformances": 1985,
       "reconciliationIssues": [
         {
           "team": "Slovácko",
@@ -6298,17 +6842,518 @@
           }
         },
         {
-          "team": "Zlín",
-          "name": "Didiba Joss",
-          "livesportPlayerId": "Me5ssbfF",
+          "team": "Hradec Králové",
+          "name": "Zadražil Adam",
+          "livesportPlayerId": "IuM1qbTm",
           "differences": {
             "apps": {
-              "published": 1,
-              "detailed": 0
+              "published": 9,
+              "detailed": 8
             },
             "minutes": {
-              "published": 2,
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Čech František",
+          "livesportPlayerId": "jXIRfKBH",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 636,
+              "detailed": 546
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Čihák Filip",
+          "livesportPlayerId": "lWYpiT1K",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Mielke Filip",
+          "livesportPlayerId": "zazyT646",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 200,
+              "detailed": 145
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Uhrinčať Jakub",
+          "livesportPlayerId": "nVesEAqH",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 755,
+              "detailed": 665
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Dancák Samuel",
+          "livesportPlayerId": "2o9CMupn",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 510,
+              "detailed": 441
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Darida Vladimír",
+          "livesportPlayerId": "nkKnsgtI",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 727,
+              "detailed": 706
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Neto Elione",
+          "livesportPlayerId": "GxfCo1gb",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 33,
+              "detailed": 12
+            },
+            "yellowCards": {
+              "published": 1,
               "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Slončík Tom",
+          "livesportPlayerId": "h8AD5SRf",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 666,
+              "detailed": 576
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Trubač Daniel",
+          "livesportPlayerId": "ATJSScMo",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 589,
+              "detailed": 499
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Valenta Matěj",
+          "livesportPlayerId": "2cPPSTMd",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 306,
+              "detailed": 237
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Vlkanova Adam",
+          "livesportPlayerId": "8bbcnwTe",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 177,
+              "detailed": 142
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Čvančara Tomáš",
+          "livesportPlayerId": "zgMpZZSc",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 343,
+              "detailed": 253
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "Umar Abdullahi",
+          "livesportPlayerId": "SvpGeePj",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 224,
+              "detailed": 203
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Hradec Králové",
+          "name": "van Buren Mick",
+          "livesportPlayerId": "6HrDuX1f",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 640,
+              "detailed": 571
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Trmal Matouš",
+          "livesportPlayerId": "4WUW4771",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 720,
+              "detailed": 630
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Jakubko Jakub",
+          "livesportPlayerId": "b7OHoK4B",
+          "differences": {
+            "apps": {
+              "published": 5,
+              "detailed": 4
+            },
+            "minutes": {
+              "published": 190,
+              "detailed": 156
+            },
+            "goals": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Takács Ladislav",
+          "livesportPlayerId": "tYydKbUR",
+          "differences": {
+            "apps": {
+              "published": 4,
+              "detailed": 3
+            },
+            "minutes": {
+              "published": 89,
+              "detailed": 33
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Večerka Dalibor",
+          "livesportPlayerId": "OQUo5V79",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 663,
+              "detailed": 573
+            },
+            "yellowCards": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Vientiess Oskars",
+          "livesportPlayerId": "0EOlhNgF",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 810,
+              "detailed": 720
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Bílek Michal",
+          "livesportPlayerId": "UDIhhLBr",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 433,
+              "detailed": 411
+            },
+            "yellowCards": {
+              "published": 2,
+              "detailed": 1
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Čermák Marcel",
+          "livesportPlayerId": "Eotm88qk",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 658,
+              "detailed": 580
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Jukl Robert",
+          "livesportPlayerId": "GnIGmR1P",
+          "differences": {
+            "apps": {
+              "published": 3,
+              "detailed": 2
+            },
+            "minutes": {
+              "published": 144,
+              "detailed": 54
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Mareček Daniel",
+          "livesportPlayerId": "d0GkPFOo",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 182,
+              "detailed": 115
+            },
+            "yellowCards": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Mareček Lukáš",
+          "livesportPlayerId": "pzBlbY6Q",
+          "differences": {
+            "yellowCards": {
+              "published": 1,
+              "detailed": 2
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Radosta Matěj",
+          "livesportPlayerId": "Q5ekF7if",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 775,
+              "detailed": 685
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Riznič Matej",
+          "livesportPlayerId": "6y6Z6wP1",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 717,
+              "detailed": 627
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Švanda Josef",
+          "livesportPlayerId": "E3ozWIVS",
+          "differences": {
+            "apps": {
+              "published": 8,
+              "detailed": 7
+            },
+            "minutes": {
+              "published": 349,
+              "detailed": 337
+            },
+            "assists": {
+              "published": 1,
+              "detailed": 0
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Auta John",
+          "livesportPlayerId": "23PLKN2n",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 399,
+              "detailed": 364
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Kozák Matyáš",
+          "livesportPlayerId": "ERcXQVW9",
+          "differences": {
+            "apps": {
+              "published": 2,
+              "detailed": 1
+            },
+            "minutes": {
+              "published": 79,
+              "detailed": 23
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Pulkrab Matěj",
+          "livesportPlayerId": "ng9Xt04A",
+          "differences": {
+            "apps": {
+              "published": 9,
+              "detailed": 8
+            },
+            "minutes": {
+              "published": 619,
+              "detailed": 563
+            }
+          }
+        },
+        {
+          "team": "Teplice",
+          "name": "Zlatohlávek Tomáš",
+          "livesportPlayerId": "KhrlVUWQ",
+          "differences": {
+            "apps": {
+              "published": 7,
+              "detailed": 6
+            },
+            "minutes": {
+              "published": 207,
+              "detailed": 173
             }
           }
         },
@@ -6338,6 +7383,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-20T16:26:25.759126Z"
+    "checkedAt": "2026-09-20T19:00:12.586257Z"
   }
 }
