@@ -45,6 +45,18 @@ RECENT_REFRESH_HOURS = 24 * 14
 # Retry just the unavailable request, keeping already fetched matches in memory.
 GRAPHQL_RETRY_DELAYS = (5, 10, 20, 40, 60)
 GRAPHQL_RETRYABLE_STATUSES = {202, 404, 408, 425, 429, 500, 502, 503, 504}
+MAX_CONSECUTIVE_UNAVAILABLE_MATCHES = 3
+
+
+class LivesportSourceUnavailable(RuntimeError):
+    """A retried transport failure, not a parser or data-validation error."""
+
+
+def is_temporary_source_error(error: Exception | None) -> bool:
+    if isinstance(error, HTTPError):
+        return error.code in GRAPHQL_RETRYABLE_STATUSES
+    return isinstance(error, (URLError, TimeoutError, ConnectionError))
+
 
 SCHEDULE_TEAM_ALIASES = {
     "1.FC Slovácko": "Slovácko",
@@ -161,7 +173,8 @@ def graphql_payload(params: dict[str, Any], referer: str, attempts: int = 6) -> 
             # Do not retry earlier than the server asks, or let a bad hint hang
             # this job indefinitely. A longer outage is left to the next run.
             if delay > 60:
-                raise RuntimeError(
+                error_type = LivesportSourceUnavailable if is_temporary_source_error(error) else RuntimeError
+                raise error_type(
                     f"Livesport GraphQL failed for {label}: {error}; "
                     f"server requests a {delay:g}s wait, exceeding the 60s retry limit."
                 ) from error
@@ -172,7 +185,8 @@ def graphql_payload(params: dict[str, Any], referer: str, attempts: int = 6) -> 
                 flush=True,
             )
             time.sleep(delay)
-    raise RuntimeError(
+    error_type = LivesportSourceUnavailable if is_temporary_source_error(error) else RuntimeError
+    raise error_type(
         f"Livesport GraphQL failed for {label} after {attempts} attempts: {error}"
     ) from error
 
@@ -571,7 +585,7 @@ def should_refresh_fixture(players: list[dict], fixture: dict, refresh_all: bool
     return not complete or event_time >= cutoff
 
 
-def update_current_rating(player: dict) -> None:
+def update_current_rating(player: dict, *, pending_event_ids: list[str] | None = None) -> None:
     current_matches = [
         match
         for match in player.get("matches") or []
@@ -587,7 +601,9 @@ def update_current_rating(player: dict) -> None:
     rating = round(sum(ratings) / len(ratings), 2) if ratings else None
     stats = player.get("livesportSeasonStats")
     if isinstance(stats, dict) and stats.get("season") == SEASON:
-        if current_matches:
+        # The team-roster feed has independent season totals. Never overwrite
+        # them with an incomplete sum when one match detail is unavailable.
+        if current_matches and not pending_event_ids:
             stats.update(
                 {
                     "apps": len(current_matches),
@@ -606,6 +622,10 @@ def update_current_rating(player: dict) -> None:
             )
         stats["rating"] = rating
         stats["ratedApps"] = len(ratings)
+        if pending_event_ids:
+            stats["ratingPendingEventIds"] = pending_event_ids
+        else:
+            stats.pop("ratingPendingEventIds", None)
 
     current_careers = [
         row
@@ -620,7 +640,11 @@ def update_current_rating(player: dict) -> None:
         )
         preferred["rating"] = rating
         preferred["ratingSource"] = "Livesport match player ratings"
-        if isinstance(stats, dict) and stats.get("season") == SEASON and current_matches:
+        if pending_event_ids:
+            preferred["ratingPendingEventIds"] = pending_event_ids
+        else:
+            preferred.pop("ratingPendingEventIds", None)
+        if isinstance(stats, dict) and stats.get("season") == SEASON and current_matches and not pending_event_ids:
             preferred.update(
                 {
                     "matches": stats["apps"],
@@ -634,8 +658,10 @@ def update_current_rating(player: dict) -> None:
 
 
 def apply_match_performances(
-    players: list[dict], fixtures: list[dict], refresh_all: bool = False
+    players: list[dict], fixtures: list[dict], refresh_all: bool = False,
+    *, retry_event_ids: set[str] | None = None,
 ) -> tuple[list[dict], dict]:
+    retry_event_ids = retry_event_ids or set()
     updated = copy.deepcopy(players)
     by_livesport_id: dict[str, dict] = {}
     for player in updated:
@@ -646,12 +672,34 @@ def apply_match_performances(
 
     processed = []
     skipped = []
+    pending = []
+    consecutive_unavailable = 0
     for fixture in fixtures:
         event_id = fixture["livesportMatchId"]
-        if not should_refresh_fixture(updated, fixture, refresh_all):
+        if event_id not in retry_event_ids and not should_refresh_fixture(updated, fixture, refresh_all):
             skipped.append(event_id)
             continue
-        rows = load_match_performances(fixture)
+        try:
+            rows = load_match_performances(fixture)
+        except LivesportSourceUnavailable as exc:
+            pending.append({
+                "livesportMatchId": event_id,
+                "round": fixture["round"],
+                "home": fixture["home"],
+                "away": fixture["away"],
+                "score": fixture["score"],
+                "sourceUrl": fixture["sourceUrl"],
+                "reason": str(exc),
+                "retainedPlayerPerformances": len(existing_event_rows(updated, event_id)),
+            })
+            consecutive_unavailable += 1
+            if consecutive_unavailable >= MAX_CONSECUTIVE_UNAVAILABLE_MATCHES:
+                raise RuntimeError(
+                    f"Livesport unavailable for {consecutive_unavailable} consecutive matches; "
+                    f"keeping published files unchanged. Last error: {exc}"
+                ) from exc
+            continue
+        consecutive_unavailable = 0
         unresolved = [
             {
                 "livesportPlayerId": row["livesportPlayerId"],
@@ -704,14 +752,32 @@ def apply_match_performances(
             }
         )
 
+    if pending and not processed:
+        raise RuntimeError(
+            "No requested match details could be refreshed; keeping published files unchanged. "
+            + pending[0]["reason"]
+        )
     for player in updated:
-        update_current_rating(player)
-    validation = validate_match_details(updated, fixtures)
+        represented_teams = {player.get("team")} | {
+            match.get("team") for match in player.get("matches") or []
+            if (match.get("season") or SEASON) == SEASON
+        }
+        player_pending = [
+            row["livesportMatchId"] for row in pending
+            if represented_teams & {row["home"], row["away"]}
+        ]
+        update_current_rating(player, pending_event_ids=player_pending)
+    validation = validate_match_details(
+        updated, fixtures, pending_event_ids={row["livesportMatchId"] for row in pending}
+    )
     return updated, {
         "source": "Livesport match player statistics",
         "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
         "importVersion": IMPORT_VERSION,
         "completedMatches": len(fixtures),
+        "availableMatches": validation["eventCount"],
+        "status": "partial" if pending else "complete",
+        "pendingMatches": pending,
         "playerPerformances": validation["playerPerformances"],
         "ratedPerformances": validation["ratedPerformances"],
         "processed": processed,
@@ -720,7 +786,9 @@ def apply_match_performances(
     }
 
 
-def validate_match_details(players: list[dict], fixtures: list[dict]) -> dict:
+def validate_match_details(
+    players: list[dict], fixtures: list[dict], *, pending_event_ids: set[str] | None = None
+) -> dict:
     expected = {fixture["livesportMatchId"]: fixture for fixture in fixtures}
     event_counts: dict[str, int] = defaultdict(int)
     event_ratings: dict[str, int] = defaultdict(int)
@@ -817,6 +885,10 @@ def validate_match_details(players: list[dict], fixtures: list[dict]) -> dict:
 
     for event_id in expected:
         count = event_counts[event_id]
+        # Only a genuinely absent source may be pending. Cached rows still
+        # undergo all identity, range, lineup and score checks below.
+        if count == 0 and event_id in (pending_event_ids or set()):
+            continue
         if not 22 <= count <= 40:
             errors.append(f"{event_id}: incomplete detailed match rows ({count})")
             continue
@@ -866,8 +938,9 @@ def validate_match_details(players: list[dict], fixtures: list[dict]) -> dict:
     if errors:
         raise RuntimeError("Livesport match-stat validation failed: " + "; ".join(errors))
     return {
-        "status": "ok" if not reconciliation_issues else "needs-review",
-        "eventCount": len(expected),
+        "status": "partial" if pending_event_ids else "ok" if not reconciliation_issues else "needs-review",
+        "pendingEventIds": sorted(pending_event_ids or set()),
+        "eventCount": sum(event_counts[event_id] > 0 for event_id in expected),
         "eventPlayerCounts": dict(sorted(event_counts.items())),
         "eventRatedCounts": dict(sorted(event_ratings.items())),
         "playerPerformances": sum(event_counts.values()),

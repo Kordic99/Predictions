@@ -84,13 +84,35 @@ def main() -> None:
         raise RuntimeError(f"{args.schedule}: live schedule file does not exist")
     schedule = json.loads(args.schedule.read_text(encoding="utf-8"))
     fixtures = discover_livesport_events(schedule)
+    previous_pending = {
+        row["livesportMatchId"]: row
+        for row in (payload.get("livesportMatchStats") or {}).get("pendingMatches", [])
+    }
     players, match_stats = apply_match_performances(
-        players, fixtures, refresh_all=args.refresh_all_matches
+        players, fixtures, refresh_all=args.refresh_all_matches,
+        retry_event_ids=set(previous_pending),
     )
     validation = validate(players)
     validation["matchDetails"] = match_stats["validation"]
 
-    if roster_projection(players) == roster_projection(baseline):
+    for pending in match_stats["pendingMatches"]:
+        pending["firstUnavailableAt"] = (
+            previous_pending.get(pending["livesportMatchId"], {}).get("firstUnavailableAt")
+            or checked_at
+        )
+        message = (
+            f"Pending Livesport match {pending['livesportMatchId']}: "
+            f"{pending['home']} - {pending['away']} {pending['score']}. "
+            f"Unavailable since {pending['firstUnavailableAt']}. Existing data retained; "
+            f"will retry next run. {pending['reason']}"
+        )
+        # Escape external text before emitting a GitHub Actions annotation.
+        print("::warning::" + message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"))
+
+    if (
+        roster_projection(players) == roster_projection(baseline)
+        and list(previous_pending.values()) == match_stats["pendingMatches"]
+    ):
         print("Livesport rosters and season totals have not changed.")
         return
 
@@ -164,6 +186,8 @@ def main() -> None:
                 "activePlayers": validation["activeLivesportPlayers"],
                 "activeScorers": validation["activeLivesportScorers"],
                 "completedMatches": match_stats["completedMatches"],
+                "availableMatches": match_stats["availableMatches"],
+                "pendingMatches": len(match_stats["pendingMatches"]),
                 "playerPerformances": match_stats["playerPerformances"],
                 "ratedPerformances": match_stats["ratedPerformances"],
                 "matchReconciliationIssues": len(

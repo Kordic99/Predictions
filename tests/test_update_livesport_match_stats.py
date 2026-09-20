@@ -1,3 +1,4 @@
+import copy
 import json
 import sys
 import tempfile
@@ -122,6 +123,7 @@ class GraphqlRetryTests(unittest.TestCase):
             original_bytes = (output.read_bytes(), audit.read_bytes())
             fixture = {
                 "livesportMatchId": "Sbuhp0Ok", "home": "Home", "away": "Away",
+                "round": 1, "score": "0:0",
                 "sourceUrl": "https://www.livesport.cz/",
             }
             with (
@@ -137,6 +139,19 @@ class GraphqlRetryTests(unittest.TestCase):
                     updater.main()
             writer.assert_not_called()
             self.assertEqual((output.read_bytes(), audit.read_bytes()), original_bytes)
+
+    def test_only_transport_errors_are_classified_as_source_unavailable(self):
+        for error in (http_error(404), http_error(503), URLError("connection reset")):
+            with self.subTest(error=error), patch.object(stats.urllib.request, "urlopen", side_effect=error):
+                with self.assertRaises(stats.LivesportSourceUnavailable):
+                    stats.graphql_payload(self.params, "https://www.livesport.cz/", attempts=1)
+        bad_json = response()
+        bad_json.read.return_value = b"not JSON"
+        for bad in (bad_json, response(payload={"errors": [{"message": "Unknown query"}]})):
+            with self.subTest(response=bad), patch.object(stats.urllib.request, "urlopen", return_value=bad):
+                with self.assertRaises(RuntimeError) as caught:
+                    stats.graphql_payload(self.params, "https://www.livesport.cz/", attempts=1)
+                self.assertNotIsInstance(caught.exception, stats.LivesportSourceUnavailable)
 
 
 def row(team: str, starter: bool, goalkeeper: bool = False) -> dict:
@@ -250,6 +265,179 @@ class PerformanceSnapshotTests(unittest.TestCase):
         players[0]["matches"][0]["redCards"] = 2
         fixture = {**self.fixture, "timestamp": 1}
         self.assertTrue(stats.should_refresh_fixture(players, fixture, False))
+
+
+def fixture(event_id, home="Home", away="Away", round_number=1):
+    return {
+        "livesportMatchId": event_id, "home": home, "away": away,
+        "homeGoals": 0, "awayGoals": 0, "score": "0:0", "round": round_number,
+        "season": stats.SEASON, "timestamp": 1, "date": "2026-07-25",
+        "sourceUrl": f"https://www.livesport.cz/zapas/{event_id}/",
+    }
+
+
+def performances(game):
+    rows = []
+    for team in (game["home"], game["away"]):
+        for index in range(11):
+            player_id = f"{team}-{index}"
+            rows.append({
+                "livesportPlayerId": player_id, "sourceName": player_id,
+                "match": {
+                    "livesportMatchId": game["livesportMatchId"],
+                    "livesportPlayerId": player_id, "team": team,
+                    "opponent": game["away"] if team == game["home"] else game["home"],
+                    "season": stats.SEASON, "round": game["round"],
+                    "competition": "Chance Liga", "date": game["date"],
+                    "mins": 90, "form": 7.0, "goals": 0, "ownGoals": 0,
+                    "assists": 0, "yellowCards": 0, "redCards": 0,
+                    "starter": True, "importVersion": stats.IMPORT_VERSION,
+                    "stats": {"goalkeeper": {} if index == 0 else None},
+                },
+            })
+    return rows
+
+
+def roster_for(game, *, stored=False):
+    return [{
+        "name": row["sourceName"], "team": row["match"]["team"], "pos": "M",
+        "livesportPlayerId": row["livesportPlayerId"],
+        "matches": [copy.deepcopy(row["match"])] if stored else [],
+        "livesportSeasonStats": {
+            "season": stats.SEASON, "apps": 2, "minutes": 180,
+            "goals": 0, "assists": 0, "yellowCards": 0, "redCards": 0,
+            "source": "Livesport team roster", "rating": 7.0,
+        },
+        "career": [{"season": stats.SEASON, "competition": "Chance Liga",
+                    "team": row["match"]["team"], "matches": 2, "minutes": 180}],
+    } for row in performances(game)]
+
+
+class DeferredMatchTests(unittest.TestCase):
+    def setUp(self):
+        self.old = fixture("old")
+        self.pending = fixture("unavailable", round_number=2)
+        self.good = fixture("good", "Third", "Fourth")
+        self.players = roster_for(self.old, stored=True) + roster_for(self.good)
+        self.original = copy.deepcopy(self.players)
+
+    def load(self, game):
+        if game["livesportMatchId"] == "unavailable":
+            raise stats.LivesportSourceUnavailable("HTTP Error 404: Not Found")
+        return performances(game)
+
+    def test_missing_match_does_not_block_other_matches_or_zero_season_totals(self):
+        with patch.object(stats, "load_match_performances", side_effect=self.load):
+            players, report = stats.apply_match_performances(
+                self.players, [self.old, self.pending, self.good], refresh_all=True
+            )
+        self.assertEqual(report["status"], "partial")
+        self.assertEqual(report["completedMatches"], 3)
+        self.assertEqual(report["availableMatches"], 2)
+        self.assertEqual(report["pendingMatches"][0]["retainedPlayerPerformances"], 0)
+        self.assertEqual(report["validation"]["pendingEventIds"], ["unavailable"])
+        affected = players[0]
+        self.assertEqual(affected["matches"], self.original[0]["matches"])
+        self.assertEqual(affected["livesportSeasonStats"]["apps"], 2)
+        self.assertEqual(affected["livesportSeasonStats"]["minutes"], 180)
+        self.assertEqual(affected["career"][0]["matches"], 2)
+        self.assertEqual(affected["livesportSeasonStats"]["ratingPendingEventIds"], ["unavailable"])
+        self.assertEqual(affected["livesportSeasonStats"]["ratedApps"], 1)
+        self.assertEqual(len(players[-1]["matches"]), 1)
+        self.assertNotIn("ratingPendingEventIds", players[-1]["livesportSeasonStats"])
+        self.assertEqual(self.players, self.original)
+
+    def test_cached_match_is_retained_and_still_validated_during_outage(self):
+        cached = roster_for(self.pending, stored=True) + roster_for(self.good)
+        with patch.object(stats, "load_match_performances", side_effect=self.load):
+            players, report = stats.apply_match_performances(cached, [self.pending, self.good], True)
+        self.assertEqual(report["pendingMatches"][0]["retainedPlayerPerformances"], 22)
+        self.assertEqual(players[0]["matches"], cached[0]["matches"])
+        for invalid in ("rating", "score", "partial"):
+            broken = copy.deepcopy(cached)
+            if invalid == "rating":
+                broken[0]["matches"][0]["form"] = 99
+            elif invalid == "score":
+                broken[0]["matches"][0]["goals"] = 1
+            else:
+                broken[0]["matches"] = []
+            with self.subTest(invalid=invalid), patch.object(stats, "load_match_performances", side_effect=self.load):
+                with self.assertRaisesRegex(RuntimeError, "match-stat validation failed"):
+                    stats.apply_match_performances(broken, [self.pending, self.good], True)
+
+    def test_missing_data_without_a_transport_failure_is_still_an_error(self):
+        with self.assertRaisesRegex(RuntimeError, "incomplete detailed match rows"):
+            stats.validate_match_details(self.players, [self.pending])
+
+    def test_parser_or_validation_failure_is_not_silently_deferred(self):
+        with patch.object(stats, "load_match_performances", side_effect=RuntimeError("bad scorer total")):
+            with self.assertRaisesRegex(RuntimeError, "bad scorer total"):
+                stats.apply_match_performances(self.players, [self.good], True)
+
+    def test_retry_recovers_old_pending_match_and_removes_partial_markers(self):
+        with patch.object(stats, "load_match_performances", side_effect=self.load):
+            players, _ = stats.apply_match_performances(self.players, [self.old, self.pending, self.good], True)
+        with patch.object(stats, "should_refresh_fixture", return_value=False), patch.object(
+            stats, "load_match_performances", side_effect=performances
+        ) as loader:
+            recovered, report = stats.apply_match_performances(
+                players, [self.old, self.pending, self.good], retry_event_ids={"unavailable"}
+            )
+        loader.assert_called_once_with(self.pending)
+        self.assertEqual(report["status"], "complete")
+        self.assertEqual(report["pendingMatches"], [])
+        self.assertEqual(report["availableMatches"], 3)
+        self.assertEqual(len(recovered[0]["matches"]), 2)
+        self.assertNotIn("ratingPendingEventIds", recovered[0]["livesportSeasonStats"])
+        self.assertNotIn("ratingPendingEventIds", recovered[0]["career"][0])
+
+    def test_broad_outage_stops_with_a_bounded_number_of_matches(self):
+        games = [fixture(str(i)) for i in range(5)]
+        with patch.object(stats, "load_match_performances", side_effect=stats.LivesportSourceUnavailable("503")) as loader:
+            with self.assertRaisesRegex(RuntimeError, "3 consecutive matches"):
+                stats.apply_match_performances(self.players, games, True)
+        self.assertEqual(loader.call_count, 3)
+        self.assertEqual(self.players, self.original)
+
+    def test_pending_status_is_published_even_without_player_changes_then_cleared(self):
+        for previous_pending, next_pending, writes_expected in (
+            ([], [{**self.pending, "reason": "404", "retainedPlayerPerformances": 0}], True),
+            ([{**self.pending, "firstUnavailableAt": "earlier", "reason": "404"}], [], True),
+            (
+                [{**self.pending, "firstUnavailableAt": "earlier", "reason": "404"}],
+                [{**self.pending, "reason": "404"}], False,
+            ),
+        ):
+            with self.subTest(next_pending=next_pending), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                output, audit, schedule = [root / name for name in ("roster.json", "audit.json", "schedule.json")]
+                one_player = self.players[:1]
+                output.write_text(json.dumps({"players": one_player, "livesportMatchStats": {"pendingMatches": previous_pending}}), encoding="utf-8")
+                schedule.write_text('{"matches":[]}', encoding="utf-8")
+                report = {
+                    "pendingMatches": next_pending, "validation": {"reconciliationIssues": []},
+                    "completedMatches": 1, "availableMatches": 0,
+                    "playerPerformances": 0, "ratedPerformances": 0,
+                }
+                with (
+                    patch.object(sys, "argv", ["updater", "--output", str(output), "--audit-output", str(audit), "--schedule", str(schedule)]),
+                    patch.object(updater, "LIVESPORT_TEAM_CONFIG", {}),
+                    patch.object(updater, "TEAM_ORDER", ["Home"]),
+                    patch.object(updater, "attach_livesport", return_value=(one_player, {})),
+                    patch.object(updater, "discover_livesport_events", return_value=[]),
+                    patch.object(updater, "apply_match_performances", return_value=(one_player, report)) as apply,
+                    patch.object(updater, "validate", return_value={"playerCount": 1, "activeLivesportPlayers": 1, "activeLivesportScorers": 0}),
+                    patch("builtins.print"),
+                ):
+                    updater.main()
+                saved = json.loads(output.read_text(encoding="utf-8"))
+                self.assertEqual(saved["livesportMatchStats"]["pendingMatches"], next_pending)
+                self.assertEqual(apply.call_args.kwargs["retry_event_ids"], {row["livesportMatchId"] for row in previous_pending})
+                self.assertEqual(audit.exists(), writes_expected)
+                if next_pending:
+                    self.assertTrue(next_pending[0]["firstUnavailableAt"])
+                    if previous_pending:
+                        self.assertEqual(next_pending[0]["firstUnavailableAt"], "earlier")
 
 
 if __name__ == "__main__":
