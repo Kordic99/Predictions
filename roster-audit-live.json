@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T19:00:12.586257Z",
+  "generatedAt": "2026-09-20T21:45:33.632649Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 520,
     "withLivesportSeasonStats": 520,
     "activeLivesportPlayers": 383,
-    "activeLivesportScorers": 114,
+    "activeLivesportScorers": 115,
     "warnings": [
       "Slovácko Cicha Martin: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -81,7 +81,7 @@
         "AgTOrW2t",
         "lA5SpJYQ"
       ],
-      "eventCount": 68,
+      "eventCount": 69,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Qharvg2": 32,
@@ -118,6 +118,7 @@
         "SvLAxtOG": 32,
         "SxdMQxQc": 32,
         "UJByI8sQ": 31,
+        "UNPvul25": 32,
         "URaSa9Ls": 32,
         "WAvNRO9b": 31,
         "WCs3LslI": 32,
@@ -189,6 +190,7 @@
         "SvLAxtOG": 29,
         "SxdMQxQc": 31,
         "UJByI8sQ": 30,
+        "UNPvul25": 28,
         "URaSa9Ls": 30,
         "WAvNRO9b": 27,
         "WCs3LslI": 28,
@@ -224,8 +226,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2151,
-      "ratedPerformances": 1985,
+      "playerPerformances": 2183,
+      "ratedPerformances": 2013,
       "reconciliationIssues": [
         {
           "team": "Slovácko",
@@ -5937,8 +5939,8 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 70,
-    "availableMatches": 68,
+    "completedMatches": 71,
+    "availableMatches": 69,
     "status": "partial",
     "pendingMatches": [
       {
@@ -5964,8 +5966,8 @@
         "firstUnavailableAt": "2026-09-20T19:00:12.586257Z"
       }
     ],
-    "playerPerformances": 2151,
-    "ratedPerformances": 1985,
+    "playerPerformances": 2183,
+    "ratedPerformances": 2013,
     "processed": [
       {
         "livesportMatchId": "URaSa9Ls",
@@ -6116,6 +6118,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 30,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/zlin-C09N1Ikd/r7RWtAXh/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "UNPvul25",
+        "round": 9,
+        "home": "Slavia Prague",
+        "away": "Viktoria Plzeň",
+        "score": "2:1",
+        "playerPerformances": 32,
+        "ratedPerformances": 28,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/viktoria-plzen-2LA0e86b/UNPvul25/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -6179,7 +6191,7 @@
         "AgTOrW2t",
         "lA5SpJYQ"
       ],
-      "eventCount": 68,
+      "eventCount": 69,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Qharvg2": 32,
@@ -6216,6 +6228,7 @@
         "SvLAxtOG": 32,
         "SxdMQxQc": 32,
         "UJByI8sQ": 31,
+        "UNPvul25": 32,
         "URaSa9Ls": 32,
         "WAvNRO9b": 31,
         "WCs3LslI": 32,
@@ -6287,6 +6300,7 @@
         "SvLAxtOG": 29,
         "SxdMQxQc": 31,
         "UJByI8sQ": 30,
+        "UNPvul25": 28,
         "URaSa9Ls": 30,
         "WAvNRO9b": 27,
         "WCs3LslI": 28,
@@ -6322,8 +6336,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2151,
-      "ratedPerformances": 1985,
+      "playerPerformances": 2183,
+      "ratedPerformances": 2013,
       "reconciliationIssues": [
         {
           "team": "Slovácko",
@@ -7383,6 +7397,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-20T19:00:12.586257Z"
+    "checkedAt": "2026-09-20T21:45:33.632649Z"
   }
 }
