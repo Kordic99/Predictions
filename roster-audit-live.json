@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T00:14:45.215983Z",
+  "generatedAt": "2026-09-22T15:07:59.554835Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -2677,6 +2677,15 @@
       },
       {
         "team": "Slavia Prague",
+        "name": "Kačor Pavel",
+        "livesportName": "Kačor Pavel",
+        "livesportPlayerId": "hOjD2le2",
+        "method": "livesport-id",
+        "apps": 6,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
         "name": "Moses David",
         "livesportName": "Moses David",
         "livesportPlayerId": "vkbT7lsC",
@@ -2764,15 +2773,6 @@
         "method": "livesport-id",
         "apps": 7,
         "goals": 4
-      },
-      {
-        "team": "Slavia Prague",
-        "name": "Kačor Pavel",
-        "livesportName": "Kačor Pavel",
-        "livesportPlayerId": "hOjD2le2",
-        "method": "livesport-id",
-        "apps": 6,
-        "goals": 0
       },
       {
         "team": "Slavia Prague",
@@ -5328,6 +5328,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-22T00:14:45.215983Z"
+    "checkedAt": "2026-09-22T15:07:59.554835Z"
   }
 }
