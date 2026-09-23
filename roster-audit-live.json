@@ -1,17 +1,23 @@
 {
-  "generatedAt": "2026-09-22T22:23:00.743237Z",
+  "generatedAt": "2026-09-23T17:24:49.427183Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Ouly Michael",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 540,
+    "playerCount": 541,
     "teamCounts": {
       "Artis Brno": 38,
-      "Baník Ostrava": 30,
+      "Baník Ostrava": 31,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
       "Jablonec": 32,
@@ -28,11 +34,11 @@
       "Zlín": 33
     },
     "withMarketValue": 472,
-    "withoutPublishedMarketValue": 68,
+    "withoutPublishedMarketValue": 69,
     "withCareer": 503,
-    "withoutCareerRows": 37,
-    "withLivesportIdentity": 520,
-    "withLivesportSeasonStats": 520,
+    "withoutCareerRows": 38,
+    "withLivesportIdentity": 521,
+    "withLivesportSeasonStats": 521,
     "activeLivesportPlayers": 383,
     "activeLivesportScorers": 115,
     "warnings": [
@@ -73,7 +79,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Baník Ostrava Ouly Michael: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -270,7 +277,7 @@
     }
   ],
   "livesportReconciliation": {
-    "sourceRows": 513,
+    "sourceRows": 514,
     "attached": [
       {
         "team": "Artis Brno",
@@ -774,6 +781,15 @@
         "livesportPlayerId": "rVGUB5us",
         "method": "livesport-id",
         "apps": 9,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Ouly Michael",
+        "livesportName": "Ouly Michael",
+        "livesportPlayerId": "K0cW9Fjt",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4890,16 +4906,22 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Ouly Michael",
+        "livesportPlayerId": "K0cW9Fjt"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 513
+    "publishedLivesportIds": 514
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 489,
     "transfermarktRows": 483,
-    "livesportRows": 513,
+    "livesportRows": 514,
     "seedRows": 540
   },
   "livesportMatchStats": {
@@ -4913,26 +4935,6 @@
     "playerPerformances": 2246,
     "ratedPerformances": 2074,
     "processed": [
-      {
-        "livesportMatchId": "URaSa9Ls",
-        "round": 5,
-        "home": "Jablonec",
-        "away": "Baník Ostrava",
-        "score": "3:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/banik-ostrava-lI6ddlih/URaSa9Ls/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "A51rdRK6",
-        "round": 5,
-        "home": "Hradec Králové",
-        "away": "Viktoria Plzeň",
-        "score": "0:0",
-        "playerPerformances": 31,
-        "ratedPerformances": 29,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/viktoria-plzen-2LA0e86b/A51rdRK6/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "O6WhCbS1",
         "round": 8,
@@ -5147,7 +5149,9 @@
       "z3aUOGfA",
       "t0taNOz3",
       "val8HYnp",
-      "CQ1FFCHd"
+      "CQ1FFCHd",
+      "URaSa9Ls",
+      "A51rdRK6"
     ],
     "validation": {
       "status": "needs-review",
@@ -5328,6 +5332,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-22T22:23:00.743237Z"
+    "checkedAt": "2026-09-23T17:24:49.427183Z"
   }
 }
