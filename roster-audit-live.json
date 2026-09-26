@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T14:06:16.631769Z",
+  "generatedAt": "2026-09-26T07:57:40.860166Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -257,7 +257,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 513,
+    "sourceRows": 512,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2129,15 +2129,6 @@
         "livesportPlayerId": "zmGcA0E8",
         "method": "livesport-id",
         "apps": 7,
-        "goals": 0
-      },
-      {
-        "team": "Pardubice",
-        "name": "Nedvěd Patrik",
-        "livesportName": "Nedvěd Patrik",
-        "livesportPlayerId": "EVfrL3NH",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -4880,13 +4871,13 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 513
+    "publishedLivesportIds": 512
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 482,
-    "livesportRows": 513,
+    "livesportRows": 512,
     "seedRows": 539
   },
   "livesportMatchStats": {
@@ -5297,6 +5288,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-25T14:06:16.631769Z"
+    "checkedAt": "2026-09-26T07:57:40.860166Z"
   }
 }
