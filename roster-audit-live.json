@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T07:57:40.860166Z",
+  "generatedAt": "2026-09-27T08:30:30.584715Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -4892,46 +4892,6 @@
     "ratedPerformances": 2074,
     "processed": [
       {
-        "livesportMatchId": "O6WhCbS1",
-        "round": 8,
-        "home": "Bohemians 1905",
-        "away": "Slovácko",
-        "score": "2:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 29,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/bohemians-1905-fuXqHnxa/slovacko-MNEDyOlF/O6WhCbS1/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "Sbuhp0Ok",
-        "round": 8,
-        "home": "Zbrojovka Brno",
-        "away": "Artis Brno",
-        "score": "2:1",
-        "playerPerformances": 34,
-        "ratedPerformances": 31,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/artis-brno-zHLktbZ1/Sbuhp0Ok/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "jgYpEKck",
-        "round": 8,
-        "home": "Slovan Liberec",
-        "away": "Mladá Boleslav",
-        "score": "3:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovan-liberec-4bp6yRjU/mlada-boleslav-0f7GpAMu/jgYpEKck/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "tQBQQcse",
-        "round": 8,
-        "home": "Sparta Prague",
-        "away": "Jablonec",
-        "score": "2:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 32,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sparta-praha-6qA358jH/jablonec-CM8ySpMH/tQBQQcse/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "jDOvz2K8",
         "round": 8,
         "home": "Baník Ostrava",
@@ -5107,7 +5067,11 @@
       "val8HYnp",
       "CQ1FFCHd",
       "URaSa9Ls",
-      "A51rdRK6"
+      "A51rdRK6",
+      "O6WhCbS1",
+      "Sbuhp0Ok",
+      "jgYpEKck",
+      "tQBQQcse"
     ],
     "validation": {
       "status": "needs-review",
@@ -5288,6 +5252,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-26T07:57:40.860166Z"
+    "checkedAt": "2026-09-27T08:30:30.584715Z"
   }
 }
