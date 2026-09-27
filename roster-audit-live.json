@@ -1,17 +1,28 @@
 {
-  "generatedAt": "2026-09-27T08:30:30.584715Z",
+  "generatedAt": "2026-09-27T18:37:18.185789Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Bitta Matyáš",
+        "transfermarktPlayerId": null
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Temel Martin",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 539,
+    "playerCount": 541,
     "teamCounts": {
       "Artis Brno": 38,
-      "Baník Ostrava": 30,
+      "Baník Ostrava": 32,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
       "Jablonec": 32,
@@ -28,11 +39,11 @@
       "Zlín": 33
     },
     "withMarketValue": 481,
-    "withoutPublishedMarketValue": 58,
+    "withoutPublishedMarketValue": 60,
     "withCareer": 502,
-    "withoutCareerRows": 37,
-    "withLivesportIdentity": 520,
-    "withLivesportSeasonStats": 520,
+    "withoutCareerRows": 39,
+    "withLivesportIdentity": 522,
+    "withLivesportSeasonStats": 522,
     "activeLivesportPlayers": 383,
     "activeLivesportScorers": 115,
     "warnings": [
@@ -73,7 +84,9 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Baník Ostrava Temel Martin: missing Transfermarkt identity",
+      "Baník Ostrava Bitta Matyáš: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -257,7 +270,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 512,
+    "sourceRows": 514,
     "attached": [
       {
         "team": "Artis Brno",
@@ -783,6 +796,15 @@
       },
       {
         "team": "Baník Ostrava",
+        "name": "Temel Martin",
+        "livesportName": "Temel Martin",
+        "livesportPlayerId": "dKkhcZGl",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
         "name": "Traoré Aboubacar",
         "livesportName": "Traore Aboubacar",
         "livesportPlayerId": "zs96ZOma",
@@ -806,6 +828,15 @@
         "livesportPlayerId": "hnBCvCBG",
         "method": "livesport-id",
         "apps": 9,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Bitta Matyáš",
+        "livesportName": "Bitta Matyáš",
+        "livesportPlayerId": "QJFcNxC5",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4868,16 +4899,27 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Temel Martin",
+        "livesportPlayerId": "dKkhcZGl"
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Bitta Matyáš",
+        "livesportPlayerId": "QJFcNxC5"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 512
+    "publishedLivesportIds": 514
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 482,
-    "livesportRows": 512,
+    "livesportRows": 514,
     "seedRows": 539
   },
   "livesportMatchStats": {
@@ -4891,46 +4933,6 @@
     "playerPerformances": 2246,
     "ratedPerformances": 2074,
     "processed": [
-      {
-        "livesportMatchId": "jDOvz2K8",
-        "round": 8,
-        "home": "Baník Ostrava",
-        "away": "Pardubice",
-        "score": "1:2",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/banik-ostrava-lI6ddlih/pardubice-Ys4YYBPn/jDOvz2K8/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "MwrFJtzS",
-        "round": 8,
-        "home": "Viktoria Plzeň",
-        "away": "Sigma Olomouc",
-        "score": "2:3",
-        "playerPerformances": 31,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/sigma-olomouc-drA4fSL4/MwrFJtzS/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "bwSnYukL",
-        "round": 8,
-        "home": "Zlín",
-        "away": "Hradec Králové",
-        "score": "1:2",
-        "playerPerformances": 31,
-        "ratedPerformances": 27,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/hradec-kralove-vFXjbHms/bwSnYukL/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "ljFYOyC7",
-        "round": 8,
-        "home": "Teplice",
-        "away": "Slavia Prague",
-        "score": "0:2",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/teplice-r9XWmtLq/slavia-praha-viXGgnyB/ljFYOyC7/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "0Qharvg2",
         "round": 9,
@@ -5071,7 +5073,11 @@
       "O6WhCbS1",
       "Sbuhp0Ok",
       "jgYpEKck",
-      "tQBQQcse"
+      "tQBQQcse",
+      "jDOvz2K8",
+      "MwrFJtzS",
+      "bwSnYukL",
+      "ljFYOyC7"
     ],
     "validation": {
       "status": "needs-review",
@@ -5252,6 +5258,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-27T08:30:30.584715Z"
+    "checkedAt": "2026-09-27T18:37:18.185789Z"
   }
 }
