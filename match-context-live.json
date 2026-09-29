@@ -1340,6 +1340,34 @@
       }
     }
   },
-  "fixtures": [],
-  "updatedAt": "2026-09-20T21:34:10Z"
+  "fixtures": [
+    {
+      "officialMatchId": "8406",
+      "round": 10,
+      "date": "2026-10-09",
+      "time": "18:00",
+      "home": "Zlín",
+      "away": "Slavia Prague",
+      "livesportMatchId": "Awkp8nWi",
+      "source": "Livesport",
+      "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zlin-C09N1Ikd/slavia-praha-viXGgnyB/",
+      "homeContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      },
+      "awayContext": {
+        "source": "proxy",
+        "players": [],
+        "officialPlayers": [],
+        "predictedPlayers": [],
+        "missing": [],
+        "uncertain": []
+      }
+    }
+  ],
+  "updatedAt": "2026-09-29T01:58:13Z"
 }
