@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-09-27T18:37:18.185789Z",
+  "generatedAt": "2026-09-30T14:09:15.561678Z",
   "changes": {
-    "added": [
-      {
-        "team": "Baník Ostrava",
-        "name": "Bitta Matyáš",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Temel Martin",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -57,6 +46,8 @@
       "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
       "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
+      "Baník Ostrava Temel Martin: missing Transfermarkt identity",
+      "Baník Ostrava Bitta Matyáš: missing Transfermarkt identity",
       "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity",
       "Slovan Liberec Barcal Matyáš: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
@@ -84,9 +75,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Baník Ostrava Temel Martin: missing Transfermarkt identity",
-      "Baník Ostrava Bitta Matyáš: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -270,7 +259,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 514,
+    "sourceRows": 513,
     "attached": [
       {
         "team": "Artis Brno",
@@ -799,7 +788,7 @@
         "name": "Temel Martin",
         "livesportName": "Temel Martin",
         "livesportPlayerId": "dKkhcZGl",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -835,7 +824,7 @@
         "name": "Bitta Matyáš",
         "livesportName": "Bitta Matyáš",
         "livesportPlayerId": "QJFcNxC5",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2095,15 +2084,6 @@
         "name": "Saarma Robi",
         "livesportName": "Saarma Robi",
         "livesportPlayerId": "A3CMQ0mb",
-        "method": "livesport-id",
-        "apps": 1,
-        "goals": 0
-      },
-      {
-        "team": "Pardubice",
-        "name": "Simon Dominique",
-        "livesportName": "Simon Dominique",
-        "livesportPlayerId": "K4kIpYsN",
         "method": "livesport-id",
         "apps": 1,
         "goals": 0
@@ -4899,28 +4879,17 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Baník Ostrava",
-        "name": "Temel Martin",
-        "livesportPlayerId": "dKkhcZGl"
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Bitta Matyáš",
-        "livesportPlayerId": "QJFcNxC5"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 514
+    "publishedLivesportIds": 513
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 482,
-    "livesportRows": 514,
-    "seedRows": 539
+    "livesportRows": 513,
+    "seedRows": 541
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5258,6 +5227,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-27T18:37:18.185789Z"
+    "checkedAt": "2026-09-30T14:09:15.561678Z"
   }
 }
