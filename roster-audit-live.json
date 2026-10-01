@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-09-30T14:09:15.561678Z",
+  "generatedAt": "2026-10-01T21:57:28.931175Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Zlín",
+        "name": "Kratochvíl Miloš",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 541,
+    "playerCount": 542,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 32,
@@ -25,14 +31,14 @@
       "Teplice": 34,
       "Viktoria Plzeň": 32,
       "Zbrojovka Brno": 39,
-      "Zlín": 33
+      "Zlín": 34
     },
     "withMarketValue": 481,
-    "withoutPublishedMarketValue": 60,
+    "withoutPublishedMarketValue": 61,
     "withCareer": 502,
-    "withoutCareerRows": 39,
-    "withLivesportIdentity": 522,
-    "withLivesportSeasonStats": 522,
+    "withoutCareerRows": 40,
+    "withLivesportIdentity": 523,
+    "withLivesportSeasonStats": 523,
     "activeLivesportPlayers": 383,
     "activeLivesportScorers": 115,
     "warnings": [
@@ -75,7 +81,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Zlín Kratochvíl Miloš: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -4646,15 +4653,6 @@
       },
       {
         "team": "Zlín",
-        "name": "Katalinić Zvonimir",
-        "livesportName": "Katalinič Zvonimir",
-        "livesportPlayerId": "nBq7a5WK",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Zlín",
         "name": "Kolář Jakub",
         "livesportName": "Kolář Jakub",
         "livesportPlayerId": "KAmWy6g0",
@@ -4759,6 +4757,15 @@
         "livesportPlayerId": "EFdG9M41",
         "method": "livesport-id",
         "apps": 7,
+        "goals": 0
+      },
+      {
+        "team": "Zlín",
+        "name": "Kratochvíl Miloš",
+        "livesportName": "Kratochvíl Miloš",
+        "livesportPlayerId": "z9Yq6YWS",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4879,7 +4886,13 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Zlín",
+        "name": "Kratochvíl Miloš",
+        "livesportPlayerId": "z9Yq6YWS"
+      }
+    ],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 513
@@ -5227,6 +5240,6 @@
         }
       ]
     },
-    "checkedAt": "2026-09-30T14:09:15.561678Z"
+    "checkedAt": "2026-10-01T21:57:28.931175Z"
   }
 }
