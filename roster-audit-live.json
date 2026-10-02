@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-01T21:57:28.931175Z",
+  "generatedAt": "2026-10-02T08:53:27.579291Z",
   "changes": {
     "added": [
       {
-        "team": "Zlín",
-        "name": "Kratochvíl Miloš",
+        "team": "Mladá Boleslav",
+        "name": "Rittenauer Ondřej",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,14 +14,14 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 542,
+    "playerCount": 543,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 32,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
       "Jablonec": 32,
-      "Mladá Boleslav": 32,
+      "Mladá Boleslav": 33,
       "Pardubice": 34,
       "Sigma Olomouc": 36,
       "Slavia Prague": 37,
@@ -34,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 481,
-    "withoutPublishedMarketValue": 61,
+    "withoutPublishedMarketValue": 62,
     "withCareer": 502,
-    "withoutCareerRows": 40,
-    "withLivesportIdentity": 523,
-    "withLivesportSeasonStats": 523,
+    "withoutCareerRows": 41,
+    "withLivesportIdentity": 524,
+    "withLivesportSeasonStats": 524,
     "activeLivesportPlayers": 383,
     "activeLivesportScorers": 115,
     "warnings": [
@@ -66,6 +66,7 @@
       "Zbrojovka Brno Šmíd Vojtěch: missing Transfermarkt identity",
       "Zbrojovka Brno Strnad Damián: missing Transfermarkt identity",
       "Zbrojovka Brno Pragr Oldřich: missing Transfermarkt identity",
+      "Zlín Kratochvíl Miloš: missing Transfermarkt identity",
       "Jablonec Karban Kryštof: missing Transfermarkt identity",
       "Jablonec Malý Evžen: missing Transfermarkt identity",
       "Pardubice Řezníček Jan: missing Transfermarkt identity",
@@ -82,7 +83,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Zlín Kratochvíl Miloš: missing Transfermarkt identity"
+      "Mladá Boleslav Rittenauer Ondřej: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -266,7 +267,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 513,
+    "sourceRows": 514,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1832,6 +1833,15 @@
         "livesportPlayerId": "6wbyLLUG",
         "method": "livesport-id",
         "apps": 2,
+        "goals": 0
+      },
+      {
+        "team": "Mladá Boleslav",
+        "name": "Rittenauer Ondřej",
+        "livesportName": "Rittenauer Ondřej",
+        "livesportPlayerId": "8xnZaWJj",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4764,7 +4774,7 @@
         "name": "Kratochvíl Miloš",
         "livesportName": "Kratochvíl Miloš",
         "livesportPlayerId": "z9Yq6YWS",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4888,21 +4898,21 @@
     ],
     "added": [
       {
-        "team": "Zlín",
-        "name": "Kratochvíl Miloš",
-        "livesportPlayerId": "z9Yq6YWS"
+        "team": "Mladá Boleslav",
+        "name": "Rittenauer Ondřej",
+        "livesportPlayerId": "8xnZaWJj"
       }
     ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 513
+    "publishedLivesportIds": 514
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 482,
-    "livesportRows": 513,
-    "seedRows": 541
+    "livesportRows": 514,
+    "seedRows": 542
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5240,6 +5250,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-01T21:57:28.931175Z"
+    "checkedAt": "2026-10-02T08:53:27.579291Z"
   }
 }
