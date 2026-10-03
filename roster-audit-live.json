@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-10-02T15:56:28.107222Z",
+  "generatedAt": "2026-10-03T07:00:58.453646Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Teplice",
+        "name": "Jančok Václav",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 542,
+    "playerCount": 543,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 32,
@@ -22,17 +28,17 @@
       "Slovan Liberec": 34,
       "Slovácko": 34,
       "Sparta Prague": 36,
-      "Teplice": 34,
+      "Teplice": 35,
       "Viktoria Plzeň": 32,
       "Zbrojovka Brno": 39,
       "Zlín": 34
     },
     "withMarketValue": 481,
-    "withoutPublishedMarketValue": 61,
+    "withoutPublishedMarketValue": 62,
     "withCareer": 502,
-    "withoutCareerRows": 40,
-    "withLivesportIdentity": 523,
-    "withLivesportSeasonStats": 523,
+    "withoutCareerRows": 41,
+    "withLivesportIdentity": 524,
+    "withLivesportSeasonStats": 524,
     "activeLivesportPlayers": 383,
     "activeLivesportScorers": 115,
     "warnings": [
@@ -76,7 +82,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Teplice Jančok Václav: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -260,7 +267,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 514,
+    "sourceRows": 515,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3819,6 +3826,15 @@
       },
       {
         "team": "Teplice",
+        "name": "Jančok Václav",
+        "livesportName": "Jančok Václav",
+        "livesportPlayerId": "86DqfIBi",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Teplice",
         "name": "Jukl Robert",
         "livesportName": "Jukl Robert",
         "livesportPlayerId": "GnIGmR1P",
@@ -4889,16 +4905,22 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Teplice",
+        "name": "Jančok Václav",
+        "livesportPlayerId": "86DqfIBi"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 514
+    "publishedLivesportIds": 515
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 481,
-    "livesportRows": 514,
+    "livesportRows": 515,
     "seedRows": 542
   },
   "livesportMatchStats": {
@@ -5237,6 +5259,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-02T15:56:28.107222Z"
+    "checkedAt": "2026-10-03T07:00:58.453646Z"
   }
 }
