@@ -1,17 +1,33 @@
 {
-  "generatedAt": "2026-10-03T12:40:53.777937Z",
+  "generatedAt": "2026-10-03T17:32:58.646721Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Měkota Patrik",
+        "transfermarktPlayerId": null
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Sirotek Tomáš",
+        "transfermarktPlayerId": null
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Michal Kristian",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 543,
+    "playerCount": 546,
     "teamCounts": {
       "Artis Brno": 38,
-      "Baník Ostrava": 32,
+      "Baník Ostrava": 34,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
       "Jablonec": 32,
@@ -19,7 +35,7 @@
       "Pardubice": 33,
       "Sigma Olomouc": 36,
       "Slavia Prague": 37,
-      "Slovan Liberec": 34,
+      "Slovan Liberec": 35,
       "Slovácko": 34,
       "Sparta Prague": 36,
       "Teplice": 35,
@@ -28,11 +44,11 @@
       "Zlín": 34
     },
     "withMarketValue": 481,
-    "withoutPublishedMarketValue": 62,
+    "withoutPublishedMarketValue": 65,
     "withCareer": 502,
-    "withoutCareerRows": 41,
-    "withLivesportIdentity": 524,
-    "withLivesportSeasonStats": 524,
+    "withoutCareerRows": 44,
+    "withLivesportIdentity": 528,
+    "withLivesportSeasonStats": 528,
     "activeLivesportPlayers": 383,
     "activeLivesportScorers": 115,
     "warnings": [
@@ -77,7 +93,10 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Baník Ostrava Měkota Patrik: missing Transfermarkt identity",
+      "Baník Ostrava Sirotek Tomáš: missing Transfermarkt identity",
+      "Slovan Liberec Michal Kristian: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -261,7 +280,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 515,
+    "sourceRows": 519,
     "attached": [
       {
         "team": "Artis Brno",
@@ -667,6 +686,24 @@
         "method": "livesport-id",
         "apps": 8,
         "goals": 1
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Měkota Patrik",
+        "livesportName": "Měkota Patrik",
+        "livesportPlayerId": "OYaFpwIA",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Sirotek Tomáš",
+        "livesportName": "Sirotek Tomáš",
+        "livesportPlayerId": "hIFhVGBO",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
       },
       {
         "team": "Baník Ostrava",
@@ -3226,6 +3263,15 @@
       },
       {
         "team": "Slovan Liberec",
+        "name": "Knapík Jan",
+        "livesportName": "Knapík Jan",
+        "livesportPlayerId": "lUHgcR8U",
+        "method": "same-team-name",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
         "name": "Koželuh Josef",
         "livesportName": "Koželuh Josef",
         "livesportPlayerId": "GjnFsnYI",
@@ -3285,6 +3331,15 @@
         "livesportPlayerId": "nLaiMbxq",
         "method": "livesport-id",
         "apps": 8,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Michal Kristian",
+        "livesportName": "Michal Kristian",
+        "livesportPlayerId": "fDToWcbS",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4899,16 +4954,32 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Měkota Patrik",
+        "livesportPlayerId": "OYaFpwIA"
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Sirotek Tomáš",
+        "livesportPlayerId": "hIFhVGBO"
+      },
+      {
+        "team": "Slovan Liberec",
+        "name": "Michal Kristian",
+        "livesportPlayerId": "fDToWcbS"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 515
+    "publishedLivesportIds": 519
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 481,
-    "livesportRows": 515,
+    "livesportRows": 519,
     "seedRows": 543
   },
   "livesportMatchStats": {
@@ -4922,46 +4993,6 @@
     "playerPerformances": 2246,
     "ratedPerformances": 2074,
     "processed": [
-      {
-        "livesportMatchId": "0Qharvg2",
-        "round": 9,
-        "home": "Artis Brno",
-        "away": "Slovan Liberec",
-        "score": "0:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/artis-brno-zHLktbZ1/slovan-liberec-4bp6yRjU/0Qharvg2/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "tp2Knu4E",
-        "round": 9,
-        "home": "Pardubice",
-        "away": "Bohemians 1905",
-        "score": "2:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 27,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/pardubice-Ys4YYBPn/bohemians-1905-fuXqHnxa/tp2Knu4E/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "xl95wyR0",
-        "round": 9,
-        "home": "Mladá Boleslav",
-        "away": "Zbrojovka Brno",
-        "score": "2:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 29,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/zbrojovka-brno-4d5TT6i5/xl95wyR0/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "lA5SpJYQ",
-        "round": 9,
-        "home": "Slovácko",
-        "away": "Baník Ostrava",
-        "score": "2:2",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovacko-MNEDyOlF/banik-ostrava-lI6ddlih/lA5SpJYQ/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "AgTOrW2t",
         "round": 9,
@@ -5066,7 +5097,11 @@
       "jDOvz2K8",
       "MwrFJtzS",
       "bwSnYukL",
-      "ljFYOyC7"
+      "ljFYOyC7",
+      "0Qharvg2",
+      "tp2Knu4E",
+      "xl95wyR0",
+      "lA5SpJYQ"
     ],
     "validation": {
       "status": "needs-review",
@@ -5247,6 +5282,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-03T12:40:53.777937Z"
+    "checkedAt": "2026-10-03T17:32:58.646721Z"
   }
 }
