@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-10-03T07:00:58.453646Z",
+  "generatedAt": "2026-10-03T12:40:53.777937Z",
   "changes": {
-    "added": [
-      {
-        "team": "Teplice",
-        "name": "Jančok Václav",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -72,6 +66,7 @@
       "Mladá Boleslav Rittenauer Ondřej: missing Transfermarkt identity",
       "Pardubice Řezníček Jan: missing Transfermarkt identity",
       "Teplice Klimpl Oliver: missing Transfermarkt identity",
+      "Teplice Jančok Václav: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
@@ -82,8 +77,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Teplice Jančok Václav: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -3829,7 +3823,7 @@
         "name": "Jančok Václav",
         "livesportName": "Jančok Václav",
         "livesportPlayerId": "86DqfIBi",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4905,13 +4899,7 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Teplice",
-        "name": "Jančok Václav",
-        "livesportPlayerId": "86DqfIBi"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 515
@@ -4921,7 +4909,7 @@
     "officialRows": 491,
     "transfermarktRows": 481,
     "livesportRows": 515,
-    "seedRows": 542
+    "seedRows": 543
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5259,6 +5247,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-03T07:00:58.453646Z"
+    "checkedAt": "2026-10-03T12:40:53.777937Z"
   }
 }
