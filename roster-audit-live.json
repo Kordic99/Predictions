@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T10:02:35.404895Z",
+  "generatedAt": "2026-10-04T15:29:50.587136Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -4962,36 +4962,6 @@
     "ratedPerformances": 2074,
     "processed": [
       {
-        "livesportMatchId": "AgTOrW2t",
-        "round": 9,
-        "home": "Hradec Králové",
-        "away": "Teplice",
-        "score": "0:2",
-        "playerPerformances": 31,
-        "ratedPerformances": 31,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/teplice-r9XWmtLq/AgTOrW2t/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "4zBcucdl",
-        "round": 9,
-        "home": "Sigma Olomouc",
-        "away": "Sparta Prague",
-        "score": "0:3",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/sparta-praha-6qA358jH/4zBcucdl/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "r7RWtAXh",
-        "round": 9,
-        "home": "Jablonec",
-        "away": "Zlín",
-        "score": "1:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/jablonec-CM8ySpMH/zlin-C09N1Ikd/r7RWtAXh/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "UNPvul25",
         "round": 9,
         "home": "Slavia Prague",
@@ -5069,7 +5039,10 @@
       "0Qharvg2",
       "tp2Knu4E",
       "xl95wyR0",
-      "lA5SpJYQ"
+      "lA5SpJYQ",
+      "AgTOrW2t",
+      "4zBcucdl",
+      "r7RWtAXh"
     ],
     "validation": {
       "status": "needs-review",
@@ -5250,6 +5223,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-04T10:02:35.404895Z"
+    "checkedAt": "2026-10-04T15:29:50.587136Z"
   }
 }
