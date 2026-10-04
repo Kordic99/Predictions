@@ -1,23 +1,7 @@
 {
-  "generatedAt": "2026-10-03T17:32:58.646721Z",
+  "generatedAt": "2026-10-04T10:02:35.404895Z",
   "changes": {
-    "added": [
-      {
-        "team": "Baník Ostrava",
-        "name": "Měkota Patrik",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Sirotek Tomáš",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Slovan Liberec",
-        "name": "Michal Kristian",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -60,6 +44,8 @@
       "Sparta Prague Topič Jonáš: missing Transfermarkt identity",
       "Sparta Prague Feit Jan: missing Transfermarkt identity",
       "Sparta Prague Azaka Lewis: missing Transfermarkt identity",
+      "Baník Ostrava Měkota Patrik: missing Transfermarkt identity",
+      "Baník Ostrava Sirotek Tomáš: missing Transfermarkt identity",
       "Baník Ostrava Fiala Adrián: missing Transfermarkt identity",
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Baník Ostrava Temel Martin: missing Transfermarkt identity",
@@ -67,6 +53,7 @@
       "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity",
       "Slovan Liberec Barcal Matyáš: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
+      "Slovan Liberec Michal Kristian: missing Transfermarkt identity",
       "Viktoria Plzeň Buchner Radek: missing Transfermarkt identity",
       "Viktoria Plzeň Kubín Petr: missing Transfermarkt identity",
       "Viktoria Plzeň Paidar Zbyněk: missing Transfermarkt identity",
@@ -93,10 +80,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Baník Ostrava Měkota Patrik: missing Transfermarkt identity",
-      "Baník Ostrava Sirotek Tomáš: missing Transfermarkt identity",
-      "Slovan Liberec Michal Kristian: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -692,7 +676,7 @@
         "name": "Měkota Patrik",
         "livesportName": "Měkota Patrik",
         "livesportPlayerId": "OYaFpwIA",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -701,7 +685,7 @@
         "name": "Sirotek Tomáš",
         "livesportName": "Sirotek Tomáš",
         "livesportPlayerId": "hIFhVGBO",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3266,7 +3250,7 @@
         "name": "Knapík Jan",
         "livesportName": "Knapík Jan",
         "livesportPlayerId": "lUHgcR8U",
-        "method": "same-team-name",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3338,7 +3322,7 @@
         "name": "Michal Kristian",
         "livesportName": "Michal Kristian",
         "livesportPlayerId": "fDToWcbS",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4954,23 +4938,7 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Baník Ostrava",
-        "name": "Měkota Patrik",
-        "livesportPlayerId": "OYaFpwIA"
-      },
-      {
-        "team": "Baník Ostrava",
-        "name": "Sirotek Tomáš",
-        "livesportPlayerId": "hIFhVGBO"
-      },
-      {
-        "team": "Slovan Liberec",
-        "name": "Michal Kristian",
-        "livesportPlayerId": "fDToWcbS"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 519
@@ -4980,7 +4948,7 @@
     "officialRows": 491,
     "transfermarktRows": 481,
     "livesportRows": 519,
-    "seedRows": 543
+    "seedRows": 546
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5282,6 +5250,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-03T17:32:58.646721Z"
+    "checkedAt": "2026-10-04T10:02:35.404895Z"
   }
 }
