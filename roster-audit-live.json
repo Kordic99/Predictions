@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-10-13T19:28:40.699126Z",
+  "generatedAt": "2026-10-13T23:23:44.458403Z",
   "changes": {
-    "added": [
-      {
-        "team": "Slavia Prague",
-        "name": "Potměšil Petr",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -2831,7 +2825,7 @@
         "name": "Potměšil Petr",
         "livesportName": "Potměšil Petr",
         "livesportPlayerId": "AwYQQgxN",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -4951,13 +4945,7 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Slavia Prague",
-        "name": "Potměšil Petr",
-        "livesportPlayerId": "AwYQQgxN"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 518
@@ -4974,7 +4962,7 @@
     "officialRows": 491,
     "transfermarktRows": 483,
     "livesportRows": 518,
-    "seedRows": 546
+    "seedRows": 547
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5336,6 +5324,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-13T19:28:40.699126Z"
+    "checkedAt": "2026-10-13T23:23:44.458403Z"
   }
 }
