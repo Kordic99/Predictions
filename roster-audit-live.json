@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-10-13T12:05:09.490354Z",
+  "generatedAt": "2026-10-13T19:28:40.699126Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Slavia Prague",
+        "name": "Potměšil Petr",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 546,
+    "playerCount": 547,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 34,
@@ -18,7 +24,7 @@
       "Mladá Boleslav": 33,
       "Pardubice": 33,
       "Sigma Olomouc": 36,
-      "Slavia Prague": 37,
+      "Slavia Prague": 38,
       "Slovan Liberec": 36,
       "Slovácko": 34,
       "Sparta Prague": 36,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 482,
-    "withoutPublishedMarketValue": 64,
+    "withoutPublishedMarketValue": 65,
     "withCareer": 504,
-    "withoutCareerRows": 42,
-    "withLivesportIdentity": 529,
-    "withLivesportSeasonStats": 529,
+    "withoutCareerRows": 43,
+    "withLivesportIdentity": 530,
+    "withLivesportSeasonStats": 530,
     "activeLivesportPlayers": 392,
     "activeLivesportScorers": 122,
     "warnings": [
@@ -79,7 +85,8 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -279,7 +286,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 517,
+    "sourceRows": 518,
     "attached": [
       {
         "team": "Artis Brno",
@@ -2821,6 +2828,15 @@
       },
       {
         "team": "Slavia Prague",
+        "name": "Potměšil Petr",
+        "livesportName": "Potměšil Petr",
+        "livesportPlayerId": "AwYQQgxN",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
         "name": "Schranz Ivan",
         "livesportName": "Schranz Ivan",
         "livesportPlayerId": "p0I1WZDo",
@@ -4935,10 +4951,16 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Slavia Prague",
+        "name": "Potměšil Petr",
+        "livesportPlayerId": "AwYQQgxN"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 517
+    "publishedLivesportIds": 518
   },
   "careerEnriched": [
     {
@@ -4951,7 +4973,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 483,
-    "livesportRows": 517,
+    "livesportRows": 518,
     "seedRows": 546
   },
   "livesportMatchStats": {
@@ -5314,6 +5336,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-13T12:05:09.490354Z"
+    "checkedAt": "2026-10-13T19:28:40.699126Z"
   }
 }
