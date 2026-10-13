@@ -1,13 +1,7 @@
 {
-  "generatedAt": "2026-10-12T23:09:31.422599Z",
+  "generatedAt": "2026-10-13T03:46:20.243082Z",
   "changes": {
-    "added": [
-      {
-        "team": "Slovan Liberec",
-        "name": "Ashuku Joel",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -60,6 +54,7 @@
       "Slovan Liberec Barcal Matyáš: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
       "Slovan Liberec Michal Kristian: missing Transfermarkt identity",
+      "Slovan Liberec Ashuku Joel: missing Transfermarkt identity",
       "Viktoria Plzeň Buchner Radek: missing Transfermarkt identity",
       "Viktoria Plzeň Kubín Petr: missing Transfermarkt identity",
       "Viktoria Plzeň Paidar Zbyněk: missing Transfermarkt identity",
@@ -84,8 +79,7 @@
       "Slavia Prague Okonkwo Izuchukwu: missing Transfermarkt identity",
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
-      "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slovan Liberec Ashuku Joel: missing Transfermarkt identity"
+      "Slavia Prague Kohout Dan: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -3370,7 +3364,7 @@
         "name": "Ashuku Joel",
         "livesportName": "Ashuku Joel",
         "livesportPlayerId": "Qcb53NIt",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 1,
         "goals": 0
       },
@@ -4941,13 +4935,7 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Slovan Liberec",
-        "name": "Ashuku Joel",
-        "livesportPlayerId": "Qcb53NIt"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 517
@@ -4964,7 +4952,7 @@
     "officialRows": 491,
     "transfermarktRows": 483,
     "livesportRows": 517,
-    "seedRows": 545
+    "seedRows": 546
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5326,6 +5314,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-12T23:09:31.422599Z"
+    "checkedAt": "2026-10-13T03:46:20.243082Z"
   }
 }
