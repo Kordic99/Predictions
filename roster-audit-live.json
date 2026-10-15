@@ -1,20 +1,26 @@
 {
-  "generatedAt": "2026-10-14T22:32:26.000726Z",
+  "generatedAt": "2026-10-15T20:29:26.434027Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Jablonec",
+        "name": "Malý Evžen",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 547,
+    "playerCount": 548,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 34,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
-      "Jablonec": 31,
+      "Jablonec": 32,
       "Mladá Boleslav": 33,
       "Pardubice": 33,
       "Sigma Olomouc": 36,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 482,
-    "withoutPublishedMarketValue": 65,
+    "withoutPublishedMarketValue": 66,
     "withCareer": 504,
-    "withoutCareerRows": 43,
-    "withLivesportIdentity": 530,
-    "withLivesportSeasonStats": 530,
+    "withoutCareerRows": 44,
+    "withLivesportIdentity": 531,
+    "withLivesportSeasonStats": 531,
     "activeLivesportPlayers": 392,
     "activeLivesportScorers": 122,
     "warnings": [
@@ -80,7 +86,8 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
+      "Jablonec Malý Evžen: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -282,7 +289,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 518,
+    "sourceRows": 519,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1451,6 +1458,15 @@
         "livesportName": "Innocenti Nassim",
         "livesportPlayerId": "h2v3Yih9",
         "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Malý Evžen",
+        "livesportName": "Malý Evžen",
+        "livesportPlayerId": "vP4GXNiL",
+        "method": "livesport-new",
         "apps": 0,
         "goals": 0
       },
@@ -4947,10 +4963,16 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Jablonec",
+        "name": "Malý Evžen",
+        "livesportPlayerId": "vP4GXNiL"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 518
+    "publishedLivesportIds": 519
   },
   "careerEnriched": [
     {
@@ -4963,7 +4985,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 483,
-    "livesportRows": 518,
+    "livesportRows": 519,
     "seedRows": 547
   },
   "livesportMatchStats": {
@@ -5338,6 +5360,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-14T22:32:26.000726Z"
+    "checkedAt": "2026-10-15T20:29:26.434027Z"
   }
 }
