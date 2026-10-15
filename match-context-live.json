@@ -3669,7 +3669,17 @@
             "reason": "Poranění třísel"
           }
         ],
-        "uncertain": []
+        "uncertain": [
+          {
+            "livesportPlayerId": "McdmkUE4",
+            "name": "Mannsverk S.",
+            "listName": "Mannsverk S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mannsverk-heggheim-sivert",
+            "reason": "Zranění"
+          }
+        ]
       }
     },
     {
@@ -3696,15 +3706,6 @@
             "position": null,
             "profileSlug": "jawo-lamin",
             "reason": "Zlomená ruka"
-          },
-          {
-            "livesportPlayerId": "hpiQnNSJ",
-            "name": "Mihelak K.",
-            "listName": "Mihelak K.",
-            "number": null,
-            "position": null,
-            "profileSlug": "mihelak-klemen",
-            "reason": "Zranění"
           },
           {
             "livesportPlayerId": "MN0iqQSj",
@@ -3982,5 +3983,5 @@
       }
     }
   ],
-  "updatedAt": "2026-10-15T18:19:56Z"
+  "updatedAt": "2026-10-15T22:19:43Z"
 }
