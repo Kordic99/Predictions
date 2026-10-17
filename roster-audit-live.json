@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T19:39:23.015047Z",
+  "generatedAt": "2026-10-17T22:34:30.864974Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -34,7 +34,7 @@
     "withLivesportIdentity": 532,
     "withLivesportSeasonStats": 532,
     "activeLivesportPlayers": 394,
-    "activeLivesportScorers": 126,
+    "activeLivesportScorers": 127,
     "warnings": [
       "Slovácko Cicha Martin: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
@@ -86,7 +86,7 @@
     "matchDetails": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 83,
+      "eventCount": 84,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
@@ -146,6 +146,7 @@
         "drwQCNEL": 32,
         "hIpXI3pA": 30,
         "jDOvz2K8": 32,
+        "jV5a44VG": 30,
         "jZumPPlg": 32,
         "jgYpEKck": 32,
         "js0IbQuC": 30,
@@ -231,6 +232,7 @@
         "drwQCNEL": 30,
         "hIpXI3pA": 28,
         "jDOvz2K8": 30,
+        "jV5a44VG": 26,
         "jZumPPlg": 29,
         "jgYpEKck": 30,
         "js0IbQuC": 26,
@@ -257,8 +259,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2621,
-      "ratedPerformances": 2416,
+      "playerPerformances": 2651,
+      "ratedPerformances": 2442,
       "reconciliationIssues": [
         {
           "type": "historical-lineup-coverage",
@@ -4995,12 +4997,12 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 83,
-    "availableMatches": 83,
+    "completedMatches": 84,
+    "availableMatches": 84,
     "status": "complete",
     "pendingMatches": [],
-    "playerPerformances": 2621,
-    "ratedPerformances": 2416,
+    "playerPerformances": 2651,
+    "ratedPerformances": 2442,
     "processed": [
       {
         "livesportMatchId": "Awkp8nWi",
@@ -5121,6 +5123,16 @@
         "playerPerformances": 30,
         "ratedPerformances": 28,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/hradec-kralove-vFXjbHms/hIpXI3pA/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "jV5a44VG",
+        "round": 11,
+        "home": "Sigma Olomouc",
+        "away": "Slovan Liberec",
+        "score": "1:0",
+        "playerPerformances": 30,
+        "ratedPerformances": 26,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/slovan-liberec-4bp6yRjU/jV5a44VG/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5199,7 +5211,7 @@
     "validation": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 83,
+      "eventCount": 84,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
@@ -5259,6 +5271,7 @@
         "drwQCNEL": 32,
         "hIpXI3pA": 30,
         "jDOvz2K8": 32,
+        "jV5a44VG": 30,
         "jZumPPlg": 32,
         "jgYpEKck": 32,
         "js0IbQuC": 30,
@@ -5344,6 +5357,7 @@
         "drwQCNEL": 30,
         "hIpXI3pA": 28,
         "jDOvz2K8": 30,
+        "jV5a44VG": 26,
         "jZumPPlg": 29,
         "jgYpEKck": 30,
         "js0IbQuC": 26,
@@ -5370,8 +5384,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2621,
-      "ratedPerformances": 2416,
+      "playerPerformances": 2651,
+      "ratedPerformances": 2442,
       "reconciliationIssues": [
         {
           "type": "historical-lineup-coverage",
@@ -5399,6 +5413,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-17T19:39:23.015047Z"
+    "checkedAt": "2026-10-17T22:34:30.864974Z"
   }
 }
