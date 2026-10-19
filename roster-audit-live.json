@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T19:34:49.237674Z",
+  "generatedAt": "2026-10-19T17:42:11.043980Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -297,7 +297,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 520,
+    "sourceRows": 519,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3820,15 +3820,6 @@
       },
       {
         "team": "Teplice",
-        "name": "Danihel Daniel",
-        "livesportName": "Danihel Daniel",
-        "livesportPlayerId": "r5quXUAg",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Teplice",
         "name": "Harušťák Jaroslav",
         "livesportName": "Harušťák Jaroslav",
         "livesportPlayerId": "6e5e2vde",
@@ -4983,7 +4974,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 520
+    "publishedLivesportIds": 519
   },
   "careerEnriched": [
     {
@@ -4996,7 +4987,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 483,
-    "livesportRows": 520,
+    "livesportRows": 519,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5455,6 +5446,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-18T19:34:49.237674Z"
+    "checkedAt": "2026-10-19T17:42:11.043980Z"
   }
 }
