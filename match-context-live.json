@@ -1356,16 +1356,92 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "ObNeP9MU",
+            "name": "Jugas J.",
+            "listName": "Jugas J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jugas-jakub",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "KAmWy6g0",
+            "name": "Kolář J.",
+            "listName": "Kolář J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kolar-jakub",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "QZAG9jkl",
+            "name": "Penkevics K.",
+            "listName": "Penkevics K.",
+            "number": null,
+            "position": null,
+            "profileSlug": "penkevics-kristers",
+            "reason": "Zranění"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "ELMMPj4J",
+            "name": "Král J.",
+            "listName": "Král J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kral-jan",
+            "reason": "Poranění ramena"
+          },
+          {
+            "livesportPlayerId": "QBmz9gC9",
+            "name": "Krivak F.",
+            "listName": "Krivak F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "krivak-fabijan",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "SAkqYnSf",
+            "name": "Uriča F.",
+            "listName": "Uriča F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "urica-filip",
+            "reason": "Poranění kolena"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "MRYMhvxB",
+            "name": "Barát D.",
+            "listName": "Barát D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "barat-daniel",
+            "reason": "Není k dispozici"
+          },
+          {
+            "livesportPlayerId": "rcUDEgho",
+            "name": "Baráth P.",
+            "listName": "Baráth P.",
+            "number": null,
+            "position": null,
+            "profileSlug": "barath-peter",
+            "reason": "Poranění zápěstí"
+          }
+        ]
       }
     },
     {
@@ -1726,15 +1802,117 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "EgGI8vM6",
+            "name": "Chorý T.",
+            "listName": "Chorý T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "chory-tomas",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "IBoly1YC",
+            "name": "Ouanda A.",
+            "listName": "Ouanda A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ouanda-adonija",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "W4rJpOaK",
+            "name": "Chaloupek Š.",
+            "listName": "Chaloupek Š.",
+            "number": null,
+            "position": null,
+            "profileSlug": "chaloupek-stepan",
+            "reason": "Svalové zranění"
+          },
+          {
+            "livesportPlayerId": "AF2Br9IA",
+            "name": "Jurásek D.",
+            "listName": "Jurásek D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jurasek-david",
+            "reason": "Poranění stehna"
+          },
+          {
+            "livesportPlayerId": "QkyQ3g8t",
+            "name": "Ogbu I.",
+            "listName": "Ogbu I.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogbu-igoh",
+            "reason": "Zranění achill. šlachy"
+          },
+          {
+            "livesportPlayerId": "jJMMI7lp",
+            "name": "Piták E.",
+            "listName": "Piták E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "pitak-elias",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "p0I1WZDo",
+            "name": "Schranz I.",
+            "listName": "Schranz I.",
+            "number": null,
+            "position": null,
+            "profileSlug": "schranz-ivan",
+            "reason": "Zdravotní problémy"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "b76iEKRu",
+            "name": "Hora V.",
+            "listName": "Hora V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "hora-vojtech",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "0hdyRc6o",
+            "name": "Kadlec A.",
+            "listName": "Kadlec A.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kadlec-adam",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "ppnlbF1r",
+            "name": "Mareš D.",
+            "listName": "Mareš D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "mares-dominik",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "b9VAv9gA",
+            "name": "Ogungbayi B.",
+            "listName": "Ogungbayi B.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ogungbayi-boluwatife",
+            "reason": "Zranění"
+          }
+        ],
         "uncertain": []
       }
     },
@@ -1955,5 +2133,5 @@
       }
     }
   ],
-  "updatedAt": "2026-10-21T13:49:28Z"
+  "updatedAt": "2026-10-21T18:40:44Z"
 }
