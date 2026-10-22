@@ -1931,15 +1931,108 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "lWYpiT1K",
+            "name": "Čihák F.",
+            "listName": "Čihák F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "cihak-filip",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "zgMpZZSc",
+            "name": "Čvančara T.",
+            "listName": "Čvančara T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "cvancara-tomas",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "MmoRMWJI",
+            "name": "Horák D.",
+            "listName": "Horák D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "horak-daniel",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "KCMexHL4",
+            "name": "Kučera J.",
+            "listName": "Kučera J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kucera-jakub",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "GxfCo1gb",
+            "name": "Neto E.",
+            "listName": "Neto E.",
+            "number": null,
+            "position": null,
+            "profileSlug": "neto-elione",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "MB9ze6pG",
+            "name": "Wiesner T.",
+            "listName": "Wiesner T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "wiesner-tomas",
+            "reason": "Poranění kolena"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "6HrDuX1f",
+            "name": "van Buren M.",
+            "listName": "van Buren M.",
+            "number": null,
+            "position": null,
+            "profileSlug": "van-buren-mick",
+            "reason": "Zdravotní problémy"
+          }
+        ]
       },
       "awayContext": {
         "source": "proxy",
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
+        "missing": [
+          {
+            "livesportPlayerId": "23rtJRit",
+            "name": "Jawo L.",
+            "listName": "Jawo L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "jawo-lamin",
+            "reason": "Zlomená ruka"
+          },
+          {
+            "livesportPlayerId": "MN0iqQSj",
+            "name": "Milla K.",
+            "listName": "Milla K.",
+            "number": null,
+            "position": null,
+            "profileSlug": "prince-milla",
+            "reason": "Zlomená noha"
+          },
+          {
+            "livesportPlayerId": "Uy7GqapF",
+            "name": "Suchan J.",
+            "listName": "Suchan J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "suchan-jan",
+            "reason": "Zdravotní problémy"
+          }
+        ],
         "uncertain": []
       }
     },
@@ -1966,8 +2059,73 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "rcNMLGpU",
+            "name": "Behiratche J.",
+            "listName": "Behiratche J.",
+            "number": null,
+            "position": null,
+            "profileSlug": "behiratche-jocelin",
+            "reason": "Žluté karty"
+          },
+          {
+            "livesportPlayerId": "C8lQRr7M",
+            "name": "Puškáč D.",
+            "listName": "Puškáč D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "puskac-david",
+            "reason": "Červená karta"
+          },
+          {
+            "livesportPlayerId": "S2uZ1X20",
+            "name": "Tetour D.",
+            "listName": "Tetour D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "tetour-daniel",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "hvI48Mh2",
+            "name": "Vaško F.",
+            "listName": "Vaško F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "vasko-filip",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "dApjtQf6",
+            "name": "Horský F.",
+            "listName": "Horský F.",
+            "number": null,
+            "position": null,
+            "profileSlug": "horsky-filip",
+            "reason": "Zdravotní problémy"
+          },
+          {
+            "livesportPlayerId": "23zt94fH",
+            "name": "Ndefe G.",
+            "listName": "Ndefe G.",
+            "number": null,
+            "position": null,
+            "profileSlug": "ndefe-gigli",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "ljdHCrrM",
+            "name": "Niarchos G.",
+            "listName": "Niarchos G.",
+            "number": null,
+            "position": null,
+            "profileSlug": "niarchos-ioannis",
+            "reason": "Zdravotní problémy"
+          }
+        ]
       }
     },
     {
@@ -2214,5 +2372,5 @@
       }
     }
   ],
-  "updatedAt": "2026-10-22T01:33:30Z"
+  "updatedAt": "2026-10-22T13:49:21Z"
 }
