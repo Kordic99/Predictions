@@ -1,20 +1,26 @@
 {
-  "generatedAt": "2026-10-20T20:47:42.226666Z",
+  "generatedAt": "2026-10-22T18:44:26.290552Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Jablonec",
+        "name": "Kubát Adam",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 548,
+    "playerCount": 549,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 34,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
-      "Jablonec": 32,
+      "Jablonec": 33,
       "Mladá Boleslav": 33,
       "Pardubice": 33,
       "Sigma Olomouc": 36,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 482,
-    "withoutPublishedMarketValue": 66,
+    "withoutPublishedMarketValue": 67,
     "withCareer": 504,
-    "withoutCareerRows": 44,
-    "withLivesportIdentity": 532,
-    "withLivesportSeasonStats": 532,
+    "withoutCareerRows": 45,
+    "withLivesportIdentity": 533,
+    "withLivesportSeasonStats": 533,
     "activeLivesportPlayers": 396,
     "activeLivesportScorers": 129,
     "warnings": [
@@ -81,7 +87,8 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
+      "Jablonec Kubát Adam: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -297,7 +304,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 519,
+    "sourceRows": 520,
     "attached": [
       {
         "team": "Artis Brno",
@@ -1665,6 +1672,15 @@
         "livesportPlayerId": "23rtJRit",
         "method": "livesport-id",
         "apps": 10,
+        "goals": 0
+      },
+      {
+        "team": "Jablonec",
+        "name": "Kubát Adam",
+        "livesportName": "Kubát Adam",
+        "livesportPlayerId": "lYG7UaIu",
+        "method": "livesport-new",
+        "apps": 0,
         "goals": 0
       },
       {
@@ -4971,10 +4987,16 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Jablonec",
+        "name": "Kubát Adam",
+        "livesportPlayerId": "lYG7UaIu"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 519
+    "publishedLivesportIds": 520
   },
   "careerEnriched": [
     {
@@ -4987,7 +5009,7 @@
   "sourceCounts": {
     "officialRows": 491,
     "transfermarktRows": 483,
-    "livesportRows": 519,
+    "livesportRows": 520,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5446,6 +5468,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-20T20:47:42.226666Z"
+    "checkedAt": "2026-10-22T18:44:26.290552Z"
   }
 }
