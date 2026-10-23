@@ -2,7 +2,7 @@
   "season": "2026/27",
   "source": "Chance Liga",
   "sourceUrl": "https://www.chanceliga.cz/rozpis-zapasu",
-  "updatedAt": "2026-10-18T18:19:41Z",
+  "updatedAt": "2026-10-23T10:38:34Z",
   "matches": [
     {
       "round": 1,
@@ -917,13 +917,14 @@
     },
     {
       "round": 12,
-      "date": "2026-10-24",
-      "time": "15:00",
+      "date": null,
+      "time": null,
       "home": "FC Slovan Liberec",
       "away": "FC Baník Ostrava",
       "score": null,
       "officialMatchId": "8421",
-      "officialUrl": "https://www.chanceliga.cz/zapas/8421-lib-fcb"
+      "officialUrl": "https://www.chanceliga.cz/zapas/8421-lib-fcb",
+      "status": "postponed"
     },
     {
       "round": 12,
