@@ -3713,24 +3713,6 @@
             "reason": "Zdravotní problémy"
           },
           {
-            "livesportPlayerId": "zgMpZZSc",
-            "name": "Čvančara T.",
-            "listName": "Čvančara T.",
-            "number": null,
-            "position": null,
-            "profileSlug": "cvancara-tomas",
-            "reason": "Zdravotní problémy"
-          },
-          {
-            "livesportPlayerId": "MmoRMWJI",
-            "name": "Horák D.",
-            "listName": "Horák D.",
-            "number": null,
-            "position": null,
-            "profileSlug": "horak-daniel",
-            "reason": "Zranění"
-          },
-          {
             "livesportPlayerId": "KCMexHL4",
             "name": "Kučera J.",
             "listName": "Kučera J.",
@@ -3759,6 +3741,15 @@
           }
         ],
         "uncertain": [
+          {
+            "livesportPlayerId": "MmoRMWJI",
+            "name": "Horák D.",
+            "listName": "Horák D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "horak-daniel",
+            "reason": "Zranění"
+          },
           {
             "livesportPlayerId": "6HrDuX1f",
             "name": "van Buren M.",
@@ -4290,5 +4281,5 @@
       }
     }
   ],
-  "updatedAt": "2026-10-22T22:22:15Z"
+  "updatedAt": "2026-10-23T07:34:12Z"
 }
