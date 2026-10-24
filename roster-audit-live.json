@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T11:28:34.824248Z",
+  "generatedAt": "2026-10-24T14:46:30.824802Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -5001,36 +5001,6 @@
     "ratedPerformances": 2534,
     "processed": [
       {
-        "livesportMatchId": "0Q64e9nn",
-        "round": 10,
-        "home": "Zbrojovka Brno",
-        "away": "Jablonec",
-        "score": "0:1",
-        "playerPerformances": 32,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/zbrojovka-brno-4d5TT6i5/jablonec-CM8ySpMH/0Q64e9nn/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "SWpo6so9",
-        "round": 10,
-        "home": "Hradec Králové",
-        "away": "Artis Brno",
-        "score": "2:4",
-        "playerPerformances": 31,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/hradec-kralove-vFXjbHms/artis-brno-zHLktbZ1/SWpo6so9/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "xlTnwSWH",
-        "round": 10,
-        "home": "Viktoria Plzeň",
-        "away": "Mladá Boleslav",
-        "score": "3:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 31,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/mlada-boleslav-0f7GpAMu/xlTnwSWH/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "vy8KiRoB",
         "round": 10,
         "home": "Bohemians 1905",
@@ -5223,7 +5193,10 @@
       "4zBcucdl",
       "r7RWtAXh",
       "UNPvul25",
-      "Awkp8nWi"
+      "Awkp8nWi",
+      "0Q64e9nn",
+      "SWpo6so9",
+      "xlTnwSWH"
     ],
     "validation": {
       "status": "needs-review",
@@ -5436,6 +5409,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-24T11:28:34.824248Z"
+    "checkedAt": "2026-10-24T14:46:30.824802Z"
   }
 }
