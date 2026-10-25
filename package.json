@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "scripts": {
+    "test:archive": "node --test tests/prediction_archive.test.cjs",
+    "archive": "node scripts/archive_predictions.cjs"
+  },
+  "devDependencies": {"playwright": "1.62.1"}
+}

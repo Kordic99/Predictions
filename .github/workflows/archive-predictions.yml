@@ -1,0 +1,66 @@
+name: Archive predictions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'prediction-archive-*.js'
+      - 'data/predictions/**'
+      - 'scripts/*archive*.cjs'
+      - 'scripts/guard_prediction_history.cjs'
+      - 'tests/prediction_archive.test.cjs'
+      - 'package*.json'
+      - '.github/workflows/archive-predictions.yml'
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+    inputs:
+      submission:
+        description: 'Optional authenticated browser snapshot JSON; leave empty for automatic predictions'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+# No shared pending concurrency slot: GitHub can otherwise discard manual submissions.
+# Publication uses compare-and-swap and re-merges the latest immutable archive.
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install pinned browser runtime
+        run: |
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: Validate immutable history and regression tests
+        env:
+          ARCHIVE_BASE_SHA: ${{ github.event.before }}
+        run: |
+          node scripts/guard_prediction_history.cjs
+          node --test tests/prediction_archive.test.cjs
+          node scripts/archive_predictions.cjs validate
+      - name: Accept authenticated snapshot or generate upcoming predictions
+        env:
+          PREDICTION_SUBMISSION: ${{ inputs.submission }}
+        run: |
+          if [ -n "$PREDICTION_SUBMISSION" ]; then
+            node scripts/archive_predictions.cjs submit
+          else
+            node scripts/archive_predictions.cjs generate
+          fi
+      - name: Publish append-only archive with conflict protection
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/publish_prediction_archive.cjs

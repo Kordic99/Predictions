@@ -414,7 +414,7 @@
 <body>
 <div class="app">
 <div class="export-reminder">
-  &#128190; <span><strong>Data-safe updates:</strong> browser edits remain stored after an HTML update on the same GitHub Pages address. Export creates <strong>chanceliga-data.json</strong>; keep that file beside the HTML on GitHub so a fresh browser or a future version can restore the latest published data automatically.</span>
+  &#128190; <span><strong>Prediction archive:</strong> confirmed predictions are restored from GitHub, independently of browser storage and app updates. Accuracy shows any local predictions still awaiting server backup. Export JSON remains the backup for your other manual data.</span>
 </div>
 <div class="storage-bar">
   <button class="storage-btn export" onclick="exportJSON()">&#8595; Export JSON</button>
@@ -735,17 +735,21 @@
         <option value="pending">Pending</option>
         <option value="correct">✓ Correct</option>
         <option value="wrong">✗ Wrong</option>
+        <option value="excluded">Excluded / late</option>
       </select>
     </div>
   </div>
   <div style="font-size:11px;color:var(--text3);margin-bottom:14px;padding:8px 12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--amber)">
     Official results are refreshed every hour at xx:00. The page quietly loads the published update in the background; when available, Livesport data enrich the result with line-ups and player statistics.
   </div>
+  <div id="prediction-archive-status" role="status" aria-live="polite" style="font-size:12px;padding:10px;margin-bottom:12px;background:var(--bg2)">Archiv · načítání…</div>
   <div id="check-results-status" class="check-results-status" aria-live="polite"></div>
   <div class="pred-list-wrap"><div id="acc-list"></div></div>
 </div>
 
 
+<script src="prediction-archive-core.js"></script>
+<script src="prediction-archive-client.js"></script>
 <script>
 // ─── TEAM/NAME NORMALIZATION ──────────────────────────────────────────────────
 const NM={"SK Slavia Praha":"Slavia Prague","AC Sparta Praha":"Sparta Prague","FK Jablonec":"Jablonec","FC Viktoria Plzeň":"Viktoria Plzeň","FC Slovan Liberec":"Slovan Liberec","FC Hradec Králové":"Hradec Králové","SK Sigma Olomouc":"Sigma Olomouc","MFK Karviná":"Karviná","FC Zlín":"Zlín","FC TRINITY Zlín":"Zlín","FC Fastav Zlín":"Zlín","FK Teplice":"Teplice","Bohemians Praha 1905":"Bohemians 1905","FK Pardubice":"Pardubice","FK Mladá Boleslav":"Mladá Boleslav","1.FC Slovácko":"Slovácko","FC Baník Ostrava":"Baník Ostrava","FK Dukla Praha":"Dukla Prague","FC Zbrojovka Brno":"Zbrojovka Brno","SK Artis Brno":"Artis Brno","Artis Brno":"Artis Brno","SK Líšeň":"Artis Brno","SK Lisen":"Artis Brno","SK Dynamo České Budějovice":"Dynamo Č. Budějovice"};
@@ -1435,6 +1439,8 @@ function dedupeRuntimeData(){
   mergePred.kind='predictions';
   predMatches=dedupe(predMatches,m=>healthPredictionKey(m,false),mergePred);
   const mergeLock=(oldRow,newRow)=>{
+    const canonical=canonicalArchivedLock(oldRow)||canonicalArchivedLock(newRow);
+    if(canonical)return canonical;
     // Accuracy snapshots are append-only facts.  For the same match/model,
     // preserve the first valid lock instead of letting a newer import replace
     // its probabilities or inputs.
@@ -3101,12 +3107,19 @@ function lockPredictionSystem(match,system,reason='saved_to_accuracy',notify=tru
     if(notify)alert('This prediction is already locked in Accuracy.');
     return false;
   }
+  const fixture=predictionFixture(match);
+  const kickoff=PredictionArchive.kickoffMs(fixture);
+  if(kickoff===null||Date.now()>=kickoff||findResultForPred(match)){
+    if(notify)alert('Predikci lze uzamknout jen před známým výkopem. Po zápase ji nelze zpětně vytvořit pro Accuracy.');
+    return false;
+  }
   const p=system==='P2'?getPred3MatchPrediction(match):getP1MatchPrediction(match);
   lockedPredictions.unshift(createLockedPrediction(match,system,p,reason));
   dedupeRuntimeData();
   autoSave();
   renderPred();renderPred2();renderAccuracy();
-  if(notify)alert('Prediction locked. Its probabilities, inputs and line-up snapshot can no longer change.');
+  if(notify)alert('Predikce uzamčena. Pravděpodobnosti a vstupy se již nezmění. Stav zálohy na GitHubu najdeš v Accuracy.');
+  renderPredictionArchiveStatus();
   return true;
 }
 
@@ -3121,18 +3134,20 @@ function predictionDueForKickoff(match){
 function autoLockDuePredictions(){
   let locked=0;
   predMatches.forEach(match=>{
-    if((match.season||CURRENT_SEASON)!==CURRENT_SEASON||!predictionDueForKickoff(match))return;
+    const kickoff=PredictionArchive.kickoffMs(predictionFixture(match));
+    // Snapshot before kickoff, never recompute a missing forecast afterwards.
+    if((match.season||CURRENT_SEASON)!==CURRENT_SEASON||kickoff===null||Date.now()>=kickoff||kickoff-Date.now()>3600000||findResultForPred(match))return;
     [ACTIVE_PREDICTION_SYSTEM].forEach(system=>{
       if(!findLockedPrediction(match,system)){
         const p=system==='P2'?getPred3MatchPrediction(match):getP1MatchPrediction(match);
-        lockedPredictions.unshift(createLockedPrediction(match,system,p,'kickoff_auto_lock'));
+        lockedPredictions.unshift(createLockedPrediction(match,system,p,'pre_kickoff_browser_lock'));
         locked++;
       }
     });
   });
   if(locked){
     dedupeRuntimeData();autoSave();renderPred();renderPred2();renderAccuracy();
-    setStatus(`${locked} prediction snapshot${locked===1?'':'s'} locked at kickoff.`,'ok');
+    setStatus(`${locked} prediction snapshots locked before kickoff; check GitHub backup status.`,'ok');
   }
   return locked;
 }
@@ -6238,7 +6253,7 @@ function applyStoredData(data){
     }
     // Restore predictions
     if(data._hasPredMatches){
-      predMatches.length = 0;
+      // Imports are additive. A newer partial export must not erase old rounds.
       data.predMatches.forEach(raw => {
         const m={...raw};
         if(!m.season) m.season = CURRENT_SEASON; // backfill missing season
@@ -6285,6 +6300,7 @@ function setStatus(msg, type=''){
 }
 
 function persistSnapshot(data=getStorableData()){
+  persistPredictionJournal(data);
   const serialized=JSON.stringify(data);
   const encoded=encodeStorageSnapshot(serialized);
   const previous=localStorage.getItem(STORAGE_KEY);
@@ -6335,7 +6351,14 @@ function readBestStorageSnapshot(){
   candidates.sort((left,right)=>
     right.savedAt-left.savedAt || left.order-right.order
   );
-  return candidates[0]||null;
+  const journal=readPredictionJournal();
+  const best=candidates[0]||null;
+  if(!best&&!journal.locks.length&&!journal.matches.length)return null;
+  const data=best?{...best.data}:normalizeStoredData({app:'chance-liga-dashboard',version:STORAGE_SCHEMA_VERSION,lockedPredictions:[],predMatches:[]});
+  data.lockedPredictions=PredictionArchive.mergeLocks(...candidates.map(x=>x.data.lockedPredictions||[]),journal.locks);
+  data.predMatches=mergeStoredRows(candidates.slice().reverse().flatMap(x=>x.data.predMatches||[]),journal.matches,m=>healthPredictionKey(m,false));
+  data._hasLockedPredictions=true;data._hasPredMatches=true;
+  return {...(best||{key:PredictionArchive.JOURNAL,savedAt:0,raw:JSON.stringify(data)}),data};
 }
 
 function saveToStorage(){
@@ -6455,16 +6478,18 @@ function importJSON(input){
 }
 
 function clearStorage(){
-  if(confirm('Clear all saved data from this browser? The hardcoded base data stays. Your added results, player updates and predictions will be lost unless you exported first.')){
+  if(confirm('Clear saved results/player overrides from this browser? Export them first if needed. The protected prediction journal and GitHub history will be kept.')){
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem(STORAGE_BACKUP_KEY);
-    setStatus('Cleared. Reload the page to start fresh.', 'warn');
+    setStatus('App storage cleared; protected prediction history was kept. Reload to restore it.', 'warn');
   }
 }
 
 // Auto-save whenever user adds data
 function autoSave(options={}){
   try{
+    // Player validation/storage quota must not silently lose a new prediction.
+    persistPredictionJournal();
     if(!options.skipHealthCheck){
       const health=runAutomaticDataHealthCheck();
       if(health&&!health.ok)return false;
@@ -6575,13 +6600,11 @@ function evalPrediction(m, resultScore){
 }
 
 function deleteLocked(id){
-  const idx=lockedPredictions.findIndex(l=>l.id===id);
-  if(idx>=0&&confirm('Remove this locked Accuracy snapshot? Its contents cannot be edited; removal is permanent after the next save.')){
-    lockedPredictions.splice(idx,1);autoSave();renderPred();renderPred2();renderAccuracy();
-  }
+  alert('Uzamčené predikce jsou trvalou historií a nelze je smazat. Chybný nebo pozdní záznam se uchová a vyřadí z hodnocení.');
 }
 
 function renderAccuracy(){
+  renderPredictionArchiveStatus();
   const el=document.getElementById('acc-list');
   const sumEl=document.getElementById('acc-summary');
   if(!el)return;
@@ -6640,21 +6663,24 @@ function renderAccuracy(){
         logLoss:logLossFor(l,actual)
       };
     }
-    return{l,r,ev};
+    const eligibility=predictionEvaluationStatus(l);
+    return{l,r,ev,eligibility};
   });
 
-  const rows=allRows.filter(({l,ev})=>{
+  const rows=allRows.filter(({l,ev,eligibility})=>{
     if(fASeason && l.season!==fASeason) return false;
     if(fARound && String(l.round)!==String(fARound)) return false;
-    if(fAStatus==='pending' && ev) return false;
-    if(fAStatus==='correct' && (!ev||!ev.outcomeCorrect)) return false;
-    if(fAStatus==='wrong' && (!ev||ev.outcomeCorrect)) return false;
+    if(fAStatus==='pending' && (ev||!eligibility.eligible)) return false;
+    if(fAStatus==='correct' && (!eligibility.eligible||!ev||!ev.outcomeCorrect)) return false;
+    if(fAStatus==='wrong' && (!eligibility.eligible||!ev||ev.outcomeCorrect)) return false;
+    if(fAStatus==='excluded' && eligibility.eligible)return false;
     return true;
   });
-  const settled=rows.filter(x=>x.ev);
+  const settled=rows.filter(x=>x.ev&&x.eligibility.eligible);
   const correct=settled.filter(x=>x.ev.outcomeCorrect).length;
   const exact=settled.filter(x=>x.ev.scoreExact).length;
-  const pending=rows.filter(x=>!x.ev).length;
+  const pending=rows.filter(x=>!x.ev&&x.eligibility.eligible).length;
+  const excluded=rows.filter(x=>!x.eligibility.eligible).length;
 
   if(!rows.length){
     if(!accuracyLocks.length){
@@ -6672,9 +6698,9 @@ function renderAccuracy(){
   const logLoss=avg(settled,x=>x.ev.logLoss);
   const conf=avg(settled,x=>confFor(x.l));
   const buckets=[
-    {label:'<40%',min:0,max:39},{label:'40-54%',min:40,max:54},{label:'55-69%',min:55,max:69},{label:'70%+',min:70,max:100}
+    {label:'<40%',min:0,max:40},{label:'40–<55%',min:40,max:55},{label:'55–<70%',min:55,max:70},{label:'70%+',min:70,max:101}
   ].map(b=>{
-    const xs=settled.filter(x=>{const c=confFor(x.l);return c>=b.min&&c<=b.max;});
+    const xs=settled.filter(x=>{const c=confFor(x.l);return c>=b.min&&c<b.max;});
     const ok=xs.filter(x=>x.ev.outcomeCorrect).length;
     return xs.length?`${b.label}: ${ok}/${xs.length}`:null;
   }).filter(Boolean).join(' · ');
@@ -6689,8 +6715,9 @@ function renderAccuracy(){
      +(buckets?`<div style="font-size:10px;color:var(--text3);margin-top:3px">Calibration: ${buckets}</div>`:'')
     :`<span style="color:var(--amber)">${pending} prediction${pending!==1?'s':''} awaiting result</span>`;
 
+  if(excluded)sumEl.innerHTML+=` · <span style="color:var(--red)">${excluded} excluded (late / unverified)</span>`;
   const hCol='#185FA5',dCol='#888780',aCol='#A32D2D';
-  el.innerHTML=rows.map(({l,r,ev})=>{
+  el.innerHTML=rows.map(({l,r,ev,eligibility})=>{
     const predLabel=predLabelFor(l);
     const actualLabel=!ev?'—':ev.actual==='H'?`${l.home} win`:ev.actual==='D'?'Draw':`${l.away} win`;
     const safeHP=Math.max(0,Math.min(100,Number(l.hP)||0));
@@ -6708,7 +6735,9 @@ function renderAccuracy(){
         </div>
         <div style="font-size:9px;color:var(--text3);margin-top:2px">Top: <strong>${lsEsc(l.topScore)}</strong> &nbsp;xG: ${lsEsc(l.hxG)}-${lsEsc(l.axG)}</div>`;
 
-    const verdictHtml=!ev
+    const verdictHtml=!eligibility.eligible
+      ?`<div style="color:var(--red);font-size:10px">Excluded from evaluation<br>${lsEsc(eligibility.reason)}</div>`
+      :!ev
       ?'<div style="font-size:9px;color:var(--amber)">Awaiting result</div>'
       :`<div style="font-size:10px;font-weight:600;color:${ev.outcomeCorrect?'var(--green)':'var(--red)'}">
           ${ev.outcomeCorrect?'Correct':'Wrong'}
@@ -6722,7 +6751,9 @@ function renderAccuracy(){
           Brier ${ev.brier.toFixed(3)} · log ${ev.logLoss.toFixed(3)} · actual ${(ev.actualProb*100).toFixed(0)}%
         </div>`;
 
-    const statusDot=!ev
+    const statusDot=!eligibility.eligible
+      ?'<span style="width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block"></span>'
+      :!ev
       ?'<span style="width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block"></span>'
       :ev.outcomeCorrect
         ?'<span style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block"></span>'
@@ -6742,7 +6773,7 @@ function renderAccuracy(){
         <span style="margin-left:auto;display:flex;align-items:center;gap:6px">
           ${statusDot}
           <span style="font-size:8px;color:#fff9">🔒 ${lockedDate}</span>
-          <button class="del-btn" style="color:#fff9;font-size:10px" onclick="deleteLocked(${lsEsc(JSON.stringify(String(l.id)))})">×</button>
+          <span title="Permanent prediction history" style="color:#fff9;font-size:9px">archived history</span>
         </span>
       </div>
       <div style="padding:5px 8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
@@ -8663,7 +8694,7 @@ if(restoredStorageSnapshot){
   applyAuthoritativeRosters202627(false);
   applyVerifiedTransfermarktValues202627(false);
   dedupeRuntimeData();
-  persistSnapshot();
+  try{persistSnapshot();}catch(error){setStatus('Local storage full; prediction history remains protected. '+error.message,'warn');}
   renderAfterDataRestore();
 }
 storageBootstrapping=false;
@@ -8910,7 +8941,8 @@ async function loadPublishedDataSnapshot(){
 // Validate the final initialized state. Waiting for the optional published
 // snapshot prevents a transient warning from embedded/browser data that is
 // immediately superseded by a newer GitHub Pages JSON snapshot.
-void loadPublishedDataSnapshot().then(async()=>{
+if(!window.__PREDICTION_ARCHIVE_RUNNER__)void loadPublishedDataSnapshot().then(async()=>{
+  startPredictionArchive();
   const contextPromise=loadMatchContextData();
   await loadPublishedRosterData();
   // Always validate the final merged state. Both optional server snapshots may
