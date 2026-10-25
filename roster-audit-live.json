@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T21:06:52.899846Z",
+  "generatedAt": "2026-10-25T12:42:51.070068Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -5009,16 +5009,6 @@
     "ratedPerformances": 2645,
     "processed": [
       {
-        "livesportMatchId": "6N9CgmHb",
-        "round": 10,
-        "home": "Slovan Liberec",
-        "away": "Slovácko",
-        "score": "0:2",
-        "playerPerformances": 31,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slovan-liberec-4bp6yRjU/slovacko-MNEDyOlF/6N9CgmHb/prehled/hracske-stats/obecne/"
-      },
-      {
         "livesportMatchId": "A1Rfy61U",
         "round": 10,
         "home": "Teplice",
@@ -5235,7 +5225,8 @@
       "0Q64e9nn",
       "SWpo6so9",
       "xlTnwSWH",
-      "vy8KiRoB"
+      "vy8KiRoB",
+      "6N9CgmHb"
     ],
     "validation": {
       "status": "needs-review",
@@ -5456,6 +5447,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-24T21:06:52.899846Z"
+    "checkedAt": "2026-10-25T12:42:51.070068Z"
   }
 }
