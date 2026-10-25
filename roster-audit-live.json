@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T19:54:06.083940Z",
+  "generatedAt": "2026-10-25T22:45:27.170547Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -85,7 +85,7 @@
     "matchDetails": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 93,
+      "eventCount": 94,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
@@ -94,6 +94,7 @@
         "0rluHsFM": 32,
         "2exFYWMr": 31,
         "48MjBAwH": 32,
+        "4vwJ9a7d": 32,
         "4zBcucdl": 32,
         "6N9CgmHb": 31,
         "6qBQoDaf": 32,
@@ -189,6 +190,7 @@
         "0rluHsFM": 30,
         "2exFYWMr": 29,
         "48MjBAwH": 30,
+        "4vwJ9a7d": 30,
         "4zBcucdl": 30,
         "6N9CgmHb": 28,
         "6qBQoDaf": 28,
@@ -276,24 +278,9 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2934,
-      "ratedPerformances": 2706,
+      "playerPerformances": 2966,
+      "ratedPerformances": 2736,
       "reconciliationIssues": [
-        {
-          "team": "Pardubice",
-          "name": "Ouattara Arouna",
-          "livesportPlayerId": "GCtxBl5s",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 2,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -5029,12 +5016,12 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 93,
-    "availableMatches": 93,
+    "completedMatches": 94,
+    "availableMatches": 94,
     "status": "complete",
     "pendingMatches": [],
-    "playerPerformances": 2934,
-    "ratedPerformances": 2706,
+    "playerPerformances": 2966,
+    "ratedPerformances": 2736,
     "processed": [
       {
         "livesportMatchId": "YF0FAQZa",
@@ -5175,6 +5162,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 31,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sparta-praha-6qA358jH/slovacko-MNEDyOlF/CbkHRXSs/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "4vwJ9a7d",
+        "round": 12,
+        "home": "Viktoria Plzeň",
+        "away": "Pardubice",
+        "score": "1:2",
+        "playerPerformances": 32,
+        "ratedPerformances": 30,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/pardubice-Ys4YYBPn/4vwJ9a7d/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5261,7 +5258,7 @@
     "validation": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 93,
+      "eventCount": 94,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
@@ -5270,6 +5267,7 @@
         "0rluHsFM": 32,
         "2exFYWMr": 31,
         "48MjBAwH": 32,
+        "4vwJ9a7d": 32,
         "4zBcucdl": 32,
         "6N9CgmHb": 31,
         "6qBQoDaf": 32,
@@ -5365,6 +5363,7 @@
         "0rluHsFM": 30,
         "2exFYWMr": 29,
         "48MjBAwH": 30,
+        "4vwJ9a7d": 30,
         "4zBcucdl": 30,
         "6N9CgmHb": 28,
         "6qBQoDaf": 28,
@@ -5452,24 +5451,9 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 2934,
-      "ratedPerformances": 2706,
+      "playerPerformances": 2966,
+      "ratedPerformances": 2736,
       "reconciliationIssues": [
-        {
-          "team": "Pardubice",
-          "name": "Ouattara Arouna",
-          "livesportPlayerId": "GCtxBl5s",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 2,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -5496,6 +5480,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-25T19:54:06.083940Z"
+    "checkedAt": "2026-10-25T22:45:27.170547Z"
   }
 }
