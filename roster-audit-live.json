@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T22:45:27.170547Z",
+  "generatedAt": "2026-10-26T14:30:26.972556Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -310,7 +310,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 520,
+    "sourceRows": 519,
     "attached": [
       {
         "team": "Artis Brno",
@@ -4175,15 +4175,6 @@
       },
       {
         "team": "Viktoria Plzeň",
-        "name": "Jemelka Václav",
-        "livesportName": "Jemelka Václav",
-        "livesportPlayerId": "dldY3lBa",
-        "method": "livesport-id",
-        "apps": 0,
-        "goals": 0
-      },
-      {
-        "team": "Viktoria Plzeň",
         "name": "Kubín Petr",
         "livesportName": "Kubín Petr",
         "livesportPlayerId": "tYOWuami",
@@ -4996,7 +4987,7 @@
     "added": [],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 520
+    "publishedLivesportIds": 519
   },
   "careerEnriched": [
     {
@@ -5009,7 +5000,7 @@
   "sourceCounts": {
     "officialRows": 494,
     "transfermarktRows": 486,
-    "livesportRows": 520,
+    "livesportRows": 519,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5480,6 +5471,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-25T22:45:27.170547Z"
+    "checkedAt": "2026-10-26T14:30:26.972556Z"
   }
 }
