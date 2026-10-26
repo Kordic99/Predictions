@@ -4,7 +4,8 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const A=require('../prediction-archive-core.js');
-const {makeRecord,empty,digest,generateInPage}=require('../scripts/archive_predictions.cjs');
+const {makeRecord,empty,digest}=require('../scripts/archive_predictions.cjs');
+const {execFileSync}=require('node:child_process');
 const {publishArchive}=require('../scripts/publish_prediction_archive.cjs');
 const {openApp}=require('../scripts/archive_runtime.cjs');
 const root=path.resolve(__dirname,'..');
@@ -83,21 +84,41 @@ test('CAS publisher retries a concurrent change, retains the other record, then 
     await publishArchive(local);assert.equal(put,2);
   }finally{global.fetch=fetchBefore;if(tokenBefore===undefined)delete process.env.GITHUB_TOKEN;else process.env.GITHUB_TOKEN=tokenBefore;}
 });
-test('server model produces a valid immutable forecast with actual input files, and rejects past targets',{timeout:120000},async()=>{
+test('default and legacy server commands never create or rewrite predictions',()=>{
+  const before=fs.readFileSync(path.join(root,A.FILE));
+  for(const args of [[],['generate'],['validate']]){
+    execFileSync(process.execPath,['scripts/archive_predictions.cjs',...args],{cwd:root,encoding:'utf8'});
+    assert.deepEqual(fs.readFileSync(path.join(root,A.FILE)),before);
+  }
+  const workflow=fs.readFileSync(path.join(root,'.github/workflows/archive-predictions.yml'),'utf8');
+  assert.doesNotMatch(workflow,/\n\s+schedule:/);
+  assert.doesNotMatch(workflow,/archive_predictions\.cjs generate/);
+});
+test('browser never auto-locks before kickoff; manual lock still captures and freezes current inputs',{timeout:120000},async()=>{
   const app=await openApp(root);
   try{
-    const schedule=JSON.parse(fs.readFileSync(path.join(root,'schedule-live.json'),'utf8'));
-    const context=JSON.parse(fs.readFileSync(path.join(root,'match-context-live.json'),'utf8'));
-    const rosters=JSON.parse(fs.readFileSync(path.join(root,'rosters-live.json'),'utf8'));
-    // A fixed test clock keeps the test useful after the season ends. No output is published.
-    await app.page.clock.install({time:new Date('2026-07-24T12:00:00Z')});
-    const target={...schedule.matches[0],score:null};
-    const [forecast]=await app.page.evaluate(generateInPage,{schedule,context,rosters,targets:[target]});
-    A.validateLock(forecast);
-    assert.equal(forecast.lockedReason,'server_pre_kickoff');
-    assert.equal(await app.page.evaluate(lock=>lockedPredictionIntegrityOK(lock),forecast),true);
-    assert.equal(makeRecord(forecast,target,{kind:'test'},'2026-07-24T12:01:00Z').evaluation.eligible,true);
-    await assert.rejects(app.page.evaluate(generateInPage,{schedule,context,rosters,targets:[{...target,date:'2000-01-01'}]}),/Kickoff reached/);
+    await app.page.clock.install({time:new Date('2030-01-01T10:30:00Z')});
+    await app.page.evaluate(()=>{
+      const f=OFFICIAL_SCHEDULE_2026_27.find(f=>!findResultForPred({...f,season:CURRENT_SEASON}));
+      f.date='2030-01-01';f.time='12:00';
+      predMatches=[{...f,season:CURRENT_SEASON,kickoff:f.time,hDisadv:0,aDisadv:0,hXI:[],aXI:[]}];
+      startPredictionKickoffLock();autoLockDuePredictions();
+    });
+    await app.page.clock.runFor(31000);
+    assert.equal(await app.page.evaluate(()=>lockedPredictions.length),0);
+    const result=await app.page.evaluate(()=>{
+      const match=predMatches[0];
+      const expected=getPred3MatchPrediction(match);
+      const saved=lockPredictionSystem(match,'P2','saved_to_accuracy',false);
+      const snapshot=JSON.stringify(lockedPredictions[0]);
+      match.hDisadv=20;clearPred3Cache();
+      const frozen=getPred3MatchPrediction(match);
+      autoLockDuePredictions();
+      return {saved,count:lockedPredictions.length,valid:lockedPredictionIntegrityOK(lockedPredictions[0]),reason:lockedPredictions[0].lockedReason,expected:expected.hP,frozen:frozen.hP,unchanged:snapshot===JSON.stringify(lockedPredictions[0]),inputSource:lockedPredictions[0].snapshot.inputs.homeXI.source};
+    });
+    assert.equal(result.saved,true);assert.equal(result.count,1);assert.equal(result.valid,true);
+    assert.equal(result.reason,'saved_to_accuracy');assert.equal(result.expected,result.frozen);
+    assert.equal(result.unchanged,true);assert.ok(result.inputSource);
     assert.deepEqual(app.errors,[]);
   }finally{await app.close();}
 });

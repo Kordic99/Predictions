@@ -98,7 +98,7 @@ function renderPredictionArchiveStatus(){
   const bad=state.error||pending.length;
   el.style.borderLeft='3px solid var('+(bad?'--red':'--green')+')';
   el.innerHTML=`<strong>${state.error?'Archiv · chyba':state.loading?'Archiv · načítání':state.saving?'Archiv · čeká na potvrzení GitHubu':`GitHub archiv · ${count} zápasů`}</strong>`
-    +`<span style="margin-left:10px">${state.error?lsEsc(state.error):pending.length?`${pending.length} lokálních predikcí ještě není potvrzeno na GitHubu.`:'Historie se obnovuje z GitHubu; automatické predikce vznikají na serveru před výkopem.'}</span>`
+    +`<span style="margin-left:10px">${state.error?lsEsc(state.error):pending.length?`${pending.length} lokálních predikcí ještě není potvrzeno na GitHubu.`:'Historie se obnovuje z GitHubu. Nové predikce zamykáš pouze ručně.'}</span>`
     +` <button class="btn" onclick="loadPredictionArchive(true)">Obnovit archiv</button>`
     +(pending.length?` <button class="btn" onclick="openPredictionArchiveSync()">Zálohovat lokální predikce</button>`:'');
 }
@@ -125,7 +125,7 @@ function openPredictionArchiveSync(){
     dialog=document.createElement('dialog');dialog.id='prediction-archive-dialog';
     dialog.style.cssText='max-width:560px;border:1px solid #777;border-radius:12px;padding:24px';
     dialog.innerHTML='<h3>Záloha lokálních predikcí na GitHub</h3>'
-      +'<p>Automatické predikce se archivují bez přihlášení. Pro odeslání vlastních lokálních predikcí použij token omezený na Kordic99/Predictions s oprávněním <b>Actions: write</b>. Token zůstane jen v paměti této stránky, nikdy v exportu ani úložišti.</p>'
+      +'<p>Predikce zamykáš ručně; GitHub je sám nevytváří. Pro zálohu uzamčených predikcí použij token omezený na Kordic99/Predictions s oprávněním <b>Actions: write</b>. Token zůstane jen v paměti této stránky, nikdy v exportu ani úložišti.</p>'
       +'<p>Záznam přijatý až po výkopu se zachová, ale nebude započítán do hodnocení. Po odeslání počkáme na skutečné potvrzení v archivu.</p>'
       +'<label>GitHub token <input id="prediction-archive-token" type="password" autocomplete="off" spellcheck="false" style="width:100%"></label>'
       +'<p id="prediction-archive-sync-message" role="status"></p>'

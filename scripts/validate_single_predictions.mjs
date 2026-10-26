@@ -40,7 +40,8 @@ const migrated = [legacy, retained, unlabeledLegacy].filter(context.testActivePr
 
 assert.deepEqual(migrated.map(row => row.id), ['new'], 'migration must retain only former Prediction 2 data');
 assert.match(inlineScripts, /lockedPredictions\.filter\(isActivePredictionLock\)\.map\(normalizeLockedPrediction\)/, 'exports must exclude legacy Accuracy rows');
-assert.match(inlineScripts, /\[ACTIVE_PREDICTION_SYSTEM\]\.forEach\(system=>/, 'kickoff lock must run only for the retained model');
+assert.match(inlineScripts, /function autoLockDuePredictions\(\)\{\s*\/\/[^\n]*\n\s*return 0;/, 'automatic locking must remain disabled');
+assert.doesNotMatch(inlineScripts, /setInterval\(autoLockDuePredictions/, 'no automatic locking timer is allowed');
 assert.doesNotMatch(inlineScripts, /\['P1','P2'\]\.forEach\(system=>/, 'kickoff lock must not recreate Prediction 1 rows');
 
 console.log('Single Predictions migration validation OK');

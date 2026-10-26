@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "season": "2026/27",
   "policy": {
-    "automatic": "First successful server snapshot in the 48 hours before kickoff; never overwritten.",
+    "automatic": "Disabled. Predictions are locked manually by the user; the server only archives submitted snapshots.",
     "evaluation": "Original pre-kickoff exports or server-received pre-kickoff predictions only.",
     "selection": "Earliest eligible snapshot per official fixture; alternate versions remain archived."
   },

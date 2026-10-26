@@ -7,19 +7,22 @@ lock, creation time, probabilities, model version and calculation/lineup snapsho
 source, eligibility and SHA-256 content ID. Original exports are never uploaded in
 full. Recovered records retain their source filename and checksum, not local paths.
 
-## Automatic forecasts
+## Manual locking only
 
-GitHub Actions **Archive predictions** runs hourly at minute 23 and can be dispatched
-manually. It executes the same prediction model as the website in headless Chromium,
-using the checked-out schedule, rosters and match context. The first successful run
-in the 48 hours before kickoff saves an immutable forecast. The source commit and
-SHA-256 of all four model input/code files permit retrieval of the exact input
-versions. It never calculates a missing historical prediction after kickoff.
+Only clicking Save to Accuracy locks a new prediction. Neither opening the page,
+refreshing lineups nor approaching kickoff creates a snapshot. The former browser
+timer and hourly server generator were disabled at the user's request on 2026-10-26.
+The historical records were not changed.
 
-GitHub schedules are best-effort, not a guaranteed clock. A missed window is missing
-data, not permission to backfill using the result. Context older than 12 hours fails
-visibly rather than silently generating from stale embedded data. Postponed/TBA
-fixtures are skipped until a usable kickoff is known.
+GitHub Actions **Archive predictions** validates history after relevant pushes and
+accepts authenticated submissions of manually locked snapshots. An empty dispatch
+only validates existing data. The compatibility CLI command `generate` is also a
+read-only validation, so an older queued workflow cannot create a prediction.
+
+Unlocked forecasts may use refreshed inputs. Manual locking captures the available
+calculation, lineup and source context at that moment. Later input refreshes cannot
+change the locked prediction. News/social/odds enrichment is not implemented by this
+change; any future research feed must follow this same manual-lock boundary.
 
 ## Browser and manual changes
 
@@ -29,7 +32,7 @@ and draft match inputs even if the large player snapshot cannot be saved. It is 
 deleted to free quota. A server copy, not browser storage, is the durable guarantee.
 The browser's Clear action does not clear this history.
 
-Automatic server predictions need no login. Local/manual forecasts are explicitly
+Local/manual forecasts are explicitly
 shown as **not confirmed on GitHub** until their identical snapshot appears in the
 archive. In Accuracy, **Zálohovat lokální predikce** accepts a fine-grained token for
 Kordic99/Predictions with **Actions: write**. The credential is held only in memory,
@@ -68,7 +71,6 @@ npm ci --ignore-scripts
 npx playwright install --with-deps chromium
 node --test tests/prediction_archive.test.cjs
 node scripts/archive_predictions.cjs validate
-node scripts/archive_predictions.cjs generate
 ```
 
 Recovery is a deliberate operator-only local command with explicit export paths:

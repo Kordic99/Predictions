@@ -12,12 +12,10 @@ on:
       - 'tests/prediction_archive.test.cjs'
       - 'package*.json'
       - '.github/workflows/archive-predictions.yml'
-  schedule:
-    - cron: '23 * * * *'
   workflow_dispatch:
     inputs:
       submission:
-        description: 'Optional authenticated browser snapshot JSON; leave empty for automatic predictions'
+        description: 'Manually locked browser snapshot JSON; leave empty to validate existing history only'
         required: false
         type: string
         default: ''
@@ -51,14 +49,14 @@ jobs:
           node scripts/guard_prediction_history.cjs
           node --test tests/prediction_archive.test.cjs
           node scripts/archive_predictions.cjs validate
-      - name: Accept authenticated snapshot or generate upcoming predictions
+      - name: Archive manually locked snapshots only
         env:
           PREDICTION_SUBMISSION: ${{ inputs.submission }}
         run: |
           if [ -n "$PREDICTION_SUBMISSION" ]; then
             node scripts/archive_predictions.cjs submit
           else
-            node scripts/archive_predictions.cjs generate
+            echo "No submission; no prediction will be created or locked."
           fi
       - name: Publish append-only archive with conflict protection
         env:

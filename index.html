@@ -3132,30 +3132,13 @@ function predictionDueForKickoff(match){
 }
 
 function autoLockDuePredictions(){
-  let locked=0;
-  predMatches.forEach(match=>{
-    const kickoff=PredictionArchive.kickoffMs(predictionFixture(match));
-    // Snapshot before kickoff, never recompute a missing forecast afterwards.
-    if((match.season||CURRENT_SEASON)!==CURRENT_SEASON||kickoff===null||Date.now()>=kickoff||kickoff-Date.now()>3600000||findResultForPred(match))return;
-    [ACTIVE_PREDICTION_SYSTEM].forEach(system=>{
-      if(!findLockedPrediction(match,system)){
-        const p=system==='P2'?getPred3MatchPrediction(match):getP1MatchPrediction(match);
-        lockedPredictions.unshift(createLockedPrediction(match,system,p,'pre_kickoff_browser_lock'));
-        locked++;
-      }
-    });
-  });
-  if(locked){
-    dedupeRuntimeData();autoSave();renderPred();renderPred2();renderAccuracy();
-    setStatus(`${locked} prediction snapshots locked before kickoff; check GitHub backup status.`,'ok');
-  }
-  return locked;
+  // Compatibility hook for refresh callers. Locking is exclusively manual.
+  return 0;
 }
 
 function startPredictionKickoffLock(){
-  if(predictionKickoffLockTimer)return;
-  predictionKickoffLockTimer=setInterval(autoLockDuePredictions,30000);
-  autoLockDuePredictions();
+  if(predictionKickoffLockTimer)clearInterval(predictionKickoffLockTimer);
+  predictionKickoffLockTimer=null;
 }
 
 function validateMatchContextData(payload){
