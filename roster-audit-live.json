@@ -1,17 +1,23 @@
 {
-  "generatedAt": "2026-10-28T14:22:16.737612Z",
+  "generatedAt": "2026-10-28T19:47:24.188591Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Drozd Šimon",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 548,
+    "playerCount": 549,
     "teamCounts": {
       "Artis Brno": 38,
-      "Baník Ostrava": 33,
+      "Baník Ostrava": 34,
       "Bohemians 1905": 30,
       "Hradec Králové": 28,
       "Jablonec": 33,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 483,
-    "withoutPublishedMarketValue": 65,
+    "withoutPublishedMarketValue": 66,
     "withCareer": 505,
-    "withoutCareerRows": 43,
-    "withLivesportIdentity": 533,
-    "withLivesportSeasonStats": 533,
+    "withoutCareerRows": 44,
+    "withLivesportIdentity": 534,
+    "withLivesportSeasonStats": 534,
     "activeLivesportPlayers": 401,
     "activeLivesportScorers": 133,
     "warnings": [
@@ -80,7 +86,8 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
+      "Baník Ostrava Drozd Šimon: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -310,7 +317,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 519,
+    "sourceRows": 520,
     "attached": [
       {
         "team": "Artis Brno",
@@ -885,6 +892,15 @@
         "livesportName": "Bitta Matyáš",
         "livesportPlayerId": "QJFcNxC5",
         "method": "livesport-id",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Baník Ostrava",
+        "name": "Drozd Šimon",
+        "livesportName": "Drozd Šimon",
+        "livesportPlayerId": "pQXwfG5d",
+        "method": "livesport-new",
         "apps": 0,
         "goals": 0
       },
@@ -4984,10 +5000,16 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Baník Ostrava",
+        "name": "Drozd Šimon",
+        "livesportPlayerId": "pQXwfG5d"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 519
+    "publishedLivesportIds": 520
   },
   "careerEnriched": [
     {
@@ -5000,7 +5022,7 @@
   "sourceCounts": {
     "officialRows": 494,
     "transfermarktRows": 486,
-    "livesportRows": 519,
+    "livesportRows": 520,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5014,16 +5036,6 @@
     "playerPerformances": 2966,
     "ratedPerformances": 2736,
     "processed": [
-      {
-        "livesportMatchId": "YF0FAQZa",
-        "round": 6,
-        "home": "Bohemians 1905",
-        "away": "Mladá Boleslav",
-        "score": "1:0",
-        "playerPerformances": 31,
-        "ratedPerformances": 27,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/bohemians-1905-fuXqHnxa/mlada-boleslav-0f7GpAMu/YF0FAQZa/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "0rluHsFM",
         "round": 11,
@@ -5244,7 +5256,8 @@
       "vy8KiRoB",
       "6N9CgmHb",
       "A1Rfy61U",
-      "n1BSk5GN"
+      "n1BSk5GN",
+      "YF0FAQZa"
     ],
     "validation": {
       "status": "needs-review",
@@ -5471,6 +5484,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-28T14:22:16.737612Z"
+    "checkedAt": "2026-10-28T19:47:24.188591Z"
   }
 }
