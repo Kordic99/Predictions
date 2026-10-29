@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-28T19:47:24.188591Z",
+  "generatedAt": "2026-10-29T13:36:07.786710Z",
   "changes": {
     "added": [
       {
-        "team": "Baník Ostrava",
-        "name": "Drozd Šimon",
+        "team": "Pardubice",
+        "name": "Urban Tomáš",
         "transfermarktPlayerId": null
       }
     ],
@@ -14,7 +14,7 @@
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 549,
+    "playerCount": 550,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 34,
@@ -22,7 +22,7 @@
       "Hradec Králové": 28,
       "Jablonec": 33,
       "Mladá Boleslav": 33,
-      "Pardubice": 33,
+      "Pardubice": 34,
       "Sigma Olomouc": 36,
       "Slavia Prague": 38,
       "Slovan Liberec": 36,
@@ -34,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 483,
-    "withoutPublishedMarketValue": 66,
+    "withoutPublishedMarketValue": 67,
     "withCareer": 505,
-    "withoutCareerRows": 44,
-    "withLivesportIdentity": 534,
-    "withLivesportSeasonStats": 534,
+    "withoutCareerRows": 45,
+    "withLivesportIdentity": 535,
+    "withLivesportSeasonStats": 535,
     "activeLivesportPlayers": 401,
     "activeLivesportScorers": 133,
     "warnings": [
@@ -55,6 +55,7 @@
       "Baník Ostrava Frýdl Tadeáš: missing Transfermarkt identity",
       "Baník Ostrava Temel Martin: missing Transfermarkt identity",
       "Baník Ostrava Bitta Matyáš: missing Transfermarkt identity",
+      "Baník Ostrava Drozd Šimon: missing Transfermarkt identity",
       "Hradec Králové Abajas Rodrigo: missing Transfermarkt identity",
       "Slovan Liberec Barcal Matyáš: missing Transfermarkt identity",
       "Slovan Liberec Dobeš Dominik: missing Transfermarkt identity",
@@ -87,7 +88,7 @@
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
       "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
-      "Baník Ostrava Drozd Šimon: missing Transfermarkt identity"
+      "Pardubice Urban Tomáš: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -900,7 +901,7 @@
         "name": "Drozd Šimon",
         "livesportName": "Drozd Šimon",
         "livesportPlayerId": "pQXwfG5d",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -1559,15 +1560,6 @@
         "livesportPlayerId": "xS3OrhEA",
         "method": "livesport-id",
         "apps": 9,
-        "goals": 0
-      },
-      {
-        "team": "Jablonec",
-        "name": "Tubic Salem",
-        "livesportName": "Tubic Salem",
-        "livesportPlayerId": "rTLkdCv0",
-        "method": "livesport-id",
-        "apps": 0,
         "goals": 0
       },
       {
@@ -2271,6 +2263,15 @@
         "method": "livesport-id",
         "apps": 10,
         "goals": 1
+      },
+      {
+        "team": "Pardubice",
+        "name": "Urban Tomáš",
+        "livesportName": "Urban Tomáš",
+        "livesportPlayerId": "ldZ0TjPN",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
       },
       {
         "team": "Sigma Olomouc",
@@ -5002,9 +5003,9 @@
     ],
     "added": [
       {
-        "team": "Baník Ostrava",
-        "name": "Drozd Šimon",
-        "livesportPlayerId": "pQXwfG5d"
+        "team": "Pardubice",
+        "name": "Urban Tomáš",
+        "livesportPlayerId": "ldZ0TjPN"
       }
     ],
     "moved": [],
@@ -5023,7 +5024,7 @@
     "officialRows": 494,
     "transfermarktRows": 486,
     "livesportRows": 520,
-    "seedRows": 548
+    "seedRows": 549
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5484,6 +5485,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-28T19:47:24.188591Z"
+    "checkedAt": "2026-10-29T13:36:07.786710Z"
   }
 }
