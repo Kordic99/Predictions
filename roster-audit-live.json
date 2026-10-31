@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-10-31T19:29:16.100628Z",
+  "generatedAt": "2026-10-31T22:44:49.017940Z",
   "changes": {
-    "added": [
-      {
-        "team": "Sigma Olomouc",
-        "name": "Jadrníček Nikola",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Sigma Olomouc",
-        "name": "Pšenica Jiří",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -85,6 +74,8 @@
       "Teplice Jančok Václav: missing Transfermarkt identity",
       "Sigma Olomouc Siegl Patrik: missing Transfermarkt identity",
       "Sigma Olomouc Drábek David: missing Transfermarkt identity",
+      "Sigma Olomouc Jadrníček Nikola: missing Transfermarkt identity",
+      "Sigma Olomouc Pšenica Jiří: missing Transfermarkt identity",
       "Sigma Olomouc Palán Radek: missing Transfermarkt identity",
       "Slavia Prague Rezek Adam: missing Transfermarkt identity",
       "Slavia Prague Barčot David: missing Transfermarkt identity",
@@ -94,20 +85,19 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
-      "Sigma Olomouc Jadrníček Nikola: missing Transfermarkt identity",
-      "Sigma Olomouc Pšenica Jiří: missing Transfermarkt identity"
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 98,
+      "eventCount": 99,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
         "0Qharvg2": 32,
         "0hJIzKhT": 32,
         "0rluHsFM": 32,
+        "2VSdvBCm": 32,
         "2exFYWMr": 31,
         "48MjBAwH": 32,
         "4vwJ9a7d": 32,
@@ -208,6 +198,7 @@
         "0Qharvg2": 30,
         "0hJIzKhT": 31,
         "0rluHsFM": 30,
+        "2VSdvBCm": 27,
         "2exFYWMr": 29,
         "48MjBAwH": 30,
         "4vwJ9a7d": 30,
@@ -302,24 +293,9 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 3093,
-      "ratedPerformances": 2847,
+      "playerPerformances": 3125,
+      "ratedPerformances": 2874,
       "reconciliationIssues": [
-        {
-          "team": "Sigma Olomouc",
-          "name": "Slavíček Filip",
-          "livesportPlayerId": "M1xs6e26",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -2471,7 +2447,7 @@
         "name": "Jadrníček Nikola",
         "livesportName": "Jadrníček Nikola",
         "livesportPlayerId": "2PWwXLmD",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -2498,7 +2474,7 @@
         "name": "Pšenica Jiří",
         "livesportName": "Pšenica Jiří",
         "livesportPlayerId": "zwDNeDhe",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -5059,18 +5035,7 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Sigma Olomouc",
-        "name": "Jadrníček Nikola",
-        "livesportPlayerId": "2PWwXLmD"
-      },
-      {
-        "team": "Sigma Olomouc",
-        "name": "Pšenica Jiří",
-        "livesportPlayerId": "zwDNeDhe"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 523
@@ -5080,18 +5045,18 @@
     "officialRows": 497,
     "transfermarktRows": 485,
     "livesportRows": 523,
-    "seedRows": 549
+    "seedRows": 551
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 98,
-    "availableMatches": 98,
+    "completedMatches": 99,
+    "availableMatches": 99,
     "status": "complete",
     "pendingMatches": [],
-    "playerPerformances": 3093,
-    "ratedPerformances": 2847,
+    "playerPerformances": 3125,
+    "ratedPerformances": 2874,
     "processed": [
       {
         "livesportMatchId": "r52i6Q04",
@@ -5232,6 +5197,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 26,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/pardubice-Ys4YYBPn/slovan-liberec-4bp6yRjU/vgkuMTdJ/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "2VSdvBCm",
+        "round": 13,
+        "home": "Sigma Olomouc",
+        "away": "Zbrojovka Brno",
+        "score": "3:0",
+        "playerPerformances": 32,
+        "ratedPerformances": 27,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/sigma-olomouc-drA4fSL4/zbrojovka-brno-4d5TT6i5/2VSdvBCm/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5323,13 +5298,14 @@
     "validation": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 98,
+      "eventCount": 99,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
         "0Qharvg2": 32,
         "0hJIzKhT": 32,
         "0rluHsFM": 32,
+        "2VSdvBCm": 32,
         "2exFYWMr": 31,
         "48MjBAwH": 32,
         "4vwJ9a7d": 32,
@@ -5430,6 +5406,7 @@
         "0Qharvg2": 30,
         "0hJIzKhT": 31,
         "0rluHsFM": 30,
+        "2VSdvBCm": 27,
         "2exFYWMr": 29,
         "48MjBAwH": 30,
         "4vwJ9a7d": 30,
@@ -5524,24 +5501,9 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 3093,
-      "ratedPerformances": 2847,
+      "playerPerformances": 3125,
+      "ratedPerformances": 2874,
       "reconciliationIssues": [
-        {
-          "team": "Sigma Olomouc",
-          "name": "Slavíček Filip",
-          "livesportPlayerId": "M1xs6e26",
-          "differences": {
-            "apps": {
-              "published": 1,
-              "detailed": 0
-            },
-            "minutes": {
-              "published": 1,
-              "detailed": 0
-            }
-          }
-        },
         {
           "type": "historical-lineup-coverage",
           "livesportMatchId": "lIZHEqp9",
@@ -5568,6 +5530,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-31T19:29:16.100628Z"
+    "checkedAt": "2026-10-31T22:44:49.017940Z"
   }
 }
