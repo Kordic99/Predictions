@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-10-30T16:47:51.099532Z",
+  "generatedAt": "2026-10-31T15:28:35.992073Z",
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "team": "Slovan Liberec",
+        "name": "Dobeš Adam",
+        "transfermarktPlayerId": null
+      }
+    ],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
   },
   "validation": {
     "clubCount": 16,
-    "playerCount": 548,
+    "playerCount": 549,
     "teamCounts": {
       "Artis Brno": 38,
       "Baník Ostrava": 34,
@@ -19,7 +25,7 @@
       "Pardubice": 33,
       "Sigma Olomouc": 36,
       "Slavia Prague": 38,
-      "Slovan Liberec": 36,
+      "Slovan Liberec": 37,
       "Slovácko": 34,
       "Sparta Prague": 36,
       "Teplice": 35,
@@ -28,11 +34,11 @@
       "Zlín": 34
     },
     "withMarketValue": 483,
-    "withoutPublishedMarketValue": 65,
+    "withoutPublishedMarketValue": 66,
     "withCareer": 503,
-    "withoutCareerRows": 45,
-    "withLivesportIdentity": 534,
-    "withLivesportSeasonStats": 534,
+    "withoutCareerRows": 46,
+    "withLivesportIdentity": 535,
+    "withLivesportSeasonStats": 535,
     "activeLivesportPlayers": 401,
     "activeLivesportScorers": 133,
     "warnings": [
@@ -82,7 +88,8 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Belžík Karel: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
-      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
+      "Slovan Liberec Dobeš Adam: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -312,7 +319,7 @@
   },
   "ignoredSourceRows": [],
   "livesportReconciliation": {
-    "sourceRows": 520,
+    "sourceRows": 521,
     "attached": [
       {
         "team": "Artis Brno",
@@ -3367,6 +3374,15 @@
       },
       {
         "team": "Slovan Liberec",
+        "name": "Dobeš Adam",
+        "livesportName": "Dobeš Adam",
+        "livesportPlayerId": "thwhB1W3",
+        "method": "livesport-new",
+        "apps": 0,
+        "goals": 0
+      },
+      {
+        "team": "Slovan Liberec",
         "name": "Dulay Patrik",
         "livesportName": "Dulay Patrik",
         "livesportPlayerId": "KhHS9bJc",
@@ -4995,16 +5011,22 @@
         "goals": 2
       }
     ],
-    "added": [],
+    "added": [
+      {
+        "team": "Slovan Liberec",
+        "name": "Dobeš Adam",
+        "livesportPlayerId": "thwhB1W3"
+      }
+    ],
     "moved": [],
     "unresolved": [],
-    "publishedLivesportIds": 520
+    "publishedLivesportIds": 521
   },
   "careerEnriched": [],
   "sourceCounts": {
     "officialRows": 497,
     "transfermarktRows": 485,
-    "livesportRows": 520,
+    "livesportRows": 521,
     "seedRows": 548
   },
   "livesportMatchStats": {
@@ -5018,36 +5040,6 @@
     "playerPerformances": 2966,
     "ratedPerformances": 2736,
     "processed": [
-      {
-        "livesportMatchId": "0rluHsFM",
-        "round": 11,
-        "home": "Pardubice",
-        "away": "Zlín",
-        "score": "3:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/pardubice-Ys4YYBPn/zlin-C09N1Ikd/0rluHsFM/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "Or472r0T",
-        "round": 11,
-        "home": "Mladá Boleslav",
-        "away": "Teplice",
-        "score": "1:0",
-        "playerPerformances": 32,
-        "ratedPerformances": 30,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/mlada-boleslav-0f7GpAMu/teplice-r9XWmtLq/Or472r0T/prehled/hracske-stats/obecne/"
-      },
-      {
-        "livesportMatchId": "hIpXI3pA",
-        "round": 11,
-        "home": "Slavia Prague",
-        "away": "Hradec Králové",
-        "score": "0:0",
-        "playerPerformances": 30,
-        "ratedPerformances": 28,
-        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/hradec-kralove-vFXjbHms/hIpXI3pA/prehled/hracske-stats/obecne/"
-      },
       {
         "livesportMatchId": "jV5a44VG",
         "round": 11,
@@ -5239,7 +5231,10 @@
       "6N9CgmHb",
       "A1Rfy61U",
       "n1BSk5GN",
-      "YF0FAQZa"
+      "YF0FAQZa",
+      "0rluHsFM",
+      "Or472r0T",
+      "hIpXI3pA"
     ],
     "validation": {
       "status": "needs-review",
@@ -5466,6 +5461,6 @@
         }
       ]
     },
-    "checkedAt": "2026-10-30T16:47:51.099532Z"
+    "checkedAt": "2026-10-31T15:28:35.992073Z"
   }
 }
