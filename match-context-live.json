@@ -1772,8 +1772,82 @@
         "players": [],
         "officialPlayers": [],
         "predictedPlayers": [],
-        "missing": [],
-        "uncertain": []
+        "missing": [
+          {
+            "livesportPlayerId": "tzacoYEl",
+            "name": "Bammens S.",
+            "listName": "Bammens S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "bammens-simon",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "KjR9NAo5",
+            "name": "Kharatishvili L.",
+            "listName": "Kharatishvili L.",
+            "number": null,
+            "position": null,
+            "profileSlug": "kharatishvili-luka",
+            "reason": "Zranění lokte"
+          },
+          {
+            "livesportPlayerId": "xEC7nAJB",
+            "name": "Patrák V.",
+            "listName": "Patrák V.",
+            "number": null,
+            "position": null,
+            "profileSlug": "patrak-vojtech",
+            "reason": "Poranění kolena"
+          },
+          {
+            "livesportPlayerId": "bglFAvcQ",
+            "name": "Šimek S.",
+            "listName": "Šimek S.",
+            "number": null,
+            "position": null,
+            "profileSlug": "simek-samuel",
+            "reason": "Zranění"
+          },
+          {
+            "livesportPlayerId": "4tnjrDKJ",
+            "name": "Solil T.",
+            "listName": "Solil T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "solil-tomas",
+            "reason": "Zranění"
+          }
+        ],
+        "uncertain": [
+          {
+            "livesportPlayerId": "hAH4aSN3",
+            "name": "Boledovič T.",
+            "listName": "Boledovič T.",
+            "number": null,
+            "position": null,
+            "profileSlug": "boledovic-tobias",
+            "reason": "Poranění zubů"
+          },
+          {
+            "livesportPlayerId": "vFaA2SCd",
+            "name": "Halinský D.",
+            "listName": "Halinský D.",
+            "number": null,
+            "position": null,
+            "profileSlug": "halinsky-denis",
+            "reason": "Zranění nohy"
+          },
+          {
+            "livesportPlayerId": "zmGcA0E8",
+            "name": "Kahuan Vinicius",
+            "listName": "Kahuan Vinícius",
+            "number": null,
+            "position": null,
+            "profileSlug": "kahuan-vinicius",
+            "reason": "Zdravotní problémy"
+          }
+        ]
       }
     },
     {
@@ -1858,5 +1932,5 @@
       }
     }
   ],
-  "updatedAt": "2026-11-04T22:40:08Z"
+  "updatedAt": "2026-11-05T12:20:49Z"
 }
