@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T00:28:57.407678Z",
+  "generatedAt": "2026-11-05T15:44:13.914633Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -2714,15 +2714,6 @@
       },
       {
         "team": "Slavia Prague",
-        "name": "Kubiak Oskar",
-        "livesportName": "Kubiak Oskar",
-        "livesportPlayerId": "dSZBOc9N",
-        "method": "livesport-id",
-        "apps": 5,
-        "goals": 0
-      },
-      {
-        "team": "Slavia Prague",
         "name": "N'Guessan Ange",
         "livesportName": "N'Guessan Ange",
         "livesportPlayerId": "lU0M9sZL",
@@ -2818,6 +2809,15 @@
         "livesportPlayerId": "hOjD2le2",
         "method": "livesport-id",
         "apps": 7,
+        "goals": 0
+      },
+      {
+        "team": "Slavia Prague",
+        "name": "Kubiak Oskar",
+        "livesportName": "Kubiak Oskar",
+        "livesportPlayerId": "dSZBOc9N",
+        "method": "livesport-id",
+        "apps": 5,
         "goals": 0
       },
       {
@@ -5569,6 +5569,6 @@
         }
       ]
     },
-    "checkedAt": "2026-11-05T00:28:57.407678Z"
+    "checkedAt": "2026-11-05T15:44:13.914633Z"
   }
 }
