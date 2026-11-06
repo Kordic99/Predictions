@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-11-05T22:12:30.912674Z",
+  "generatedAt": "2026-11-06T11:24:19.697345Z",
   "changes": {
-    "added": [
-      {
-        "team": "Jablonec",
-        "name": "Reiner Vojtěch",
-        "transfermarktPlayerId": null
-      },
-      {
-        "team": "Sparta Prague",
-        "name": "Dyntar Štěpán",
-        "transfermarktPlayerId": null
-      }
-    ],
+    "added": [],
     "removed": [],
     "moved": [],
     "marketValueUpdated": []
@@ -50,6 +39,7 @@
       "Slovácko Cicha Martin: missing Transfermarkt identity",
       "Slovácko Novotný Lukáš: missing Transfermarkt identity",
       "Slovácko Uhrovic Martin: missing Transfermarkt identity",
+      "Sparta Prague Dyntar Štěpán: missing Transfermarkt identity",
       "Sparta Prague Franc Lukáš: missing Transfermarkt identity",
       "Sparta Prague Kotíšek Maxim: missing Transfermarkt identity",
       "Sparta Prague Topič Jonáš: missing Transfermarkt identity",
@@ -76,6 +66,7 @@
       "Zbrojovka Brno Šmíd Vojtěch: missing Transfermarkt identity",
       "Zbrojovka Brno Strnad Damián: missing Transfermarkt identity",
       "Zbrojovka Brno Pragr Oldřich: missing Transfermarkt identity",
+      "Jablonec Reiner Vojtěch: missing Transfermarkt identity",
       "Jablonec Malý Evžen: missing Transfermarkt identity",
       "Jablonec Kubát Adam: missing Transfermarkt identity",
       "Mladá Boleslav Rittenauer Ondřej: missing Transfermarkt identity",
@@ -97,9 +88,7 @@
       "Slavia Prague Rajnoha Adam: missing Transfermarkt identity",
       "Slavia Prague Kohout Dan: missing Transfermarkt identity",
       "Slavia Prague Kotrba Matej: missing Transfermarkt identity",
-      "Slavia Prague Potměšil Petr: missing Transfermarkt identity",
-      "Jablonec Reiner Vojtěch: missing Transfermarkt identity",
-      "Sparta Prague Dyntar Štěpán: missing Transfermarkt identity"
+      "Slavia Prague Potměšil Petr: missing Transfermarkt identity"
     ],
     "matchDetails": {
       "status": "needs-review",
@@ -1506,7 +1495,7 @@
         "name": "Reiner Vojtěch",
         "livesportName": "Reiner Vojtěch",
         "livesportPlayerId": "z7dMQuZH",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -3612,7 +3601,7 @@
         "name": "Dyntar Štěpán",
         "livesportName": "Dyntar Štěpán",
         "livesportPlayerId": "xKOJ1KNM",
-        "method": "livesport-new",
+        "method": "livesport-id",
         "apps": 0,
         "goals": 0
       },
@@ -5084,18 +5073,7 @@
         "goals": 2
       }
     ],
-    "added": [
-      {
-        "team": "Jablonec",
-        "name": "Reiner Vojtěch",
-        "livesportPlayerId": "z7dMQuZH"
-      },
-      {
-        "team": "Sparta Prague",
-        "name": "Dyntar Štěpán",
-        "livesportPlayerId": "xKOJ1KNM"
-      }
-    ],
+    "added": [],
     "moved": [],
     "unresolved": [],
     "publishedLivesportIds": 526
@@ -5105,7 +5083,7 @@
     "officialRows": 497,
     "transfermarktRows": 485,
     "livesportRows": 526,
-    "seedRows": 552
+    "seedRows": 554
   },
   "livesportMatchStats": {
     "source": "Livesport match player statistics",
@@ -5611,6 +5589,6 @@
         }
       ]
     },
-    "checkedAt": "2026-11-05T22:12:30.912674Z"
+    "checkedAt": "2026-11-06T11:24:19.697345Z"
   }
 }
