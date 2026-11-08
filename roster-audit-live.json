@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T19:54:25.821057Z",
+  "generatedAt": "2026-11-08T23:56:50.911287Z",
   "changes": {
     "added": [],
     "removed": [],
@@ -93,7 +93,7 @@
     "matchDetails": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 110,
+      "eventCount": 111,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
@@ -194,6 +194,7 @@
         "ryFbt1Vr": 30,
         "t0taNOz3": 32,
         "tQBQQcse": 32,
+        "tbaSxJht": 32,
         "tp2Knu4E": 32,
         "tt4N844C": 32,
         "val8HYnp": 32,
@@ -306,6 +307,7 @@
         "ryFbt1Vr": 26,
         "t0taNOz3": 32,
         "tQBQQcse": 32,
+        "tbaSxJht": 31,
         "tp2Knu4E": 27,
         "tt4N844C": 30,
         "val8HYnp": 30,
@@ -318,8 +320,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 3473,
-      "ratedPerformances": 3201,
+      "playerPerformances": 3505,
+      "ratedPerformances": 3232,
       "reconciliationIssues": [
         {
           "type": "historical-lineup-coverage",
@@ -5112,12 +5114,12 @@
     "source": "Livesport match player statistics",
     "sourceUrl": "https://www.livesport.cz/fotbal/cesko/chance-liga/",
     "importVersion": "2026-08-01-livesport-match-stats-v3",
-    "completedMatches": 110,
-    "availableMatches": 110,
+    "completedMatches": 111,
+    "availableMatches": 111,
     "status": "complete",
     "pendingMatches": [],
-    "playerPerformances": 3473,
-    "ratedPerformances": 3201,
+    "playerPerformances": 3505,
+    "ratedPerformances": 3232,
     "processed": [
       {
         "livesportMatchId": "6asRqXlQ",
@@ -5278,6 +5280,16 @@
         "playerPerformances": 32,
         "ratedPerformances": 32,
         "sourceUrl": "https://www.livesport.cz/zapas/fotbal/slavia-praha-viXGgnyB/artis-brno-zHLktbZ1/pfCtrVbJ/prehled/hracske-stats/obecne/"
+      },
+      {
+        "livesportMatchId": "tbaSxJht",
+        "round": 14,
+        "home": "Viktoria Plzeň",
+        "away": "Sparta Prague",
+        "score": "1:1",
+        "playerPerformances": 32,
+        "ratedPerformances": 31,
+        "sourceUrl": "https://www.livesport.cz/zapas/fotbal/viktoria-plzen-2LA0e86b/sparta-praha-6qA358jH/tbaSxJht/prehled/hracske-stats/obecne/"
       }
     ],
     "skippedStableEventIds": [
@@ -5379,7 +5391,7 @@
     "validation": {
       "status": "needs-review",
       "pendingEventIds": [],
-      "eventCount": 110,
+      "eventCount": 111,
       "eventPlayerCounts": {
         "08ccB3PH": 30,
         "0Q64e9nn": 32,
@@ -5480,6 +5492,7 @@
         "ryFbt1Vr": 30,
         "t0taNOz3": 32,
         "tQBQQcse": 32,
+        "tbaSxJht": 32,
         "tp2Knu4E": 32,
         "tt4N844C": 32,
         "val8HYnp": 32,
@@ -5592,6 +5605,7 @@
         "ryFbt1Vr": 26,
         "t0taNOz3": 32,
         "tQBQQcse": 32,
+        "tbaSxJht": 31,
         "tp2Knu4E": 27,
         "tt4N844C": 30,
         "val8HYnp": 30,
@@ -5604,8 +5618,8 @@
         "z3aUOGfA": 30,
         "zq9z3ZXj": 28
       },
-      "playerPerformances": 3473,
-      "ratedPerformances": 3201,
+      "playerPerformances": 3505,
+      "ratedPerformances": 3232,
       "reconciliationIssues": [
         {
           "type": "historical-lineup-coverage",
@@ -5633,6 +5647,6 @@
         }
       ]
     },
-    "checkedAt": "2026-11-08T19:54:25.821057Z"
+    "checkedAt": "2026-11-08T23:56:50.911287Z"
   }
 }
