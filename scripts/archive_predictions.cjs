@@ -38,7 +38,7 @@ async function main(){
     // Old queued workflows may still request generate. Validate without creating
     // anything, so the transition is safe and never silently re-enables locking.
     for(const record of archive.records)if(record.recordId!==digest(A.signature(record.lock)))throw new Error('Archive content hash mismatch');
-    if(mode==='generate')console.log('Automatic prediction generation is disabled; manual locking only.');
+    if(mode==='generate')console.log('Legacy generation disabled; use the dedicated verified Friday workflow.');
     console.log('Validated '+archive.records.length+' immutable records.');return;
   }
   if(!['recover','submit'].includes(mode))throw new Error('Unknown archive mode');

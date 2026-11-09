@@ -7,12 +7,36 @@ lock, creation time, probabilities, model version and calculation/lineup snapsho
 source, eligibility and SHA-256 content ID. Original exports are never uploaded in
 full. Recovered records retain their source filename and checksum, not local paths.
 
-## Manual locking only
+## Automatic Friday locking (requested 2026-11-09)
 
-Only clicking Save to Accuracy locks a new prediction. Neither opening the page,
-refreshing lineups nor approaching kickoff creates a snapshot. The former browser
-timer and hourly server generator were disabled at the user's request on 2026-10-26.
-The historical records were not changed.
+GitHub Actions **Friday audit and weekend predictions** (`update-rosters.yml`)
+starts Friday at 08:00 Europe/Prague (DST-aware, subject to GitHub queue delays).
+It validates the official 240 fixtures / 30 rounds, checks official/Transfermarkt/
+Livesport rosters and values, refreshes match statistics and strictly refreshes
+availability and lineup context. A failed refresh cannot silently reuse stale
+context. A hash-bound receipt proves which input files and model were checked.
+
+After publishing verified feeds, the same P2 model used by the app computes the
+upcoming Friday-through-Sunday matches and locks them into the append-only archive.
+Opening the website restores them into **both Predictions and Accuracy**; no open
+browser, manual import, save click or personal token is needed for this pipeline.
+Each source record retains the workflow run ID, input checksums, check time and
+weekend date. The run also retains input artifacts and a summary for 90 days.
+
+Already archived fixtures are skipped, including a concurrent manual submission
+detected during publication. Old probabilities are never recalculated. Played,
+postponed and unknown-kickoff matches are skipped with explicit reasons. A retry
+may run Friday after 08:00, Saturday or Sunday, but can only add missing forecasts
+before kickoff. Monday–Thursday runs cannot publish new forecasts. Empty weekends
+are legitimate no-ops, not permission to choose a different round/weekend.
+
+Manual dispatch defaults to **dry_run=true**: full checks and a calculation preview,
+no data/history commits. Set **dry_run=false** to recover a failed weekend run.
+Without a successfully refreshed receipt, the generation command refuses to lock.
+
+Manual Save to Accuracy remains available for additional matches. Neither opening
+the page nor approaching kickoff locks anything in the browser. The legacy hourly
+generator remains disabled; only the dedicated Friday workflow enables automation.
 
 GitHub Actions **Archive predictions** validates history after relevant pushes and
 accepts authenticated submissions of manually locked snapshots. An empty dispatch
@@ -22,7 +46,7 @@ read-only validation, so an older queued workflow cannot create a prediction.
 Unlocked forecasts may use refreshed inputs. Manual locking captures the available
 calculation, lineup and source context at that moment. Later input refreshes cannot
 change the locked prediction. News/social/odds enrichment is not implemented by this
-change; any future research feed must follow this same manual-lock boundary.
+change; any future research feed must follow the same immutable snapshot boundary.
 
 ## Browser and manual changes
 

@@ -25,7 +25,11 @@ async function publishArchive(local){
     const remote=A.validateArchive(JSON.parse(Buffer.from(blob.content.replace(/\s/g,''),'base64').toString('utf8')));
     const byId=new Map(remote.records.map(r=>[r.recordId,r]));
     for(const row of [...local.records,...remote.records])if(digest(A.signature(row.lock))!==row.recordId)throw new Error('Corrupt archive content hash');
-    const added=local.records.filter(r=>!byId.has(r.recordId));
+    const existingFixtures=new Set(remote.records.map(r=>r.fixtureId));
+    const added=local.records.filter(r=>!byId.has(r.recordId)&&
+      // Friday retries/concurrent manual locks cannot create another version.
+      (r.source.kind!=='friday-automatic'||!existingFixtures.has(r.fixtureId)));
+    for(const row of added)if(row.source.kind==='friday-automatic'&&Date.now()>=Date.parse(row.evaluation.kickoffAt))throw new Error('Kickoff passed before GitHub publication');
     if(!added.length){console.log('All snapshots already archived; no commit.');return;}
     const merged=A.appendRecords(remote,added);
     try{

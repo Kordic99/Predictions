@@ -1,11 +1,15 @@
-name: Update Chance Liga rosters and values
+name: Friday audit and weekend predictions
 
 on:
   schedule:
-    # Friday morning in Prague all year: 09:15 CEST / 08:15 CET.
-    # :15 avoids the busiest top-of-hour GitHub Actions window.
-    - cron: "15 7 * * 5"
+    - cron: '0 8 * * 5'
+      timezone: Europe/Prague
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only (no data or prediction commits)'
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -18,34 +22,49 @@ jobs:
   update:
     # Keep the tested OS instead of following ubuntu-latest major migrations.
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 55
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
     steps:
+      - name: Set isolated audit output paths
+        run: |
+          echo "RECEIPT=$RUNNER_TEMP/weekend-inputs.json" >> "$GITHUB_ENV"
+          echo "REPORT=$RUNNER_TEMP/weekend-predictions.json" >> "$GITHUB_ENV"
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
-      - name: Install parser
-        run: python -m pip install --disable-pip-version-check lxml==5.4.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --disable-pip-version-check lxml==5.4.0
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
 
       - name: Test roster reconciliation
-        run: python -m unittest discover -s tests -p "test_*.py"
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs
+          node scripts/archive_predictions.cjs validate
 
-      - name: Audit official rosters and Transfermarkt values
-        run: >-
-          python scripts/update_rosters.py
-          --output rosters-live.json
-          --audit-output roster-audit-live.json
-          --index index.html
-          --workers 8
+      - name: Refresh schedule, all rosters, values, ratings and availability
+        run: python scripts/prepare_weekend_predictions.py --receipt "$RECEIPT"
 
       - name: Validate changed-file scope
         shell: bash
         run: |
-          unexpected="$(git status --short | awk '{print $2}' | grep -Ev '^(rosters-live\.json|roster-audit-live\.json)$' || true)"
+          unexpected="$(git status --short | awk '{print $2}' | grep -Ev '^(rosters-live\.json|roster-audit-live\.json|schedule-live\.json|match-context-live\.json)$' || true)"
           if [[ -n "$unexpected" ]]; then
             echo "Unexpected changed files:"
             echo "$unexpected"
@@ -53,15 +72,62 @@ jobs:
           fi
 
       - name: Commit verified update
+        if: env.DRY_RUN != 'true'
         shell: bash
         run: |
-          if git diff --quiet -- rosters-live.json roster-audit-live.json; then
+          if git diff --quiet -- rosters-live.json roster-audit-live.json schedule-live.json match-context-live.json; then
             echo "No roster or market-value data changed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add rosters-live.json roster-audit-live.json
-          git commit -m "Update Chance Liga rosters and values"
-          git push
+          git add rosters-live.json roster-audit-live.json schedule-live.json match-context-live.json
+          git commit -m 'Refresh verified Friday prediction inputs'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            if [[ "$attempt" == '3' ]]; then exit 1; fi
+            git fetch origin main
+            # Conflicts stop the job safely; never overwrite a competing update.
+            git rebase origin/main
+          done
+
+      - name: Calculate Friday–Sunday forecasts using the application model
+        shell: bash
+        run: |
+          mode=publish
+          if [[ "$DRY_RUN" == 'true' ]]; then mode=preview; fi
+          node scripts/weekend_predictions.cjs --receipt "$RECEIPT" --report "$REPORT" --mode "$mode"
+
+      - name: Publish immutable Accuracy snapshots with compare-and-swap
+        if: env.DRY_RUN != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/publish_prediction_archive.cjs
+
+      - name: Write run summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f "$REPORT" ]]; then
+            echo '### Friday prediction report' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat "$REPORT" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'No forecasts published: a required step did not finish. See the failed step.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Retain checked inputs and prediction report for audit
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: friday-prediction-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 90
+          path: |
+            ${{ runner.temp }}/weekend-inputs.json
+            ${{ runner.temp }}/weekend-predictions.json
+            schedule-live.json
+            rosters-live.json
+            roster-audit-live.json
+            match-context-live.json
 

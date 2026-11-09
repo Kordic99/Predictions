@@ -10,6 +10,11 @@ on:
       - 'scripts/*archive*.cjs'
       - 'scripts/guard_prediction_history.cjs'
       - 'tests/prediction_archive.test.cjs'
+      - 'tests/weekend_predictions.test.cjs'
+      - 'scripts/weekend_predictions.cjs'
+      - 'scripts/prepare_weekend_predictions.py'
+      - 'scripts/update_match_context.py'
+      - '.github/workflows/update-rosters.yml'
       - 'package*.json'
       - '.github/workflows/archive-predictions.yml'
   workflow_dispatch:
@@ -47,7 +52,7 @@ jobs:
           ARCHIVE_BASE_SHA: ${{ github.event.before }}
         run: |
           node scripts/guard_prediction_history.cjs
-          node --test tests/prediction_archive.test.cjs
+          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs
           node scripts/archive_predictions.cjs validate
       - name: Archive manually locked snapshots only
         env:

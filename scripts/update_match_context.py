@@ -222,7 +222,7 @@ def friendly_summary(matches: list[dict[str, Any]], participant_id: str) -> dict
     }
 
 
-def build_preseason(schedule: dict[str, Any], previous: dict[str, Any]) -> dict[str, Any]:
+def build_preseason(schedule: dict[str, Any], previous: dict[str, Any], strict: bool = False) -> dict[str, Any]:
     dated_matches = [row for row in schedule["matches"] if row.get("date")]
     if not dated_matches:
         raise RuntimeError("The official schedule does not contain any dated fixtures.")
@@ -288,7 +288,7 @@ def build_preseason(schedule: dict[str, Any], previous: dict[str, Any]) -> dict[
                 ),
             }
         except Exception as exc:
-            if team in old_teams:
+            if team in old_teams and not strict:
                 teams[team] = old_teams[team]
                 teams[team]["staleReason"] = str(exc)
             else:
@@ -428,7 +428,7 @@ def build_fixture_context(match: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_fixtures(schedule: dict[str, Any], previous: dict[str, Any], horizon_days: int) -> list[dict[str, Any]]:
+def build_fixtures(schedule: dict[str, Any], previous: dict[str, Any], horizon_days: int, strict: bool = False) -> list[dict[str, Any]]:
     old = {
         str(row.get("officialMatchId")): row
         for row in previous.get("fixtures") or []
@@ -450,7 +450,7 @@ def build_fixtures(schedule: dict[str, Any], previous: dict[str, Any], horizon_d
         try:
             fixtures.append(build_fixture_context(match))
         except Exception as exc:
-            if key in old:
+            if key in old and not strict:
                 fixtures.append(old[key])
             else:
                 raise RuntimeError(
@@ -515,6 +515,7 @@ def canonicalize_schedule_teams(schedule: dict[str, Any]) -> dict[str, Any]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--horizon-days", type=int, default=10)
+    parser.add_argument("--strict", action="store_true", help="Fail instead of reusing stale context when locking Friday predictions.")
     args = parser.parse_args()
     schedule = canonicalize_schedule_teams(
         json.loads(SCHEDULE_PATH.read_text(encoding="utf-8"))
@@ -532,8 +533,8 @@ def main() -> None:
             "lineupsAndAbsences": "Livesport match detail",
             "preseason": "Livesport team results",
         },
-        "preseason": build_preseason(schedule, previous),
-        "fixtures": build_fixtures(schedule, previous, max(2, args.horizon_days)),
+        "preseason": build_preseason(schedule, previous, strict=args.strict),
+        "fixtures": build_fixtures(schedule, previous, max(2, args.horizon_days), strict=args.strict),
     }
     write_if_changed(payload, previous)
 

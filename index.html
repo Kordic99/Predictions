@@ -414,7 +414,7 @@
 <body>
 <div class="app">
 <div class="export-reminder">
-  &#128190; <span><strong>Prediction archive:</strong> confirmed predictions are restored from GitHub, independently of browser storage and app updates. Accuracy shows any local predictions still awaiting server backup. Export JSON remains the backup for your other manual data.</span>
+  &#128190; <span><strong>Friday automatic predictions:</strong> checks start at 08:00 Europe/Prague; Friday–Sunday fixtures are calculated and saved to Predictions + locked Accuracy on GitHub. Existing forecasts never change. Manual additions remain available; Export JSON backs up your other data.</span>
 </div>
 <div class="storage-bar">
   <button class="storage-btn export" onclick="exportJSON()">&#8595; Export JSON</button>
@@ -3132,7 +3132,7 @@ function predictionDueForKickoff(match){
 }
 
 function autoLockDuePredictions(){
-  // Compatibility hook for refresh callers. Locking is exclusively manual.
+  // Browser refreshes never lock. Friday locking runs on GitHub, not on this timer.
   return 0;
 }
 
