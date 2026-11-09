@@ -9,7 +9,7 @@ full. Recovered records retain their source filename and checksum, not local pat
 
 ## Automatic Friday locking (requested 2026-11-09)
 
-GitHub Actions **Friday audit and weekend predictions** (`update-rosters.yml`)
+GitHub Actions **Friday audit and weekly predictions** (`update-rosters.yml`)
 starts Friday at 08:00 Europe/Prague (DST-aware, subject to GitHub queue delays).
 It validates the official 240 fixtures / 30 rounds, checks official/Transfermarkt/
 Livesport rosters and values, refreshes match statistics and strictly refreshes
@@ -17,22 +17,31 @@ availability and lineup context. A failed refresh cannot silently reuse stale
 context. A hash-bound receipt proves which input files and model were checked.
 
 After publishing verified feeds, the same P2 model used by the app computes the
-upcoming Friday-through-Sunday matches and locks them into the append-only archive.
+Friday-through-following-Thursday matches (inclusive) and locks them into the
+append-only archive. Selection is by fixture date, not round number, so midweek
+rounds and rescheduled games from other rounds are included. Next Friday belongs
+to the next check; the periods do not overlap.
 Opening the website restores them into **both Predictions and Accuracy**; no open
 browser, manual import, save click or personal token is needed for this pipeline.
 Each source record retains the workflow run ID, input checksums, check time and
-weekend date. The run also retains input artifacts and a summary for 90 days.
+period start/end dates. The run also retains input artifacts and a summary for 90 days.
 
 Already archived fixtures are skipped, including a concurrent manual submission
 detected during publication. Old probabilities are never recalculated. Played,
 postponed and unknown-kickoff matches are skipped with explicit reasons. A retry
-may run Friday after 08:00, Saturday or Sunday, but can only add missing forecasts
-before kickoff. Monday–Thursday runs cannot publish new forecasts. Empty weekends
-are legitimate no-ops, not permission to choose a different round/weekend.
+may run from Friday after 08:00 through Thursday, but can only add missing forecasts
+before kickoff. Monday–Thursday retries retain the preceding Friday's period; they
+never jump forward to the next weekend. Before 08:00 on the next Friday publication
+is blocked. Empty periods are legitimate no-ops, not permission to choose a different
+round/week. A successful report uses `no_new_period_fixtures` or
+`ready_for_publication` and contains `window.friday` / `window.thursday`.
 
 Manual dispatch defaults to **dry_run=true**: full checks and a calculation preview,
-no data/history commits. Set **dry_run=false** to recover a failed weekend run.
+no data/history commits. Set **dry_run=false** to recover a failed weekly run.
 Without a successfully refreshed receipt, the generation command refuses to lock.
+
+The original `weekend_predictions.cjs` filenames and CLI paths are retained for
+operational compatibility; their date range is now the full Friday–Thursday week.
 
 Manual Save to Accuracy remains available for additional matches. Neither opening
 the page nor approaching kickoff locks anything in the browser. The legacy hourly

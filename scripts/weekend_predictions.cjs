@@ -9,13 +9,15 @@ const ROOT=path.resolve(__dirname,'..');
 const INPUTS=['schedule-live.json','rosters-live.json','match-context-live.json','index.html','prediction-archive-core.js'];
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 
-function weekendWindow(now){
+function predictionWindow(now){
   const local=A.pragueMinute(now),date=local.slice(0,10);
   const day=new Date(date+'T12:00:00Z').getUTCDay();
-  const offset=day===0?-2:5-day;
+  // Calendar-based Friday -> Thursday, not the next Friday on a weekday retry.
+  // This also handles DST, month/year changes and catch-up runs through Thursday.
+  const offset=-((day+2)%7);
   const shift=n=>new Date(Date.parse(date+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
-  return {friday:shift(offset),sunday:shift(offset+2),
-    active:(day===5&&local.slice(11)>='08:00')||day===6||day===0};
+  return {friday:shift(offset),thursday:shift(offset+6),
+    active:day!==5||local.slice(11)>='08:00'};
 }
 
 function selectFixtures(schedule,archive,now){
@@ -24,10 +26,10 @@ function selectFixtures(schedule,archive,now){
   if(schedule?.season!==A.SEASON||!Array.isArray(matches)||matches.length!==240||
      new Set(matches.map(f=>String(f.officialMatchId))).size!==240)throw new Error('Expected 240 unique official fixtures');
   for(let round=1;round<=30;round++)if(matches.filter(f=>Number(f.round)===round).length!==8)throw new Error('Invalid round '+round);
-  const window=weekendWindow(now),existing=new Set(archive.records.map(r=>r.fixtureId));
+  const window=predictionWindow(now),existing=new Set(archive.records.map(r=>r.fixtureId));
   const selected=[],skipped=[];
   for(const fixture of matches){
-    if(!fixture.date||fixture.date<window.friday||fixture.date>window.sunday)continue;
+    if(!fixture.date||fixture.date<window.friday||fixture.date>window.thursday)continue;
     const id=String(fixture.officialMatchId),kickoff=A.kickoffMs(fixture);
     const reason=existing.has(id)?'already_archived':fixture.score?'already_played':
       ['postponed','cancelled','date_tba'].includes(fixture.status)?'postponed':
@@ -81,19 +83,20 @@ async function run({root=ROOT,receiptPath,dryRun=true,reportPath}={}){
   const report={dryRun,checkedAt:new Date().toISOString(),window:selection.window,
     selected:selection.selected.map(f=>String(f.officialMatchId)),skipped:selection.skipped,added:0,predictions:[]};
   const saveReport=()=>{if(reportPath)fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));return report;};
-  if(!dryRun&&!selection.window.active){report.status='outside_friday_weekend_window';return saveReport();}
+  if(!dryRun&&!selection.window.active){report.status='before_friday_check';return saveReport();}
   const receipt=read(receiptPath);verifyReceipt(receipt,root,Date.now());
-  if(!selection.selected.length){report.status='no_new_weekend_fixtures';return saveReport();}
+  if(!selection.selected.length){report.status='no_new_period_fixtures';return saveReport();}
   const app=await openApp(root);
   try{
     const locks=await calculate(app,{schedule,archive,rosters:read(path.join(root,'rosters-live.json')),context:read(path.join(root,'match-context-live.json')),fixtures:selection.selected});
     if(app.errors.length)throw new Error(app.errors.join('\n'));
     verifyReceipt(receipt,root,Date.now());
     const now=new Date().toISOString();
-    if(!dryRun&&!weekendWindow(Date.now()).active)throw new Error('Publication window expired during calculation');
+    const currentWindow=predictionWindow(Date.now());
+    if(!dryRun&&(!currentWindow.active||currentWindow.friday!==selection.window.friday))throw new Error('Publication window expired during calculation');
     const additions=locks.map(lock=>makeRecord(lock,A.fixtureFor(lock,schedule.matches),{
       kind:'friday-automatic',runId:process.env.GITHUB_RUN_ID||null,codeRef:process.env.GITHUB_SHA||null,
-      weekend:selection.window.friday,inputChecks:receipt
+      period:{from:selection.window.friday,to:selection.window.thursday},inputChecks:receipt
     },now));
     if(additions.some(r=>!r.evaluation.eligible))throw new Error('Kickoff passed before archiving; no predictions written');
     report.predictions=additions.map(r=>({fixtureId:r.fixtureId,home:r.lock.home,away:r.lock.away,hP:r.lock.hP,dP:r.lock.dP,aP:r.lock.aP,score:r.lock.topScore,tip:r.lock.predOutcome}));
@@ -110,4 +113,4 @@ if(require.main===module){
   else if(!['preview','publish'].includes(value('--mode'))){console.error('Explicit preview or publish mode required');process.exitCode=1;}
   else run({receiptPath:value('--receipt'),reportPath:value('--report'),dryRun:value('--mode')!=='publish'}).catch(e=>{console.error(e);process.exitCode=1;});
 }
-module.exports={weekendWindow,selectFixtures,verifyReceipt,calculate,run,INPUTS};
+module.exports={predictionWindow,selectFixtures,verifyReceipt,calculate,run,INPUTS};

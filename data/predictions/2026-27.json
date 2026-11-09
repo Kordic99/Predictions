@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "season": "2026/27",
   "policy": {
-    "automatic": "Friday 08:00 Europe/Prague: verify inputs, calculate Friday-Sunday fixtures and archive before kickoff. Existing snapshots never change; manual additions remain supported.",
+    "automatic": "Friday 08:00 Europe/Prague: verify inputs, calculate Friday through following Thursday fixtures (including midweek rounds) and archive before kickoff. Existing snapshots never change; manual additions remain supported.",
     "evaluation": "Original pre-kickoff exports or server-received pre-kickoff predictions only.",
     "selection": "Earliest eligible snapshot per official fixture; alternate versions remain archived."
   },

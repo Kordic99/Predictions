@@ -1,4 +1,4 @@
-name: Friday audit and weekend predictions
+name: Friday audit and weekly predictions
 
 on:
   schedule:
@@ -91,7 +91,7 @@ jobs:
             git rebase origin/main
           done
 
-      - name: Calculate Friday–Sunday forecasts using the application model
+      - name: Calculate Friday–Thursday forecasts using the application model
         shell: bash
         run: |
           mode=publish
