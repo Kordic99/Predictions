@@ -117,6 +117,8 @@ def club_news(club_url, now):
     official = page.xpath('//a[contains(@class,"ico-official")]/@href')
     if not official: raise ValueError('Official club website link not found')
     site = official[0].replace('http://', 'https://', 1)
+    if urlparse(site).scheme != 'https' or not urlparse(site).hostname:
+        raise ValueError('Official website must be a public HTTPS URL')
     source = context.fetch_text(site, attempts=2)
     doc = html.fromstring(source)
     social = sorted(set(urljoin(site, a) for a in doc.xpath('//a/@href')

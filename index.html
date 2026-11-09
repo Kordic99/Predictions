@@ -4294,16 +4294,18 @@ function p3RoundVal(r){
   return 999;
 }
 function p3ChronologicalMatches(targetSeason,targetRound,cutoff=new Date().toISOString()){
-  const completed=Object.values(predictionEvidenceLive?.teams||{}).flatMap(t=>t.matches||[]).filter(m=>m.status==='completed'&&PredictionEvidence.known(m,cutoff));
+  const evidenceAtCutoff=predictionEvidenceLive&&PredictionEvidence.known(predictionEvidenceLive,cutoff);
+  const completed=Object.values(evidenceAtCutoff?predictionEvidenceLive.teams:{}).flatMap(t=>t.matches||[]).filter(m=>m.status==='completed'&&PredictionEvidence.known(m,cutoff));
   const inputs=getCombinedResults().map(m=>{
     const proof=completed.find(p=>p.score===m.score&&
       ((m.livesportMatchId&&p.id===m.livesportMatchId)||
        (p.home===(nm(m.h)||m.h)&&p.away===(nm(m.a)||m.a)&&p.kickoffAt.slice(0,10)===m.date)));
-    return proof?{...m,completedAt:proof.completedAt,fetchedAt:proof.fetchedAt}:m;
+    return proof?{...m,verifiedKickoffAt:proof.kickoffAt,completedAt:proof.completedAt,fetchedAt:proof.fetchedAt}:m;
   });
   return PredictionEvidence.chronological(inputs,{
     season:targetSeason||CURRENT_SEASON,cutoff,observedAt:PREDICTION_DATA_OBSERVED_AT,
     kickoff:m=>{
+      if(m.verifiedKickoffAt)return Date.parse(m.verifiedKickoffAt);
       const f=m.season===CURRENT_SEASON?OFFICIAL_SCHEDULE_2026_27.find(f=>
         (m.officialMatchId&&String(m.officialMatchId)===String(f.officialMatchId))||
         (Number(f.round)===Number(m.r)&&f.home===(nm(m.h)||m.h)&&f.away===(nm(m.a)||m.a))):null;

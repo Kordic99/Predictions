@@ -85,9 +85,15 @@ test('real model freezes paired snapshots, rejects future evidence, restores new
       const m=predMatches.find(m=>m.home===lock.home&&m.away===lock.away&&Number(m.round)===Number(lock.round));
       clearPred3Cache();const p=getPred3MatchPrediction(m);
       sw('accuracy-new');renderAccuracyNew();
-      return {frozen:frozen===JSON.stringify(saved.snapshot),variant:p.contextVariant.hP,text:document.getElementById('an-list').textContent,active:document.getElementById('sec-accuracy-new').classList.contains('on'),cutoffs:saved.snapshot.calculation.modelMeta.lastFive};
+      const before=saved.snapshot.calculation.modelMeta.lastFive;
+      // An officially completed event supplies its actual time even if the Results row has no kickoff.
+      results.push({season:CURRENT_SEASON,r:999,h:lock.home,a:lock.away,date:'2030-01-04',score:'2:2',livesportMatchId:'early-test'});
+      predictionEvidenceLive={fetchedAt:'2030-01-04T03:00:00Z',teams:{test:{matches:[{id:'early-test',home:lock.home,away:lock.away,score:'2:2',status:'completed',kickoffAt:'2030-01-04T00:00:00Z',completedAt:'2030-01-04T02:00:00Z',fetchedAt:'2030-01-04T03:00:00Z'}]}}};
+      const actualTimeUsed=p3ChronologicalMatches(CURRENT_SEASON,null).some(m=>m.r===999&&new Date(m._playedAt).toISOString()==='2030-01-04T00:00:00.000Z');
+      return {frozen:frozen===JSON.stringify(saved.snapshot),variant:p.contextVariant.hP,text:document.getElementById('an-list').textContent,active:document.getElementById('sec-accuracy-new').classList.contains('on'),cutoffs:before,actualTimeUsed};
     },{lock,next});
     assert.equal(state.frozen,true);assert.equal(state.variant,v.hP);assert.equal(state.active,true);assert.match(state.text,/zátěž|Zátěž/);
+    assert.equal(state.actualTimeUsed,true);
     for(const games of Object.values(state.cutoffs))assert.ok(games.length<=5&&games.every(m=>Date.parse(m.playedAt)<Date.parse(lock.lockedAt)));
     assert.equal(JSON.stringify(archive),before);assert.deepEqual(app.errors,[]);
     if(process.env.EVIDENCE_SCREENSHOT){
