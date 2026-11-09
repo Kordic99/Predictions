@@ -421,6 +421,7 @@ def build_fixture_context(match: dict[str, Any]) -> dict[str, Any]:
         "home": match["home"],
         "away": match["away"],
         "livesportMatchId": event_id,
+        "fetchedAt": now_iso(),
         "source": "Livesport",
         "sourceUrl": url,
         "homeContext": team_context("HOME"),

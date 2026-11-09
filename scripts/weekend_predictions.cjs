@@ -6,7 +6,7 @@ const A=require('../prediction-archive-core.js');
 const {makeRecord,writeArchive,digest}=require('./archive_predictions.cjs');
 const {openApp}=require('./archive_runtime.cjs');
 const ROOT=path.resolve(__dirname,'..');
-const INPUTS=['schedule-live.json','rosters-live.json','match-context-live.json','index.html','prediction-archive-core.js'];
+const INPUTS=['schedule-live.json','rosters-live.json','match-context-live.json','prediction-evidence-live.json','prediction-evidence.js','accuracy-new.js','index.html','prediction-archive-core.js'];
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 
 function predictionWindow(now){
@@ -43,14 +43,14 @@ function selectFixtures(schedule,archive,now){
 function verifyReceipt(receipt,root,now){
   if(receipt?.schemaVersion!==1||now-Date.parse(receipt.checkedAt)>2*3600000||
      Date.parse(receipt.checkedAt)>now+60000||!Number.isFinite(Date.parse(receipt.checkedAt)))throw new Error('Missing or expired fresh-input receipt');
-  for(const check of ['official-schedule','official-rosters-and-values','livesport-stats','strict-context'])
+  for(const check of ['official-schedule','official-rosters-and-values','livesport-stats','strict-context','public-evidence'])
     if(!receipt.checks?.includes(check))throw new Error('Missing input check: '+check);
   if(process.env.GITHUB_RUN_ID&&receipt.runId!==process.env.GITHUB_RUN_ID)throw new Error('Receipt belongs to another workflow run');
   for(const file of INPUTS)if(receipt.hashes?.[file]!==digest(fs.readFileSync(path.join(root,file))))throw new Error('Input changed since verification: '+file);
 }
 
-async function calculate(app,{schedule,rosters,context,archive,fixtures}){
-  return app.page.evaluate(({schedule,rosters,context,archive,fixtures})=>{
+async function calculate(app,{schedule,rosters,context,evidence,archive,fixtures}){
+  return app.page.evaluate(({schedule,rosters,context,evidence,archive,fixtures})=>{
     // No user's local storage is involved: this is a fresh isolated server browser.
     for(const f of schedule.matches){
       const target=OFFICIAL_SCHEDULE_2026_27.find(t=>String(t.officialMatchId)===String(f.officialMatchId));
@@ -59,6 +59,7 @@ async function calculate(app,{schedule,rosters,context,archive,fixtures}){
     applyLiveScheduleData(schedule,false);
     applyPublishedRosterData(rosters,false);
     matchContextLive=validateMatchContextData(context);
+    predictionEvidenceLive=PredictionEvidence.validateFeed(evidence);
     mergePublishedPredictionArchive(archive);
     clearPred3Cache();
     const locks=[];
@@ -74,7 +75,7 @@ async function calculate(app,{schedule,rosters,context,archive,fixtures}){
       locks.push(JSON.parse(JSON.stringify(lock)));
     }
     return locks;
-  },{schedule,rosters,context,archive,fixtures});
+  },{schedule,rosters,context,evidence,archive,fixtures});
 }
 
 async function run({root=ROOT,receiptPath,dryRun=true,reportPath}={}){
@@ -88,7 +89,7 @@ async function run({root=ROOT,receiptPath,dryRun=true,reportPath}={}){
   if(!selection.selected.length){report.status='no_new_period_fixtures';return saveReport();}
   const app=await openApp(root);
   try{
-    const locks=await calculate(app,{schedule,archive,rosters:read(path.join(root,'rosters-live.json')),context:read(path.join(root,'match-context-live.json')),fixtures:selection.selected});
+    const locks=await calculate(app,{schedule,archive,rosters:read(path.join(root,'rosters-live.json')),context:read(path.join(root,'match-context-live.json')),evidence:read(path.join(root,'prediction-evidence-live.json')),fixtures:selection.selected});
     if(app.errors.length)throw new Error(app.errors.join('\n'));
     verifyReceipt(receipt,root,Date.now());
     const now=new Date().toISOString();
@@ -99,7 +100,8 @@ async function run({root=ROOT,receiptPath,dryRun=true,reportPath}={}){
       period:{from:selection.window.friday,to:selection.window.thursday},inputChecks:receipt
     },now));
     if(additions.some(r=>!r.evaluation.eligible))throw new Error('Kickoff passed before archiving; no predictions written');
-    report.predictions=additions.map(r=>({fixtureId:r.fixtureId,home:r.lock.home,away:r.lock.away,hP:r.lock.hP,dP:r.lock.dP,aP:r.lock.aP,score:r.lock.topScore,tip:r.lock.predOutcome}));
+    report.predictions=additions.map(r=>({fixtureId:r.fixtureId,home:r.lock.home,away:r.lock.away,hP:r.lock.hP,dP:r.lock.dP,aP:r.lock.aP,score:r.lock.topScore,tip:r.lock.predOutcome,
+      accuracyNew:r.lock.snapshot.calculation.contextVariant}));
     if(!dryRun){
       const next=A.appendRecords(archive,additions);A.assertAppendOnly(archive,next);
       writeArchive(path.join(root,A.FILE),next);report.added=additions.length;

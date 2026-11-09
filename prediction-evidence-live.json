@@ -1,0 +1,1396 @@
+{
+  "schemaVersion": 1,
+  "season": "2026/27",
+  "fetchedAt": "2026-11-09T17:31:27Z",
+  "teams": {
+    "Hradec Králové": {
+      "fetchedAt": "2026-11-09T17:31:02Z",
+      "matches": [
+        {
+          "id": "Iuh7kdxn",
+          "home": "Hradec Králové",
+          "away": "Sigma Olomouc",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T14:00:00Z",
+          "completedAt": "2026-11-07T15:52:29Z",
+          "status": "completed",
+          "score": "5:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/Iuh7kdxn/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "AeW4xks0",
+          "home": "Mladá Boleslav",
+          "away": "Hradec Králové",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-01T12:00:00Z",
+          "completedAt": "2026-11-01T13:53:23Z",
+          "status": "completed",
+          "score": "3:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/AeW4xks0/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "vaY6yYee",
+          "home": "Prostějov",
+          "away": "Hradec Králové",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T11:30:00Z",
+          "completedAt": "2026-10-28T13:56:48Z",
+          "status": "completed",
+          "score": "1:3",
+          "sourceUrl": "https://www.livesport.cz/zapas/vaY6yYee/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "I1TCVtUF",
+          "home": "Hradec Králové",
+          "away": "Jablonec",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-25T12:00:00Z",
+          "completedAt": "2026-10-25T13:54:18Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/I1TCVtUF/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://www.facebook.com/fchradec/",
+        "https://www.instagram.com/fchradec/",
+        "https://www.instagram.com/p/Dfe1OeKOzo-/",
+        "https://www.instagram.com/p/Dfend9sO3UH/",
+        "https://www.instagram.com/p/DffRlm1jibm/",
+        "https://www.instagram.com/p/DfhYHwaOhsr/",
+        "https://www.instagram.com/p/Dfhtxmiu-Gr/",
+        "https://www.instagram.com/reel/Dfe6WAsKvg_/"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://fchk.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Pardubice": {
+      "fetchedAt": "2026-11-09T17:31:03Z",
+      "matches": [
+        {
+          "id": "f3EkXEMH",
+          "home": "Teplice",
+          "away": "Pardubice",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T12:00:00Z",
+          "completedAt": "2026-11-08T13:49:51Z",
+          "status": "completed",
+          "score": "1:4",
+          "sourceUrl": "https://www.livesport.cz/zapas/f3EkXEMH/",
+          "fetchedAt": "2026-11-09T17:31:00Z"
+        },
+        {
+          "id": "vgkuMTdJ",
+          "home": "Pardubice",
+          "away": "Slovan Liberec",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:52:34Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/vgkuMTdJ/",
+          "fetchedAt": "2026-11-09T17:31:00Z"
+        },
+        {
+          "id": "jFgtwoXa",
+          "home": "Slovácko",
+          "away": "Pardubice",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T15:30:00Z",
+          "completedAt": "2026-10-28T17:19:59Z",
+          "status": "completed",
+          "score": "1:4",
+          "sourceUrl": "https://www.livesport.cz/zapas/jFgtwoXa/",
+          "fetchedAt": "2026-11-09T17:31:00Z"
+        },
+        {
+          "id": "4vwJ9a7d",
+          "home": "Viktoria Plzeň",
+          "away": "Pardubice",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-25T17:00:00Z",
+          "completedAt": "2026-10-25T18:53:16Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/4vwJ9a7d/",
+          "fetchedAt": "2026-11-09T17:31:00Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://twitter.com/FK_Pardubice",
+        "https://www.facebook.com/fkpardubice.cz",
+        "https://www.instagram.com/fkpardubice/"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://fkpardubice.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Jablonec": {
+      "fetchedAt": "2026-11-09T17:31:01Z",
+      "matches": [
+        {
+          "id": "Q5eFmz7b",
+          "home": "Jablonec",
+          "away": "Mladá Boleslav",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T14:00:00Z",
+          "completedAt": "2026-11-08T15:54:12Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/Q5eFmz7b/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "bmsWKkiI",
+          "home": "Riga FC",
+          "away": "Jablonec",
+          "competition": "Konferenční liga",
+          "kickoffAt": "2026-11-05T20:00:00Z",
+          "completedAt": "2026-11-05T21:50:46Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/bmsWKkiI/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "l6XKY6tP",
+          "home": "Jablonec",
+          "away": "Slavia Prague",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:53:23Z",
+          "status": "completed",
+          "score": "0:5",
+          "sourceUrl": "https://www.livesport.cz/zapas/l6XKY6tP/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "I1TCVtUF",
+          "home": "Hradec Králové",
+          "away": "Jablonec",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-25T12:00:00Z",
+          "completedAt": "2026-10-25T13:54:18Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/I1TCVtUF/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "KWOeJ6jf",
+          "home": "Jablonec",
+          "away": "Brighton",
+          "competition": "Konferenční liga",
+          "kickoffAt": "2026-10-22T16:45:00Z",
+          "completedAt": "2026-10-22T18:36:27Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/KWOeJ6jf/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "pIjYv72m",
+          "home": "Artis Brno",
+          "away": "Jablonec",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-11-11T17:00:00Z",
+          "completedAt": null,
+          "status": "scheduled",
+          "score": null,
+          "sourceUrl": "https://www.livesport.cz/zapas/pIjYv72m/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://www.facebook.com/FKJablonec",
+        "https://www.facebook.com/prvnifotbalovaliga",
+        "https://www.instagram.com/chanceligacz",
+        "https://www.instagram.com/fkjablonec/",
+        "https://x.com/FKJablonec",
+        "https://x.com/chanceliga"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://fkjablonec.cz/",
+          "pagesChecked": 5,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Sigma Olomouc": {
+      "fetchedAt": "2026-11-09T17:31:16Z",
+      "matches": [
+        {
+          "id": "Iuh7kdxn",
+          "home": "Hradec Králové",
+          "away": "Sigma Olomouc",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T14:00:00Z",
+          "completedAt": "2026-11-07T15:52:29Z",
+          "status": "completed",
+          "score": "5:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/Iuh7kdxn/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "2VSdvBCm",
+          "home": "Sigma Olomouc",
+          "away": "Zbrojovka Brno",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T17:00:00Z",
+          "completedAt": "2026-10-31T18:56:56Z",
+          "status": "completed",
+          "score": "3:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/2VSdvBCm/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        },
+        {
+          "id": "lljpDYDl",
+          "home": "Zlín",
+          "away": "Sigma Olomouc",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T13:00:00Z",
+          "completedAt": "2026-10-24T14:51:18Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/lljpDYDl/",
+          "fetchedAt": "2026-11-09T17:30:59Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://twitter.com/SKSigmaOlomouc",
+        "https://www.facebook.com/sksigmaolomouc",
+        "https://www.facebook.com/sksigmaolomouc/posts/1542586874561305",
+        "https://www.facebook.com/sksigmaolomouc/posts/1543123094507683",
+        "https://www.facebook.com/sksigmaolomouc/posts/1543222307831095",
+        "https://www.facebook.com/sksigmaolomouc/posts/1543318904488102",
+        "https://www.facebook.com/sksigmaolomouc/posts/1543349591151700",
+        "https://www.facebook.com/sksigmaolomouc/posts/1543367784483214"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.sigmafotbal.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Slavia Prague": {
+      "fetchedAt": "2026-11-09T17:31:16Z",
+      "matches": [
+        {
+          "id": "pfCtrVbJ",
+          "home": "Slavia Prague",
+          "away": "Artis Brno",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T14:00:00Z",
+          "completedAt": "2026-11-08T15:51:23Z",
+          "status": "completed",
+          "score": "4:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/pfCtrVbJ/",
+          "fetchedAt": "2026-11-09T17:31:01Z"
+        },
+        {
+          "id": "nBxtZvSs",
+          "home": "Slavia Prague",
+          "away": "Arsenal",
+          "competition": "Liga mistrů",
+          "kickoffAt": "2026-11-04T20:00:00Z",
+          "completedAt": "2026-11-04T21:54:01Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/nBxtZvSs/",
+          "fetchedAt": "2026-11-09T17:31:01Z"
+        },
+        {
+          "id": "l6XKY6tP",
+          "home": "Jablonec",
+          "away": "Slavia Prague",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:53:23Z",
+          "status": "completed",
+          "score": "0:5",
+          "sourceUrl": "https://www.livesport.cz/zapas/l6XKY6tP/",
+          "fetchedAt": "2026-11-09T17:31:01Z"
+        },
+        {
+          "id": "vJO0cFIE",
+          "home": "Slavia Prague",
+          "away": "Zbrojovka Brno",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-27T18:00:00Z",
+          "completedAt": "2026-10-27T19:52:58Z",
+          "status": "completed",
+          "score": "4:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/vJO0cFIE/",
+          "fetchedAt": "2026-11-09T17:31:01Z"
+        },
+        {
+          "id": "AyQ4X2a3",
+          "home": "Slavia Prague",
+          "away": "Mladá Boleslav",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T16:00:00Z",
+          "completedAt": "2026-10-24T17:56:46Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/AyQ4X2a3/",
+          "fetchedAt": "2026-11-09T17:31:01Z"
+        },
+        {
+          "id": "2yMLTDQr",
+          "home": "Fenerbahce",
+          "away": "Slavia Prague",
+          "competition": "Liga mistrů",
+          "kickoffAt": "2026-10-20T16:45:00Z",
+          "completedAt": "2026-10-20T18:36:48Z",
+          "status": "completed",
+          "score": "2:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/2yMLTDQr/",
+          "fetchedAt": "2026-11-09T17:31:01Z"
+        }
+      ],
+      "news": [
+        {
+          "title": "Skvělý vstup. Pořád jsme chtěli přidávat góly",
+          "sourceUrl": "https://www.slavia.cz/cze/article/skvely-vstup-porad-jsme-chteli-pridavat-goly",
+          "publishedAt": "2026-11-08T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:13Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Být zase součástí týmu je víc než vstřelený gól",
+          "sourceUrl": "https://www.slavia.cz/cze/article/byt-zase-soucasti-tym-je-vic-nez-vstreleny-gol",
+          "publishedAt": "2026-11-08T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:15Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Lístky na Baník jsou v prodeji",
+          "sourceUrl": "https://www.slavia.cz/cze/article/listky-na-banik-jsou-v-prodeji",
+          "publishedAt": "2026-11-05T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:16Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        }
+      ],
+      "social": [
+        "https://www.facebook.com/SKSlaviaPrahaFotbal",
+        "https://www.instagram.com/slaviapraha/",
+        "https://x.com/slaviaofficial"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.slavia.cz/",
+          "pagesChecked": 5,
+          "datedRecentArticles": 3,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Slovácko": {
+      "fetchedAt": "2026-11-09T17:31:07Z",
+      "matches": [
+        {
+          "id": "2THcVhiU",
+          "home": "Zlín",
+          "away": "Slovácko",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T14:00:00Z",
+          "completedAt": "2026-11-07T15:51:31Z",
+          "status": "completed",
+          "score": "0:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/2THcVhiU/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        },
+        {
+          "id": "6asRqXlQ",
+          "home": "Slovácko",
+          "away": "Teplice",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:48:21Z",
+          "status": "completed",
+          "score": "1:3",
+          "sourceUrl": "https://www.livesport.cz/zapas/6asRqXlQ/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        },
+        {
+          "id": "jFgtwoXa",
+          "home": "Slovácko",
+          "away": "Pardubice",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T15:30:00Z",
+          "completedAt": "2026-10-28T17:19:59Z",
+          "status": "completed",
+          "score": "1:4",
+          "sourceUrl": "https://www.livesport.cz/zapas/jFgtwoXa/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        },
+        {
+          "id": "CbkHRXSs",
+          "home": "Sparta Prague",
+          "away": "Slovácko",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-25T14:00:00Z",
+          "completedAt": "2026-10-25T15:49:15Z",
+          "status": "completed",
+          "score": "5:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/CbkHRXSs/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        }
+      ],
+      "news": [
+        {
+          "title": "Derby je naše. Vítězství ve Zlíně vystřelil Puškáč",
+          "sourceUrl": "https://www.fcslovacko.cz/cs/novinky/3166-zlin-slovacko",
+          "publishedAt": "2026-11-07T15:37:48Z",
+          "fetchedAt": "2026-11-09T17:31:07Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        }
+      ],
+      "social": [
+        "https://twitter.com/1_FCS",
+        "https://www.facebook.com/1fcSlovackoMladez/",
+        "https://www.facebook.com/fcslovacko.cz/",
+        "https://www.instagram.com/fcslovacko/"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fcslovacko.cz/",
+          "pagesChecked": 2,
+          "datedRecentArticles": 1,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Zbrojovka Brno": {
+      "fetchedAt": "2026-11-09T17:31:06Z",
+      "matches": [
+        {
+          "id": "My1rZzh5",
+          "home": "Zbrojovka Brno",
+          "away": "Baník Ostrava",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T17:00:00Z",
+          "completedAt": "2026-11-07T18:51:37Z",
+          "status": "completed",
+          "score": "1:3",
+          "sourceUrl": "https://www.livesport.cz/zapas/My1rZzh5/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        },
+        {
+          "id": "2VSdvBCm",
+          "home": "Sigma Olomouc",
+          "away": "Zbrojovka Brno",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T17:00:00Z",
+          "completedAt": "2026-10-31T18:56:56Z",
+          "status": "completed",
+          "score": "3:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/2VSdvBCm/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        },
+        {
+          "id": "vJO0cFIE",
+          "home": "Slavia Prague",
+          "away": "Zbrojovka Brno",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-27T18:00:00Z",
+          "completedAt": "2026-10-27T19:52:58Z",
+          "status": "completed",
+          "score": "4:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/vJO0cFIE/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        },
+        {
+          "id": "lMBa9jDD",
+          "home": "Zbrojovka Brno",
+          "away": "Bohemians 1905",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T13:00:00Z",
+          "completedAt": "2026-10-24T14:51:05Z",
+          "status": "completed",
+          "score": "2:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/lMBa9jDD/",
+          "fetchedAt": "2026-11-09T17:31:03Z"
+        }
+      ],
+      "news": [
+        {
+          "title": "Hodnocení trenéra Svědíka po utkání s Baníkem",
+          "sourceUrl": "https://www.fczbrno.cz/article/11693-Hodnoceni-trenera-Svedika-po-utkani-s-Banikem",
+          "publishedAt": "2026-11-07T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:06Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        }
+      ],
+      "social": [
+        "https://www.facebook.com/114636851915315/posts/1648299180667952",
+        "https://www.facebook.com/114636851915315/posts/1648799133951290",
+        "https://www.facebook.com/114636851915315/posts/1648815850616285",
+        "https://www.facebook.com/114636851915315/posts/1649266550571215",
+        "https://www.facebook.com/114636851915315/posts/1650355173795686",
+        "https://www.facebook.com/FCZbrojovkaBrno/",
+        "https://www.instagram.com/fczbrojovkabrno/",
+        "https://x.com/FCZbrojovkaBrno"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fczbrno.cz/",
+          "pagesChecked": 2,
+          "datedRecentArticles": 1,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Sparta Prague": {
+      "fetchedAt": "2026-11-09T17:31:11Z",
+      "matches": [
+        {
+          "id": "tbaSxJht",
+          "home": "Viktoria Plzeň",
+          "away": "Sparta Prague",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T17:00:00Z",
+          "completedAt": "2026-11-08T18:57:39Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/tbaSxJht/",
+          "fetchedAt": "2026-11-09T17:31:06Z"
+        },
+        {
+          "id": "nJY69nUb",
+          "home": "Sparta Prague",
+          "away": "Bournemouth",
+          "competition": "Evropská liga",
+          "kickoffAt": "2026-11-05T17:45:00Z",
+          "completedAt": "2026-11-05T19:40:26Z",
+          "status": "completed",
+          "score": "1:3",
+          "sourceUrl": "https://www.livesport.cz/zapas/nJY69nUb/",
+          "fetchedAt": "2026-11-09T17:31:06Z"
+        },
+        {
+          "id": "KOhPPBcf",
+          "home": "Bohemians 1905",
+          "away": "Sparta Prague",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-01T17:00:00Z",
+          "completedAt": "2026-11-01T18:50:41Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/KOhPPBcf/",
+          "fetchedAt": "2026-11-09T17:31:06Z"
+        },
+        {
+          "id": "dClTrG3L",
+          "home": "Sparta Prague",
+          "away": "Baník Ostrava",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T17:30:00Z",
+          "completedAt": "2026-10-28T19:28:41Z",
+          "status": "completed",
+          "score": "0:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/dClTrG3L/",
+          "fetchedAt": "2026-11-09T17:31:06Z"
+        },
+        {
+          "id": "CbkHRXSs",
+          "home": "Sparta Prague",
+          "away": "Slovácko",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-25T14:00:00Z",
+          "completedAt": "2026-10-25T15:49:15Z",
+          "status": "completed",
+          "score": "5:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/CbkHRXSs/",
+          "fetchedAt": "2026-11-09T17:31:06Z"
+        },
+        {
+          "id": "SMqu0QwJ",
+          "home": "Olympiakos",
+          "away": "Sparta Prague",
+          "competition": "Evropská liga",
+          "kickoffAt": "2026-10-22T19:00:00Z",
+          "completedAt": "2026-10-22T20:49:55Z",
+          "status": "completed",
+          "score": "1:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/SMqu0QwJ/",
+          "fetchedAt": "2026-11-09T17:31:06Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://twitter.com/acsparta_cz/",
+        "https://www.facebook.com/ACSpartaPraha/",
+        "https://www.facebook.com/prvnifotbalovaliga",
+        "https://www.instagram.com/acsparta_cz/",
+        "https://www.instagram.com/chanceligacz",
+        "https://x.com/chanceliga"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.sparta.cz",
+          "pagesChecked": 3,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Teplice": {
+      "fetchedAt": "2026-11-09T17:31:12Z",
+      "matches": [
+        {
+          "id": "f3EkXEMH",
+          "home": "Teplice",
+          "away": "Pardubice",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T12:00:00Z",
+          "completedAt": "2026-11-08T13:49:51Z",
+          "status": "completed",
+          "score": "1:4",
+          "sourceUrl": "https://www.livesport.cz/zapas/f3EkXEMH/",
+          "fetchedAt": "2026-11-09T17:31:08Z"
+        },
+        {
+          "id": "6asRqXlQ",
+          "home": "Slovácko",
+          "away": "Teplice",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:48:21Z",
+          "status": "completed",
+          "score": "1:3",
+          "sourceUrl": "https://www.livesport.cz/zapas/6asRqXlQ/",
+          "fetchedAt": "2026-11-09T17:31:08Z"
+        },
+        {
+          "id": "hrzawfRr",
+          "home": "Slovan Liberec",
+          "away": "Teplice",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-27T16:00:00Z",
+          "completedAt": "2026-10-27T17:54:33Z",
+          "status": "completed",
+          "score": "1:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/hrzawfRr/",
+          "fetchedAt": "2026-11-09T17:31:08Z"
+        },
+        {
+          "id": "6qBQoDaf",
+          "home": "Teplice",
+          "away": "Artis Brno",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T13:00:00Z",
+          "completedAt": "2026-10-24T14:54:32Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/6qBQoDaf/",
+          "fetchedAt": "2026-11-09T17:31:08Z"
+        }
+      ],
+      "news": [
+        {
+          "title": "Pátý díl U nás na Stínadlech už dnes na YouTube! Premiéra začíná v 19:00",
+          "sourceUrl": "https://www.fkteplice.cz/article/12776-Paty-dil-U-nas-na-Stinadlech-uz-dnes-na-YouTube-Premiera-zacina-v-1900",
+          "publishedAt": "2026-11-08T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:11Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "V nedělní fanzóně proběhne autogramiáda",
+          "sourceUrl": "https://www.fkteplice.cz/article/12771-V-nedelni-fanzone-probehne-autogramiada",
+          "publishedAt": "2026-11-07T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:12Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Ondřej Prášil: Soupeře respektujeme, ale věříme v dobrý výsledek",
+          "sourceUrl": "https://www.fkteplice.cz/article/12778-Ondrej-Prasil-Soupere-respektujeme-ale-verime-v-dobry-vysledek",
+          "publishedAt": "2026-11-06T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:12Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Idris Hopi: Nominaci do áčka jsem vůbec nečekal. Jsem šťastný, že můžu reprezentovat Česko",
+          "sourceUrl": "https://www.fkteplice.cz/article/12777-Idris-Hopi-Nominaci-do-acka-jsem-vubec-necekal-Jsem-stastny-ze-muzu-reprezentovat-Cesko",
+          "publishedAt": "2026-11-06T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:12Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        }
+      ],
+      "social": [
+        "https://twitter.com/fk_teplice",
+        "https://www.facebook.com/fkteplice",
+        "https://www.instagram.com/fkteplice/"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fkteplice.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 4,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Bohemians 1905": {
+      "fetchedAt": "2026-11-09T17:31:27Z",
+      "matches": [
+        {
+          "id": "lO2zycNh",
+          "home": "Slovan Liberec",
+          "away": "Bohemians 1905",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T14:00:00Z",
+          "completedAt": "2026-11-07T15:53:29Z",
+          "status": "completed",
+          "score": "1:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/lO2zycNh/",
+          "fetchedAt": "2026-11-09T17:31:12Z"
+        },
+        {
+          "id": "bJ7ImZUs",
+          "home": "Artis Brno",
+          "away": "Bohemians 1905",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-04T17:00:00Z",
+          "completedAt": "2026-11-04T18:56:51Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/bJ7ImZUs/",
+          "fetchedAt": "2026-11-09T17:31:12Z"
+        },
+        {
+          "id": "KOhPPBcf",
+          "home": "Bohemians 1905",
+          "away": "Sparta Prague",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-01T17:00:00Z",
+          "completedAt": "2026-11-01T18:50:41Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/KOhPPBcf/",
+          "fetchedAt": "2026-11-09T17:31:12Z"
+        },
+        {
+          "id": "nPyFZBQ7",
+          "home": "Mladá Boleslav",
+          "away": "Bohemians 1905",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T13:30:00Z",
+          "completedAt": "2026-10-28T15:27:50Z",
+          "status": "completed",
+          "score": "3:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/nPyFZBQ7/",
+          "fetchedAt": "2026-11-09T17:31:12Z"
+        },
+        {
+          "id": "lMBa9jDD",
+          "home": "Zbrojovka Brno",
+          "away": "Bohemians 1905",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T13:00:00Z",
+          "completedAt": "2026-10-24T14:51:05Z",
+          "status": "completed",
+          "score": "2:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/lMBa9jDD/",
+          "fetchedAt": "2026-11-09T17:31:12Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://instagram.com/bohemians_praha_1905",
+        "https://twitter.com/bohemians1905",
+        "https://www.facebook.com/bohemians.cz"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.bohemians.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Viktoria Plzeň": {
+      "fetchedAt": "2026-11-09T17:31:14Z",
+      "matches": [
+        {
+          "id": "tbaSxJht",
+          "home": "Viktoria Plzeň",
+          "away": "Sparta Prague",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T17:00:00Z",
+          "completedAt": "2026-11-08T18:57:39Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/tbaSxJht/",
+          "fetchedAt": "2026-11-09T17:31:13Z"
+        },
+        {
+          "id": "EVykFB1D",
+          "home": "Lilleström",
+          "away": "Viktoria Plzeň",
+          "competition": "Evropská liga",
+          "kickoffAt": "2026-11-05T17:45:00Z",
+          "completedAt": "2026-11-05T19:38:08Z",
+          "status": "completed",
+          "score": "0:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/EVykFB1D/",
+          "fetchedAt": "2026-11-09T17:31:13Z"
+        },
+        {
+          "id": "hxiXNkS6",
+          "home": "Baník Ostrava",
+          "away": "Viktoria Plzeň",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-01T14:00:00Z",
+          "completedAt": "2026-11-01T15:53:38Z",
+          "status": "completed",
+          "score": "0:4",
+          "sourceUrl": "https://www.livesport.cz/zapas/hxiXNkS6/",
+          "fetchedAt": "2026-11-09T17:31:13Z"
+        },
+        {
+          "id": "nFS64cFb",
+          "home": "Jihlava",
+          "away": "Viktoria Plzeň",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T13:00:00Z",
+          "completedAt": "2026-10-28T14:46:07Z",
+          "status": "completed",
+          "score": "1:6",
+          "sourceUrl": "https://www.livesport.cz/zapas/nFS64cFb/",
+          "fetchedAt": "2026-11-09T17:31:13Z"
+        },
+        {
+          "id": "4vwJ9a7d",
+          "home": "Viktoria Plzeň",
+          "away": "Pardubice",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-25T17:00:00Z",
+          "completedAt": "2026-10-25T18:53:16Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/4vwJ9a7d/",
+          "fetchedAt": "2026-11-09T17:31:13Z"
+        },
+        {
+          "id": "65YtHXW0",
+          "home": "Viktoria Plzeň",
+          "away": "Levski",
+          "competition": "Evropská liga",
+          "kickoffAt": "2026-10-22T19:00:00Z",
+          "completedAt": "2026-10-22T20:51:47Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/65YtHXW0/",
+          "fetchedAt": "2026-11-09T17:31:13Z"
+        }
+      ],
+      "news": [],
+      "social": [],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fcviktoria.cz/",
+          "pagesChecked": 1,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Slovan Liberec": {
+      "fetchedAt": "2026-11-09T17:31:26Z",
+      "matches": [
+        {
+          "id": "lO2zycNh",
+          "home": "Slovan Liberec",
+          "away": "Bohemians 1905",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T14:00:00Z",
+          "completedAt": "2026-11-07T15:53:29Z",
+          "status": "completed",
+          "score": "1:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/lO2zycNh/",
+          "fetchedAt": "2026-11-09T17:31:14Z"
+        },
+        {
+          "id": "vgkuMTdJ",
+          "home": "Pardubice",
+          "away": "Slovan Liberec",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:52:34Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/vgkuMTdJ/",
+          "fetchedAt": "2026-11-09T17:31:14Z"
+        },
+        {
+          "id": "hrzawfRr",
+          "home": "Slovan Liberec",
+          "away": "Teplice",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-27T16:00:00Z",
+          "completedAt": "2026-10-27T17:54:33Z",
+          "status": "completed",
+          "score": "1:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/hrzawfRr/",
+          "fetchedAt": "2026-11-09T17:31:14Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://www.facebook.com/180176082515/posts/1748507347047581",
+        "https://www.facebook.com/180176082515/posts/1748612533703729",
+        "https://www.facebook.com/180176082515/posts/1748753293689653",
+        "https://www.facebook.com/180176082515/posts/1748805257017790",
+        "https://www.facebook.com/180176082515/posts/1749410843623898",
+        "https://www.facebook.com/180176082515/posts/1749906820240967",
+        "https://www.facebook.com/180176082515/posts/1750544910177158",
+        "https://www.facebook.com/180176082515/posts/1750584246839891"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fcslovanliberec.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Zlín": {
+      "fetchedAt": "2026-11-09T17:31:18Z",
+      "matches": [
+        {
+          "id": "2THcVhiU",
+          "home": "Zlín",
+          "away": "Slovácko",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T14:00:00Z",
+          "completedAt": "2026-11-07T15:51:31Z",
+          "status": "completed",
+          "score": "0:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/2THcVhiU/",
+          "fetchedAt": "2026-11-09T17:31:16Z"
+        },
+        {
+          "id": "CtEYqiU6",
+          "home": "Artis Brno",
+          "away": "Zlín",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:49:42Z",
+          "status": "completed",
+          "score": "2:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/CtEYqiU6/",
+          "fetchedAt": "2026-11-09T17:31:16Z"
+        },
+        {
+          "id": "lljpDYDl",
+          "home": "Zlín",
+          "away": "Sigma Olomouc",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T13:00:00Z",
+          "completedAt": "2026-10-24T14:51:18Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/lljpDYDl/",
+          "fetchedAt": "2026-11-09T17:31:16Z"
+        }
+      ],
+      "news": [],
+      "social": [
+        "https://twitter.com/footballzlin?lang=cs",
+        "https://www.facebook.com/FotbalZlin/",
+        "https://www.instagram.com/fc_zlin/"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fczlin.com",
+          "pagesChecked": 7,
+          "datedRecentArticles": 0,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Baník Ostrava": {
+      "fetchedAt": "2026-11-09T17:31:17Z",
+      "matches": [
+        {
+          "id": "My1rZzh5",
+          "home": "Zbrojovka Brno",
+          "away": "Baník Ostrava",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-07T17:00:00Z",
+          "completedAt": "2026-11-07T18:51:37Z",
+          "status": "completed",
+          "score": "1:3",
+          "sourceUrl": "https://www.livesport.cz/zapas/My1rZzh5/",
+          "fetchedAt": "2026-11-09T17:31:16Z"
+        },
+        {
+          "id": "hxiXNkS6",
+          "home": "Baník Ostrava",
+          "away": "Viktoria Plzeň",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-01T14:00:00Z",
+          "completedAt": "2026-11-01T15:53:38Z",
+          "status": "completed",
+          "score": "0:4",
+          "sourceUrl": "https://www.livesport.cz/zapas/hxiXNkS6/",
+          "fetchedAt": "2026-11-09T17:31:16Z"
+        },
+        {
+          "id": "dClTrG3L",
+          "home": "Sparta Prague",
+          "away": "Baník Ostrava",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T17:30:00Z",
+          "completedAt": "2026-10-28T19:28:41Z",
+          "status": "completed",
+          "score": "0:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/dClTrG3L/",
+          "fetchedAt": "2026-11-09T17:31:16Z"
+        }
+      ],
+      "news": [
+        {
+          "title": "Pďż˝ijďż˝te si popovďż˝dat s hrďż˝ďż˝i Banďż˝ku!",
+          "sourceUrl": "https://www.fcb.cz/clanek.asp?id=12439",
+          "publishedAt": "2026-11-09T11:54:13Z",
+          "fetchedAt": "2026-11-09T17:31:17Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "ďż˝ďż˝ko v pďż˝estďż˝vce bez ďż˝esti reprezentantďż˝",
+          "sourceUrl": "https://www.fcb.cz/clanek.asp?id=12438",
+          "publishedAt": "2026-11-09T09:16:33Z",
+          "fetchedAt": "2026-11-09T17:31:17Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Velkďż˝ autogramiďż˝da uďż˝ v ďż˝terďż˝",
+          "sourceUrl": "https://www.fcb.cz/clanek.asp?id=12429",
+          "publishedAt": "2026-11-09T09:15:00Z",
+          "fetchedAt": "2026-11-09T17:31:17Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Informace k pďż˝edprodeji na Teplice",
+          "sourceUrl": "https://www.fcb.cz/clanek.asp?id=12437",
+          "publishedAt": "2026-11-09T08:45:40Z",
+          "fetchedAt": "2026-11-09T17:31:17Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Dlouhďż˝ oslabenďż˝ rozhodlo: Banďż˝k B - Prostďż˝jov 1:2",
+          "sourceUrl": "https://www.fcb.cz/zapas.asp?id=1345",
+          "publishedAt": "2026-11-08T15:30:00Z",
+          "fetchedAt": "2026-11-09T17:31:17Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Baďż˝ky ukonďż˝ily podzim vďż˝tďż˝zstvďż˝m",
+          "sourceUrl": "https://www.fcb.cz/zapas.asp?id=1376",
+          "publishedAt": "2026-11-07T14:11:48Z",
+          "fetchedAt": "2026-11-09T17:31:17Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        }
+      ],
+      "social": [
+        "https://www.facebook.com/fcbanikostrava1922/",
+        "https://www.instagram.com/fcbanikostrava"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fcb.cz/",
+          "pagesChecked": 2,
+          "datedRecentArticles": 8,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    },
+    "Artis Brno": {
+      "fetchedAt": "2026-11-09T17:31:18Z",
+      "matches": [
+        {
+          "id": "pfCtrVbJ",
+          "home": "Slavia Prague",
+          "away": "Artis Brno",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T14:00:00Z",
+          "completedAt": "2026-11-08T15:51:23Z",
+          "status": "completed",
+          "score": "4:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/pfCtrVbJ/",
+          "fetchedAt": "2026-11-09T17:31:18Z"
+        },
+        {
+          "id": "bJ7ImZUs",
+          "home": "Artis Brno",
+          "away": "Bohemians 1905",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-04T17:00:00Z",
+          "completedAt": "2026-11-04T18:56:51Z",
+          "status": "completed",
+          "score": "1:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/bJ7ImZUs/",
+          "fetchedAt": "2026-11-09T17:31:18Z"
+        },
+        {
+          "id": "CtEYqiU6",
+          "home": "Artis Brno",
+          "away": "Zlín",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-31T14:00:00Z",
+          "completedAt": "2026-10-31T15:49:42Z",
+          "status": "completed",
+          "score": "2:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/CtEYqiU6/",
+          "fetchedAt": "2026-11-09T17:31:18Z"
+        },
+        {
+          "id": "6qBQoDaf",
+          "home": "Teplice",
+          "away": "Artis Brno",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T13:00:00Z",
+          "completedAt": "2026-10-24T14:54:32Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/6qBQoDaf/",
+          "fetchedAt": "2026-11-09T17:31:18Z"
+        },
+        {
+          "id": "pIjYv72m",
+          "home": "Artis Brno",
+          "away": "Jablonec",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-11-11T17:00:00Z",
+          "completedAt": null,
+          "status": "scheduled",
+          "score": null,
+          "sourceUrl": "https://www.livesport.cz/zapas/pIjYv72m/",
+          "fetchedAt": "2026-11-09T17:31:18Z"
+        }
+      ],
+      "news": [],
+      "social": [],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "unavailable",
+          "error": "Official club website link not found"
+        }
+      }
+    },
+    "Mladá Boleslav": {
+      "fetchedAt": "2026-11-09T17:31:22Z",
+      "matches": [
+        {
+          "id": "Q5eFmz7b",
+          "home": "Jablonec",
+          "away": "Mladá Boleslav",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-08T14:00:00Z",
+          "completedAt": "2026-11-08T15:54:12Z",
+          "status": "completed",
+          "score": "0:0",
+          "sourceUrl": "https://www.livesport.cz/zapas/Q5eFmz7b/",
+          "fetchedAt": "2026-11-09T17:31:19Z"
+        },
+        {
+          "id": "AeW4xks0",
+          "home": "Mladá Boleslav",
+          "away": "Hradec Králové",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-11-01T12:00:00Z",
+          "completedAt": "2026-11-01T13:53:23Z",
+          "status": "completed",
+          "score": "3:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/AeW4xks0/",
+          "fetchedAt": "2026-11-09T17:31:19Z"
+        },
+        {
+          "id": "nPyFZBQ7",
+          "home": "Mladá Boleslav",
+          "away": "Bohemians 1905",
+          "competition": "MOL Cup",
+          "kickoffAt": "2026-10-28T13:30:00Z",
+          "completedAt": "2026-10-28T15:27:50Z",
+          "status": "completed",
+          "score": "3:2",
+          "sourceUrl": "https://www.livesport.cz/zapas/nPyFZBQ7/",
+          "fetchedAt": "2026-11-09T17:31:19Z"
+        },
+        {
+          "id": "AyQ4X2a3",
+          "home": "Slavia Prague",
+          "away": "Mladá Boleslav",
+          "competition": "Chance Liga",
+          "kickoffAt": "2026-10-24T16:00:00Z",
+          "completedAt": "2026-10-24T17:56:46Z",
+          "status": "completed",
+          "score": "1:1",
+          "sourceUrl": "https://www.livesport.cz/zapas/AyQ4X2a3/",
+          "fetchedAt": "2026-11-09T17:31:19Z"
+        },
+        {
+          "id": "ENoHHUkD",
+          "home": "RB Lipsko (Ger)",
+          "away": "Mladá Boleslav",
+          "competition": "Přátelské zápasy klubů",
+          "kickoffAt": "2026-11-12T10:00:00Z",
+          "completedAt": null,
+          "status": "scheduled",
+          "score": null,
+          "sourceUrl": "https://www.livesport.cz/zapas/ENoHHUkD/",
+          "fetchedAt": "2026-11-09T17:31:20Z"
+        },
+        {
+          "id": "6yu3pKPG",
+          "home": "Mladá Boleslav",
+          "away": "Jihlava (Cze)",
+          "competition": "Přátelské zápasy klubů",
+          "kickoffAt": "2026-11-13T10:00:00Z",
+          "completedAt": null,
+          "status": "scheduled",
+          "score": null,
+          "sourceUrl": "https://www.livesport.cz/zapas/6yu3pKPG/",
+          "fetchedAt": "2026-11-09T17:31:20Z"
+        }
+      ],
+      "news": [
+        {
+          "title": "Z jablonecké Střelnice bod za čtvrtou podzimní remízu",
+          "sourceUrl": "https://www.fkmb.cz/article/31341-Z-jablonecke-Strelnice-bod-za-ctvrtou-podzimni-remizu",
+          "publishedAt": "2026-11-08T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:21Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        },
+        {
+          "title": "Boleslav se poměří se silným a zkušeným protivníkem",
+          "sourceUrl": "https://www.fkmb.cz/article/31337-Boleslav-se-pomeri-se-silnym-a-zkusenym-protivnikem",
+          "publishedAt": "2026-11-06T22:59:59Z",
+          "fetchedAt": "2026-11-09T17:31:21Z",
+          "effect": 0,
+          "classification": "informational-not-interpreted"
+        }
+      ],
+      "social": [
+        "https://twitter.com/fkmladaboleslav",
+        "https://www.facebook.com/fk.mlada.boleslav",
+        "https://www.instagram.com/fkmladaboleslav/"
+      ],
+      "coverage": {
+        "results": "ok",
+        "fixtures": "ok",
+        "news": {
+          "status": "checked-public-pages",
+          "sourceUrl": "https://www.fkmb.cz/",
+          "pagesChecked": 7,
+          "datedRecentArticles": 2,
+          "errors": [],
+          "socialStatus": "links-only-not-crawled"
+        }
+      }
+    }
+  },
+  "policy": "No paid API. News titles/links only; no inferred injury, sentiment, rotation or European win bonus."
+}

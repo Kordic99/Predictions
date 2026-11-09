@@ -55,7 +55,7 @@ jobs:
       - name: Test roster reconciliation
         run: |
           python -m unittest discover -s tests -p 'test_*.py'
-          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs
+          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs tests/prediction_evidence.test.cjs
           node scripts/archive_predictions.cjs validate
 
       - name: Refresh schedule, all rosters, values, ratings and availability
@@ -64,7 +64,7 @@ jobs:
       - name: Validate changed-file scope
         shell: bash
         run: |
-          unexpected="$(git status --short | awk '{print $2}' | grep -Ev '^(rosters-live\.json|roster-audit-live\.json|schedule-live\.json|match-context-live\.json)$' || true)"
+          unexpected="$(git status --short | awk '{print $2}' | grep -Ev '^(rosters-live\.json|roster-audit-live\.json|schedule-live\.json|match-context-live\.json|prediction-evidence-live\.json)$' || true)"
           if [[ -n "$unexpected" ]]; then
             echo "Unexpected changed files:"
             echo "$unexpected"
@@ -75,13 +75,13 @@ jobs:
         if: env.DRY_RUN != 'true'
         shell: bash
         run: |
-          if git diff --quiet -- rosters-live.json roster-audit-live.json schedule-live.json match-context-live.json; then
+          if git diff --quiet -- rosters-live.json roster-audit-live.json schedule-live.json match-context-live.json prediction-evidence-live.json; then
             echo "No roster or market-value data changed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add rosters-live.json roster-audit-live.json schedule-live.json match-context-live.json
+          git add rosters-live.json roster-audit-live.json schedule-live.json match-context-live.json prediction-evidence-live.json
           git commit -m 'Refresh verified Friday prediction inputs'
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then exit 0; fi
@@ -130,4 +130,5 @@ jobs:
             rosters-live.json
             roster-audit-live.json
             match-context-live.json
+            prediction-evidence-live.json
 

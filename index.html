@@ -431,6 +431,7 @@
   <button class="tab" data-tab="players" onclick="sw('players');renderPlayers()">Players</button>
   <button class="tab" data-tab="prev" onclick="sw('prev');renderPrevYears()">Prev. years</button>
   <button class="tab" data-tab="accuracy" onclick="sw('accuracy');renderAccuracy()">Accuracy</button>
+  <button class="tab" data-tab="accuracy-new" onclick="sw('accuracy-new');renderAccuracyNew()">Accuracy New</button>
 </div>
 
 <!-- MAIN TABLE -->
@@ -748,6 +749,18 @@
 </div>
 
 
+<div class="sec app" id="sec-accuracy-new">
+  <h2 style="font-size:18px">Accuracy New <small style="color:var(--text3);font-size:12px">· ověřitelné podklady</small></h2>
+  <p style="font-size:12px;color:var(--text3)">Stejné zápasy, stejný čas zamčení: základní model versus model s doloženou zátěží. Forma = posledních 5 skutečně odehraných ligových zápasů každého týmu. Zprávy bez jednoznačných strukturovaných údajů nemění pravděpodobnosti.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">
+    <label>Kolo <select class="si" id="an-round" onchange="renderAccuracyNew()"><option value="">Všechna</option></select></label>
+    <label>Stav <select class="si" id="an-status" onchange="renderAccuracyNew()"><option value="">Vše</option><option value="settled">Vyhodnocené</option><option value="pending">Čekající</option><option value="excluded">Vyloučené</option></select></label>
+  </div>
+  <div id="an-summary" role="status" style="padding:12px;background:var(--bg2);border-radius:8px;margin-bottom:12px"></div>
+  <div id="an-list"></div>
+</div>
+<script src="prediction-evidence.js"></script>
+<script src="accuracy-new.js"></script>
 <script src="prediction-archive-core.js"></script>
 <script src="prediction-archive-client.js"></script>
 <script>
@@ -2081,8 +2094,8 @@ function calcFormScore(matches){
   return((clamped-minPossible)/(maxPossible-minPossible))*10;
 }
 
-function getForm(team){
-  const ms=results.filter(m=>m.season===CURRENT_SEASON&&(m.h===team||m.a===team)).sort((a,b)=>b.r-a.r).slice(0,5);
+function getForm(team,cutoff=new Date().toISOString()){
+  const ms=PredictionEvidence.lastFive(p3ChronologicalMatches(CURRENT_SEASON,null,cutoff),team);
   const matchData=[];
   const dots=[];
   ms.forEach(m=>{
@@ -2104,8 +2117,8 @@ function getForm(team){
 }
 
 // Venue form: home team's last 5 HOME games, away team's last 5 AWAY games
-function getVenueForm(team, isHome){
-  const ms=results.filter(m=>m.season===CURRENT_SEASON&&(isHome?m.h===team:m.a===team)).sort((a,b)=>b.r-a.r).slice(0,5);
+function getVenueForm(team, isHome,cutoff=new Date().toISOString()){
+  const ms=p3ChronologicalMatches(CURRENT_SEASON,null,cutoff).filter(m=>isHome?m.h===team:m.a===team).slice(-5).reverse();
   const matchData=ms.map(m=>{
     const[hg,ag]=m.score.split(':').map(Number);
     return isHome?{gf:hg,ga:ag}:{gf:ag,ga:hg};
@@ -2766,7 +2779,7 @@ let scheduleLastCheckAt=0;
 // is never part of the mutable user JSON.  A copy is stored inside every
 // Accuracy snapshot so a later Livesport refresh cannot rewrite history.
 const MATCH_CONTEXT_LIVE_FILE='match-context-live.json';
-const PREDICTION_MODEL_VERSION='2026.07-preseason-xi-v1';
+const PREDICTION_MODEL_VERSION='2026.11-chronological-last5-v2';
 const LOCKED_SNAPSHOT_VERSION=1;
 let matchContextLive={
   schemaVersion:1,
@@ -2882,10 +2895,12 @@ function getBalancedProxyPlayers(team,excludedNames=[]){
   return chosen.slice(0,11);
 }
 
-function buildPredictionSideInput(match,side){
+function buildPredictionSideInput(match,side,cutoff=new Date().toISOString()){
   const team=side==='home'?match.home:match.away;
   const fixture=predictionContextFixture(match);
-  const raw=fixture?.[side+'Context']||null;
+  const sourceCheckedAt=fixture?.fetchedAt||matchContextLive.updatedAt;
+  const fresh=fixture&&!fixture.staleReason&&PredictionEvidence.known(matchContextLive,cutoff,PREDICTION_DATA_OBSERVED_AT)&&PredictionEvidence.known(fixture,cutoff,sourceCheckedAt)&&Date.parse(cutoff)-Date.parse(sourceCheckedAt)<=2*86400000;
+  const raw=fresh?fixture?.[side+'Context']||null:null;
   const confirmed=(raw?.missing||[]).map(row=>({...row,player:resolveContextPlayer(team,row)}));
   const uncertain=(raw?.uncertain||[]).map(row=>({...row,player:resolveContextPlayer(team,row)}));
   const excluded=confirmed.map(row=>row.player?.name).filter(Boolean);
@@ -2906,7 +2921,7 @@ function buildPredictionSideInput(match,side){
       ?`Livesport predicted XI (${resolved.length}/11 matched${unresolved.length?', '+unresolved.length+' proxy':''})`
       :'balanced squad proxy';
   return{
-    team,source,sourceLabel,confidence,
+    team,source,sourceLabel,confidence,sourceCheckedAt:fresh?sourceCheckedAt:null,sourceStatus:fresh?'current':'missing-or-stale',
     names:chosen.map(player=>player.name),
     lineupCount:(raw?.players||[]).length,
     matchedCount:resolved.length,
@@ -2924,13 +2939,14 @@ function buildPredictionSideInput(match,side){
   };
 }
 
-function getPredictionInputs(match){
+function getPredictionInputs(match,cutoff=new Date().toISOString()){
   const fixture=predictionFixture(match);
   const context=predictionContextFixture(match);
-  const homeXI=buildPredictionSideInput(match,'home');
-  const awayXI=buildPredictionSideInput(match,'away');
+  const homeXI=buildPredictionSideInput(match,'home',cutoff);
+  const awayXI=buildPredictionSideInput(match,'away',cutoff);
   return{
     modelVersion:PREDICTION_MODEL_VERSION,
+    dataObservedAt:cutoff,
     contextVersion:matchContextLive.updatedAt||null,
     officialMatchId:String(match.officialMatchId||fixture?.officialMatchId||''),
     livesportMatchId:context?.livesportMatchId||null,
@@ -3041,7 +3057,7 @@ function lockedPredictionIntegrityOK(raw){
 }
 
 function createLockedPrediction(match,system,p,reason='saved_to_accuracy'){
-  const lockedAt=new Date().toISOString();
+  const lockedAt=p.cutoff||new Date().toISOString();
   const scoreModel=p.scoreModel||{};
   const topScore=scoreModel.top?.length?`${scoreModel.top[0].h}:${scoreModel.top[0].a}`:'0:0';
   const input=predictionClone(p.matchInput||getPredictionInputs(match));
@@ -3099,6 +3115,10 @@ function getP1MatchPrediction(match){
 }
 
 function lockPredictionSystem(match,system,reason='saved_to_accuracy',notify=true){
+  if(!predictionInitialLoadComplete||!predictionScheduleReady){
+    if(notify)alert('Před zamčením čekám na načtení aktuálních vstupů a rozpisu. Zkontroluj připojení a stav Schedule.');
+    return false;
+  }
   if(system!==ACTIVE_PREDICTION_SYSTEM){
     if(notify)alert('This prediction model is no longer active.');
     return false;
@@ -3113,7 +3133,8 @@ function lockPredictionSystem(match,system,reason='saved_to_accuracy',notify=tru
     if(notify)alert('Predikci lze uzamknout jen před známým výkopem. Po zápase ji nelze zpětně vytvořit pro Accuracy.');
     return false;
   }
-  const p=system==='P2'?getPred3MatchPrediction(match):getP1MatchPrediction(match);
+  // Recompute at the exact locking cutoff, never freeze an older preview cache.
+  const p=system==='P2'?getPred3MatchPrediction(match,new Date().toISOString(),true):getP1MatchPrediction(match);
   lockedPredictions.unshift(createLockedPrediction(match,system,p,reason));
   dedupeRuntimeData();
   autoSave();
@@ -3261,6 +3282,7 @@ function applyLiveScheduleData(payload,shouldRender=true){
           a:target.away,
           score:nextScore,
           date:nextDate,
+          kickoff:nextTime,
           source:'Chance Liga',
           sourceUrl:target.officialUrl,
           officialUrl:target.officialUrl,
@@ -3271,10 +3293,11 @@ function applyLiveScheduleData(payload,shouldRender=true){
         updatedResults++;
       }else{
         const before=JSON.stringify([
-          result.score,result.date,result.officialUrl,result.officialMatchId
+          result.score,result.date,result.kickoff,result.officialUrl,result.officialMatchId
         ]);
         result.score=nextScore;
-        result.date=result.date||nextDate;
+        result.date=nextDate;
+        result.kickoff=nextTime;
         result.officialUrl=result.officialUrl||target.officialUrl;
         result.officialMatchId=result.officialMatchId||id;
         if(!result.source){
@@ -3282,7 +3305,7 @@ function applyLiveScheduleData(payload,shouldRender=true){
           result.sourceUrl=target.officialUrl;
         }
         const after=JSON.stringify([
-          result.score,result.date,result.officialUrl,result.officialMatchId
+          result.score,result.date,result.kickoff,result.officialUrl,result.officialMatchId
         ]);
         if(after!==before){
           syncPlayerMatchesWithResult(result);
@@ -3363,6 +3386,7 @@ async function checkLiveSchedule(){
     const response=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'}});
     if(!response.ok)throw new Error(`Zdroj rozpisu vrátil HTTP ${response.status}.`);
     const outcome=applyLiveScheduleData(await response.json(),true);
+    predictionScheduleReady=true;
     scheduleClearError();
     scheduleSetBadge(
       'ok',
@@ -4211,6 +4235,7 @@ let P3_CACHE_VERSION=0;
 const P3_STATE_CACHE=new Map();
 const P3_PRED_CACHE=new Map();
 function clearPred3Cache(){
+  PREDICTION_DATA_OBSERVED_AT=Date.now();
   P3_CACHE_VERSION++;
   P3_STATE_CACHE.clear();
   P3_PRED_CACHE.clear();
@@ -4223,14 +4248,19 @@ function p3XIKey(xi){
 function p3PredictionKey(home,away,hD,aD,hXI,aXI,round,hManualXG,aManualXG,season){
   return [P3_CACHE_VERSION,season||CURRENT_SEASON,p3RoundVal(round),nm(home)||home,nm(away)||away,hD||0,aD||0,p3XIKey(hXI),p3XIKey(aXI),hManualXG??'',aManualXG??''].join('|');
 }
-function getPred3MatchPrediction(m){
-  const input=getPredictionInputs(m);
+function getPred3MatchPrediction(m,cutoff=new Date().toISOString(),force=false){
   const lock=findLockedPrediction(m,'P2');
+  if(lock?.snapshot&&!lock.snapshot.legacy)return predictionCalculationFromLock(lock,{});
+  // Current roster/value priors are only known now, not at a reconstructed past cutoff.
+  if(Date.parse(cutoff)<PREDICTION_DATA_OBSERVED_AT)throw new Error('Historical replay requires contemporaneous input snapshots.');
+  const input=getPredictionInputs(m,cutoff);
   const key=p3PredictionKey(m.home,m.away,m.hDisadv,m.aDisadv,input.homeXI.names,input.awayXI.names,m.round,null,null,m.season||CURRENT_SEASON)
-    +'|'+(input.contextVersion||'proxy')+'|'+(lock?.integrity||'live');
-  if(m._p3CacheKey===key&&m._p3Cache)return m._p3Cache;
-  const live=pred3Predict(m.home,m.away,m.hDisadv,m.aDisadv,input.homeXI.names,input.awayXI.names,m.round,null,null,m.season||CURRENT_SEASON);
+    +'|'+(input.contextVersion||'proxy')+'|'+(lock?.integrity||'live')+'|'+predictionEvidenceLive?.fetchedAt+'|'+Math.floor(Date.parse(cutoff)/60000);
+  if(!force&&m._p3CacheKey===key&&m._p3Cache)return m._p3Cache;
+  const live=pred3Predict(m.home,m.away,m.hDisadv,m.aDisadv,input.homeXI.names,input.awayXI.names,m.round,null,null,m.season||CURRENT_SEASON,cutoff);
   live.matchInput=input;
+  live.cutoff=cutoff;
+  if(!lock)live.contextVariant=buildContextVariant(live,m,cutoff);
   const p=predictionCalculationFromLock(lock,live);
   m._p3CacheKey=key;
   m._p3Cache=p;
@@ -4263,22 +4293,24 @@ function p3RoundVal(r){
   if(Number.isFinite(parseInt(s,10)))return parseInt(s,10);
   return 999;
 }
-function p3ChronologicalMatches(targetSeason,targetRound){
-  const ts=p3SeasonVal(targetSeason||CURRENT_SEASON);
-  const tr=p3RoundVal(targetRound);
-  const all=getCombinedResults()
-    .map((m,i)=>({...m,_order:i}))
-    .filter(m=>m&&m.score&&/^\d+:\d+$/.test(m.score));
-  return all.filter(m=>{
-    const ms=p3SeasonVal(m.season||CURRENT_SEASON);
-    if(ms<ts)return true;
-    if(ms>ts)return false;
-    return p3RoundVal(m.r)<tr;
-  }).sort((a,b)=>{
-    const ds=p3SeasonVal(a.season)-p3SeasonVal(b.season); if(ds)return ds;
-    const dr=p3RoundVal(a.r)-p3RoundVal(b.r); if(dr)return dr;
-    return (a._order||0)-(b._order||0);
+function p3ChronologicalMatches(targetSeason,targetRound,cutoff=new Date().toISOString()){
+  const completed=Object.values(predictionEvidenceLive?.teams||{}).flatMap(t=>t.matches||[]).filter(m=>m.status==='completed'&&PredictionEvidence.known(m,cutoff));
+  const inputs=getCombinedResults().map(m=>{
+    const proof=completed.find(p=>p.score===m.score&&
+      ((m.livesportMatchId&&p.id===m.livesportMatchId)||
+       (p.home===(nm(m.h)||m.h)&&p.away===(nm(m.a)||m.a)&&p.kickoffAt.slice(0,10)===m.date)));
+    return proof?{...m,completedAt:proof.completedAt,fetchedAt:proof.fetchedAt}:m;
   });
+  return PredictionEvidence.chronological(inputs,{
+    season:targetSeason||CURRENT_SEASON,cutoff,observedAt:PREDICTION_DATA_OBSERVED_AT,
+    kickoff:m=>{
+      const f=m.season===CURRENT_SEASON?OFFICIAL_SCHEDULE_2026_27.find(f=>
+        (m.officialMatchId&&String(m.officialMatchId)===String(f.officialMatchId))||
+        (Number(f.round)===Number(m.r)&&f.home===(nm(m.h)||m.h)&&f.away===(nm(m.a)||m.a))):null;
+      const date=m.date||f?.date;
+      return date?PredictionArchive.kickoffMs({date,time:m.kickoff||m.time||f?.time||'23:59'}):null;
+    }
+  }).map(m=>({...m,h:nm(m.h)||m.h,a:nm(m.a)||m.a}));
 }
 function p3ResultScore(hg,ag){return hg>ag?1:hg===ag?0.5:0;}
 function p3ExpectedElo(hElo,aElo){return 1/(1+Math.pow(10,((aElo+60)-hElo)/400));}
@@ -4505,12 +4537,12 @@ function p3UpdatePlayerRatings(state,team,xi,attErr,defErr,pts,margin){
     state.playerRatings[key]=clamp((state.playerRatings[key]||0)+delta,-0.22,0.22);
   });
 }
-function p3BuildState(targetSeason,targetRound){
-  const cacheKey=[P3_CACHE_VERSION,targetSeason||CURRENT_SEASON,p3RoundVal(targetRound)].join('|');
+function p3BuildState(targetSeason,targetRound,cutoff=new Date().toISOString()){
+  const cacheKey=[P3_CACHE_VERSION,targetSeason||CURRENT_SEASON,cutoff].join('|');
   if(P3_STATE_CACHE.has(cacheKey))return P3_STATE_CACHE.get(cacheKey);
   const state={teams:{},playerRatings:{},matchCount:0,homeGoals:0,awayGoals:0,_lastSeason:null};
   TEAMS.forEach(t=>p3EnsureTeam(state,t));
-  const seq=p3ChronologicalMatches(targetSeason,targetRound);
+  const seq=p3ChronologicalMatches(targetSeason,targetRound,cutoff);
   seq.forEach(m=>{
     const season=p3SeasonVal(m.season);
     if(state._lastSeason!=null&&season!==state._lastSeason){
@@ -4523,6 +4555,8 @@ function p3BuildState(targetSeason,targetRound){
     p3UpdateTeamState(state,{...m,h:nm(m.h),a:nm(m.a)},exp);
   });
   state.sequenceMatches=seq.length;
+  state.lastFive=Object.fromEntries(TEAMS.map(t=>[t,PredictionEvidence.lastFive(seq,t).map(m=>({season:m.season,round:m.r,home:m.h,away:m.a,score:m.score,playedAt:new Date(m._playedAt).toISOString(),officialMatchId:m.officialMatchId||null,livesportMatchId:m.livesportMatchId||null,sourceUrl:m.sourceUrl||m.officialUrl||null,knownAt:new Date(Math.max(PREDICTION_DATA_OBSERVED_AT,...['knownAt','observedAt','fetchedAt','updatedAt'].map(k=>Date.parse(m[k])).filter(Number.isFinite))).toISOString()}))]));
+  if(P3_STATE_CACHE.size>12)P3_STATE_CACHE.clear();
   P3_STATE_CACHE.set(cacheKey,state);
   return state;
 }
@@ -4550,9 +4584,9 @@ function pred3CalcFromMatrix(matrix){
     hardConfidence:hardConfidence*100,smartConfidence:smartConfidence*100
   };
 }
-function pred3Predict(home,away,hD,aD,hXI,aXI,round,hManualXG,aManualXG,season){
+function pred3Predict(home,away,hD,aD,hXI,aXI,round,hManualXG,aManualXG,season,cutoff=new Date().toISOString()){
   const targetSeason=season||CURRENT_SEASON;
-  const state=p3BuildState(targetSeason,round);
+  const state=p3BuildState(targetSeason,round,cutoff);
   const exp=p3ExpectedFromState(state,home,away,hXI,aXI,hD,aD,hManualXG,aManualXG,round);
   const matrix=p3ScoreMatrix(exp.lambdaHome,exp.lambdaAway);
   const q=pred3CalcFromMatrix(matrix);
@@ -4561,8 +4595,8 @@ function pred3Predict(home,away,hD,aD,hXI,aXI,round,hManualXG,aManualXG,season){
   const h2h=getH2H(home,away);
   const hState=p3EnsureTeam(state,home),aState=p3EnsureTeam(state,away);
   const hRecent=p3TeamRecentFactors(hState),aRecent=p3TeamRecentFactors(aState);
-  const hSide={form:getForm(home),venue:getVenueForm(home,true),xiInfo:getXIMarketInfo(home,hXI),ppg:{ppg:hRecent.ppg,games:hRecent.games,score:clamp(hRecent.ppg/3,0,1)},prev:getPreviousRankScore(home)};
-  const aSide={form:getForm(away),venue:getVenueForm(away,false),xiInfo:getXIMarketInfo(away,aXI),ppg:{ppg:aRecent.ppg,games:aRecent.games,score:clamp(aRecent.ppg/3,0,1)},prev:getPreviousRankScore(away)};
+  const hSide={form:getForm(home,cutoff),venue:getVenueForm(home,true,cutoff),xiInfo:getXIMarketInfo(home,hXI),ppg:{ppg:hRecent.ppg,games:hRecent.games,score:clamp(hRecent.ppg/3,0,1)},prev:getPreviousRankScore(home)};
+  const aSide={form:getForm(away,cutoff),venue:getVenueForm(away,false,cutoff),xiInfo:getXIMarketInfo(away,aXI),ppg:{ppg:aRecent.ppg,games:aRecent.games,score:clamp(aRecent.ppg/3,0,1)},prev:getPreviousRankScore(away)};
   return{
     hP:q.p1,dP:q.px,aP:q.p2,
     p1x:q.p1x,px:q.px,px2:q.px2,p12:q.p12,
@@ -4579,6 +4613,8 @@ function pred3Predict(home,away,hD,aD,hXI,aXI,round,hManualXG,aManualXG,season){
     hXI:hXI||[],aXI:aXI||[],
     modelMeta:{
       modelName:'Prediction 3 sequential goal model',
+      cutoff,lastFive:{home:state.lastFive[home]||[],away:state.lastFive[away]||[]},
+      chronologyPolicy:'Actual dated league matches known at cutoff; undated history excluded, no round-order fallback.',
       stageLabel:`Sequential goal model · ${state.sequenceMatches||0} prior matches · Dixon-Coles rho ${P3_CFG.rho}`,
       baseline:{avg:(exp.avg.home+exp.avg.away)/2,home:exp.avg.home,away:exp.avg.away,source:exp.avg.source},
       hPPG:hSide.ppg,aPPG:aSide.ppg,hPrev:hSide.prev,aPrev:aSide.prev,
@@ -4716,6 +4752,7 @@ function renderPred2(){
         </div>
       </div>
       <div class="pred-body">
+        ${buildContextPreviewHTML(p)}
         <div class="prob-row"><span class="prob-lbl">${m.home} 1X</span><div class="prob-track"><div class="prob-fill" style="width:${p.p1x}%;background:#185FA5"></div></div><span class="prob-pct" style="color:#185FA5;font-weight:700">${pred2Pct(p.p1x)}</span></div>
         <div class="prob-row"><span class="prob-lbl">Remíza X</span><div class="prob-track"><div class="prob-fill" style="width:${p.px}%;background:#888780"></div></div><span class="prob-pct">${pred2Pct(p.px)}</span></div>
         <div class="prob-row"><span class="prob-lbl">${m.away} X2</span><div class="prob-track"><div class="prob-fill" style="width:${p.px2}%;background:#A32D2D"></div></div><span class="prob-pct" style="color:#A32D2D;font-weight:700">${pred2Pct(p.px2)}</span></div>
@@ -5813,7 +5850,7 @@ function renderPrevYears(){
 
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function sw(tab){
-  ['main','results','schedule','pred2','players','prev','accuracy'].forEach(t=>{
+  ['main','results','schedule','pred2','players','prev','accuracy','accuracy-new'].forEach(t=>{
     const tabBtn=document.querySelector(`.tab[data-tab="${t}"]`);
     if(tabBtn)tabBtn.classList.toggle('active',t===tab);
     const sec=document.getElementById('sec-'+t);
@@ -6587,6 +6624,7 @@ function deleteLocked(id){
 }
 
 function renderAccuracy(){
+  renderAccuracyNew();
   renderPredictionArchiveStatus();
   const el=document.getElementById('acc-list');
   const sumEl=document.getElementById('acc-summary');
@@ -8926,13 +8964,15 @@ async function loadPublishedDataSnapshot(){
 // immediately superseded by a newer GitHub Pages JSON snapshot.
 if(!window.__PREDICTION_ARCHIVE_RUNNER__)void loadPublishedDataSnapshot().then(async()=>{
   startPredictionArchive();
-  const contextPromise=loadMatchContextData();
+  const contextPromise=Promise.all([loadMatchContextData(),loadPredictionEvidence()]);
   await loadPublishedRosterData();
   // Always validate the final merged state. Both optional server snapshots may
   // have changed it, so validating only when neither loaded left the badge in
   // an indeterminate state and could miss post-merge inconsistencies.
   runAutomaticDataHealthCheck();
   await contextPromise;
+  await checkLiveSchedule();
+  predictionInitialLoadComplete=true;
   startAutomaticScheduleCheck();
   startAutomaticResultsCheck();
 });

@@ -57,7 +57,7 @@ test('selection covers Friday to Thursday across rounds, excluding next Friday, 
 
 test('receipts bind successful fresh checks to exact model and data bytes',()=>{
   const now=Date.now(),receipt={schemaVersion:1,checkedAt:new Date(now).toISOString(),runId:process.env.GITHUB_RUN_ID,
-    checks:['official-schedule','official-rosters-and-values','livesport-stats','strict-context'],
+    checks:['official-schedule','official-rosters-and-values','livesport-stats','strict-context','public-evidence'],
     hashes:Object.fromEntries(INPUTS.map(f=>[f,digest(fs.readFileSync(path.join(root,f)))]))};
   assert.doesNotThrow(()=>verifyReceipt(receipt,root,now));
   assert.throws(()=>verifyReceipt({...receipt,checkedAt:new Date(now-7200001).toISOString()},root,now),/expired/);
@@ -103,7 +103,7 @@ test('real model locks a next-Wednesday match on Friday and restores both tabs w
   try{
     await app.page.clock.install({time:new Date('2030-01-04T07:05:00Z')});
     assert.ok(selectFixtures(schedule,archive,at('2030-01-04T07:05:00Z')).selected.some(f=>String(f.officialMatchId)===String(fixture.officialMatchId)));
-    const locks=await calculate(app,{schedule,rosters,context,archive,fixtures:[fixture]});
+    const locks=await calculate(app,{schedule,rosters,context,evidence:read('prediction-evidence-live.json'),archive,fixtures:[fixture]});
     assert.equal(locks.length,1);const lock=locks[0];
     assert.equal(lock.lockedReason,'friday_automatic');
     assert.equal(lock.snapshot.inputs.contextVersion,context.updatedAt);

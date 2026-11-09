@@ -6,6 +6,10 @@ on:
     paths:
       - 'index.html'
       - 'prediction-archive-*.js'
+      - 'prediction-evidence*.js'
+      - 'accuracy-new.js'
+      - 'scripts/update_prediction_evidence.py'
+      - 'tests/prediction_evidence.test.cjs'
       - 'data/predictions/**'
       - 'scripts/*archive*.cjs'
       - 'scripts/guard_prediction_history.cjs'
@@ -52,7 +56,7 @@ jobs:
           ARCHIVE_BASE_SHA: ${{ github.event.before }}
         run: |
           node scripts/guard_prediction_history.cjs
-          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs
+          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs tests/prediction_evidence.test.cjs
           node scripts/archive_predictions.cjs validate
       - name: Archive manually locked snapshots only
         env:

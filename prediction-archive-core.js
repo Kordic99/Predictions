@@ -60,6 +60,24 @@
     if(lock.snapshot&&!lock.snapshot.legacy){
       if(lock.snapshot.lockedAt!==(lock.lockedAt||lock.savedAt))throw new Error('Snapshot timestamp mismatch');
       for(const key of ['hP','dP','aP'])if(lock.snapshot.calculation?.[key]!==lock[key])throw new Error('Snapshot probability mismatch');
+      const v=lock.snapshot.calculation.contextVariant;
+      if(v){
+        const cutoff=Date.parse(lock.lockedAt);
+        if(v.cutoff!==lock.lockedAt||v.evidence?.cutoff!==v.cutoff||lock.snapshot.calculation.cutoff!==v.cutoff)throw new Error('Context cutoff mismatch');
+        for(const key of ['hP','dP','aP'])if(typeof v[key]!=='number'||!Number.isFinite(v[key])||v[key]<0||v[key]>100)throw new Error('Invalid context probability');
+        if(Math.abs(v.hP+v.dP+v.aP-100)>1e-6||!['1X','X','X2'].includes(v.predOutcome)||!/^\d{1,2}:\d{1,2}$/.test(v.topScore||''))throw new Error('Invalid context prediction');
+        const known=t=>Number.isFinite(Date.parse(t))&&Date.parse(t)<=cutoff;
+        if(v.evidence.feedCheckedAt&&!known(v.evidence.feedCheckedAt))throw new Error('Context feed observed after locking');
+        for(const side of ['home','away']){
+          const e=v.evidence[side];
+          if(!e||!Number.isFinite(e.multiplier)||e.multiplier<.95||e.multiplier>1||!Array.isArray(e.matches)||!Array.isArray(e.news))throw new Error('Invalid context correction');
+          if(e.coverage!=='verified'&&e.multiplier!==1)throw new Error('Unverified context must have zero effect');
+          for(const m of e.matches)if(!known(m.fetchedAt)||(m.status==='completed'&&!known(m.completedAt)))throw new Error('Future match evidence');
+          for(const n of e.news)if(!known(n.fetchedAt)||!known(n.publishedAt)||n.effect!==0)throw new Error('Unverified news effect or future news');
+          const games=lock.snapshot.calculation.modelMeta?.lastFive?.[side]||[];
+          if(games.length>5||games.some(m=>!known(m.playedAt)||!known(m.knownAt)))throw new Error('Invalid last-five cutoff');
+        }
+      }
     }
     return lock;
   }

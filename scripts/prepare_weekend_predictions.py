@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = ("schedule-live.json", "rosters-live.json", "match-context-live.json",
+          "prediction-evidence-live.json", "prediction-evidence.js", "accuracy-new.js",
           "index.html", "prediction-archive-core.js")
 
 
@@ -29,12 +30,13 @@ def main():
         ["scripts/update_rosters.py", "--workers", "8"],
         ["scripts/update_livesport_rosters.py"],
         ["scripts/update_match_context.py", "--strict"],
+        ["scripts/update_prediction_evidence.py"],
     ):
         subprocess.run([sys.executable, *command], cwd=ROOT, check=True)
     receipt = {
         "schemaVersion": 1, "startedAt": started, "checkedAt": now(),
         "runId": os.environ.get("GITHUB_RUN_ID"),
-        "checks": ["official-schedule", "official-rosters-and-values", "livesport-stats", "strict-context"],
+        "checks": ["official-schedule", "official-rosters-and-values", "livesport-stats", "strict-context", "public-evidence"],
         "hashes": {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in INPUTS},
     }
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
