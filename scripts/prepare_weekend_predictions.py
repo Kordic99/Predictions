@@ -19,6 +19,8 @@ def now():
 
 
 def main():
+    from livesport_policy import require_livesport_enabled
+    require_livesport_enabled()
     parser = argparse.ArgumentParser()
     parser.add_argument("--receipt", required=True, type=Path)
     args = parser.parse_args()

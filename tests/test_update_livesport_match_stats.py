@@ -33,6 +33,10 @@ class GraphqlRetryTests(unittest.TestCase):
     params = {"eventId": "Sbuhp0Ok", "_hash": "epmsse", "projectId": "1"}
 
     def setUp(self):
+        # Retry tests use mocked HTTP only. Production remains fail-closed.
+        policy = patch("livesport_policy.LIVESPORT_IMPORTS_PAUSED", False)
+        policy.start()
+        self.addCleanup(policy.stop)
         sleeper = patch.object(stats.time, "sleep")
         self.sleep = sleeper.start()
         self.addCleanup(sleeper.stop)

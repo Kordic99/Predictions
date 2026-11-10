@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "test:archive": "node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs tests/prediction_evidence.test.cjs",
+    "test:archive": "node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs tests/prediction_evidence.test.cjs tests/livesport_pause.test.cjs",
     "archive": "node scripts/archive_predictions.cjs"
   },
   "devDependencies": {"playwright": "1.62.1"}

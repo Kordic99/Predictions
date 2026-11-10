@@ -23,7 +23,21 @@ async function openApp(root,{browserOptions={},storage=null,runner=true}={}){
     const page=await browser.newPage();
     const errors=[];
     page.on('pageerror',error=>errors.push(String(error)));
-    await page.route('**/*',route=>route.request().url().startsWith(url+'/')?route.continue():route.abort());
+    await page.route('**/*',route=>{
+      const requestUrl=route.request().url();
+      if(!requestUrl.startsWith(url+'/'))return route.abort();
+      // Optional test-only transport for sandboxes that deny browser loopback.
+      // Serve the same local files; never forward or allow external requests.
+      if(process.env.PREDICTION_TEST_OFFLINE!=='1')return route.continue();
+      let file;
+      try{file=path.resolve(root,'.'+decodeURIComponent(new URL(requestUrl).pathname));}
+      catch{return route.fulfill({status:400,body:''});}
+      if(file===root)file=path.join(root,'index.html');
+      if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())
+        return route.fulfill({status:404,body:''});
+      const type={'.html':'text/html','.js':'text/javascript','.json':'application/json'}[path.extname(file)]||'application/octet-stream';
+      return route.fulfill({status:200,headers:{'Content-Type':type+'; charset=utf-8','Cache-Control':'no-store'},body:fs.readFileSync(file)});
+    });
     await page.addInitScript(({runner,storage})=>{
       window.__PREDICTION_ARCHIVE_RUNNER__=runner;
       window.alert=()=>{};window.confirm=()=>true;

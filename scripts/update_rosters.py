@@ -28,6 +28,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 from lxml import html
+from livesport_policy import ensure_fetch_allowed, require_livesport_enabled
 
 
 SEASON = "2026/27"
@@ -230,6 +231,7 @@ def fetch_bytes(
     extra_headers: dict[str, str] | None = None,
     attempts: int = 4,
 ) -> bytes:
+    ensure_fetch_allowed(url)
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": accept,
@@ -2059,4 +2061,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    require_livesport_enabled()
     main()

@@ -106,6 +106,8 @@ def team_page_path(team: str) -> str:
 
 
 def fetch_text(url: str, *, referer: str | None = None, attempts: int = 3) -> str:
+    from livesport_policy import ensure_fetch_allowed
+    ensure_fetch_allowed(url)
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
@@ -541,4 +543,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    from livesport_policy import require_livesport_enabled
+    require_livesport_enabled()
     main()

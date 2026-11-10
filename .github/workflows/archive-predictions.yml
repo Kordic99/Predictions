@@ -10,6 +10,10 @@ on:
       - 'accuracy-new.js'
       - 'scripts/update_prediction_evidence.py'
       - 'tests/prediction_evidence.test.cjs'
+      - 'tests/livesport_pause.test.cjs'
+      - 'scripts/livesport_policy.py'
+      - '.github/workflows/update-player-stats.yml'
+      - '.github/workflows/update-match-context.yml'
       - 'data/predictions/**'
       - 'scripts/*archive*.cjs'
       - 'scripts/guard_prediction_history.cjs'
@@ -56,7 +60,7 @@ jobs:
           ARCHIVE_BASE_SHA: ${{ github.event.before }}
         run: |
           node scripts/guard_prediction_history.cjs
-          node --test tests/prediction_archive.test.cjs tests/weekend_predictions.test.cjs tests/prediction_evidence.test.cjs
+          npm run test:archive
           node scripts/archive_predictions.cjs validate
       - name: Archive manually locked snapshots only
         env:

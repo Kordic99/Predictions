@@ -2,9 +2,7 @@ name: Update Livesport player rosters, match ratings and season totals
 
 on:
   workflow_dispatch:
-  schedule:
-    # Hourly, offset from the schedule and match-context workflows.
-    - cron: "37 * * * *"
+  # Livesport collection paused by owner request, 2026-11-10.
 
 permissions:
   contents: write
@@ -15,6 +13,7 @@ concurrency:
 
 jobs:
   update:
+    if: ${{ false }} # Keep paused even if the workflow is manually re-enabled.
     # Keep the tested OS instead of following ubuntu-latest major migrations.
     runs-on: ubuntu-24.04
     timeout-minutes: 15

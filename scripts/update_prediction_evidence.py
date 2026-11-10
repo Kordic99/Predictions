@@ -176,4 +176,7 @@ def main():
     for team, row in teams.items():
         print(json.dumps({'team': team, 'matches': len(row['matches']), 'news': len(row['news']), 'coverage': row['coverage']}, ensure_ascii=True))
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    from livesport_policy import require_livesport_enabled
+    require_livesport_enabled()
+    main()

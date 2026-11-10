@@ -1,9 +1,7 @@
 name: Friday audit and weekly predictions
 
 on:
-  schedule:
-    - cron: '0 8 * * 5'
-      timezone: Europe/Prague
+  # Friday imports and automatic new predictions paused, 2026-11-10.
   workflow_dispatch:
     inputs:
       dry_run:
@@ -20,6 +18,7 @@ concurrency:
 
 jobs:
   update:
+    if: ${{ false }} # This job depends on Livesport; never use stale inputs instead.
     # Keep the tested OS instead of following ubuntu-latest major migrations.
     runs-on: ubuntu-24.04
     timeout-minutes: 55

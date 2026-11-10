@@ -22,6 +22,7 @@ from email.utils import parsedate_to_datetime
 from typing import Any
 from urllib.error import HTTPError, URLError
 from zoneinfo import ZoneInfo
+from livesport_policy import ensure_fetch_allowed, require_livesport_enabled
 
 from update_match_context import initial_feed, parse_feed_matches
 from update_rosters import (
@@ -79,6 +80,7 @@ SCHEDULE_TEAM_ALIASES = {
 
 
 def fetch_text(url: str, *, attempts: int = 4) -> str:
+    ensure_fetch_allowed(url)
     error: Exception | None = None
     for attempt in range(attempts):
         try:
@@ -122,6 +124,7 @@ def graphql_retry_delay(attempt: int, headers: Any = None) -> float:
 
 
 def graphql_payload(params: dict[str, Any], referer: str, attempts: int = 6) -> dict:
+    require_livesport_enabled()
     if attempts < 1:
         raise ValueError("Livesport request attempts must be positive")
     url = f"{GRAPHQL_ROOT}?{urllib.parse.urlencode(params)}"
