@@ -59,6 +59,9 @@ test('CAS publisher retries a concurrent change, retains the other record, then 
   const second=makeRecord({...lock(),hP:49,aP:21},fixture,{kind:'test'},'2026-07-25T12:02:00Z');
   let remote=empty(),put=0;
   const fetchBefore=global.fetch,tokenBefore=process.env.GITHUB_TOKEN;
+  // Exercise CAS against mocked HTTP only; production stays disconnected.
+  const webPolicy=require('../scripts/web_policy.cjs'),pausedBefore=webPolicy.WEB_CONNECTIONS_PAUSED;
+  webPolicy.WEB_CONNECTIONS_PAUSED=false;
   process.env.GITHUB_TOKEN='test-only-not-a-credential';
   global.fetch=async(url,options)=>{
     const route=url.replace('https://api.github.com/repos/Kordic99/Predictions','');
@@ -82,7 +85,7 @@ test('CAS publisher retries a concurrent change, retains the other record, then 
     assert.equal(put,2);assert.equal(remote.records.length,2);
     assert.deepEqual(remote.records[0],second);
     await publishArchive(local);assert.equal(put,2);
-  }finally{global.fetch=fetchBefore;if(tokenBefore===undefined)delete process.env.GITHUB_TOKEN;else process.env.GITHUB_TOKEN=tokenBefore;}
+  }finally{webPolicy.WEB_CONNECTIONS_PAUSED=pausedBefore;global.fetch=fetchBefore;if(tokenBefore===undefined)delete process.env.GITHUB_TOKEN;else process.env.GITHUB_TOKEN=tokenBefore;}
 });
 test('default and legacy server commands never create or rewrite predictions',()=>{
   const before=fs.readFileSync(path.join(root,A.FILE));

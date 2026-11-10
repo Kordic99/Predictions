@@ -5,17 +5,20 @@ network collection requires a deliberate code change after source permission is
 resolved, not merely re-enabling a GitHub workflow.
 """
 from urllib.parse import urlsplit
+from web_policy import require_web_enabled
 
 LIVESPORT_IMPORTS_PAUSED = True
 PAUSE_MESSAGE = "Livesport imports are paused by owner request. Existing data and predictions are preserved."
 
 
 def require_livesport_enabled():
+    require_web_enabled()
     if LIVESPORT_IMPORTS_PAUSED:
         raise RuntimeError(PAUSE_MESSAGE)
 
 
 def ensure_fetch_allowed(url):
+    require_web_enabled()
     host = (urlsplit(url).hostname or "").lower().rstrip(".")
     domains = ("livesport.cz", "livesport.com", "livesport.eu", "flashscore.com", "lsapp.eu")
     if any(host == domain or host.endswith("." + domain) for domain in domains):

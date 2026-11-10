@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from web_policy import require_web_enabled
 
 SOURCE_URL = "https://www.chanceliga.cz/rozpis-zapasu"
 OUTPUT_PATH = Path(__file__).resolve().parents[1] / "schedule-live.json"
@@ -175,6 +176,7 @@ def validate(matches: list[dict]) -> None:
 
 
 def fetch_source(attempts: int = 3) -> str:
+    require_web_enabled()
     last_error: Exception | None = None
     for attempt in range(1, attempts + 1):
         request = Request(
@@ -234,6 +236,7 @@ def write_if_changed(matches: list[dict]) -> bool:
 
 
 def main() -> None:
+    require_web_enabled()
     matches = parse_schedule_html(fetch_source())
     validate(matches)
     write_if_changed(matches)

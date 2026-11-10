@@ -1,5 +1,8 @@
 # Livesport collection pause — 2026-11-10
 
+**Superseded by [the all-connections pause](web-connections-pause.md): schedule
+updates and GitHub archive synchronization are now paused too.**
+
 Paused by the owner pending clarification of source permissions. This is not a
 data deletion or a legal determination.
 

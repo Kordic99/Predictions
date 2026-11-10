@@ -95,6 +95,13 @@ function renderPredictionArchiveStatus(){
   let pending=[];
   try{pending=pendingArchiveLocks();}catch(error){state.error=error.message;}
   const count=state.data?PredictionArchive.primaryRecords(state.data).length:0;
+  if(WEB_CONNECTIONS_PAUSED){
+    el.style.borderLeft='3px solid var(--amber)';
+    el.innerHTML='<strong>Archiv · synchronizace vypnutá</strong> · '+count+' přibalených predikcí. '
+      +(state.error?lsEsc(state.error):'Historie a ruční změny zůstávají v prohlížeči; pro zálohu použij Export JSON.')
+      +(pending.length?' '+pending.length+' lokálních predikcí není v přibaleném archivu.':'');
+    return;
+  }
   const bad=state.error||pending.length;
   el.style.borderLeft='3px solid var('+(bad?'--red':'--green')+')';
   el.innerHTML=`<strong>${state.error?'Archiv · chyba':state.loading?'Archiv · načítání':state.saving?'Archiv · čeká na potvrzení GitHubu':`GitHub archiv · ${count} zápasů`}</strong>`
@@ -108,6 +115,11 @@ async function loadPredictionArchive(fresh=false){
   predictionArchiveState.loading=true;
   renderPredictionArchiveStatus();
   try{
+    if(WEB_CONNECTIONS_PAUSED){
+      predictionArchiveState.error='';
+      mergePublishedPredictionArchive(savedDataCopy('archive'));
+      return {status:'offline'};
+    }
     // Read directly on production: bot commits need not rebuild GitHub Pages.
     const url=(fresh||location.hostname==='kordic99.github.io')?'https://raw.githubusercontent.com/Kordic99/Predictions/main/'+PredictionArchive.FILE:new URL(PredictionArchive.FILE,location.href).href;
     const response=await fetch(url+'?v='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(20000)});
@@ -120,6 +132,7 @@ async function loadPredictionArchive(fresh=false){
 }
 
 function openPredictionArchiveSync(){
+  if(WEB_CONNECTIONS_PAUSED){setStatus(WEB_PAUSE_MESSAGE,'warn');return {status:'paused'};}
   let dialog=document.getElementById('prediction-archive-dialog');
   if(!dialog){
     dialog=document.createElement('dialog');dialog.id='prediction-archive-dialog';
@@ -140,6 +153,7 @@ function openPredictionArchiveSync(){
 function closePredictionArchiveSync(){document.getElementById('prediction-archive-dialog')?.close();}
 
 async function submitPredictionArchive(){
+  if(WEB_CONNECTIONS_PAUSED){setStatus(WEB_PAUSE_MESSAGE,'warn');return {status:'paused'};}
   const state=predictionArchiveState;
   if(state.saving)return;
   const message=document.getElementById('prediction-archive-sync-message');
@@ -174,8 +188,10 @@ async function submitPredictionArchive(){
 
 function startPredictionArchive(){
   void loadPredictionArchive();
-  setInterval(()=>loadPredictionArchive(),10*60*1000);
-  window.addEventListener('online',()=>loadPredictionArchive());
+  if(!WEB_CONNECTIONS_PAUSED){
+    setInterval(()=>loadPredictionArchive(),10*60*1000);
+    window.addEventListener('online',()=>loadPredictionArchive());
+  }
   window.addEventListener('storage',event=>{
     if(event.key===PredictionArchive.JOURNAL&&event.newValue){
       try{

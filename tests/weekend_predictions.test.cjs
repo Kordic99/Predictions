@@ -82,6 +82,9 @@ test('Friday publisher skips a concurrently archived fixture without PUT',async(
   const generated=makeRecord({...lock,hP:49,aP:21},f,{kind:'friday-automatic'},'2030-01-04T08:02:00Z');
   const remote=A.appendRecords(empty(),[prior]),local=A.appendRecords(empty(),[generated]);
   const oldFetch=global.fetch,token=process.env.GITHUB_TOKEN;
+  // Mocked transport only; never enable production HTTP in the tests.
+  const webPolicy=require('../scripts/web_policy.cjs'),pausedBefore=webPolicy.WEB_CONNECTIONS_PAUSED;
+  webPolicy.WEB_CONNECTIONS_PAUSED=false;
   process.env.GITHUB_TOKEN='test';let put=0;
   global.fetch=async(url,options)=>{
     if(options.method==='PUT'){put++;throw new Error('Unwanted duplicate PUT');}
@@ -89,7 +92,7 @@ test('Friday publisher skips a concurrently archived fixture without PUT',async(
       url.includes('/git/trees/')?{tree:[{path:A.FILE,sha:'blob'}]}:{content:Buffer.from(JSON.stringify(remote)).toString('base64')};
     return {ok:true,status:200,json:async()=>data};
   };
-  try{await publishArchive(local);assert.equal(put,0);}finally{global.fetch=oldFetch;if(token===undefined)delete process.env.GITHUB_TOKEN;else process.env.GITHUB_TOKEN=token;}
+  try{await publishArchive(local);assert.equal(put,0);}finally{webPolicy.WEB_CONNECTIONS_PAUSED=pausedBefore;global.fetch=oldFetch;if(token===undefined)delete process.env.GITHUB_TOKEN;else process.env.GITHUB_TOKEN=token;}
 });
 
 test('real model locks a next-Wednesday match on Friday and restores both tabs without changing history',{timeout:120000},async()=>{

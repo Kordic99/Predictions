@@ -21,7 +21,8 @@ async function openApp(root,{browserOptions={},storage=null,runner=true}={}){
   try{
     browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{}),...browserOptions});
     const page=await browser.newPage();
-    const errors=[];
+    const errors=[],requests=[];
+    page.on('request',request=>requests.push({url:request.url(),type:request.resourceType()}));
     page.on('pageerror',error=>errors.push(String(error)));
     await page.route('**/*',route=>{
       const requestUrl=route.request().url();
@@ -45,7 +46,7 @@ async function openApp(root,{browserOptions={},storage=null,runner=true}={}){
     },{runner,storage});
     await page.goto(url+'/',{waitUntil:'load'});
     if(errors.length)throw new Error(errors.join('\n'));
-    return {page,errors,url,close:async()=>{await browser.close();await new Promise(resolve=>server.close(resolve));}};
+    return {page,errors,requests,url,close:async()=>{await browser.close();await new Promise(resolve=>server.close(resolve));}};
   }catch(error){if(browser)await browser.close();server.close();throw error;}
 }
 module.exports={openApp};

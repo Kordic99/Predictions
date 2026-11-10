@@ -3,14 +3,14 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const {openApp}=require('../scripts/archive_runtime.cjs');
 const root=path.resolve(__dirname,'..');
 
-test('Livesport workflows cannot run on cron or dispatch; archive and official schedule remain independent',()=>{
-  for(const name of ['update-player-stats','update-match-context','update-rosters']){
+test('all data workflows are paused, including schedule and archive synchronization',()=>{
+  for(const name of ['update-player-stats','update-match-context','update-rosters','update-schedule','archive-predictions']){
     const text=fs.readFileSync(path.join(root,`.github/workflows/${name}.yml`),'utf8');
     assert.doesNotMatch(text,/\n\s+schedule:/);
     assert.match(text,/if:\s*\$\{\{ false \}\}/);
   }
   const archive=fs.readFileSync(path.join(root,'.github/workflows/archive-predictions.yml'),'utf8');
-  assert.doesNotMatch(archive,/if:\s*\$\{\{ false \}\}/);
+  assert.match(archive,/if:\s*\$\{\{ false \}\}/);
   const schedule=fs.readFileSync(path.join(root,'.github/workflows/update-schedule.yml'),'utf8');
   assert.match(schedule,/python scripts\/update_schedule\.py/);
   assert.doesNotMatch(schedule,/update_livesport|update_rosters|update_match_context/);

@@ -5,9 +5,13 @@ let predictionInitialLoadComplete=!!window.__PREDICTION_ARCHIVE_RUNNER__;
 let predictionScheduleReady=!!window.__PREDICTION_ARCHIVE_RUNNER__;
 async function loadPredictionEvidence(){
   try{
-    const response=await fetch('prediction-evidence-live.json',{cache:'no-store'});
-    if(!response.ok)throw new Error('HTTP '+response.status);
-    predictionEvidenceLive=PredictionEvidence.validateFeed(await response.json());
+    if(WEB_CONNECTIONS_PAUSED){
+      predictionEvidenceLive=PredictionEvidence.validateFeed(savedDataCopy('evidence'));
+    }else{
+      const response=await fetch('prediction-evidence-live.json',{cache:'no-store'});
+      if(!response.ok)throw new Error('HTTP '+response.status);
+      predictionEvidenceLive=PredictionEvidence.validateFeed(await response.json());
+    }
     clearPred3Cache();renderPred2();renderAccuracyNew();
   }catch(error){
     predictionEvidenceLive=null;

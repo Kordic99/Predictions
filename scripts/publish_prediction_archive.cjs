@@ -3,15 +3,18 @@
 // This writes only the archive blob. No checkout resets, force pushes or secrets in files.
 const fs=require('node:fs');
 const A=require('../prediction-archive-core.js');
+const {requireWebEnabled}=require('./web_policy.cjs');
 const {digest}=require('./archive_predictions.cjs');
 const repo='Kordic99/Predictions';
 const base='https://api.github.com/repos/'+repo;
 async function request(route,method='GET',body){
+  requireWebEnabled();
   const response=await fetch(base+route,{method,headers:{Authorization:'Bearer '+process.env.GITHUB_TOKEN,Accept:'application/vnd.github+json','Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(30000)});
   if(!response.ok){const error=new Error('GitHub '+method+' '+route+': HTTP '+response.status);error.status=response.status;throw error;}
   return response.status===204?null:response.json();
 }
 async function publishArchive(local){
+  requireWebEnabled();
   if(!process.env.GITHUB_TOKEN)throw new Error('Missing authenticated workflow token');
   A.validateArchive(local);
   for(let attempt=0;attempt<5;attempt++){

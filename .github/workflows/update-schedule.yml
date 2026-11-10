@@ -1,9 +1,7 @@
 name: Update Chance Liga schedule
 
 on:
-  schedule:
-    - cron: "0 * * * *"
-      timezone: "Europe/Prague"
+  # All data connections paused by owner request, 2026-11-10.
   workflow_dispatch:
 
 permissions:
@@ -15,6 +13,7 @@ concurrency:
 
 jobs:
   update:
+    if: ${{ false }} # Explicit approval required before reconnecting.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

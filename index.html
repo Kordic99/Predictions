@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="connect-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'self'"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Chance Liga 2026/27</title>
 <style>
@@ -414,7 +415,7 @@
 <body>
 <div class="app">
 <div class="export-reminder">
-  &#9208; <span><strong>Livesport imports paused:</strong> automatic results, player updates and Friday automatic predictions are paused by request. Saved data may be outdated. Existing Predictions, Accuracy and history remain available; manual prediction locking and JSON export/import are unchanged. The official Chance Liga schedule remains independent.</span>
+  &#9208; <span><strong>Všechna datová připojení jsou vypnutá.</strong> Rozpis, výsledky, hráči, zprávy i synchronizace GitHubu jsou pozastavené. Zobrazují se uložená data, která mohou být zastaralá. Predikce a historie zůstávají zachované. Nové ruční změny zálohuj přes <strong>Export JSON</strong>; na GitHub se neodesílají.</span>
 </div>
 <div class="storage-bar">
   <button class="storage-btn export" onclick="exportJSON()">&#8595; Export JSON</button>
@@ -547,8 +548,8 @@
       30 rounds · 240 matches · 8 matches per round. Exact kick-off times are shown where the league has confirmed them; later times may still be updated.
     </div>
     <div class="schedule-info-actions">
-      <span class="auto-results-badge ok" id="auto-schedule-badge" role="status" aria-live="polite"
-        title="The official Chance Liga schedule is refreshed by the server every hour at xx:00.">Schedule · starting…</span>
+      <span class="auto-results-badge warn" id="auto-schedule-badge" role="status" aria-live="polite"
+        title="Uložený rozpis; webové aktualizace jsou vypnuté.">Schedule · odpojeno</span>
       <a class="schedule-source" href="https://www.chanceliga.cz/rozpis-zapasu" target="_blank" rel="noopener">Official schedule ↗</a>
     </div>
   </div>
@@ -759,7 +760,15 @@
 <script src="accuracy-new.js"></script>
 <script src="prediction-archive-core.js"></script>
 <script src="prediction-archive-client.js"></script>
+<script src="offline-saved-data.js"></script>
 <script>
+const WEB_CONNECTIONS_PAUSED = true;
+const WEB_PAUSE_MESSAGE = 'Webová datová připojení jsou vypnutá. Používají se pouze uložená data; nové změny zálohuj exportem JSON.';
+function savedDataCopy(key){
+  const value=window.OFFLINE_SAVED_DATA?.[key];
+  if(!value)throw new Error('Chybí přibalená data: '+key+'. Existující lokální historie nebyla smazána.');
+  return JSON.parse(JSON.stringify(value));
+}
 // Explicit owner-requested pause, 2026-11-10. No storage/URL flag may resume it.
 const LIVESPORT_IMPORTS_PAUSED = true;
 const LIVESPORT_PAUSE_MESSAGE = 'Načítání z Livesportu je pozastavené. Uložené predikce a historie zůstávají zachované.';
@@ -3175,6 +3184,11 @@ function validateMatchContextData(payload){
 }
 
 async function loadMatchContextData(){
+  if(WEB_CONNECTIONS_PAUSED){
+    matchContextLive=validateMatchContextData(savedDataCopy('context'));
+    clearPred3Cache();renderPred();renderPred2();renderAccuracy();
+    return true;
+  }
   if(!/^https?:$/.test(location.protocol)){
     startPredictionKickoffLock();
     return false;
@@ -3332,6 +3346,7 @@ function applyLiveScheduleData(payload,shouldRender=true){
 }
 
 function scheduleUpdateCountdown(){
+  if(WEB_CONNECTIONS_PAUSED)return scheduleShowDisconnected();
   if(scheduleCheckRunning)return;
   if(scheduleAutoErrorMessage){
     scheduleSetBadge('error','Schedule · error',scheduleAutoErrorMessage);
@@ -3357,6 +3372,7 @@ function scheduleUpdateCountdown(){
 }
 
 function scheduleNextAutomaticCheck(delay=SCHEDULE_AUTO_CHECK_INTERVAL_MS){
+  if(WEB_CONNECTIONS_PAUSED)return scheduleShowDisconnected();
   if(scheduleAutoCheckTimer)clearTimeout(scheduleAutoCheckTimer);
   scheduleNextCheckAt=Date.now()+delay;
   scheduleAutoCheckTimer=setTimeout(()=>void checkLiveSchedule(),delay);
@@ -3364,6 +3380,7 @@ function scheduleNextAutomaticCheck(delay=SCHEDULE_AUTO_CHECK_INTERVAL_MS){
 }
 
 async function checkLiveSchedule(){
+  if(WEB_CONNECTIONS_PAUSED)return scheduleShowDisconnected();
   if(scheduleCheckRunning){
     scheduleNextAutomaticCheck();
     return;
@@ -3402,7 +3419,17 @@ async function checkLiveSchedule(){
   }
 }
 
+function scheduleShowDisconnected(){
+  if(scheduleAutoCheckTimer)clearTimeout(scheduleAutoCheckTimer);
+  if(scheduleAutoCountdownTimer)clearInterval(scheduleAutoCountdownTimer);
+  scheduleAutoCheckTimer=null;scheduleAutoCountdownTimer=null;
+  scheduleNextCheckAt=0;scheduleNextServerCheckAt=0;
+  scheduleSetBadge('warn','Schedule · odpojeno',WEB_PAUSE_MESSAGE);
+  return {status:'paused'};
+}
+
 function startAutomaticScheduleCheck(){
+  if(WEB_CONNECTIONS_PAUSED)return scheduleShowDisconnected();
   if(scheduleAutoCountdownTimer)return;
   const nextHour=new Date();
   nextHour.setMinutes(0,0,0);
@@ -8924,6 +8951,13 @@ function notifyPublishedRosterError(error){
 }
 
 async function loadPublishedRosterData(){
+  if(WEB_CONNECTIONS_PAUSED){
+    const data=validatePublishedRosterData(savedDataCopy('rosters'));
+    applyPublishedRosterData(data,false);
+    renderAfterDataRestore();
+    setStatus('Načtené uložené soupisky. Webová připojení jsou vypnutá.','warn');
+    return true;
+  }
   if(!/^https?:$/.test(location.protocol))return false;
   try{
     const url=new URL(PUBLISHED_ROSTER_FILE,location.href);
@@ -8944,6 +8978,7 @@ async function loadPublishedRosterData(){
 }
 
 async function loadPublishedDataSnapshot(){
+  if(WEB_CONNECTIONS_PAUSED)return false;
   // A sibling JSON file is the durable, deployment-independent data layer for
   // GitHub Pages. Local file previews keep using browser storage/import.
   if(!/^https?:$/.test(location.protocol)) return false;
@@ -8993,10 +9028,20 @@ if(!window.__PREDICTION_ARCHIVE_RUNNER__)void loadPublishedDataSnapshot().then(a
   // an indeterminate state and could miss post-merge inconsistencies.
   runAutomaticDataHealthCheck();
   await contextPromise;
+  if(WEB_CONNECTIONS_PAUSED){
+    applyLiveScheduleData(savedDataCopy('schedule'),true);
+    predictionScheduleReady=true;
+  }
   await checkLiveSchedule();
   predictionInitialLoadComplete=true;
   startAutomaticScheduleCheck();
   startAutomaticResultsCheck();
+}).catch(error=>{
+  // A missing/corrupt static bundle must not discard browser history or be
+  // mistaken for a completed fresh-data check.
+  predictionInitialLoadComplete=false;
+  if(WEB_CONNECTIONS_PAUSED){scheduleShowDisconnected();lsShowImportsPaused();}
+  setStatus('Uložená data se nepodařilo načíst: '+(error?.message||error)+'. Lokální historie zůstává zachovaná.','warn');
 });
 
 </script>
