@@ -9,6 +9,8 @@
   <title>Predictions · soukromý přístup</title>
   <link rel="stylesheet" href="auth.css">
   <script src="auth-core.js" defer></script>
+  <script src="workspace-core.js" defer></script>
+  <script src="workspace-browser.js" defer></script>
   <script src="auth.js" defer></script>
 </head>
 <body>
@@ -25,10 +27,11 @@
     </form>
     <p id="status" role="status" aria-live="polite">Použijte svůj stávající účet v projektu Sladké Vánoce.</p>
     <p class="small">Registrace není dostupná. Přístup k datům povoluje server pouze schválenému účtu. Heslo ani přístupové tokeny se neukládají do úložiště prohlížeče.</p>
-    <p class="small">Uložené predikce zůstávají v tomto prohlížeči zachované i po odhlášení. Používejte vlastní, zabezpečený profil prohlížeče.</p>
+    <p class="small">Potvrzené změny se ukládají do soukromé databáze a jsou dostupné po přihlášení i na jiném zařízení.</p>
   </main>
   <section id="workspace" hidden>
     <header><span>Predictions · soukromý přístup</span><span id="sync-status" role="status" aria-live="polite"></span><button id="refresh-data" type="button">Obnovit data</button><button id="logout" type="button">Odhlásit se</button></header>
+    <div id="workspace-status" role="status" aria-live="polite" hidden></div>
     <div id="app-container"></div>
   </section>
   <noscript>Pro přihlášení je potřeba povolit JavaScript.</noscript>
